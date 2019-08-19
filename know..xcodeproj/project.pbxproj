@@ -8,20 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		58C0A28A230B04B700A63ACD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C0A289230B04B700A63ACD /* AppDelegate.swift */; };
-		58C0A28C230B04B700A63ACD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C0A28B230B04B700A63ACD /* ViewController.swift */; };
 		58C0A28F230B04B700A63ACD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58C0A28D230B04B700A63ACD /* Main.storyboard */; };
 		58C0A291230B04B900A63ACD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58C0A290230B04B900A63ACD /* Assets.xcassets */; };
 		58C0A294230B04B900A63ACD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58C0A292230B04B900A63ACD /* LaunchScreen.storyboard */; };
+		58C0A2A3230B054200A63ACD /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58C0A2A2230B054200A63ACD /* CloudKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		58C0A286230B04B700A63ACD /* know..app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = know..app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58C0A289230B04B700A63ACD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		58C0A28B230B04B700A63ACD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		58C0A28E230B04B700A63ACD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		58C0A290230B04B900A63ACD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		58C0A293230B04B900A63ACD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		58C0A295230B04B900A63ACD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		58C0A2A0230B054000A63ACD /* know..entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = know..entitlements; sourceTree = "<group>"; };
+		58C0A2A2230B054200A63ACD /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +30,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58C0A2A3230B054200A63ACD /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +42,7 @@
 			children = (
 				58C0A288230B04B700A63ACD /* know. */,
 				58C0A287230B04B700A63ACD /* Products */,
+				58C0A2A1230B054200A63ACD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +57,62 @@
 		58C0A288230B04B700A63ACD /* know. */ = {
 			isa = PBXGroup;
 			children = (
+				58C0A2A0230B054000A63ACD /* know..entitlements */,
+				58C0A29F230B052000A63ACD /* Views */,
+				58C0A29E230B051700A63ACD /* View Controllers */,
+				58C0A29D230B051100A63ACD /* Model Controllers */,
+				58C0A29C230B04F900A63ACD /* Models */,
+				58C0A29B230B04D200A63ACD /* Resources */,
+			);
+			path = know.;
+			sourceTree = "<group>";
+		};
+		58C0A29B230B04D200A63ACD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				58C0A289230B04B700A63ACD /* AppDelegate.swift */,
-				58C0A28B230B04B700A63ACD /* ViewController.swift */,
-				58C0A28D230B04B700A63ACD /* Main.storyboard */,
 				58C0A290230B04B900A63ACD /* Assets.xcassets */,
 				58C0A292230B04B900A63ACD /* LaunchScreen.storyboard */,
 				58C0A295230B04B900A63ACD /* Info.plist */,
 			);
-			path = know.;
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		58C0A29C230B04F900A63ACD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		58C0A29D230B051100A63ACD /* Model Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Model Controllers";
+			sourceTree = "<group>";
+		};
+		58C0A29E230B051700A63ACD /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		58C0A29F230B052000A63ACD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				58C0A28D230B04B700A63ACD /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		58C0A2A1230B054200A63ACD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				58C0A2A2230B054200A63ACD /* CloudKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -96,6 +147,14 @@
 				TargetAttributes = {
 					58C0A285230B04B700A63ACD = {
 						CreatedOnToolsVersion = 10.3;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -135,7 +194,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				58C0A28C230B04B700A63ACD /* ViewController.swift in Sources */,
 				58C0A28A230B04B700A63ACD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,9 +340,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = know./know..entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QP48FW2MG5;
-				INFOPLIST_FILE = know./Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/know./Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -300,9 +359,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = know./know..entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QP48FW2MG5;
-				INFOPLIST_FILE = know./Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/know./Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

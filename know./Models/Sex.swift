@@ -7,3 +7,21 @@
 //
 
 import Foundation
+import CloudKit
+
+class Sex {
+    
+    //Class Objects
+    var protected: Bool
+    var sexDrive: Bool
+    var masturbation: Bool
+    var ckRecordID: CKRecord.ID
+    
+    //Designated Initializer
+    init(protected: Bool = false, sexDrive: Bool = false, masturbation: Bool = false, ckRecordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString)) {
+        self.protected = protected
+        self.sexDrive = sexDrive
+        self.masturbation = masturbation
+        self.ckRecordID = ckRecordID
+    }
+}

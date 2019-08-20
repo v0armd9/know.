@@ -12,6 +12,7 @@
 		53B140E1230B11E0008AE180 /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B140E0230B11E0008AE180 /* Mood.swift */; };
 		53B140E3230B11E7008AE180 /* Sex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B140E2230B11E7008AE180 /* Sex.swift */; };
 		53B140E5230B11FB008AE180 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B140E4230B11FB008AE180 /* Day.swift */; };
+		53B140E8230C6426008AE180 /* CloudKitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B140E7230C6426008AE180 /* CloudKitController.swift */; };
 		58C0A28A230B04B700A63ACD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C0A289230B04B700A63ACD /* AppDelegate.swift */; };
 		58C0A28F230B04B700A63ACD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58C0A28D230B04B700A63ACD /* Main.storyboard */; };
 		58C0A291230B04B900A63ACD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58C0A290230B04B900A63ACD /* Assets.xcassets */; };
@@ -25,6 +26,7 @@
 		53B140E0230B11E0008AE180 /* Mood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mood.swift; sourceTree = "<group>"; };
 		53B140E2230B11E7008AE180 /* Sex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sex.swift; sourceTree = "<group>"; };
 		53B140E4230B11FB008AE180 /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
+		53B140E7230C6426008AE180 /* CloudKitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitController.swift; sourceTree = "<group>"; };
 		58C0A286230B04B700A63ACD /* know..app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = know..app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58C0A289230B04B700A63ACD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		58C0A28E230B04B700A63ACD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -47,6 +49,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		53B140E6230C63EB008AE180 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				53B140E7230C6426008AE180 /* CloudKitController.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		58C0A27D230B04B700A63ACD = {
 			isa = PBXGroup;
 			children = (
@@ -72,6 +82,7 @@
 				58C0A29E230B051700A63ACD /* View Controllers */,
 				58C0A29D230B051100A63ACD /* Model Controllers */,
 				58C0A29C230B04F900A63ACD /* Models */,
+				53B140E6230C63EB008AE180 /* Helpers */,
 				58C0A29B230B04D200A63ACD /* Resources */,
 			);
 			path = know.;
@@ -213,6 +224,7 @@
 				53B140E1230B11E0008AE180 /* Mood.swift in Sources */,
 				53B140E5230B11FB008AE180 /* Day.swift in Sources */,
 				53B140DF230B0FE8008AE180 /* Flow.swift in Sources */,
+				53B140E8230C6426008AE180 /* CloudKitController.swift in Sources */,
 				58C0A28A230B04B700A63ACD /* AppDelegate.swift in Sources */,
 				53B140DD230B0FD9008AE180 /* Symptom.swift in Sources */,
 			);

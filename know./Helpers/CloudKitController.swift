@@ -65,7 +65,6 @@ class CloudKitController {
     
     //Update a record
     func update(record: CKRecord, completion: @escaping (Bool) -> Void ) {
-        //Declare operation & set/override attributes (required to change a record)
         let operation = CKModifyRecordsOperation()
         operation.recordsToSave = [record]
         operation.savePolicy = .changedKeys

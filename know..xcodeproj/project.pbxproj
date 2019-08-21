@@ -20,6 +20,7 @@
 		53B140F2230CAA30008AE180 /* SexController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B140F1230CAA30008AE180 /* SexController.swift */; };
 		53B140F4230DB34C008AE180 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B140F3230DB34C008AE180 /* User.swift */; };
 		53B140F6230DB88D008AE180 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B140F5230DB88D008AE180 /* UserController.swift */; };
+		587F2091230DDE1800880F8E /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 587F2090230DDE1800880F8E /* Onboarding.storyboard */; };
 		58C0A28A230B04B700A63ACD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C0A289230B04B700A63ACD /* AppDelegate.swift */; };
 		58C0A28F230B04B700A63ACD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58C0A28D230B04B700A63ACD /* Main.storyboard */; };
 		58C0A291230B04B900A63ACD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58C0A290230B04B900A63ACD /* Assets.xcassets */; };
@@ -57,6 +58,7 @@
 		53B140F1230CAA30008AE180 /* SexController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SexController.swift; sourceTree = "<group>"; };
 		53B140F3230DB34C008AE180 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		53B140F5230DB88D008AE180 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
+		587F2090230DDE1800880F8E /* Onboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		58C0A286230B04B700A63ACD /* know..app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = know..app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58C0A289230B04B700A63ACD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		58C0A28E230B04B700A63ACD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				58C0A28D230B04B700A63ACD /* Main.storyboard */,
+				587F2090230DDE1800880F8E /* Onboarding.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 				58C0A28F230B04B700A63ACD /* Main.storyboard in Resources */,
 				58CD10FB230B18CC009A8333 /* Nunito-BlackItalic.ttf in Resources */,
 				58CD1100230B18CC009A8333 /* Nunito-ExtraBold.ttf in Resources */,
+				587F2091230DDE1800880F8E /* Onboarding.storyboard in Resources */,
 				58CD10FD230B18CC009A8333 /* Nunito-Bold.ttf in Resources */,
 				58CD10FC230B18CC009A8333 /* Nunito-ExtraBoldItalic.ttf in Resources */,
 			);

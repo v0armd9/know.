@@ -86,6 +86,7 @@ extension Mood: Equatable {
 //Magic String Constants
 struct MoodConstants {
     static let moodTypeKey = "Mood"
+    static let dayReferenceKey = "dayReference"
     fileprivate static let happyKey = "happy"
     fileprivate static let sensitiveKey = "sensitive"
     fileprivate static let sadKey = "sad"
@@ -95,5 +96,4 @@ struct MoodConstants {
     fileprivate static let contentKey = "content"
     fileprivate static let moodSwingKey = "moodSwings"
     fileprivate static let angryKey = "angry"
-    fileprivate static let dayReferenceKey = "dayReference"
 }

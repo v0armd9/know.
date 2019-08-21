@@ -62,8 +62,8 @@ extension Sex: Equatable {
 //Magic String Constants
 struct SexConstants {
     static let sexTypeKey = "Sex"
+    static let dayReferenceKey = "day"
     fileprivate static let protectedKey = "protected"
     fileprivate static let sexDriveKey = "sexDrive"
     fileprivate static let masturbationKey = "masturbation"
-    fileprivate static let dayReferenceKey = "day"
 }

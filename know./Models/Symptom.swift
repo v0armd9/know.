@@ -82,6 +82,7 @@ extension Symptom: Equatable {
 //Magic String Constants
 struct SymptomConstants {
     static let symptomTypeKey = "Symptom"
+    static let dayReferenceKey = "dayReference"
     fileprivate static let headacheKey = "headache"
     fileprivate static let crampingKey = "cramping"
     fileprivate static let backPainKey = "backPain"
@@ -90,5 +91,4 @@ struct SymptomConstants {
     fileprivate static let fatigueKey = "fatigue"
     fileprivate static let insomniaKey = "insomnia"
     fileprivate static let acneKey = "acne"
-    fileprivate static let dayReferenceKey = "dayReference"
 }

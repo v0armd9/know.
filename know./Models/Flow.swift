@@ -67,9 +67,9 @@ extension Flow: Equatable {
 //Magic String Constants
 struct FlowConstants {
     static let flowTypeKey = "Flow"
+    static let dayReferenceKey = "dayReference"
     fileprivate static let spottingKey = "spotting"
     fileprivate static let lightKey = "light"
     fileprivate static let mediumKey = "medium"
     fileprivate static let heavyKey = "heavy"
-    fileprivate static let dayReferenceKey = "dayReference"
 }

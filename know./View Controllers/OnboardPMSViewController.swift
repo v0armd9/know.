@@ -24,6 +24,7 @@ class OnboardPMSViewController: UIViewController {
     @IBOutlet weak var dayPickerView: UIPickerView!
     @IBOutlet weak var notSureButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var viewBar: UIView!
     
     //Lifecycle
     override func viewDidLoad() {
@@ -33,6 +34,10 @@ class OnboardPMSViewController: UIViewController {
         dayPickerView.selectRow(3, inComponent: 0, animated: false)
         dayCountLabel.isHidden = true
         dayPickerView.isHidden = true
+        viewBar.isHidden = true
+        dayCountLabel.alpha = 0
+        dayPickerView.alpha = 0
+        viewBar.alpha = 0
     }
     
     //Actions
@@ -40,13 +45,25 @@ class OnboardPMSViewController: UIViewController {
     }
     
     @IBAction func yesButtonTapped(_ sender: Any) {
-        dayCountLabel.isHidden = false
-        dayPickerView.isHidden = false
+        UIView.animate(withDuration: 0.5) {
+            self.dayCountLabel.isHidden = false
+            self.dayPickerView.isHidden = false
+            self.viewBar.isHidden = false
+            self.dayCountLabel.alpha = 1
+            self.dayPickerView.alpha = 1
+            self.viewBar.alpha = 1
+        }
     }
     
     @IBAction func noButtonTapped(_ sender: Any) {
-        dayCountLabel.isHidden = true
-        dayPickerView.isHidden = true
+        UIView.animate(withDuration: 1) {
+            self.dayCountLabel.alpha = 0
+            self.dayPickerView.alpha = 0
+            self.viewBar.alpha = 0
+            self.dayCountLabel.isHidden = true
+            self.dayPickerView.isHidden = true
+            self.viewBar.isHidden = true
+        }
     }
     
     @IBAction func nextButtonTapped(_ sender: Any) {

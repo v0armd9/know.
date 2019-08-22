@@ -12,7 +12,7 @@ class OnboardPeriodLengthViewController: UIViewController {
 
     //Properties
     let dayPickerOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
-    var periodLength: Int = 5
+    var periodLength: Int = 4
     
     //Outlets
     @IBOutlet weak var titleLabel: UILabel!
@@ -43,7 +43,7 @@ class OnboardPeriodLengthViewController: UIViewController {
 
     //Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        UserController.shared.currentUser?.periodLength = periodLength
     }
 }
 

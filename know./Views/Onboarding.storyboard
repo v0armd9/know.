@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Kzk-kc-byd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="19Y-6d-AgB">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -18,6 +18,74 @@
         </array>
     </customFonts>
     <scenes>
+        <!--Onboard Name View Controller-->
+        <scene sceneID="vJm-ff-n4x">
+            <objects>
+                <viewController id="19Y-6d-AgB" customClass="OnboardNameViewController" customModule="know_" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QLr-cs-vuM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="537-wH-nWh">
+                                <rect key="frame" x="62" y="521.5" width="290" height="6"/>
+                                <color key="backgroundColor" red="0.58823529409999997" green="0.71372549019999998" blue="0.80784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="6" id="yx5-nI-WVp"/>
+                                </constraints>
+                            </view>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your Name Here" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="axu-TD-4Mn">
+                                <rect key="frame" x="62" y="476" width="290" height="45"/>
+                                <color key="textColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="30"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Before we start, can we get your name?" textAlignment="center" lineBreakMode="clip" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="1" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4bj-D5-EjY" customClass="CustomLabel" customModule="know_" customModuleProvider="target">
+                                <rect key="frame" x="31" y="281.5" width="352" height="116.5"/>
+                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="36"/>
+                                <color key="textColor" red="0.56862745100000001" green="0.56862745100000001" blue="0.56862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ciD-XS-mlh">
+                                <rect key="frame" x="103.5" y="598.5" width="207" height="71"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ciD-XS-mlh" secondAttribute="height" multiplier="140:48" id="xOA-RO-Zrv"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="continueButton"/>
+                                <connections>
+                                    <action selector="continueButtonTapped:" destination="19Y-6d-AgB" eventType="touchUpInside" id="U27-zk-DDD"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="4bj-D5-EjY" firstAttribute="height" secondItem="QLr-cs-vuM" secondAttribute="height" multiplier="0.13" id="0TK-vM-oEl"/>
+                            <constraint firstItem="axu-TD-4Mn" firstAttribute="centerX" secondItem="oBV-MD-C5D" secondAttribute="centerX" id="1GP-Xd-nIy"/>
+                            <constraint firstItem="ciD-XS-mlh" firstAttribute="centerX" secondItem="oBV-MD-C5D" secondAttribute="centerX" id="7k5-RO-9z1"/>
+                            <constraint firstItem="4bj-D5-EjY" firstAttribute="centerX" secondItem="oBV-MD-C5D" secondAttribute="centerX" id="8WH-GT-WrD"/>
+                            <constraint firstItem="axu-TD-4Mn" firstAttribute="centerY" secondItem="oBV-MD-C5D" secondAttribute="centerY" multiplier="1.1" id="GSN-f5-DD1"/>
+                            <constraint firstItem="ciD-XS-mlh" firstAttribute="centerY" secondItem="oBV-MD-C5D" secondAttribute="centerY" multiplier="1.4" id="GoV-hR-Zh4"/>
+                            <constraint firstItem="537-wH-nWh" firstAttribute="centerX" secondItem="QLr-cs-vuM" secondAttribute="centerX" id="Mfr-qN-Qnj"/>
+                            <constraint firstItem="axu-TD-4Mn" firstAttribute="width" secondItem="QLr-cs-vuM" secondAttribute="width" multiplier="0.7" id="O9u-jp-T28"/>
+                            <constraint firstItem="537-wH-nWh" firstAttribute="top" secondItem="axu-TD-4Mn" secondAttribute="bottom" constant="0.5" id="OrZ-Ij-nIC"/>
+                            <constraint firstItem="537-wH-nWh" firstAttribute="width" secondItem="QLr-cs-vuM" secondAttribute="width" multiplier="0.7" id="bmR-rz-j88"/>
+                            <constraint firstItem="4bj-D5-EjY" firstAttribute="width" secondItem="QLr-cs-vuM" secondAttribute="width" multiplier="0.85" id="j6p-AX-1S9"/>
+                            <constraint firstItem="4bj-D5-EjY" firstAttribute="centerY" secondItem="oBV-MD-C5D" secondAttribute="centerY" multiplier="0.75" id="tOV-6z-9ZF"/>
+                            <constraint firstItem="ciD-XS-mlh" firstAttribute="width" secondItem="QLr-cs-vuM" secondAttribute="width" multiplier="0.5" id="yT7-Bo-vfs"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="oBV-MD-C5D"/>
+                    </view>
+                    <connections>
+                        <outlet property="blueView" destination="537-wH-nWh" id="dKG-de-vdS"/>
+                        <outlet property="continueButton" destination="ciD-XS-mlh" id="tLf-x0-glk"/>
+                        <outlet property="nameQuestionLabel" destination="4bj-D5-EjY" id="Qli-fQ-0TX"/>
+                        <outlet property="nameTextField" destination="axu-TD-4Mn" id="zzN-WE-Fdk"/>
+                        <segue destination="1E6-c0-dG6" kind="show" identifier="toWelcomeVC" id="NGw-Hl-oFG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hXF-1C-pII" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1055" y="-25"/>
+        </scene>
         <!--Onboard Period Length View Controller-->
         <scene sceneID="fYg-Mv-bvb">
             <objects>
@@ -1110,7 +1178,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dw2-mI-clj">
-                                <rect key="frame" x="0.0" y="520.5" width="414" height="179"/>
+                                <rect key="frame" x="83" y="520.5" width="248" height="179"/>
                             </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1129,7 +1197,7 @@
                             <constraint firstItem="jtA-qa-TPh" firstAttribute="centerX" secondItem="Rfx-SL-hEA" secondAttribute="centerX" id="V50-a3-W0H"/>
                             <constraint firstItem="iRR-qi-6Ig" firstAttribute="centerX" secondItem="Rfx-SL-hEA" secondAttribute="centerX" id="WMr-Fu-pAD"/>
                             <constraint firstItem="WGZ-z2-ibR" firstAttribute="width" secondItem="Hgd-Lg-xv6" secondAttribute="width" multiplier="0.23" id="WTs-pl-bW1"/>
-                            <constraint firstItem="Dw2-mI-clj" firstAttribute="width" secondItem="Hgd-Lg-xv6" secondAttribute="width" id="dyG-A1-eHF"/>
+                            <constraint firstItem="Dw2-mI-clj" firstAttribute="width" secondItem="Hgd-Lg-xv6" secondAttribute="width" multiplier="0.6" id="dyG-A1-eHF"/>
                             <constraint firstItem="jtA-qa-TPh" firstAttribute="centerY" secondItem="Rfx-SL-hEA" secondAttribute="centerY" multiplier="0.66" id="f64-tt-y6h"/>
                             <constraint firstItem="bLf-ri-zco" firstAttribute="height" secondItem="Hgd-Lg-xv6" secondAttribute="height" multiplier="0.1" id="jjb-QF-nTy"/>
                             <constraint firstItem="LKB-oC-1JE" firstAttribute="centerX" secondItem="Rfx-SL-hEA" secondAttribute="centerX" multiplier="0.75" id="kx0-TT-Chw"/>
@@ -1358,23 +1426,79 @@
             </objects>
             <point key="canvasLocation" x="4958" y="676"/>
         </scene>
+        <!--Onboard Welcome View Controller-->
+        <scene sceneID="zTE-eR-aVd">
+            <objects>
+                <viewController id="1E6-c0-dG6" customClass="OnboardWelcomeViewController" customModule="know_" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tgw-Dj-AQ9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nice to meet you!" textAlignment="center" lineBreakMode="clip" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="1" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vwh-t1-Yfq" customClass="CustomLabel" customModule="know_" customModuleProvider="target">
+                                <rect key="frame" x="31" y="281.5" width="352" height="116.5"/>
+                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="30"/>
+                                <color key="textColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JBu-IC-7ud">
+                                <rect key="frame" x="103.5" y="598.5" width="207" height="71"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="JBu-IC-7ud" secondAttribute="height" multiplier="140:48" id="DKF-EI-zke"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="continueButton"/>
+                                <connections>
+                                    <segue destination="Kzk-kc-byd" kind="show" id="4mj-kM-MPL"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="weAreSoExcitedTo" translatesAutoresizingMaskIntoConstraints="NO" id="nSb-rE-7Vd">
+                                <rect key="frame" x="31" y="438" width="352" height="116.5"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="JBu-IC-7ud" firstAttribute="centerX" secondItem="3D8-Fw-3CS" secondAttribute="centerX" id="0Hl-u5-jNR"/>
+                            <constraint firstItem="vwh-t1-Yfq" firstAttribute="centerX" secondItem="3D8-Fw-3CS" secondAttribute="centerX" id="QjK-Su-XHw"/>
+                            <constraint firstItem="nSb-rE-7Vd" firstAttribute="top" secondItem="vwh-t1-Yfq" secondAttribute="bottom" constant="40" id="Sti-cy-kqy"/>
+                            <constraint firstItem="nSb-rE-7Vd" firstAttribute="width" secondItem="vwh-t1-Yfq" secondAttribute="width" id="TFG-KI-HjY"/>
+                            <constraint firstItem="vwh-t1-Yfq" firstAttribute="width" secondItem="tgw-Dj-AQ9" secondAttribute="width" multiplier="0.85" id="XH0-k6-J1G"/>
+                            <constraint firstItem="JBu-IC-7ud" firstAttribute="width" secondItem="tgw-Dj-AQ9" secondAttribute="width" multiplier="0.5" id="XNv-nU-jEC"/>
+                            <constraint firstItem="vwh-t1-Yfq" firstAttribute="centerY" secondItem="3D8-Fw-3CS" secondAttribute="centerY" multiplier="0.75" id="ZTh-dz-sPd"/>
+                            <constraint firstItem="nSb-rE-7Vd" firstAttribute="centerX" secondItem="vwh-t1-Yfq" secondAttribute="centerX" id="cgO-x4-Wuz"/>
+                            <constraint firstItem="JBu-IC-7ud" firstAttribute="centerY" secondItem="3D8-Fw-3CS" secondAttribute="centerY" multiplier="1.4" id="gjS-oG-fyl"/>
+                            <constraint firstItem="vwh-t1-Yfq" firstAttribute="height" secondItem="tgw-Dj-AQ9" secondAttribute="height" multiplier="0.13" id="hFF-uD-Xkv"/>
+                            <constraint firstItem="nSb-rE-7Vd" firstAttribute="height" secondItem="vwh-t1-Yfq" secondAttribute="height" id="n6j-FI-WF1"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="3D8-Fw-3CS"/>
+                    </view>
+                    <connections>
+                        <outlet property="continueButton" destination="JBu-IC-7ud" id="jg5-ic-tZR"/>
+                        <outlet property="welcomeImageView" destination="nSb-rE-7Vd" id="3xH-dM-ri2"/>
+                        <outlet property="welcomeLabel" destination="vwh-t1-Yfq" id="qga-FI-d8B"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QER-JD-vgZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1842" y="-25"/>
+        </scene>
     </scenes>
     <resources>
         <image name="3of7onboardingInfo" width="303" height="178"/>
+        <image name="continueButton" width="160" height="48"/>
         <image name="nextButtonOnboarding" width="78" height="101"/>
         <image name="notSureButtonOnboarding" width="78" height="101"/>
         <image name="thatSOkayWeWill" width="294" height="178"/>
+        <image name="weAreSoExcitedTo" width="364" height="19"/>
         <image name="welcomeInfo" width="349" height="329"/>
         <image name="welcomeToKnow" width="236" height="21"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="cWI-kO-8o1"/>
         <segue reference="W1e-NQ-VQr"/>
-        <segue reference="aRo-Rl-1HY"/>
+        <segue reference="v1n-Wh-ddl"/>
         <segue reference="d0s-17-4Wb"/>
         <segue reference="E6s-nn-VQK"/>
         <segue reference="Cyo-f5-QaX"/>
-        <segue reference="4z0-Xj-odF"/>
+        <segue reference="cbz-Vz-e0U"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.58823529409999997" green="0.71372549019999998" blue="0.80784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

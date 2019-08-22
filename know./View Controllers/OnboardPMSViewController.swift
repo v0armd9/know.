@@ -12,6 +12,7 @@ class OnboardPMSViewController: UIViewController {
 
     //Properties
     let dayPickerOptions = [1, 2, 3, 4, 5, 6, 7]
+    var experiencesPms = false
     var pmsLength = 4
     
     //Outlets
@@ -42,9 +43,11 @@ class OnboardPMSViewController: UIViewController {
     
     //Actions
     @IBAction func skipButtonTapped(_ sender: Any) {
+        
     }
     
     @IBAction func yesButtonTapped(_ sender: Any) {
+        experiencesPms = true
         UIView.animate(withDuration: 0.5) {
             self.dayCountLabel.isHidden = false
             self.dayPickerView.isHidden = false
@@ -56,6 +59,7 @@ class OnboardPMSViewController: UIViewController {
     }
     
     @IBAction func noButtonTapped(_ sender: Any) {
+        experiencesPms = false
         UIView.animate(withDuration: 1) {
             self.dayCountLabel.alpha = 0
             self.dayPickerView.alpha = 0
@@ -71,7 +75,13 @@ class OnboardPMSViewController: UIViewController {
     
     //Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        if experiencesPms == true {
+            UserController.shared.currentUser?.pms = true
+            UserController.shared.currentUser?.pmsDuration = pmsLength
+        } else {
+            UserController.shared.currentUser?.pms = false
+            UserController.shared.currentUser?.pmsDuration = nil
+        }
     }
 }
 

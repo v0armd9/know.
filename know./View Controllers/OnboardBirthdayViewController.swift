@@ -12,7 +12,9 @@ class OnboardBirthdayViewController: UIViewController {
 
     //Properties
     var defaultDate = Date()
-    
+    var birthday = Date()
+    var age = Int()
+    let secondsToYears = 31536000.0
     
     //Outlets
     @IBOutlet weak var questionLabel: CustomLabel!
@@ -26,6 +28,7 @@ class OnboardBirthdayViewController: UIViewController {
     //Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        setDefaultDate()
         datePickerView.setDate(defaultDate, animated: true)
     }
     
@@ -38,16 +41,12 @@ class OnboardBirthdayViewController: UIViewController {
         let defaultDate: NSDate = calendar.date(from: components as DateComponents)! as NSDate
         self.defaultDate = defaultDate as Date
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
+    //Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        birthday = datePickerView.date
+        age = Int(Date().timeIntervalSince(birthday) / secondsToYears)
+        UserController.shared.currentUser?.age = age
+        UserController.shared.currentUser?.birthdate = birthday
     }
-    */
-
 }

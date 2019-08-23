@@ -17,16 +17,18 @@ class Day {
     var symptomList: [Symptom]
     var moodList: [Mood]
     var sexDetails: [Sex]
+    var customEntries: [CustomEntry]
     var ckRecordID: CKRecord.ID
     weak var user: User?
     
     //Designated Initializer
-    init(user: User, date: Date, flowDetails: [Flow] = [], symptomList: [Symptom] = [], moodList: [Mood] = [], sexDetails: [Sex] = [], ckRecordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString)) {
+    init(user: User, date: Date, flowDetails: [Flow] = [], symptomList: [Symptom] = [], moodList: [Mood] = [], sexDetails: [Sex] = [], customEntries: [CustomEntry] = [], ckRecordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString)) {
         self.date = date
         self.flowDetails = flowDetails
         self.symptomList = symptomList
         self.moodList = moodList
         self.sexDetails = sexDetails
+        self.customEntries = customEntries
         self.ckRecordID = ckRecordID
     }
     
@@ -61,4 +63,5 @@ struct DayConstants {
     fileprivate static let symptomKey = "symptomList"
     fileprivate static let moodKey = "moodList"
     fileprivate static let sexKey = "sexDetails"
+    fileprivate static let entryKey = "customEntries"
 }

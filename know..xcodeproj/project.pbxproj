@@ -26,6 +26,7 @@
 		53381C71230F033400FA1D91 /* OnboardWeightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53381C70230F033400FA1D91 /* OnboardWeightViewController.swift */; };
 		53381C73230F4BF400FA1D91 /* OnboardNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53381C72230F4BF400FA1D91 /* OnboardNameViewController.swift */; };
 		53381C75230F4D8200FA1D91 /* OnboardWelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53381C74230F4D8200FA1D91 /* OnboardWelcomeViewController.swift */; };
+		53381C77231038B000FA1D91 /* OnboardingFinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53381C76231038B000FA1D91 /* OnboardingFinishedViewController.swift */; };
 		53B140DD230B0FD9008AE180 /* Symptom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B140DC230B0FD9008AE180 /* Symptom.swift */; };
 		53B140DF230B0FE8008AE180 /* Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B140DE230B0FE8008AE180 /* Flow.swift */; };
 		53B140E1230B11E0008AE180 /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B140E0230B11E0008AE180 /* Mood.swift */; };
@@ -74,6 +75,7 @@
 		53381C70230F033400FA1D91 /* OnboardWeightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardWeightViewController.swift; sourceTree = "<group>"; };
 		53381C72230F4BF400FA1D91 /* OnboardNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardNameViewController.swift; sourceTree = "<group>"; };
 		53381C74230F4D8200FA1D91 /* OnboardWelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardWelcomeViewController.swift; sourceTree = "<group>"; };
+		53381C76231038B000FA1D91 /* OnboardingFinishedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFinishedViewController.swift; sourceTree = "<group>"; };
 		53B140DC230B0FD9008AE180 /* Symptom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symptom.swift; sourceTree = "<group>"; };
 		53B140DE230B0FE8008AE180 /* Flow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flow.swift; sourceTree = "<group>"; };
 		53B140E0230B11E0008AE180 /* Mood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mood.swift; sourceTree = "<group>"; };
@@ -199,6 +201,8 @@
 		58C0A29E230B051700A63ACD /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				53381C72230F4BF400FA1D91 /* OnboardNameViewController.swift */,
+				53381C74230F4D8200FA1D91 /* OnboardWelcomeViewController.swift */,
 				53B140F9230DE0BB008AE180 /* OnboardPeriodLengthViewController.swift */,
 				53B140FB230DE4FF008AE180 /* OnboardPMSViewController.swift */,
 				53B140FD230DE68E008AE180 /* OnboardCycleLengthViewController.swift */,
@@ -206,8 +210,7 @@
 				53B14101230DFB20008AE180 /* OnboardBirthdayViewController.swift */,
 				53381C6E230EFAC800FA1D91 /* OnboardHeightViewController.swift */,
 				53381C70230F033400FA1D91 /* OnboardWeightViewController.swift */,
-				53381C72230F4BF400FA1D91 /* OnboardNameViewController.swift */,
-				53381C74230F4D8200FA1D91 /* OnboardWelcomeViewController.swift */,
+				53381C76231038B000FA1D91 /* OnboardingFinishedViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 				53B140F0230CA9EB008AE180 /* MoodController.swift in Sources */,
 				53B140EE230CA9A3008AE180 /* SymptomController.swift in Sources */,
 				53B140FC230DE4FF008AE180 /* OnboardPMSViewController.swift in Sources */,
+				53381C77231038B000FA1D91 /* OnboardingFinishedViewController.swift in Sources */,
 				53B140F6230DB88D008AE180 /* UserController.swift in Sources */,
 				53B140E3230B11E7008AE180 /* Sex.swift in Sources */,
 				53B140EC230CA8F2008AE180 /* FlowController.swift in Sources */,

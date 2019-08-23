@@ -12,6 +12,7 @@ import CloudKit
 class MoodController {
     
     static let shared = MoodController()
+    var moods: [Mood] = []
     
     func saveMoods(forDay day: Day, happy: Bool, sensitive: Bool, sad: Bool, depressed: Bool, nervous: Bool, irritated: Bool, content: Bool, moodSwings: Bool, angry: Bool, completion: @escaping(Mood?) -> Void) {
         let mood = Mood(day: day, happy: happy, sensitive: sensitive, sad: sad, depressed: depressed, nervous: nervous, irritated: irritated, content: content, moodSwings: moodSwings, angry: angry)

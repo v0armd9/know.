@@ -174,12 +174,12 @@
 		58C0A29C230B04F900A63ACD /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				53B140F3230DB34C008AE180 /* User.swift */,
 				53B140E4230B11FB008AE180 /* Day.swift */,
 				53B140DE230B0FE8008AE180 /* Flow.swift */,
 				53B140DC230B0FD9008AE180 /* Symptom.swift */,
 				53B140E0230B11E0008AE180 /* Mood.swift */,
 				53B140E2230B11E7008AE180 /* Sex.swift */,
-				53B140F3230DB34C008AE180 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -187,12 +187,12 @@
 		58C0A29D230B051100A63ACD /* Model Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				53B140F5230DB88D008AE180 /* UserController.swift */,
 				53B140E9230CA662008AE180 /* DayController.swift */,
 				53B140EB230CA8F2008AE180 /* FlowController.swift */,
 				53B140ED230CA9A3008AE180 /* SymptomController.swift */,
 				53B140EF230CA9EB008AE180 /* MoodController.swift */,
 				53B140F1230CAA30008AE180 /* SexController.swift */,
-				53B140F5230DB88D008AE180 /* UserController.swift */,
 				58CD1107230C7742009A8333 /* LabelHelper.swift */,
 			);
 			path = "Model Controllers";

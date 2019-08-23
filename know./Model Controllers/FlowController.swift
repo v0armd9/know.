@@ -12,6 +12,7 @@ import CloudKit
 class FlowController {
     
     static let shared = FlowController()
+    var flows: [Flow] = []
     
     func saveFlowDetails(forDay day: Day, spotting: Bool, light: Bool, medium: Bool, heavy: Bool, completion: @escaping (Flow?) -> Void) {
         let flowDetail = Flow(day: day, spotting: spotting, light: light, medium: medium, heavy: heavy)

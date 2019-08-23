@@ -37,6 +37,7 @@ class OnboardLastPeriodViewController: UIViewController {
     
     //Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        lastPeriod = datePickerView.date
+        UserController.shared.currentUser?.lastPeriod = lastPeriod
     }
 }

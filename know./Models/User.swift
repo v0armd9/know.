@@ -12,6 +12,7 @@ import CloudKit
 class User {
     
     //Class Objects
+    var days: [Day]
     var name: String?
     var age: Int?
     var birthdate: Date?
@@ -25,7 +26,8 @@ class User {
     var ckRecordID: CKRecord.ID
     
     //Designated Initializer
-    init(name: String?, age: Int?, birthdate: Date?, height: Int?, weight: Int?, cycleLength: Int?, periodLength: Int?, pms: Bool?, pmsDuration: Int?, lastPeriod: Date?, ckRecordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString)) {
+    init(days: [Day] = [], name: String?, age: Int?, birthdate: Date?, height: Int?, weight: Int?, cycleLength: Int?, periodLength: Int?, pms: Bool?, pmsDuration: Int?, lastPeriod: Date?, ckRecordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString)) {
+        self.days = days
         self.name = name
         self.age = age
         self.birthdate = birthdate

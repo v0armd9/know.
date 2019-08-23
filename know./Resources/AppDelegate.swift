@@ -7,14 +7,81 @@
 //
 
 import UIKit
+import CloudKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    
+//    func checkForiCloudUser() {
+//        CKContainer.default().accountStatus { (status, error) in
+//            if let error = error {
+//                print("Error in \(#function): \(error.localizedDescription) \n---\n \(error)")
+//            } else {
+//                switch status {
+//                case .available :
+//                    print("User found")
+//                    //Navigate to onboarding or home screen based off if user has data saved
+//                case .restricted :
+//                    print("restricted")
+//                case .noAccount :
+//                    print("No Account Found")
+//                    DispatchQueue.main.async {
+//                        //navigate to settings
+//                    }
+//                case .couldNotDetermine :
+//                    print("Account could not be determined")
+//                @unknown default:
+//                    fatalError()
+//                }
+//            }
+//        }
+//    }
+    
+    func application(_ application: UIApplication, userDidAcceptCloudKitShareWith cloudKitShareMetadata: CKShare.Metadata) {
+        let acceptShareOperation = CKAcceptSharesOperation(shareMetadatas: [cloudKitShareMetadata])
+        acceptShareOperation.qualityOfService = .userInteractive
+        acceptShareOperation.perShareCompletionBlock = { metadata, share, error in
+            if let error = error {
+                print("Error in \(#function): \(error.localizedDescription) \n---\n \(error)")
+                return
+            }
+            print("Share was accepted")
+        }
+        acceptShareOperation.acceptSharesCompletionBlock = { error in
+            if let error = error {
+                print("Error in \(#function): \(error.localizedDescription) \n---\n \(error)")
+                return
+            }
+            CloudKitController.shared.fetchShare(metadata: cloudKitShareMetadata, completion: { (records) in
+                if (records != nil) {
+                    switch cloudKitShareMetadata.rootRecord?.recordType {
+                    case UserConstants.userTypeKey :
+                        if let records = records {
+                            let users = records.compactMap({User(record: $0)})
+                            UserController.shared.viewedUsers = users
+                        }
+                    default:
+                        break
+                    }
+                }
+            })
+        }
+        CKContainer(identifier: cloudKitShareMetadata.containerIdentifier).add(acceptShareOperation)
+    }
+    
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        CloudKitController.shared.iCloudUserIDAsync() {
+            recordID, error in
+            if let userID = recordID?.recordName {
+                print("received iCloudID \(userID)")
+            } else {
+                print("Fetched iCloudID was nil")
+            }
+        }
         // Override point for customization after application launch.
         return true
     }

@@ -42,7 +42,6 @@ class Flow {
             else { return nil }
         self.init(day: day, spotting: spotting, light: light, medium: medium, heavy: heavy, ckRecordID: record.recordID)
     }
-
 }
 
 //Initialize a record from a class object

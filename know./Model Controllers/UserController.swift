@@ -14,6 +14,7 @@ class UserController {
     static let shared = UserController()
     
     var currentUser: User?
+    var viewedUsers: [User] = []
     
     func saveUser(withName name: String, age: Int, birthdate: Date, height: Int, weight: Int, cycleLength: Int, periodLength: Int, pms: Bool, pmsDuration: Int, lastPeriod: Date, completion: @escaping(Bool) -> Void) {
         let user = User(name: name, age: age, birthdate: birthdate, height: height, weight: weight, cycleLength: cycleLength, periodLength: periodLength, pms: pms, pmsDuration: pmsDuration, lastPeriod: lastPeriod)

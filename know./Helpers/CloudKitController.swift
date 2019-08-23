@@ -173,5 +173,19 @@ class CloudKitController {
             }
         }
     }
+    
+    func iCloudUserIDAsync(complete: @escaping (CKRecord.ID?, NSError?) -> ()) {
+        let container = CKContainer.default()
+        container.fetchUserRecordID() {
+            recordID, error in
+            if error != nil {
+                print(error!.localizedDescription)
+                complete(nil, error as NSError?)
+            } else {
+                print("fetched ID \(String(describing: recordID?.recordName))")
+                complete(recordID, nil)
+            }
+        }
+    }
 }
 

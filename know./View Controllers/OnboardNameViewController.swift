@@ -21,7 +21,6 @@ class OnboardNameViewController: UIViewController {
         super.viewDidLoad()
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
-        // Do any additional setup after loading the view.
     }
 
     //Actions

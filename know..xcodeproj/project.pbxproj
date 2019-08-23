@@ -20,7 +20,12 @@
 		53B140F2230CAA30008AE180 /* SexController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B140F1230CAA30008AE180 /* SexController.swift */; };
 		53B140F4230DB34C008AE180 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B140F3230DB34C008AE180 /* User.swift */; };
 		53B140F6230DB88D008AE180 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B140F5230DB88D008AE180 /* UserController.swift */; };
+		5811C3E2231049E20096BD4C /* CalendarWheel.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5811C3E1231049E20096BD4C /* CalendarWheel.storyboard */; };
+		5811C3E423104A700096BD4C /* shareTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5811C3E323104A700096BD4C /* shareTab.storyboard */; };
+		58229A2A2310538600C29826 /* infoTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58229A292310538600C29826 /* infoTab.storyboard */; };
+		58229A2C231053BE00C29826 /* settingsTabbed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58229A2B231053BE00C29826 /* settingsTabbed.storyboard */; };
 		587F2091230DDE1800880F8E /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 587F2090230DDE1800880F8E /* Onboarding.storyboard */; };
+		588C55E3230F07850059CDE0 /* TabbedViews.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 588C55E2230F07850059CDE0 /* TabbedViews.storyboard */; };
 		58C0A28A230B04B700A63ACD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C0A289230B04B700A63ACD /* AppDelegate.swift */; };
 		58C0A28F230B04B700A63ACD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58C0A28D230B04B700A63ACD /* Main.storyboard */; };
 		58C0A291230B04B900A63ACD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58C0A290230B04B900A63ACD /* Assets.xcassets */; };
@@ -58,7 +63,12 @@
 		53B140F1230CAA30008AE180 /* SexController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SexController.swift; sourceTree = "<group>"; };
 		53B140F3230DB34C008AE180 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		53B140F5230DB88D008AE180 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
+		5811C3E1231049E20096BD4C /* CalendarWheel.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CalendarWheel.storyboard; sourceTree = "<group>"; };
+		5811C3E323104A700096BD4C /* shareTab.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = shareTab.storyboard; sourceTree = "<group>"; };
+		58229A292310538600C29826 /* infoTab.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = infoTab.storyboard; sourceTree = "<group>"; };
+		58229A2B231053BE00C29826 /* settingsTabbed.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = settingsTabbed.storyboard; sourceTree = "<group>"; };
 		587F2090230DDE1800880F8E /* Onboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		588C55E2230F07850059CDE0 /* TabbedViews.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabbedViews.storyboard; sourceTree = "<group>"; };
 		58C0A286230B04B700A63ACD /* know..app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = know..app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58C0A289230B04B700A63ACD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		58C0A28E230B04B700A63ACD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -188,6 +198,11 @@
 			children = (
 				58C0A28D230B04B700A63ACD /* Main.storyboard */,
 				587F2090230DDE1800880F8E /* Onboarding.storyboard */,
+				588C55E2230F07850059CDE0 /* TabbedViews.storyboard */,
+				58229A2B231053BE00C29826 /* settingsTabbed.storyboard */,
+				58229A292310538600C29826 /* infoTab.storyboard */,
+				5811C3E323104A700096BD4C /* shareTab.storyboard */,
+				5811C3E1231049E20096BD4C /* CalendarWheel.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -293,15 +308,20 @@
 				58CD1102230B18CC009A8333 /* Nunito-SemiBold.ttf in Resources */,
 				58CD10F8230B18CC009A8333 /* Nunito-ExtraLight.ttf in Resources */,
 				58C0A294230B04B900A63ACD /* LaunchScreen.storyboard in Resources */,
+				5811C3E2231049E20096BD4C /* CalendarWheel.storyboard in Resources */,
 				58CD10F9230B18CC009A8333 /* Nunito-Black.ttf in Resources */,
 				58C0A291230B04B900A63ACD /* Assets.xcassets in Resources */,
+				58229A2C231053BE00C29826 /* settingsTabbed.storyboard in Resources */,
 				58CD10F5230B18CC009A8333 /* Nunito-Light.ttf in Resources */,
 				58CD10FF230B18CC009A8333 /* Nunito-SemiBoldItalic.ttf in Resources */,
 				58CD10F6230B18CC009A8333 /* Nunito-LightItalic.ttf in Resources */,
+				588C55E3230F07850059CDE0 /* TabbedViews.storyboard in Resources */,
 				58CD1101230B18CC009A8333 /* Nunito-Regular.ttf in Resources */,
 				58C0A28F230B04B700A63ACD /* Main.storyboard in Resources */,
+				5811C3E423104A700096BD4C /* shareTab.storyboard in Resources */,
 				58CD10FB230B18CC009A8333 /* Nunito-BlackItalic.ttf in Resources */,
 				58CD1100230B18CC009A8333 /* Nunito-ExtraBold.ttf in Resources */,
+				58229A2A2310538600C29826 /* infoTab.storyboard in Resources */,
 				587F2091230DDE1800880F8E /* Onboarding.storyboard in Resources */,
 				58CD10FD230B18CC009A8333 /* Nunito-Bold.ttf in Resources */,
 				58CD10FC230B18CC009A8333 /* Nunito-ExtraBoldItalic.ttf in Resources */,

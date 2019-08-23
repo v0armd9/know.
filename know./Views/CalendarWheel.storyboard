@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gtb-m7-3oO">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="kLg-QK-6aS">
+            <objects>
+                <viewController id="GpO-EH-TTq" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="a5H-JL-9HF">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zaq-0N-YCI">
+                                <rect key="frame" x="-518" y="88" width="725" height="725"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Nav Arc" translatesAutoresizingMaskIntoConstraints="NO" id="aiv-UT-jbO">
+                                        <rect key="frame" x="32.5" y="0.0" width="725" height="725"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Jh-KV-OAt">
+                                        <rect key="frame" x="326" y="326.5" width="72.5" height="72.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="8Jh-KV-OAt" secondAttribute="height" multiplier="1:1" id="lGF-Zk-FCd"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2H1-OD-3j6">
+                                        <rect key="frame" x="668.5" y="205.5" width="72.5" height="72.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="2H1-OD-3j6" secondAttribute="height" multiplier="1:1" id="WzD-mT-BYW"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mIc-t5-d2J">
+                                        <rect key="frame" x="689" y="326.5" width="72.5" height="72.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="mIc-t5-d2J" secondAttribute="height" multiplier="1:1" id="jXG-Jt-1Na"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="aiv-UT-jbO" firstAttribute="width" secondItem="Zaq-0N-YCI" secondAttribute="width" id="2Dq-D4-fbt"/>
+                                    <constraint firstItem="mIc-t5-d2J" firstAttribute="height" secondItem="Zaq-0N-YCI" secondAttribute="height" multiplier="0.1" id="3OC-hY-LzK"/>
+                                    <constraint firstItem="aiv-UT-jbO" firstAttribute="height" secondItem="Zaq-0N-YCI" secondAttribute="height" id="3v6-fe-Phg"/>
+                                    <constraint firstItem="mIc-t5-d2J" firstAttribute="centerY" secondItem="Zaq-0N-YCI" secondAttribute="centerY" id="5kR-PU-kmI"/>
+                                    <constraint firstItem="2H1-OD-3j6" firstAttribute="centerY" secondItem="Zaq-0N-YCI" secondAttribute="centerY" multiplier="0.667" id="95R-Ic-tNW"/>
+                                    <constraint firstItem="8Jh-KV-OAt" firstAttribute="centerX" secondItem="Zaq-0N-YCI" secondAttribute="centerX" id="Bkm-ts-83Q"/>
+                                    <constraint firstItem="aiv-UT-jbO" firstAttribute="centerX" secondItem="Zaq-0N-YCI" secondAttribute="centerX" multiplier="1.09" id="HeO-u6-2y6"/>
+                                    <constraint firstAttribute="width" secondItem="Zaq-0N-YCI" secondAttribute="height" multiplier="1:1" id="P9D-tA-TXp"/>
+                                    <constraint firstItem="mIc-t5-d2J" firstAttribute="centerX" secondItem="Zaq-0N-YCI" secondAttribute="centerX" multiplier="2" id="QrN-DX-1Lr"/>
+                                    <constraint firstItem="2H1-OD-3j6" firstAttribute="height" secondItem="Zaq-0N-YCI" secondAttribute="height" multiplier="0.1" id="fAA-EG-m6B"/>
+                                    <constraint firstItem="8Jh-KV-OAt" firstAttribute="centerY" secondItem="Zaq-0N-YCI" secondAttribute="centerY" id="gd6-ck-f96"/>
+                                    <constraint firstItem="8Jh-KV-OAt" firstAttribute="height" secondItem="Zaq-0N-YCI" secondAttribute="height" multiplier="0.1" id="rNY-gA-9nn"/>
+                                    <constraint firstItem="aiv-UT-jbO" firstAttribute="centerY" secondItem="Zaq-0N-YCI" secondAttribute="centerY" id="x3c-tJ-kFV"/>
+                                    <constraint firstItem="2H1-OD-3j6" firstAttribute="centerX" secondItem="Zaq-0N-YCI" secondAttribute="centerX" multiplier="1.944" id="yCa-jw-BHi"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Zaq-0N-YCI" firstAttribute="centerY" secondItem="Cv6-x3-H9D" secondAttribute="centerY" id="5KG-vA-JlK"/>
+                            <constraint firstItem="Zaq-0N-YCI" firstAttribute="trailing" secondItem="a5H-JL-9HF" secondAttribute="centerX" id="cis-R1-IQ0"/>
+                            <constraint firstItem="Zaq-0N-YCI" firstAttribute="height" secondItem="Cv6-x3-H9D" secondAttribute="height" id="xOb-cb-VSr"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Cv6-x3-H9D"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="sHC-l1-08f"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7FA-cK-2q9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1258" y="-1412"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="40d-sJ-itw">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gtb-m7-3oO" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" id="aee-M5-UWS"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="UVt-S8-2JO">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="GpO-EH-TTq" kind="relationship" relationship="rootViewController" id="l1S-bg-M2K"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wEQ-OV-kas" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-181.15942028985509" y="-1411.6071428571429"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Nav Arc" width="704" height="672"/>
+    </resources>
+</document>

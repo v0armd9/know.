@@ -10,9 +10,9 @@ import UIKit
 
 class OnboardWeightViewController: UIViewController {
 
-//    //Properties
-//    let weightPickerData = [80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130, 135, 140, 145, 150, 155, 160, 165, 170, 175, 180, 185, 190, 195, 200, 205, 210, 215, 220, 225, 230, 235, 240, 245, 250, 255, 260, 265, 270, 275, 280, 285, 290, 295, 300]
+    //Properties
     var weightPickerData: [Int] = []
+    var weight = Int()
     
     //Outlets
     @IBOutlet weak var questionLabel: CustomLabel!
@@ -31,19 +31,21 @@ class OnboardWeightViewController: UIViewController {
         for n in 50...350 {
             weightPickerData.append(n)
         }
+        weightPickerView.selectRow(120, inComponent: 0, animated: true)
     }
     
     //Actions
     @IBAction func skipButtonTapped(_ sender: Any) {
+        
     }
     
     @IBAction func nextButtonTapped(_ sender: Any) {
+        
     }
     
     //Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        UserController.shared.currentUser?.weight = weight
     }
 }
 
@@ -63,6 +65,6 @@ extension OnboardWeightViewController: UIPickerViewDelegate, UIPickerViewDataSou
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
+        self.weight = weightPickerData[row]
     }
 }

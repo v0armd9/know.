@@ -43,7 +43,7 @@ class OnboardCycleLengthViewController: UIViewController {
 
     //Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        UserController.shared.currentUser?.cycleLength = cycleLength
     }
 }
 

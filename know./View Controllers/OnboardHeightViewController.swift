@@ -14,6 +14,7 @@ class OnboardHeightViewController: UIViewController {
     var height: Int = 163
     var heightPickerData = [[3, 4, 5, 6, 7],
                             [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]]
+    let inchToCM = 2.54
     
     //Outlets
     @IBOutlet weak var questionLabel: CustomLabel!
@@ -25,7 +26,6 @@ class OnboardHeightViewController: UIViewController {
     @IBOutlet weak var notSureButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
     
-    
     //Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,15 +35,13 @@ class OnboardHeightViewController: UIViewController {
         heightPickerView.selectRow(0, inComponent:1, animated: true)
     }
     
-    
     //Actions
     
 
     //Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        UserController.shared.currentUser?.height = height
     }
-
 }
 
 //Custom Picker View Data Source
@@ -62,6 +60,18 @@ extension OnboardHeightViewController: UIPickerViewDelegate, UIPickerViewDataSou
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
+        var feet: Int = 5
+        var inches: Int = 0
+        switch component {
+        case 0:
+            feet = heightPickerData[component][row]
+        case 1:
+            inches = heightPickerData[component][row]
+        default:
+            return
+        }
+        let heightInInches = Double((feet * 12) + inches)
+        let heightInCentimeters = Int(heightInInches * inchToCM)
+        self.height = heightInCentimeters
     }
 }

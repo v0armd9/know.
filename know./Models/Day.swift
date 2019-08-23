@@ -18,9 +18,10 @@ class Day {
     var moodList: [Mood]
     var sexDetails: [Sex]
     var ckRecordID: CKRecord.ID
+    weak var user: User?
     
     //Designated Initializer
-    init(date: Date, flowDetails: [Flow] = [], symptomList: [Symptom] = [], moodList: [Mood] = [], sexDetails: [Sex] = [], ckRecordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString)) {
+    init(user: User, date: Date, flowDetails: [Flow] = [], symptomList: [Symptom] = [], moodList: [Mood] = [], sexDetails: [Sex] = [], ckRecordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString)) {
         self.date = date
         self.flowDetails = flowDetails
         self.symptomList = symptomList
@@ -30,10 +31,10 @@ class Day {
     }
     
     //Initialize class object from a record
-    convenience init?(record: CKRecord) {
+    convenience init?(record: CKRecord, user: User) {
         guard let date = record[DayConstants.dateKey] as? Date
             else { return nil }
-        self.init(date: date, ckRecordID: record.recordID)
+        self.init(user: user, date: date, ckRecordID: record.recordID)
     }
 }
 

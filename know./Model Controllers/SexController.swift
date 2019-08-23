@@ -12,6 +12,7 @@ import CloudKit
 class SexController {
     
     static let shared = SexController()
+    var sexDetails: [Sex] = []
     
     func saveSexDetails(forDay day: Day, protected: Bool, sexDrive: Bool, masturbation: Bool, completion: @escaping(Sex?) -> Void) {
         let sex = Sex(day: day, protected: protected, sexDrive: sexDrive, masturbation: masturbation)

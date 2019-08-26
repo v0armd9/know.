@@ -259,16 +259,6 @@
 		58C0A29E230B051700A63ACD /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				53381C72230F4BF400FA1D91 /* OnboardNameViewController.swift */,
-				53381C74230F4D8200FA1D91 /* OnboardWelcomeViewController.swift */,
-				53B140F9230DE0BB008AE180 /* OnboardPeriodLengthViewController.swift */,
-				53B140FB230DE4FF008AE180 /* OnboardPMSViewController.swift */,
-				53B140FD230DE68E008AE180 /* OnboardCycleLengthViewController.swift */,
-				53B140FF230DF10D008AE180 /* OnboardLastPeriodViewController.swift */,
-				53B14101230DFB20008AE180 /* OnboardBirthdayViewController.swift */,
-				53381C6E230EFAC800FA1D91 /* OnboardHeightViewController.swift */,
-				53381C70230F033400FA1D91 /* OnboardWeightViewController.swift */,
-				53381C76231038B000FA1D91 /* OnboardingFinishedViewController.swift */,
 				58229A6323142A7700C29826 /* HomeTabViewController.swift */,
 				53F588722310859E0076D7D2 /* Onboarding */,
 				53F58873231085AA0076D7D2 /* Info */,

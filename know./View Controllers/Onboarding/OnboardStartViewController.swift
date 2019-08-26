@@ -35,13 +35,10 @@ class OnboardStartViewController: UIViewController {
                     alertController.addAction(settingsAction)
                     self.present(alertController, animated: true, completion: nil)
                 }
-                print("Error in \(#function): \(error.localizedDescription) \n---\n \(error)")
+                print("No iCloud user data found, redirect to settings page (\(error.localizedDescription))")
             }
             if (recordID != nil) {
-                //This does not work rn
-                let storyboard: UIStoryboard = UIStoryboard(name: "Onboarding", bundle: nil)
-                let view = storyboard.instantiateViewController(withIdentifier: "mainNavigationController") as! UINavigationController
-                self.present(view, animated: true)
+                print("User is signed into iCloud")
             }
         }
     }

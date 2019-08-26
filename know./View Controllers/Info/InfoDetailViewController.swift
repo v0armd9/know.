@@ -38,7 +38,7 @@ class InfoDetailViewController: UIViewController {
         super.viewDidLoad()
         updateView()
         guard let info = info else { return }
-        //title
+        self.title = info.subject
     }
     
     //Helper Function to Load Necessary Data

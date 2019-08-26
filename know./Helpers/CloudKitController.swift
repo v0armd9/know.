@@ -39,7 +39,7 @@ class CloudKitController {
     func save(record: CKRecord, completion: @escaping (CKRecord?) -> Void) {
         privateDB.save(record) { (record, error) in
             if let error = error {
-                print("Error in \(#function) : \(error.localizedDescription) /n---/n \(error)")
+                print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
                 completion(nil)
             }
             print("Saved Record to CloudKit")
@@ -52,7 +52,7 @@ class CloudKitController {
         let query = CKQuery(recordType: type, predicate: predicate)
         privateDB.perform(query, inZoneWith: nil) { (records, error) in
             if let error = error {
-                print("Error in \(#function): \(error.localizedDescription) /n---/n \(error)")
+                print("Error in \(#function): \(error.localizedDescription) \n---\n \(error)")
                 completion(nil)
                 return
             }
@@ -81,7 +81,7 @@ class CloudKitController {
     func delete(recordID: CKRecord.ID, completion: @escaping (Bool) -> Void) {
         privateDB.delete(withRecordID: recordID) { (_, error) in
             if let error = error {
-                print("Error in \(#function): \(error.localizedDescription) /n---/n \(error)")
+                print("Error in \(#function): \(error.localizedDescription) \n---\n \(error)")
                 completion(false)
             }
             completion(true)

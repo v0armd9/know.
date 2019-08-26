@@ -982,7 +982,7 @@
         <!--Navigation Controller-->
         <scene sceneID="FAu-TC-bR0">
             <objects>
-                <navigationController id="dEo-bE-fbo" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="mainNavigationController" id="dEo-bE-fbo" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rQM-eH-jNz">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -998,7 +998,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="Bw6-oN-Tuh">
             <objects>
-                <tabBarController id="JoA-IV-Kc1" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="mainTabBarController" id="JoA-IV-Kc1" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="E7Y-oh-uNC"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="u16-xj-bJK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>

@@ -28,7 +28,7 @@ class SexController {
     
     func fetchSexDetails(forDay day: Day, completion: @escaping([Sex]?) -> Void) {
         let dayID = day.ckRecordID
-        let dayPreicate = NSPredicate(format: "%K == %@", MoodConstants.dayReferenceKey, dayID)
+        let dayPreicate = NSPredicate(format: "%K == %@", SexConstants.dayReferenceKey, dayID)
         let sexIDs = day.sexDetails.compactMap({$0.ckRecordID})
         let avoidDuplicatePred = NSPredicate(format: "NOT(recordID IN %@)", sexIDs)
         let compoundPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [dayPreicate, avoidDuplicatePred])

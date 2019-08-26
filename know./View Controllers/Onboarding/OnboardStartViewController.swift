@@ -13,9 +13,9 @@ class OnboardStartViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
     
+    //Check if user is signed into iCloud before beginning onboarding
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         CloudKitController.shared.iCloudUserIDAsync { (recordID, error) in

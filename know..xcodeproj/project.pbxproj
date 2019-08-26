@@ -50,6 +50,7 @@
 		58229A302310639600C29826 /* homeTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58229A2F2310639600C29826 /* homeTab.storyboard */; };
 		58229A32231063BB00C29826 /* shareTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58229A31231063BB00C29826 /* shareTab.storyboard */; };
 		58229A342310640500C29826 /* settingsTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58229A332310640500C29826 /* settingsTab.storyboard */; };
+		58229A6423142A7700C29826 /* HomeTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58229A6323142A7700C29826 /* HomeTabViewController.swift */; };
 		587F2091230DDE1800880F8E /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 587F2090230DDE1800880F8E /* Onboarding.storyboard */; };
 		58C0A28A230B04B700A63ACD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C0A289230B04B700A63ACD /* AppDelegate.swift */; };
 		58C0A28F230B04B700A63ACD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58C0A28D230B04B700A63ACD /* Main.storyboard */; };
@@ -103,6 +104,7 @@
 		58229A2F2310639600C29826 /* homeTab.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = homeTab.storyboard; sourceTree = "<group>"; };
 		58229A31231063BB00C29826 /* shareTab.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = shareTab.storyboard; sourceTree = "<group>"; };
 		58229A332310640500C29826 /* settingsTab.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = settingsTab.storyboard; sourceTree = "<group>"; };
+		58229A6323142A7700C29826 /* HomeTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabViewController.swift; sourceTree = "<group>"; };
 		587F2090230DDE1800880F8E /* Onboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		58C0A286230B04B700A63ACD /* know..app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = know..app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58C0A289230B04B700A63ACD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 				53381C6E230EFAC800FA1D91 /* OnboardHeightViewController.swift */,
 				53381C70230F033400FA1D91 /* OnboardWeightViewController.swift */,
 				53381C76231038B000FA1D91 /* OnboardingFinishedViewController.swift */,
+				58229A6323142A7700C29826 /* HomeTabViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 				53B140FE230DE68E008AE180 /* OnboardCycleLengthViewController.swift in Sources */,
 				53B14104230DFEB7008AE180 /* DateFormatter.swift in Sources */,
 				53B140EA230CA662008AE180 /* DayController.swift in Sources */,
+				58229A6423142A7700C29826 /* HomeTabViewController.swift in Sources */,
 				53381C75230F4D8200FA1D91 /* OnboardWelcomeViewController.swift in Sources */,
 				53B140F0230CA9EB008AE180 /* MoodController.swift in Sources */,
 				53B140EE230CA9A3008AE180 /* SymptomController.swift in Sources */,

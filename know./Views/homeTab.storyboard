@@ -10,20 +10,50 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Home Tab View Controller-->
         <scene sceneID="Bva-HU-I3U">
             <objects>
-                <viewController id="r1U-z3-EID" sceneMemberID="viewController">
+                <viewController id="r1U-z3-EID" customClass="HomeTabViewController" customModule="know_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Q8n-Je-0fQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TGy-b1-6fc">
+                                <rect key="frame" x="62" y="440" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="TGy-b1-6fc" firstAttribute="centerY" secondItem="Q8n-Je-0fQ" secondAttribute="centerY" constant="2.5" id="OHv-vf-B05"/>
+                            <constraint firstItem="TGy-b1-6fc" firstAttribute="centerX" secondItem="uBa-Lo-M1f" secondAttribute="centerX" multiplier="0.4" id="xdU-U1-R1P"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="uBa-Lo-M1f"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="hH6-UM-CVn" appends="YES" id="pda-1e-3Dw"/>
+                            <outletCollection property="gestureRecognizers" destination="5JN-yR-Na2" appends="YES" id="IsX-G7-O7K"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="5YF-9W-BpP"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="monthLabel" destination="TGy-b1-6fc" id="zYM-Qg-GuC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dWm-yP-fOI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="up" id="hH6-UM-CVn">
+                    <connections>
+                        <action selector="viewSwipedUp:" destination="r1U-z3-EID" id="fb7-0K-3Qx"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="down" id="5JN-yR-Na2">
+                    <connections>
+                        <action selector="viewSwipedDown:" destination="r1U-z3-EID" id="bAg-yW-AUF"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="11615.942028985508" y="-13.392857142857142"/>
         </scene>

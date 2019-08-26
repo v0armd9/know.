@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BIq-bG-fp8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PqR-JQ-ZwF">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,43 +9,238 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Nunito-Bold.ttf">
+            <string>Nunito-Bold</string>
+        </array>
+        <array key="Nunito-Regular.ttf">
+            <string>Nunito-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Info List View Controller-->
         <scene sceneID="Fo2-5C-OXT">
             <objects>
-                <viewController id="PqR-JQ-ZwF" sceneMemberID="viewController">
+                <viewController id="PqR-JQ-ZwF" customClass="InfoListViewController" customModule="know_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zsM-aE-yeU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="tAB-Zx-Ii2">
+                                <rect key="frame" x="0.0" y="115.5" width="414" height="697.5"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="infoCell" id="mH6-vc-GN0">
+                                        <rect key="frame" x="0.0" y="55.5" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mH6-vc-GN0" id="8CI-s3-KVm">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="Mmd-wq-P6K" kind="show" identifier="toInfoDetailVC" id="TsR-Wg-esL"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A little extra information..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AsS-Wq-JgS">
+                                <rect key="frame" x="31" y="44" width="352" height="71.5"/>
+                                <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="18"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="tAB-Zx-Ii2" firstAttribute="width" secondItem="zsM-aE-yeU" secondAttribute="width" id="FGb-NB-F5j"/>
+                            <constraint firstItem="AsS-Wq-JgS" firstAttribute="centerX" secondItem="zsM-aE-yeU" secondAttribute="centerX" id="HUo-ez-IhX"/>
+                            <constraint firstItem="AsS-Wq-JgS" firstAttribute="width" secondItem="tAB-Zx-Ii2" secondAttribute="width" multiplier="0.85" id="LC5-UD-VgO"/>
+                            <constraint firstItem="fkn-zg-CEe" firstAttribute="bottom" secondItem="tAB-Zx-Ii2" secondAttribute="bottom" id="RrG-6D-Iqk"/>
+                            <constraint firstItem="tAB-Zx-Ii2" firstAttribute="top" secondItem="AsS-Wq-JgS" secondAttribute="bottom" id="ctZ-kh-rNx"/>
+                            <constraint firstItem="AsS-Wq-JgS" firstAttribute="top" secondItem="fkn-zg-CEe" secondAttribute="top" id="fYU-sP-zCb"/>
+                            <constraint firstItem="AsS-Wq-JgS" firstAttribute="height" secondItem="zsM-aE-yeU" secondAttribute="height" multiplier="0.08" id="iy7-Rb-gti"/>
+                            <constraint firstItem="tAB-Zx-Ii2" firstAttribute="centerX" secondItem="fkn-zg-CEe" secondAttribute="centerX" id="vjm-lT-Vkj"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="fkn-zg-CEe"/>
                     </view>
                     <navigationItem key="navigationItem" id="81k-d7-kMl"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="infoListTableView" destination="tAB-Zx-Ii2" id="G0B-oB-8hl"/>
+                        <outlet property="infoTitleLabel" destination="AsS-Wq-JgS" id="2YQ-6z-19T"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AiW-Ah-bej" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="11581.159420289856" y="-672.32142857142856"/>
         </scene>
-        <!--Info-->
-        <scene sceneID="AOb-dI-agG">
+        <!--Info Detail View Controller-->
+        <scene sceneID="LT4-iM-ghZ">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BIq-bG-fp8" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Info" id="i0v-Nd-Uq8"/>
-                    <toolbarItems/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qwU-aF-pi5">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
+                <viewController id="Mmd-wq-P6K" customClass="InfoDetailViewController" customModule="know_" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hLi-Je-Vw4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" indicatorStyle="white" translatesAutoresizingMaskIntoConstraints="NO" id="YdK-2r-XSa">
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="dGf-W1-iOs">
+                                        <rect key="frame" x="31" y="20" width="352" height="676.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4fk-gj-EfB" customClass="CustomLabel" customModule="know_" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="352" height="29"/>
+                                                <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="21"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fAP-fw-mXp" customClass="CustomLabel" customModule="know_" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="41" width="352" height="23.5"/>
+                                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bBk-NC-f9c" customClass="CustomLabel" customModule="know_" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="76.5" width="352" height="29"/>
+                                                <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="21"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NXp-qc-Cpe" customClass="CustomLabel" customModule="know_" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="117.5" width="352" height="23.5"/>
+                                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F0h-ZB-nKc" customClass="CustomLabel" customModule="know_" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="153" width="352" height="29"/>
+                                                <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="21"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eIV-EP-lV0" customClass="CustomLabel" customModule="know_" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="194" width="352" height="23.5"/>
+                                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cZY-Ij-lmO" customClass="CustomLabel" customModule="know_" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="229.5" width="352" height="29"/>
+                                                <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="21"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hh3-dq-FqE" customClass="CustomLabel" customModule="know_" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="270.5" width="352" height="23.5"/>
+                                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xxp-Oo-ukA" customClass="CustomLabel" customModule="know_" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="306" width="352" height="29"/>
+                                                <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="21"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bAt-Ql-lQ4" customClass="CustomLabel" customModule="know_" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="347" width="352" height="23.5"/>
+                                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p99-2Z-qb1" customClass="CustomLabel" customModule="know_" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="382.5" width="352" height="29"/>
+                                                <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="21"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tmN-iJ-SYK" customClass="CustomLabel" customModule="know_" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="423.5" width="352" height="23.5"/>
+                                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1PO-JT-ybC" customClass="CustomLabel" customModule="know_" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="459" width="352" height="29"/>
+                                                <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="21"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a8U-3n-4lU" customClass="CustomLabel" customModule="know_" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="500" width="352" height="23.5"/>
+                                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q8L-A1-S6l" customClass="CustomLabel" customModule="know_" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="535.5" width="352" height="29"/>
+                                                <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="21"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PoO-26-aLA" customClass="CustomLabel" customModule="know_" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="576.5" width="352" height="23.5"/>
+                                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mmg-Xv-8In" customClass="CustomLabel" customModule="know_" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="612" width="352" height="29"/>
+                                                <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="21"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FfR-Y8-71b" customClass="CustomLabel" customModule="know_" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="653" width="352" height="23.5"/>
+                                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="dGf-W1-iOs" firstAttribute="centerX" secondItem="YdK-2r-XSa" secondAttribute="centerX" id="6tK-5r-N5n"/>
+                                    <constraint firstAttribute="top" secondItem="dGf-W1-iOs" secondAttribute="top" constant="-20" id="d2o-fa-7R0"/>
+                                    <constraint firstItem="dGf-W1-iOs" firstAttribute="width" secondItem="YdK-2r-XSa" secondAttribute="width" multiplier="0.85" id="mXW-68-Jzg"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="YdK-2r-XSa" secondAttribute="bottom" id="0Xj-wn-8go"/>
+                            <constraint firstItem="YdK-2r-XSa" firstAttribute="bottom" secondItem="dGf-W1-iOs" secondAttribute="bottom" id="Bxc-EH-l2H"/>
+                            <constraint firstAttribute="trailing" secondItem="YdK-2r-XSa" secondAttribute="trailing" id="Zgr-le-bdh"/>
+                            <constraint firstItem="YdK-2r-XSa" firstAttribute="leading" secondItem="hLi-Je-Vw4" secondAttribute="leading" id="dNg-DL-rth"/>
+                            <constraint firstItem="YdK-2r-XSa" firstAttribute="top" secondItem="VHt-bA-oK4" secondAttribute="top" id="sPT-54-DYM"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="VHt-bA-oK4"/>
+                    </view>
                     <connections>
-                        <segue destination="PqR-JQ-ZwF" kind="relationship" relationship="rootViewController" id="svf-XB-Soq"/>
+                        <outlet property="eightTextLabel" destination="PoO-26-aLA" id="bJ9-Vj-WCq"/>
+                        <outlet property="eightTitleLabel" destination="q8L-A1-S6l" id="TkZ-M3-rDH"/>
+                        <outlet property="fifthTextLabel" destination="bAt-Ql-lQ4" id="afd-sz-mI2"/>
+                        <outlet property="fifthTitleLabel" destination="Xxp-Oo-ukA" id="U7Y-aZ-JOL"/>
+                        <outlet property="firstTextLabel" destination="fAP-fw-mXp" id="Ur0-Yg-e6r"/>
+                        <outlet property="firstTitleLabel" destination="4fk-gj-EfB" id="DMw-CI-QIk"/>
+                        <outlet property="fourthTextLabel" destination="Hh3-dq-FqE" id="gCk-BK-x3K"/>
+                        <outlet property="fourthTitleLabel" destination="cZY-Ij-lmO" id="9Rt-zl-Zda"/>
+                        <outlet property="nineTextLabel" destination="FfR-Y8-71b" id="baQ-yG-xgL"/>
+                        <outlet property="nineTitleLabel" destination="Mmg-Xv-8In" id="7s8-F1-43O"/>
+                        <outlet property="secondTextLabel" destination="NXp-qc-Cpe" id="e2U-hz-Afs"/>
+                        <outlet property="secondTitleLabel" destination="bBk-NC-f9c" id="HGm-HX-b8F"/>
+                        <outlet property="sevenTextLabel" destination="a8U-3n-4lU" id="H8B-yJ-AES"/>
+                        <outlet property="sevenTitleLabel" destination="1PO-JT-ybC" id="T6b-yH-3P4"/>
+                        <outlet property="sixTextLabel" destination="tmN-iJ-SYK" id="fdd-dM-g3d"/>
+                        <outlet property="sixTitleLabel" destination="p99-2Z-qb1" id="o2G-Z3-ee0"/>
+                        <outlet property="thirdTextLabel" destination="eIV-EP-lV0" id="cwY-ej-Zhr"/>
+                        <outlet property="thirdTitleLabel" destination="F0h-ZB-nKc" id="qAx-Zn-0a8"/>
                     </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="BMr-W8-yfJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zMf-FD-md9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="10671.014492753624" y="-672.32142857142856"/>
+            <point key="canvasLocation" x="12363.76811594203" y="-672.32142857142856"/>
         </scene>
     </scenes>
     <color key="tintColor" red="0.58823529409999997" green="0.71372549019999998" blue="0.80784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

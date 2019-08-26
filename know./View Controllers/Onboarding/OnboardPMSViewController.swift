@@ -80,7 +80,7 @@ class OnboardPMSViewController: UIViewController {
             UserController.shared.currentUser?.pmsDuration = pmsLength
         } else {
             UserController.shared.currentUser?.pms = false
-            UserController.shared.currentUser?.pmsDuration = nil
+            UserController.shared.currentUser?.pmsDuration = 0
         }
     }
 }

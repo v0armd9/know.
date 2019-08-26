@@ -19,6 +19,7 @@ class InfoListViewController: UIViewController {
     //Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.backgroundColor = .cyan
         infoListTableView.dataSource = self
         infoListTableView.delegate = self
         HealthInfoController.shared.loadHealthInfo()

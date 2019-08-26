@@ -29,7 +29,7 @@ class CustomEntry {
     
     //Initialize class object from a record
     convenience init?(record: CKRecord, day: Day) {
-        guard let text = record[CustomEntryConstants.textKey]
+        guard let text = record[CustomEntryConstants.textKey] as? String
             else { return nil }
         self.init(day: day, text: text, ckRecordID: record.recordID)
     }

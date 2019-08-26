@@ -14,31 +14,31 @@ class InfoDetailViewController: UIViewController {
     var info: HealthInfo?
     
     //Outlets
-    @IBOutlet weak var firstTitleLabel: UILabel!
-    @IBOutlet weak var firstTextLabel: UILabel!
-    @IBOutlet weak var secondTitleLabel: UILabel!
-    @IBOutlet weak var secondTextLabel: UILabel!
-    @IBOutlet weak var thirdTitleLabel: UILabel!
-    @IBOutlet weak var thirdTextLabel: UILabel!
-    @IBOutlet weak var fourthTitleLabel: UILabel!
-    @IBOutlet weak var fourthTextLabel: UILabel!
-    @IBOutlet weak var fifthTitleLabel: UILabel!
-    @IBOutlet weak var fifthTextLabel: UILabel!
-    @IBOutlet weak var sixTitleLabel: UILabel!
-    @IBOutlet weak var sixTextLabel: UILabel!
-    @IBOutlet weak var sevenTitleLabel: UILabel!
-    @IBOutlet weak var sevenTextLabel: UILabel!
-    @IBOutlet weak var eightTitleLabel: UILabel!
-    @IBOutlet weak var eightTextLabel: UILabel!
-    @IBOutlet weak var nineTitleLabel: UILabel!
-    @IBOutlet weak var nineTextLabel: UILabel!
+    @IBOutlet weak var firstTitleLabel: CustomLabel!
+    @IBOutlet weak var firstTextLabel: CustomLabel!
+    @IBOutlet weak var secondTitleLabel: CustomLabel!
+    @IBOutlet weak var secondTextLabel: CustomLabel!
+    @IBOutlet weak var thirdTitleLabel: CustomLabel!
+    @IBOutlet weak var thirdTextLabel: CustomLabel!
+    @IBOutlet weak var fourthTitleLabel: CustomLabel!
+    @IBOutlet weak var fourthTextLabel: CustomLabel!
+    @IBOutlet weak var fifthTitleLabel: CustomLabel!
+    @IBOutlet weak var fifthTextLabel: CustomLabel!
+    @IBOutlet weak var sixTitleLabel: CustomLabel!
+    @IBOutlet weak var sixTextLabel: CustomLabel!
+    @IBOutlet weak var sevenTitleLabel: CustomLabel!
+    @IBOutlet weak var sevenTextLabel: CustomLabel!
+    @IBOutlet weak var eightTitleLabel: CustomLabel!
+    @IBOutlet weak var eightTextLabel: CustomLabel!
+    @IBOutlet weak var nineTitleLabel: CustomLabel!
+    @IBOutlet weak var nineTextLabel: CustomLabel!
     
     //Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         updateView()
         guard let info = info else { return }
-        self.title = info.subject
+        //title
     }
     
     //Helper Function to Load Necessary Data

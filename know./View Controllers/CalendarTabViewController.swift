@@ -68,11 +68,11 @@ class CalendarTabViewController: UIViewController {
     @IBOutlet weak var buttonFortyTwo: UIButton!
     @IBOutlet weak var customPicker: UIPickerView!
     
-    override func viewDidLoad() {
+    override func viewWillAppear(_ animated: Bool){
+        super.viewWillAppear(animated)
         for number in 2014...2200 {
             years.append(number)
         }
-        super.viewDidLoad()
         let startDate = getStartDate(date: selectedDate)
         buttons = [
             buttonOne,
@@ -354,7 +354,9 @@ class CalendarTabViewController: UIViewController {
     func getStartDate(date: Date) -> Date {
         var startDate: Date
         let month = Calendar.current.component(.month, from: date)
+        selectedMonth = month
         let year = Calendar.current.component(.year, from: date)
+        selectedYear = year
         let dateComponents = DateComponents(calendar: Calendar.current, year: year, month: month, day: 1)
         let firstOfMonth = Calendar.current.date(from: dateComponents)!
         let weekDay = Calendar.current.component(.weekday, from: firstOfMonth)
@@ -383,11 +385,10 @@ class CalendarTabViewController: UIViewController {
         for button in classArray {
             let buttonMonth = Calendar.current.component(.month, from: button.date)
             if selectedMonth != buttonMonth {
-                button.button.titleLabel?.textColor = .lightGray
+                button.button.titleLabel?.textColor = .gray
             } else {
-                button.button.titleLabel?.textColor = UIColor(hexString: "#96B6CE")
+               button.button.titleLabel?.textColor = UIColor(hexString: "#96B6CE")
             }
-            //toDo showCurrentDate
         }
         let lastRowMonth = Calendar.current.component(.month, from: classArray[35].date)
         if lastRowMonth != selectedMonth {

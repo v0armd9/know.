@@ -48,6 +48,9 @@
 		53B14100230DF10D008AE180 /* OnboardLastPeriodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B140FF230DF10D008AE180 /* OnboardLastPeriodViewController.swift */; };
 		53B14102230DFB20008AE180 /* OnboardBirthdayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B14101230DFB20008AE180 /* OnboardBirthdayViewController.swift */; };
 		53B14104230DFEB7008AE180 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B14103230DFEB7008AE180 /* DateFormatter.swift */; };
+		53D0972F231475FB000D086E /* SettingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D0972E231475FB000D086E /* SettingListTableViewController.swift */; };
+		53D09731231479F8000D086E /* SettingProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D09730231479F8000D086E /* SettingProfileViewController.swift */; };
+		53D097332314A730000D086E /* PopupPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D097322314A730000D086E /* PopupPickerViewController.swift */; };
 		53F58875231085C60076D7D2 /* InfoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F58874231085C60076D7D2 /* InfoListViewController.swift */; };
 		53F58877231087040076D7D2 /* HealthInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F58876231087040076D7D2 /* HealthInfo.swift */; };
 		53F58879231087DC0076D7D2 /* HealthInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F58878231087DC0076D7D2 /* HealthInfoController.swift */; };
@@ -110,6 +113,9 @@
 		53B140FF230DF10D008AE180 /* OnboardLastPeriodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardLastPeriodViewController.swift; sourceTree = "<group>"; };
 		53B14101230DFB20008AE180 /* OnboardBirthdayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardBirthdayViewController.swift; sourceTree = "<group>"; };
 		53B14103230DFEB7008AE180 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
+		53D0972E231475FB000D086E /* SettingListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingListTableViewController.swift; sourceTree = "<group>"; };
+		53D09730231479F8000D086E /* SettingProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingProfileViewController.swift; sourceTree = "<group>"; };
+		53D097322314A730000D086E /* PopupPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupPickerViewController.swift; sourceTree = "<group>"; };
 		53F58874231085C60076D7D2 /* InfoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoListViewController.swift; sourceTree = "<group>"; };
 		53F58876231087040076D7D2 /* HealthInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthInfo.swift; sourceTree = "<group>"; };
 		53F58878231087DC0076D7D2 /* HealthInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthInfoController.swift; sourceTree = "<group>"; };
@@ -259,19 +265,12 @@
 		58C0A29E230B051700A63ACD /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				53381C72230F4BF400FA1D91 /* OnboardNameViewController.swift */,
-				53381C74230F4D8200FA1D91 /* OnboardWelcomeViewController.swift */,
-				53B140F9230DE0BB008AE180 /* OnboardPeriodLengthViewController.swift */,
-				53B140FB230DE4FF008AE180 /* OnboardPMSViewController.swift */,
-				53B140FD230DE68E008AE180 /* OnboardCycleLengthViewController.swift */,
-				53B140FF230DF10D008AE180 /* OnboardLastPeriodViewController.swift */,
-				53B14101230DFB20008AE180 /* OnboardBirthdayViewController.swift */,
-				53381C6E230EFAC800FA1D91 /* OnboardHeightViewController.swift */,
-				53381C70230F033400FA1D91 /* OnboardWeightViewController.swift */,
-				53381C76231038B000FA1D91 /* OnboardingFinishedViewController.swift */,
 				58229A6323142A7700C29826 /* HomeTabViewController.swift */,
 				53F588722310859E0076D7D2 /* Onboarding */,
 				53F58873231085AA0076D7D2 /* Info */,
+				53D0972E231475FB000D086E /* SettingListTableViewController.swift */,
+				53D09730231479F8000D086E /* SettingProfileViewController.swift */,
+				53D097322314A730000D086E /* PopupPickerViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -425,11 +424,14 @@
 				53B14104230DFEB7008AE180 /* DateFormatter.swift in Sources */,
 				53B140EA230CA662008AE180 /* DayController.swift in Sources */,
 				58229A6423142A7700C29826 /* HomeTabViewController.swift in Sources */,
+				53D097332314A730000D086E /* PopupPickerViewController.swift in Sources */,
 				53F58877231087040076D7D2 /* HealthInfo.swift in Sources */,
 				53381C75230F4D8200FA1D91 /* OnboardWelcomeViewController.swift in Sources */,
 				53B140F0230CA9EB008AE180 /* MoodController.swift in Sources */,
 				53381C7B2310797B00FA1D91 /* CustomEntryController.swift in Sources */,
 				53B140EE230CA9A3008AE180 /* SymptomController.swift in Sources */,
+				53D0972F231475FB000D086E /* SettingListTableViewController.swift in Sources */,
+				53D09731231479F8000D086E /* SettingProfileViewController.swift in Sources */,
 				53B140FC230DE4FF008AE180 /* OnboardPMSViewController.swift in Sources */,
 				53381C77231038B000FA1D91 /* OnboardingFinishedViewController.swift in Sources */,
 				53F58875231085C60076D7D2 /* InfoListViewController.swift in Sources */,

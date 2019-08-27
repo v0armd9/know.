@@ -7,15 +7,113 @@
 //
 
 import UIKit
+import CloudKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    
+    func checkForiCloudUser() {
+        let container = CKContainer.default()
+        container.accountStatus { (status, error) in
+            if let error = error {
+                print("Error in \(#function): \(error.localizedDescription) \n---\n \(error)")
+            } else {
+                switch status {
+                //Make sure user is signed into iCloud
+                case .available :
+                    print("User was found, account status is 'Available'")
+                    //If user data found in App, instantiate Home Screen
+                    UserController.shared.fetchUser { (success) in
+                        DispatchQueue.main.async {
+                            self.window = UIWindow(frame: UIScreen.main.bounds)
+                            if success {
+                                let storyboard: UIStoryboard = UIStoryboard(name: "Onboarding", bundle: nil)
+                                let view = storyboard.instantiateViewController(withIdentifier: "mainNavigationController") as! UINavigationController
+                                self.window?.rootViewController = view
+                                self.window?.makeKeyAndVisible()
+                            //If no user data found in App, instantiate Onboarding Screens.
+                            } else {
+                                let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                                let view = storyboard.instantiateInitialViewController() as! UINavigationController
+                                self.window?.rootViewController = view
+                                self.window?.makeKeyAndVisible()
+                            }
+                        }
+                    }
+                case .restricted :
+                    print("User was found, account status is 'Restricted'")
+                case .noAccount :
+                    print("No Account Found")
+                case .couldNotDetermine :
+                    print("Account could not be determined")
+                @unknown default:
+                    fatalError()
+                }
+            }
+        }
+    }
+    
+    func application(_ application: UIApplication, userDidAcceptCloudKitShareWith cloudKitShareMetadata: CKShare.Metadata) {
+        let acceptShareOperation = CKAcceptSharesOperation(shareMetadatas: [cloudKitShareMetadata])
+        acceptShareOperation.qualityOfService = .userInteractive
+        acceptShareOperation.perShareCompletionBlock = { metadata, share, error in
+            if let error = error {
+                print("Error in \(#function): \(error.localizedDescription) \n---\n \(error)")
+                return
+            }
+            print("Share was accepted")
+        }
+        acceptShareOperation.acceptSharesCompletionBlock = { error in
+            if let error = error {
+                print("Error in \(#function): \(error.localizedDescription) \n---\n \(error)")
+                return
+            }
+            CloudKitController.shared.fetchShare(metadata: cloudKitShareMetadata, completion: { (records) in
+                if (records != nil) {
+                    switch cloudKitShareMetadata.rootRecord?.recordType {
+                    case UserConstants.userTypeKey :
+                        if let records = records {
+                            let users = records.compactMap({User(record: $0)})
+                            UserController.shared.viewedUsers = users
+                        }
+                    default:
+                        break
+                    }
+                }
+            })
+        }
+        CKContainer(identifier: cloudKitShareMetadata.containerIdentifier).add(acceptShareOperation)
+    }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        checkForiCloudUser()
+//        CloudKitController.shared.iCloudUserIDAsync() {
+//            recordID, error in
+//            if let userID = recordID?.recordName {
+//                print("Received iCloudID \(userID)")
+//                UserController.shared.fetchUser { (success) in
+//                    DispatchQueue.main.async {
+//                        self.window = UIWindow(frame: UIScreen.main.bounds)
+//                        if success {
+//                            let storyboard: UIStoryboard = UIStoryboard(name: "Onboarding", bundle: nil)
+//                            let view = storyboard.instantiateViewController(withIdentifier: "mainNavigationController") as! UINavigationController
+//                            self.window?.rootViewController = view
+//                            self.window?.makeKeyAndVisible()
+//                        } else {
+//                            let storyboard: UIStoryboard = UIStoryboard(name: "Onboarding", bundle: nil)
+//                            let view = storyboard.instantiateInitialViewController() as! UINavigationController
+//                            self.window?.rootViewController = view
+//                            self.window?.makeKeyAndVisible()
+//                        }
+//                    }
+//                }
+//            } else {
+//                print("Fetched iCloudID was nil")
+//
+//            }
+//        }
         return true
     }
 
@@ -40,7 +138,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
 }
 

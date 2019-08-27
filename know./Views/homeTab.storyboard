@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="r1U-z3-EID">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Nunito-ExtraBold.ttf">
+            <string>Nunito-ExtraBold</string>
+        </array>
+        <array key="Nunito-SemiBold.ttf">
+            <string>Nunito-SemiBold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--My Cycle ⏏︎-->
+        <scene sceneID="Bva-HU-I3U">
+            <objects>
+                <viewController id="r1U-z3-EID" customClass="HomeTabViewController" customModule="know_" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Q8n-Je-0fQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumFontSize="1" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TGy-b1-6fc" customClass="CustomLabel" customModule="know_" customModuleProvider="target">
+                                <rect key="frame" x="45" y="386" width="76" height="41"/>
+                                <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ute-P2-zRh">
+                                <rect key="frame" x="45" y="383" width="76" height="3"/>
+                                <color key="backgroundColor" red="0.58823529411764708" green="0.71372549019607845" blue="0.80784313725490198" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="3" id="8U0-zH-cQe"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G6s-p9-siH">
+                                <rect key="frame" x="45" y="427" width="76" height="3"/>
+                                <color key="backgroundColor" red="0.58823529409999997" green="0.71372549019999998" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="3" id="cua-ce-ABE"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aNp-yU-w6a">
+                                <rect key="frame" x="322" y="576" width="80.5" height="80.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="aNp-yU-w6a" secondAttribute="height" multiplier="1:1" id="PDh-zq-J5h"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="add"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Symptoms" textAlignment="right" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumFontSize="1" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gr2-cn-VOR" customClass="CustomLabel" customModule="know_" customModuleProvider="target">
+                                <rect key="frame" x="190" y="576" width="127" height="80.5"/>
+                                <fontDescription key="fontDescription" name="Nunito-SemiBold" family="Nunito SemiBold" pointSize="18"/>
+                                <color key="textColor" red="0.37647058823529411" green="0.37647058823529411" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cycle Day 2" lineBreakMode="clip" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="1" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uND-xb-uFk">
+                                <rect key="frame" x="290" y="321.5" width="82.5" height="82"/>
+                                <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.58823529409999997" green="0.71372549019999998" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <size key="shadowOffset" width="2" height="0.0"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="26 days until next cycle start" textAlignment="natural" lineBreakMode="clip" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ovI-qD-VmU">
+                                <rect key="frame" x="290" y="403.5" width="124" height="44"/>
+                                <fontDescription key="fontDescription" name="Nunito-SemiBold" family="Nunito SemiBold" pointSize="16"/>
+                                <color key="textColor" red="0.37647058823529411" green="0.37647058823529411" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="G6s-p9-siH" firstAttribute="width" secondItem="TGy-b1-6fc" secondAttribute="width" id="0Qz-J4-OLl"/>
+                            <constraint firstItem="Ute-P2-zRh" firstAttribute="width" secondItem="TGy-b1-6fc" secondAttribute="width" id="1oC-W3-dxB"/>
+                            <constraint firstItem="gr2-cn-VOR" firstAttribute="height" secondItem="aNp-yU-w6a" secondAttribute="height" id="2li-2q-Ysz"/>
+                            <constraint firstItem="Ute-P2-zRh" firstAttribute="centerX" secondItem="TGy-b1-6fc" secondAttribute="centerX" id="6kO-fV-Ith"/>
+                            <constraint firstItem="uND-xb-uFk" firstAttribute="centerY" secondItem="uBa-Lo-M1f" secondAttribute="centerY" id="8BA-jU-6zT"/>
+                            <constraint firstItem="G6s-p9-siH" firstAttribute="top" secondItem="TGy-b1-6fc" secondAttribute="bottom" id="CJG-vp-XJJ"/>
+                            <constraint firstItem="TGy-b1-6fc" firstAttribute="width" relation="lessThanOrEqual" secondItem="Q8n-Je-0fQ" secondAttribute="width" multiplier="0.25" id="DKP-lG-WVh"/>
+                            <constraint firstItem="ovI-qD-VmU" firstAttribute="width" secondItem="uND-xb-uFk" secondAttribute="width" multiplier="1.5" id="GSR-SA-XD7"/>
+                            <constraint firstItem="uND-xb-uFk" firstAttribute="width" secondItem="Q8n-Je-0fQ" secondAttribute="width" multiplier="0.2" id="KhX-7T-gt2"/>
+                            <constraint firstItem="aNp-yU-w6a" firstAttribute="leading" secondItem="gr2-cn-VOR" secondAttribute="trailing" constant="5" id="NgD-L3-2Wf"/>
+                            <constraint firstItem="TGy-b1-6fc" firstAttribute="centerY" secondItem="Q8n-Je-0fQ" secondAttribute="centerY" constant="2.5" id="OHv-vf-B05"/>
+                            <constraint firstItem="gr2-cn-VOR" firstAttribute="centerY" secondItem="aNp-yU-w6a" secondAttribute="centerY" id="RRq-tc-UDI"/>
+                            <constraint firstItem="aNp-yU-w6a" firstAttribute="height" secondItem="Q8n-Je-0fQ" secondAttribute="height" multiplier="0.1" id="RfC-Hw-xE2"/>
+                            <constraint firstItem="TGy-b1-6fc" firstAttribute="top" secondItem="Ute-P2-zRh" secondAttribute="bottom" id="XPY-Zi-oBV"/>
+                            <constraint firstItem="uND-xb-uFk" firstAttribute="centerX" secondItem="uBa-Lo-M1f" secondAttribute="centerX" multiplier="1.6" id="c6I-hQ-pqA"/>
+                            <constraint firstItem="G6s-p9-siH" firstAttribute="centerX" secondItem="TGy-b1-6fc" secondAttribute="centerX" id="dQq-ye-m0z"/>
+                            <constraint firstItem="aNp-yU-w6a" firstAttribute="centerY" secondItem="uBa-Lo-M1f" secondAttribute="centerY" multiplier="1.7" id="etu-ON-Wgq"/>
+                            <constraint firstItem="ovI-qD-VmU" firstAttribute="top" secondItem="uND-xb-uFk" secondAttribute="bottom" id="osK-fC-jRD"/>
+                            <constraint firstItem="ovI-qD-VmU" firstAttribute="leading" secondItem="uND-xb-uFk" secondAttribute="leading" id="ppb-aZ-hkP"/>
+                            <constraint firstItem="TGy-b1-6fc" firstAttribute="centerX" secondItem="uBa-Lo-M1f" secondAttribute="centerX" multiplier="0.4" id="xdU-U1-R1P"/>
+                            <constraint firstItem="aNp-yU-w6a" firstAttribute="centerX" secondItem="uBa-Lo-M1f" secondAttribute="centerX" multiplier="1.75" id="yFb-z2-0cc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="uBa-Lo-M1f"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="hH6-UM-CVn" appends="YES" id="pda-1e-3Dw"/>
+                            <outletCollection property="gestureRecognizers" destination="5JN-yR-Na2" appends="YES" id="IsX-G7-O7K"/>
+                        </connections>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Home" image="HomeTabBarButton" id="Cnj-5K-YrN"/>
+                    <navigationItem key="navigationItem" title="My Cycle ⏏︎" id="5YF-9W-BpP"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="monthLabel" destination="TGy-b1-6fc" id="zYM-Qg-GuC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dWm-yP-fOI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="up" id="hH6-UM-CVn">
+                    <connections>
+                        <action selector="viewSwipedUp:" destination="r1U-z3-EID" id="fb7-0K-3Qx"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="down" id="5JN-yR-Na2">
+                    <connections>
+                        <action selector="viewSwipedDown:" destination="r1U-z3-EID" id="bAg-yW-AUF"/>
+                    </connections>
+                </swipeGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="11615.942028985508" y="-13.392857142857142"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="HomeTabBarButton" width="48" height="40"/>
+        <image name="add" width="54" height="54"/>
+    </resources>
+    <color key="tintColor" red="0.58823529409999997" green="0.71372549019999998" blue="0.80784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+</document>

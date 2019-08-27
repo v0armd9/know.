@@ -11,7 +11,7 @@ import CloudKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
     
     func checkForiCloudUser() {
@@ -24,24 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 //Make sure user is signed into iCloud
                 case .available :
                     print("User was found, account status is 'Available'")
-                    //If user data found in App, instantiate Home Screen
-                    UserController.shared.fetchUser { (success) in
-                        DispatchQueue.main.async {
-                            self.window = UIWindow(frame: UIScreen.main.bounds)
-                            if success {
-                                let storyboard: UIStoryboard = UIStoryboard(name: "Onboarding", bundle: nil)
-                                let view = storyboard.instantiateViewController(withIdentifier: "mainNavigationController") as! UINavigationController
-                                self.window?.rootViewController = view
-                                self.window?.makeKeyAndVisible()
-                            //If no user data found in App, instantiate Onboarding Screens.
-                            } else {
-                                let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                                let view = storyboard.instantiateInitialViewController() as! UINavigationController
-                                self.window?.rootViewController = view
-                                self.window?.makeKeyAndVisible()
-                            }
-                        }
-                    }
+                    self.checkForExistingUserData()
                 case .restricted :
                     print("User was found, account status is 'Restricted'")
                 case .noAccount :
@@ -50,6 +33,48 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     print("Account could not be determined")
                 @unknown default:
                     fatalError()
+                }
+            }
+        }
+    }
+    
+    func transitionToHomeVC() {
+        let storyboard: UIStoryboard = UIStoryboard(name: "Onboarding", bundle: nil)
+        let view = storyboard.instantiateViewController(withIdentifier: "mainTabBarController")
+        self.window?.rootViewController = view
+        self.window?.makeKeyAndVisible()
+    }
+    
+    func transitionToAuthVC() {
+        let storyboard: UIStoryboard = UIStoryboard(name: "Onboarding", bundle: nil)
+        let view = storyboard.instantiateViewController(withIdentifier: "homeNavigationController") as! UINavigationController
+        self.window?.rootViewController = view
+        self.window?.makeKeyAndVisible()
+    }
+    
+    func transitionToOnboardingVC() {
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let view = storyboard.instantiateInitialViewController() as! UINavigationController
+        self.window?.rootViewController = view
+        self.window?.makeKeyAndVisible()
+    }
+    
+    func checkForExistingUserData() {
+        UserController.shared.fetchUser { (success) in
+            DispatchQueue.main.async {
+                self.window = UIWindow(frame: UIScreen.main.bounds)
+                if success {
+                    if UserController.shared.currentUser?.authEnabled == true {
+                        DispatchQueue.main.async {
+                            self.transitionToAuthVC()
+                        }
+                    } else {
+                        DispatchQueue.main.async {
+                            self.transitionToHomeVC()
+                        }
+                    }
+                } else {
+                    self.transitionToOnboardingVC()
                 }
             }
         }
@@ -89,31 +114,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         checkForiCloudUser()
-//        CloudKitController.shared.iCloudUserIDAsync() {
-//            recordID, error in
-//            if let userID = recordID?.recordName {
-//                print("Received iCloudID \(userID)")
-//                UserController.shared.fetchUser { (success) in
-//                    DispatchQueue.main.async {
-//                        self.window = UIWindow(frame: UIScreen.main.bounds)
-//                        if success {
-//                            let storyboard: UIStoryboard = UIStoryboard(name: "Onboarding", bundle: nil)
-//                            let view = storyboard.instantiateViewController(withIdentifier: "mainNavigationController") as! UINavigationController
-//                            self.window?.rootViewController = view
-//                            self.window?.makeKeyAndVisible()
-//                        } else {
-//                            let storyboard: UIStoryboard = UIStoryboard(name: "Onboarding", bundle: nil)
-//                            let view = storyboard.instantiateInitialViewController() as! UINavigationController
-//                            self.window?.rootViewController = view
-//                            self.window?.makeKeyAndVisible()
-//                        }
-//                    }
-//                }
-//            } else {
-//                print("Fetched iCloudID was nil")
-//
-//            }
-//        }
+        
         return true
     }
 

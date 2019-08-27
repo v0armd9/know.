@@ -25,7 +25,6 @@ class PopupPickerViewController: UIViewController {
         datePickerView.setDate(birthday, animated: true)
     }
     
-
     @IBAction func exitButtonTapped(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }

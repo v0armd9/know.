@@ -55,6 +55,7 @@ class SettingProfileViewController: UIViewController {
                 self.loadEditingView()
             } else {
                 self.loadNotEditingView()
+                self.save()
             }
         }, completion: nil)
     }
@@ -173,7 +174,9 @@ class SettingProfileViewController: UIViewController {
         cycleLengthLabel.isHidden = false
         periodLengthLabel.isHidden = false
         pmsLabel.isHidden = false
-        //Save New Data
+    }
+    
+    func save() {
         guard let user = UserController.shared.currentUser,
             let name = nameTextField.text, name.isEmpty == false,
             let birthday = birthday,

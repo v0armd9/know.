@@ -89,9 +89,13 @@ class SettingProfileViewController: UIViewController {
     @IBAction func authEnableButtonTapped(_ sender: Any) {
         authEnableButton.isSelected = true
         authDisableButton.isSelected = false
+<<<<<<< HEAD
         DispatchQueue.main.async {
             self.authenticateUser()
         }
+=======
+        
+>>>>>>> b3220d3cf1b06a558ad150899e56db977f598b4c
     }
     
     @IBAction func authDisableButtonTapped(_ sender: Any) {
@@ -266,6 +270,7 @@ class SettingProfileViewController: UIViewController {
         }
     }
     
+<<<<<<< HEAD
     func authenticateUser() {
         let authContext = LAContext()
         var authError: NSError?
@@ -300,6 +305,10 @@ class SettingProfileViewController: UIViewController {
                 }
             }
         }
+=======
+    func checkForAuthCompatibility() {
+        
+>>>>>>> b3220d3cf1b06a558ad150899e56db977f598b4c
     }
 }
 

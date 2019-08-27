@@ -41,6 +41,7 @@ class SettingProfileViewController: UIViewController {
         setNavBarView()
     }
     
+    //Actions
     @IBAction func unwindToSettingProfileVC(segue:UIStoryboardSegue) {
         //Get Data from Popup ViewController for Data Fetch
         let data = segue.source as? PopupPickerViewController
@@ -48,7 +49,6 @@ class SettingProfileViewController: UIViewController {
         self.birthday = date
     }
     
-    //Actions
     @IBAction func editButtonTapped(_ sender: Any) {
         UIView.animate(withDuration: 0.3, delay: 0.0, options: .transitionCrossDissolve, animations: {
             if self.editBarButton.title == "Edit" {
@@ -60,6 +60,17 @@ class SettingProfileViewController: UIViewController {
         }, completion: nil)
     }
     
+    @IBAction func pmsTrueButtonTapped(_ sender: Any) {
+        pmsYesButton.isSelected  = true
+        pmsNoButton.isSelected = false
+    }
+    
+    @IBAction func pmsFalseButtonTapped(_ sender: Any) {
+        pmsNoButton.isSelected = true
+        pmsYesButton.isSelected  = false
+    }
+    
+    //Segue to Popup View (to transfer birthday data)
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toPopupPickerView" {
             let destination = segue.destination as? PopupPickerViewController
@@ -185,7 +196,7 @@ class SettingProfileViewController: UIViewController {
             let cycleLength = Int(cycleLengthTextField.text ?? "0"),
             let periodLength = Int(periodLabelTextField.text ?? "0"),
             let lastPeriod = user.lastPeriod,
-            let pmsDuration = user.pmsDuration,
+            var pmsDuration = user.pmsDuration,
             var pms = user.pms
             else { return }
         let age = Int(Date().timeIntervalSince(birthday) / secondsToYears)
@@ -193,6 +204,7 @@ class SettingProfileViewController: UIViewController {
             pms = true
         } else {
             pms = false
+            pmsDuration = 0
         }
         //Save Updated Info
         UserController.shared.update(user: user, withName: name, age: age, height: height, weight: weight, cycleLength: cycleLength, periodLength: periodLength, pms: pms, pmsDuration: pmsDuration, lastPeriod: lastPeriod) { (success) in

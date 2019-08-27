@@ -204,7 +204,7 @@
                                                         <rect key="frame" x="50" y="0.0" width="323" height="42"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" textContentType="name"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
@@ -279,7 +279,7 @@
                                                         <rect key="frame" x="50" y="0.0" width="323" height="41.5"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
@@ -317,7 +317,7 @@
                                                         <rect key="frame" x="50" y="0.0" width="323" height="42"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
@@ -355,7 +355,7 @@
                                                         <rect key="frame" x="50" y="0.0" width="323" height="41.5"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
@@ -394,7 +394,7 @@
                                                         <rect key="frame" x="50" y="0.0" width="323" height="41.5"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
@@ -433,7 +433,7 @@
                                                         <rect key="frame" x="50" y="0.0" width="323" height="42"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
@@ -471,10 +471,16 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hyG-xF-kC1">
                                                         <rect key="frame" x="127" y="0.0" width="119" height="42.5"/>
                                                         <state key="normal" title="Yes"/>
+                                                        <connections>
+                                                            <action selector="pmsTrueButtonTapped:" destination="7IU-AF-TyA" eventType="touchUpInside" id="G4V-zF-g2X"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q6B-x7-Kpc">
                                                         <rect key="frame" x="254" y="0.0" width="119" height="42.5"/>
                                                         <state key="normal" title="No"/>
+                                                        <connections>
+                                                            <action selector="pmsFalseButtonTapped:" destination="7IU-AF-TyA" eventType="touchUpInside" id="rfj-nk-VVI"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>

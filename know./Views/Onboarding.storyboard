@@ -1007,6 +1007,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="Pt7-Ip-m8K" kind="relationship" relationship="viewControllers" id="m7e-1I-pzC"/>
+                        <segue destination="UQT-UO-2WP" kind="relationship" relationship="viewControllers" id="vK1-wt-RTe"/>
                         <segue destination="sxN-WQ-JjN" kind="relationship" relationship="viewControllers" id="H64-rL-67i"/>
                         <segue destination="MeB-qL-C8N" kind="relationship" relationship="viewControllers" id="MmP-q6-mZp"/>
                         <segue destination="0wh-z5-tiR" kind="relationship" relationship="viewControllers" id="ftK-YS-HoO"/>
@@ -1565,6 +1566,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gSw-Qd-QAT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="10706" y="1324"/>
+        </scene>
+        <!--CalendarTab-->
+        <scene sceneID="XKt-Mp-SlB">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CalendarTab" id="UQT-UO-2WP" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="DAs-hz-cLa"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GNC-81-VnC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="11236" y="311"/>
         </scene>
     </scenes>
     <resources>

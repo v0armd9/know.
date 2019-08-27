@@ -373,23 +373,43 @@ class CalendarTabViewController: UIViewController {
             classButtons.append(Button(date: date, button: button))
             print(classButtons.count)
             let dayNumber = Calendar.current.dateComponents([Calendar.Component.day], from: date).day!
-            button.setTitle(String(dayNumber), for: .normal)
+            let buttonMonth = Calendar.current.component(.month, from: date)
+            UIView.performWithoutAnimation {
+                if selectedMonth != buttonMonth {
+                    let buttonTitle = NSAttributedString(string: String(dayNumber), attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
+                    button.setAttributedTitle(buttonTitle, for: .normal)
+                    
+                } else {
+                    let buttonTitle = NSAttributedString(string: String(dayNumber), attributes: [NSAttributedString.Key.foregroundColor: UIColor(hexString: "#96B6CE")])
+                    button.setAttributedTitle(buttonTitle, for: .normal)
+                }
+            }
+            
+            
             date = Calendar.current.date(byAdding: .day, value: 1, to: date)!
         }
         classArray = classButtons
-        setUpMonthView()
+        DispatchQueue.main.async {
+            
+            self.setUpMonthView()
+        }
     }
     
     func setUpMonthView() {
         let selectedMonth = Calendar.current.component(.month, from: selectedDate)
-        for button in classArray {
-            let buttonMonth = Calendar.current.component(.month, from: button.date)
-            if selectedMonth != buttonMonth {
-                button.button.titleLabel?.textColor = .gray
-            } else {
-               button.button.titleLabel?.textColor = UIColor(hexString: "#96B6CE")
-            }
-        }
+        
+//        for button in classArray {
+//            let buttonMonth = Calendar.current.component(.month, from: button.date)
+//            UIView.performWithoutAnimation {
+//            if selectedMonth != buttonMonth {
+//                    button.button.titleLabel?.textColor = .gray
+//                    button.button.backgroundColor = .blue
+//            } else {
+//                button.button.titleLabel?.textColor = UIColor(hexString: "#96B6CE")
+//                button.button.backgroundColor = .white
+//                }
+//            }
+//        }
         let lastRowMonth = Calendar.current.component(.month, from: classArray[35].date)
         if lastRowMonth != selectedMonth {
             self.lastRow.isHidden = true
@@ -452,7 +472,7 @@ extension CalendarTabViewController: UIPickerViewDataSource, UIPickerViewDelegat
             let dateComponents = DateComponents(calendar: Calendar.current, year: selectedYear, month: selectedMonth, day: 1)
             let date = Calendar.current.date(from: dateComponents)!
             selectedDate = date
-            let firstCalendarDate = getStartDate(date: date)
+            let firstCalendarDate = getStartDate(date: selectedDate)
             setButtons(date: firstCalendarDate)
         case 1:
             let year = years[row]

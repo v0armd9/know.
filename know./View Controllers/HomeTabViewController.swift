@@ -34,6 +34,7 @@ class HomeTabViewController: UIViewController {
                     self.updateButtonsPast()
                 }
             }
+            self.navigationItem.title = "My Cycle ⏏︎"
         }
     }
     
@@ -71,11 +72,17 @@ class HomeTabViewController: UIViewController {
     
     func addButtons(buttonCount: Int, completion: @escaping (Bool) -> Void) {
         let wheelView = self.wheelView
-        wheelView.frame = CGRect(x: view.frame.minX - (view.frame.width), y: view.frame.minY + (view.frame.height*0.15), width: view.frame.height*0.7, height: view.frame.height*0.7)
+        wheelView.frame = CGRect(x: view.frame.minX - (2*((view.frame.height*0.7)/3)), y: view.frame.minY + (view.frame.height*0.15), width: view.frame.height*0.7, height: view.frame.height*0.7)
+        
         wheelView.backgroundColor = .clear
         wheelView.layer.cornerRadius = wheelView.frame.height/2
-        wheelView.layer.borderWidth = 2
-        wheelView.layer.borderColor = UIColor.lightGray.cgColor
+        let circlePath = UIBezierPath(arcCenter: CGPoint(x: self.wheelView.frame.midX, y: self.wheelView.frame.midY), radius: wheelView.frame.height / 2, startAngle: 0, endAngle: CGFloat(Double.pi * 2), clockwise: true)
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.path = circlePath.cgPath
+        shapeLayer.strokeColor = UIColor.init(hexString: "#96B6CE").cgColor
+        shapeLayer.borderWidth = 40
+        shapeLayer.fillColor = UIColor.clear.cgColor
+        view.layer.insertSublayer(shapeLayer, at: 0)
         
         view.addSubview(wheelView)
         
@@ -93,9 +100,7 @@ class HomeTabViewController: UIViewController {
             let sine = sin(doubleIndex * angle)
             button.center.x += (CGFloat(radius * cosine))
             button.center.y += (CGFloat(radius * sine))
-            
             wheelView.addSubview(button)
-            wheelView.bringSubviewToFront(button)
         }
         completion(true)
     }
@@ -110,6 +115,7 @@ class HomeTabViewController: UIViewController {
             button?.setTitle(String(dayNumber), for: .normal)
             date = Calendar.current.date(byAdding: .day, value: 1, to: date)!
             button?.setBackgroundImage(#imageLiteral(resourceName: "wheelButton"), for: .normal)
+            button?.titleLabel?.font = UIFont(name: "Nunito-Regular" , size: 30)
         }
     }
     
@@ -124,9 +130,15 @@ class HomeTabViewController: UIViewController {
             date = Calendar.current.date(byAdding: .day, value: 1, to: date)!
             button?.setBackgroundImage(#imageLiteral(resourceName: "wheelButton"), for: .normal)
             value += 1
+            button?.titleLabel?.font = UIFont(name: "Nunito-Regular" , size: 30)
         }
         let selectedButton = wheelView.subviews[17] as? UIButton
         selectedButton?.setBackgroundImage(#imageLiteral(resourceName: "selectedWheelButton"), for: .normal)
+        selectedButton?.layer.shadowColor = UIColor.init(hexString: "#96B6CE").cgColor
+        selectedButton?.layer.masksToBounds = false
+        selectedButton?.layer.shadowOpacity = 1
+        selectedButton?.layer.shadowRadius = 15
+        selectedButton?.titleLabel?.font = UIFont(name: "Nunito-ExtraBold" , size: 30)
     }
     
     func reorderSubviewsForward() {
@@ -139,7 +151,17 @@ class HomeTabViewController: UIViewController {
         let newButton = wheelView.subviews[17] as? UIButton
         let oldButton = wheelView.subviews[16] as? UIButton
         newButton?.setBackgroundImage(#imageLiteral(resourceName: "selectedWheelButton"), for: .normal)
+        newButton?.layer.shadowColor = UIColor.init(hexString: "#96B6CE").cgColor
+        newButton?.layer.masksToBounds = false
+        newButton?.layer.shadowOpacity = 1
+        newButton?.layer.shadowRadius = 15
+        newButton?.titleLabel?.font = UIFont(name: "Nunito-ExtraBold" , size: 30)
         oldButton?.setBackgroundImage(#imageLiteral(resourceName: "wheelButton"), for: .normal)
+        oldButton?.layer.shadowColor = UIColor.clear.cgColor
+        oldButton?.layer.masksToBounds = false
+        oldButton?.layer.shadowOpacity = 0.3
+        oldButton?.layer.shadowRadius = 15
+        oldButton?.titleLabel?.font = UIFont(name: "Nunito-Regular" , size: 30)
     }
     
     func reorderSubviewsBackward() {
@@ -152,7 +174,17 @@ class HomeTabViewController: UIViewController {
         let newButton = wheelView.subviews[17] as? UIButton
         let oldButton = wheelView.subviews[0] as? UIButton
         newButton?.setBackgroundImage(#imageLiteral(resourceName: "selectedWheelButton"), for: .normal)
+        newButton?.layer.shadowColor = UIColor.init(hexString: "#96B6CE").cgColor
+        newButton?.layer.masksToBounds = false
+        newButton?.layer.shadowOpacity = 1
+        newButton?.layer.shadowRadius = 15
+        newButton?.titleLabel?.font = UIFont(name: "Nunito-ExtraBold" , size: 30)
         oldButton?.setBackgroundImage(#imageLiteral(resourceName: "wheelButton"), for: .normal)
+        oldButton?.layer.shadowColor = UIColor.clear.cgColor
+        oldButton?.layer.masksToBounds = false
+        oldButton?.layer.shadowOpacity = 0.3
+        oldButton?.layer.shadowRadius = 15
+        oldButton?.titleLabel?.font = UIFont(name: "Nunito-Regular" , size: 30)
     }
     
     func swipeUp() {

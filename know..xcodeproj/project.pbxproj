@@ -59,6 +59,7 @@
 		58229A32231063BB00C29826 /* shareTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58229A31231063BB00C29826 /* shareTab.storyboard */; };
 		58229A342310640500C29826 /* settingsTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58229A332310640500C29826 /* settingsTab.storyboard */; };
 		58229A6423142A7700C29826 /* HomeTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58229A6323142A7700C29826 /* HomeTabViewController.swift */; };
+		58462713231483D2007EFA08 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58462712231483D2007EFA08 /* ColorExtension.swift */; };
 		587F2091230DDE1800880F8E /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 587F2090230DDE1800880F8E /* Onboarding.storyboard */; };
 		58C0A28A230B04B700A63ACD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C0A289230B04B700A63ACD /* AppDelegate.swift */; };
 		58C0A28F230B04B700A63ACD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58C0A28D230B04B700A63ACD /* Main.storyboard */; };
@@ -121,6 +122,7 @@
 		58229A31231063BB00C29826 /* shareTab.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = shareTab.storyboard; sourceTree = "<group>"; };
 		58229A332310640500C29826 /* settingsTab.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = settingsTab.storyboard; sourceTree = "<group>"; };
 		58229A6323142A7700C29826 /* HomeTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabViewController.swift; sourceTree = "<group>"; };
+		58462712231483D2007EFA08 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		587F2090230DDE1800880F8E /* Onboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		58C0A286230B04B700A63ACD /* know..app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = know..app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58C0A289230B04B700A63ACD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				53B14103230DFEB7008AE180 /* DateFormatter.swift */,
 				58CD1107230C7742009A8333 /* LabelHelper.swift */,
 				53F5887E231443330076D7D2 /* Alerts.swift */,
+				58462712231483D2007EFA08 /* ColorExtension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -159,7 +162,6 @@
 		53F588722310859E0076D7D2 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				53F5888023144DE60076D7D2 /* OnboardStartViewController.swift */,
 				53381C72230F4BF400FA1D91 /* OnboardNameViewController.swift */,
 				53381C74230F4D8200FA1D91 /* OnboardWelcomeViewController.swift */,
 				53B140F9230DE0BB008AE180 /* OnboardPeriodLengthViewController.swift */,
@@ -170,6 +172,7 @@
 				53381C6E230EFAC800FA1D91 /* OnboardHeightViewController.swift */,
 				53381C70230F033400FA1D91 /* OnboardWeightViewController.swift */,
 				53381C76231038B000FA1D91 /* OnboardingFinishedViewController.swift */,
+				53F5888023144DE60076D7D2 /* OnboardStartViewController.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -259,16 +262,6 @@
 		58C0A29E230B051700A63ACD /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				53381C72230F4BF400FA1D91 /* OnboardNameViewController.swift */,
-				53381C74230F4D8200FA1D91 /* OnboardWelcomeViewController.swift */,
-				53B140F9230DE0BB008AE180 /* OnboardPeriodLengthViewController.swift */,
-				53B140FB230DE4FF008AE180 /* OnboardPMSViewController.swift */,
-				53B140FD230DE68E008AE180 /* OnboardCycleLengthViewController.swift */,
-				53B140FF230DF10D008AE180 /* OnboardLastPeriodViewController.swift */,
-				53B14101230DFB20008AE180 /* OnboardBirthdayViewController.swift */,
-				53381C6E230EFAC800FA1D91 /* OnboardHeightViewController.swift */,
-				53381C70230F033400FA1D91 /* OnboardWeightViewController.swift */,
-				53381C76231038B000FA1D91 /* OnboardingFinishedViewController.swift */,
 				58229A6323142A7700C29826 /* HomeTabViewController.swift */,
 				53F588722310859E0076D7D2 /* Onboarding */,
 				53F58873231085AA0076D7D2 /* Info */,
@@ -421,6 +414,7 @@
 				53B14100230DF10D008AE180 /* OnboardLastPeriodViewController.swift in Sources */,
 				53B140F4230DB34C008AE180 /* User.swift in Sources */,
 				53B140FE230DE68E008AE180 /* OnboardCycleLengthViewController.swift in Sources */,
+				58462713231483D2007EFA08 /* ColorExtension.swift in Sources */,
 				53F58879231087DC0076D7D2 /* HealthInfoController.swift in Sources */,
 				53B14104230DFEB7008AE180 /* DateFormatter.swift in Sources */,
 				53B140EA230CA662008AE180 /* DayController.swift in Sources */,
@@ -601,13 +595,13 @@
 				CODE_SIGN_ENTITLEMENTS = know./know..entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8MJ3MC3A9A;
+				DEVELOPMENT_TEAM = QP48FW2MG5;
 				INFOPLIST_FILE = "$(SRCROOT)/know./Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.DMA.know;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DarinArmstrong.know;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -622,13 +616,13 @@
 				CODE_SIGN_ENTITLEMENTS = know./know..entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8MJ3MC3A9A;
+				DEVELOPMENT_TEAM = QP48FW2MG5;
 				INFOPLIST_FILE = "$(SRCROOT)/know./Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.DMA.know;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DarinArmstrong.know;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

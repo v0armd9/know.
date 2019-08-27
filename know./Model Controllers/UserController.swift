@@ -42,7 +42,7 @@ class UserController {
         }
     }
     
-    func update(user: User, withName name: String, age: Int, height: Int, weight: Int, cycleLength: Int, periodLength: Int, pms: Bool, pmsDuration: Int, lastPeriod: Date, completion: @escaping(Bool) -> Void) {
+    func update(user: User, withName name: String, age: Int, height: Int, weight: Int, cycleLength: Int, periodLength: Int, pms: Bool, pmsDuration: Int, lastPeriod: Date, authEnabled: Bool, completion: @escaping(Bool) -> Void) {
         user.name = name
         user.age = age
         user.height = height
@@ -52,6 +52,7 @@ class UserController {
         user.pms = pms
         user.pmsDuration = pmsDuration
         user.lastPeriod = lastPeriod
+        user.authEnabled = authEnabled
         let record = CKRecord(user: user)
         CloudKitController.shared.update(record: record) { (success) in
             if success {

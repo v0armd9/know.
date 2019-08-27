@@ -23,10 +23,11 @@ class User {
     var pms: Bool?
     var pmsDuration: Int?
     var lastPeriod: Date?
+    var authEnabled: Bool?
     var ckRecordID: CKRecord.ID
     
     //Designated Initializer
-    init(days: [Day] = [], name: String?, age: Int?, birthdate: Date?, height: Int?, weight: Int?, cycleLength: Int?, periodLength: Int?, pms: Bool?, pmsDuration: Int?, lastPeriod: Date?, ckRecordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString)) {
+    init(days: [Day] = [], name: String?, age: Int?, birthdate: Date?, height: Int?, weight: Int?, cycleLength: Int?, periodLength: Int?, pms: Bool?, pmsDuration: Int?, lastPeriod: Date?, authEnabled: Bool? = false, ckRecordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString)) {
         self.days = days
         self.name = name
         self.age = age
@@ -38,6 +39,7 @@ class User {
         self.pms = pms
         self.pmsDuration = pmsDuration
         self.lastPeriod = lastPeriod
+        self.authEnabled = authEnabled
         self.ckRecordID = ckRecordID
     }
     
@@ -52,9 +54,10 @@ class User {
             let periodLength = record[UserConstants.periodKey] as? Int,
             let pms = record[UserConstants.pmsKey] as? Bool,
             let pmsDuration = record[UserConstants.pmsDurationKey] as? Int,
-            let lastPeriod = record[UserConstants.lastPeriodKey] as? Date
+            let lastPeriod = record[UserConstants.lastPeriodKey] as? Date,
+            let authEnabled = record[UserConstants.authKey] as? Bool
             else { return nil }
-        self.init(name: name, age: age, birthdate: birthdate, height: height, weight: weight, cycleLength: cycleLength, periodLength: periodLength, pms: pms, pmsDuration: pmsDuration, lastPeriod: lastPeriod, ckRecordID: record.recordID)
+        self.init(name: name, age: age, birthdate: birthdate, height: height, weight: weight, cycleLength: cycleLength, periodLength: periodLength, pms: pms, pmsDuration: pmsDuration, lastPeriod: lastPeriod, authEnabled: authEnabled, ckRecordID: record.recordID)
     }
 }
 
@@ -72,6 +75,7 @@ extension CKRecord {
         self.setValue(user.pms, forKey: UserConstants.pmsKey)
         self.setValue(user.pmsDuration, forKey: UserConstants.pmsDurationKey)
         self.setValue(user.lastPeriod, forKey: UserConstants.lastPeriodKey)
+        self.setValue(user.authEnabled, forKey: UserConstants.authKey)
     }
 }
 
@@ -95,4 +99,5 @@ struct UserConstants {
     fileprivate static let pmsKey = "pms"
     fileprivate static let pmsDurationKey = "pmsDuration"
     fileprivate static let lastPeriodKey = "lastPeriod"
+    fileprivate static let authKey = "authEnabled"
 }

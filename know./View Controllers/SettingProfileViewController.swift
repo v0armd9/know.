@@ -32,6 +32,9 @@ class SettingProfileViewController: UIViewController {
     @IBOutlet weak var pmsLabel: UILabel!
     @IBOutlet weak var pmsYesButton: UIButton!
     @IBOutlet weak var pmsNoButton: UIButton!
+    @IBOutlet weak var authLabel: UILabel!
+    @IBOutlet weak var authEnableButton: UIButton!
+    @IBOutlet weak var authDisableButton: UIButton!
     @IBOutlet weak var editBarButton: UIBarButtonItem!
     
     //Lifecycle
@@ -80,6 +83,16 @@ class SettingProfileViewController: UIViewController {
         pmsYesButton.isSelected  = false
     }
     
+    @IBAction func authEnableButtonTapped(_ sender: Any) {
+        authEnableButton.isSelected = true
+        authDisableButton.isSelected = false
+    }
+    
+    @IBAction func authDisableButtonTapped(_ sender: Any) {
+        authDisableButton.isSelected = true
+        authEnableButton.isSelected = false
+    }
+    
     //Helper Functions
     func setNavBarView() {
         guard let user = UserController.shared.currentUser,
@@ -105,9 +118,11 @@ class SettingProfileViewController: UIViewController {
             let cycleLength = user.cycleLength,
             let periodLength = user.periodLength,
             let pms = user.pms,
-            let pmsDuration = user.pmsDuration
+            let pmsDuration = user.pmsDuration,
+            let authEnabled = user.authEnabled
             else { return }
         DispatchQueue.main.async {
+            //Label Text
             self.nameLabel.text = name
             self.birthdayLabel.text = birthday.stringWith(dateStyle: .medium, timeStyle: .none)
             self.ageLabel.text = "\(age)"
@@ -116,6 +131,8 @@ class SettingProfileViewController: UIViewController {
             self.cycleLengthLabel.text = "\(cycleLength)"
             self.periodLengthLabel.text = "\(periodLength)"
             self.pmsLabel.text = pms ? "Yes (\(pmsDuration) Days)" : "No"
+            self.authLabel.text = authEnabled ? "Enabled" : "Disabled"
+            //Text Fields Hidden
             self.nameTextField.isHidden = true
             self.birthdayButton.isHidden = true
             self.ageTextField.isHidden = true
@@ -125,6 +142,8 @@ class SettingProfileViewController: UIViewController {
             self.periodLabelTextField.isHidden = true
             self.pmsNoButton.isHidden = true
             self.pmsYesButton.isHidden = true
+            self.authEnableButton.isHidden = true
+            self.authDisableButton.isHidden = true
         }
     }
     
@@ -140,6 +159,8 @@ class SettingProfileViewController: UIViewController {
         periodLabelTextField.isHidden = false
         pmsNoButton.isHidden = false
         pmsYesButton.isHidden = false
+        authEnableButton.isHidden = false
+        authDisableButton.isHidden = false
         //TextField Text
         nameTextField.text = nameLabel.text
         birthdayButton.setTitle(birthday.stringWith(dateStyle: .medium, timeStyle: .none), for: .normal)
@@ -155,6 +176,13 @@ class SettingProfileViewController: UIViewController {
             pmsYesButton.isSelected = true
             pmsNoButton.isSelected = false
         }
+        if authLabel.text == "Enabled" {
+            authEnableButton.isSelected = true
+            authDisableButton.isSelected = false
+        } else {
+            authEnableButton.isSelected = false
+            authDisableButton.isSelected = true
+        }
         //Labels
         nameLabel.isHidden = true
         birthdayLabel.isHidden = true
@@ -164,6 +192,7 @@ class SettingProfileViewController: UIViewController {
         cycleLengthLabel.isHidden = true
         periodLengthLabel.isHidden = true
         pmsLabel.isHidden = true
+        authLabel.isHidden = true
     }
     
     func loadNotEditingView() {
@@ -177,6 +206,8 @@ class SettingProfileViewController: UIViewController {
         periodLabelTextField.isHidden = true
         pmsNoButton.isHidden = true
         pmsYesButton.isHidden = true
+        authEnableButton.isHidden = true
+        authDisableButton.isHidden = true
         //Labels
         nameLabel.isHidden = false
         birthdayLabel.isHidden = false
@@ -186,6 +217,7 @@ class SettingProfileViewController: UIViewController {
         cycleLengthLabel.isHidden = false
         periodLengthLabel.isHidden = false
         pmsLabel.isHidden = false
+        authLabel.isHidden = false
     }
     
     func save() {
@@ -199,7 +231,8 @@ class SettingProfileViewController: UIViewController {
             let periodLength = Int(periodLabelTextField.text ?? "0"),
             let lastPeriod = user.lastPeriod,
             var pmsDuration = user.pmsDuration,
-            var pms = user.pms
+            var pms = user.pms,
+            var authEnabled = user.authEnabled
             else { return }
         let age = Int(Date().timeIntervalSince(birthday) / secondsToYears)
         if pmsYesButton.isSelected {
@@ -208,8 +241,13 @@ class SettingProfileViewController: UIViewController {
             pms = false
             pmsDuration = 0
         }
+        if authEnableButton.isSelected {
+            authEnabled = true
+        } else {
+            authEnabled = false
+        }
         //Save Updated Info
-        UserController.shared.update(user: user, withName: name, age: age, height: height, weight: weight, cycleLength: cycleLength, periodLength: periodLength, pms: pms, pmsDuration: pmsDuration, lastPeriod: lastPeriod) { (success) in
+        UserController.shared.update(user: user, withName: name, age: age, height: height, weight: weight, cycleLength: cycleLength, periodLength: periodLength, pms: pms, pmsDuration: pmsDuration, lastPeriod: lastPeriod, authEnabled: authEnabled) { (success) in
             if success {
                 print("Updated User Info")
                 DispatchQueue.main.async {

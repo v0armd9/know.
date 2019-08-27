@@ -168,6 +168,7 @@
 		53F588722310859E0076D7D2 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				53F5888023144DE60076D7D2 /* OnboardStartViewController.swift */,
 				53381C72230F4BF400FA1D91 /* OnboardNameViewController.swift */,
 				53381C74230F4D8200FA1D91 /* OnboardWelcomeViewController.swift */,
 				53B140F9230DE0BB008AE180 /* OnboardPeriodLengthViewController.swift */,
@@ -178,7 +179,6 @@
 				53381C6E230EFAC800FA1D91 /* OnboardHeightViewController.swift */,
 				53381C70230F033400FA1D91 /* OnboardWeightViewController.swift */,
 				53381C76231038B000FA1D91 /* OnboardingFinishedViewController.swift */,
-				53F5888023144DE60076D7D2 /* OnboardStartViewController.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";

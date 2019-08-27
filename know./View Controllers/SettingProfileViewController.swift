@@ -9,12 +9,16 @@
 import UIKit
 
 class SettingProfileViewController: UIViewController {
-
+    
+    //Properties
+    let secondsToYears = 31536000.0
+    var birthday = UserController.shared.currentUser?.birthdate
+    
     //Outlets
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var birthdayLabel: UILabel!
-    @IBOutlet weak var birthdayTextField: UITextField!
+    @IBOutlet weak var birthdayButton: UIButton!
     @IBOutlet weak var ageLabel: UILabel!
     @IBOutlet weak var ageTextField: UITextField!
     @IBOutlet weak var heightLabel: UILabel!
@@ -28,14 +32,47 @@ class SettingProfileViewController: UIViewController {
     @IBOutlet weak var pmsLabel: UILabel!
     @IBOutlet weak var pmsYesButton: UIButton!
     @IBOutlet weak var pmsNoButton: UIButton!
+    @IBOutlet weak var editBarButton: UIBarButtonItem!
     
     //Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
+        setNavBarView()
+    }
+    
+    @IBAction func unwindToSettingProfileVC(segue:UIStoryboardSegue) {
+        //Get Data from Popup ViewController for Data Fetch
+        let data = segue.source as? PopupPickerViewController
+        guard let date = data?.datePickerView.date else { return }
+        self.birthday = date
+    }
+    
+    //Actions
+    @IBAction func editButtonTapped(_ sender: Any) {
+        UIView.animate(withDuration: 0.3, delay: 0.0, options: .transitionCrossDissolve, animations: {
+            if self.editBarButton.title == "Edit" {
+                self.loadEditingView()
+            } else {
+                self.loadNotEditingView()
+            }
+        }, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toPopupPickerView" {
+            let destination = segue.destination as? PopupPickerViewController
+            guard let birthday = UserController.shared.currentUser?.birthdate else { return }
+            destination?.birthday = birthday
+        }
+    }
+    
+    //Helper Functions
+    func setNavBarView() {
         guard let user = UserController.shared.currentUser,
-        let name = user.name
+            let name = user.name
             else { return }
+        editBarButton.title = "Edit"
         let label = UILabel()
         label.text = name
         label.textColor = #colorLiteral(red: 0.554766655, green: 0.7184440494, blue: 0.8180738091, alpha: 1)
@@ -57,22 +94,115 @@ class SettingProfileViewController: UIViewController {
             let pms = user.pms,
             let pmsDuration = user.pmsDuration
             else { return }
-        nameLabel.text = name
-        birthdayLabel.text = birthday.stringWith(dateStyle: .medium, timeStyle: .none)
-        ageLabel.text = "\(age)"
-        heightLabel.text = "\(height)"
-        weightLabel.text = "\(weight)"
-        cycleLengthLabel.text = "\(cycleLength)"
-        periodLengthLabel.text = "\(periodLength)"
-        pmsLabel.text = pms ? "Yes (\(pmsDuration) Days)" : "No"
+        DispatchQueue.main.async {
+            self.nameLabel.text = name
+            self.birthdayLabel.text = birthday.stringWith(dateStyle: .medium, timeStyle: .none)
+            self.ageLabel.text = "\(age)"
+            self.heightLabel.text = "\(height)"
+            self.weightLabel.text = "\(weight)"
+            self.cycleLengthLabel.text = "\(cycleLength)"
+            self.periodLengthLabel.text = "\(periodLength)"
+            self.pmsLabel.text = pms ? "Yes (\(pmsDuration) Days)" : "No"
+            self.nameTextField.isHidden = true
+            self.birthdayButton.isHidden = true
+            self.ageTextField.isHidden = true
+            self.heightTextField.isHidden = true
+            self.weightTextField.isHidden = true
+            self.cycleLengthTextField.isHidden = true
+            self.periodLabelTextField.isHidden = true
+            self.pmsNoButton.isHidden = true
+            self.pmsYesButton.isHidden = true
+        }
+    }
+    
+    func loadEditingView() {
+        guard let birthday = birthday else { return }
+        editBarButton.title = "Save"
+        //TextFields
+        nameTextField.isHidden = false
+        birthdayButton.isHidden = false
+        heightTextField.isHidden = false
+        weightTextField.isHidden = false
+        cycleLengthTextField.isHidden = false
+        periodLabelTextField.isHidden = false
+        pmsNoButton.isHidden = false
+        pmsYesButton.isHidden = false
+        //TextField Text
+        nameTextField.text = nameLabel.text
+        birthdayButton.setTitle(birthday.stringWith(dateStyle: .medium, timeStyle: .none), for: .normal)
+        ageTextField.text = ageLabel.text
+        heightTextField.text = heightLabel.text
+        weightTextField.text = weightLabel.text
+        cycleLengthTextField.text = cycleLengthLabel.text
+        periodLabelTextField.text = periodLengthLabel.text
+        if pmsLabel.text == "No" {
+            pmsNoButton.isSelected = true
+            pmsYesButton.isSelected = false
+        } else {
+            pmsYesButton.isSelected = true
+            pmsNoButton.isSelected = false
+        }
+        //Labels
+        nameLabel.isHidden = true
+        birthdayLabel.isHidden = true
+        ageLabel.isHidden = false
+        heightLabel.isHidden = true
+        weightLabel.isHidden = true
+        cycleLengthLabel.isHidden = true
+        periodLengthLabel.isHidden = true
+        pmsLabel.isHidden = true
+    }
+    
+    func loadNotEditingView() {
+        //TextFields
+        editBarButton.title = "Edit"
         nameTextField.isHidden = true
-        birthdayTextField.isHidden = true
-        ageTextField.isHidden = true
+        birthdayButton.isHidden = true
         heightTextField.isHidden = true
         weightTextField.isHidden = true
         cycleLengthTextField.isHidden = true
         periodLabelTextField.isHidden = true
         pmsNoButton.isHidden = true
         pmsYesButton.isHidden = true
+        //Labels
+        nameLabel.isHidden = false
+        birthdayLabel.isHidden = false
+        ageLabel.isHidden = false
+        heightLabel.isHidden = false
+        weightLabel.isHidden = false
+        cycleLengthLabel.isHidden = false
+        periodLengthLabel.isHidden = false
+        pmsLabel.isHidden = false
+        //Save New Data
+        guard let user = UserController.shared.currentUser,
+            let name = nameTextField.text, name.isEmpty == false,
+            let birthday = birthday,
+            let height = Int(heightTextField.text ?? "0"),
+            let weight = Int(weightTextField.text ?? "0"),
+            let cycleLength = Int(cycleLengthTextField.text ?? "0"),
+            let periodLength = Int(periodLabelTextField.text ?? "0"),
+            let lastPeriod = user.lastPeriod,
+            let pmsDuration = user.pmsDuration,
+            var pms = user.pms
+            else { return }
+        let age = Int(Date().timeIntervalSince(birthday) / secondsToYears)
+        if pmsYesButton.isSelected {
+            pms = true
+        } else {
+            pms = false
+        }
+        //Save Updated Info
+        UserController.shared.update(user: user, withName: name, age: age, height: height, weight: weight, cycleLength: cycleLength, periodLength: periodLength, pms: pms, pmsDuration: pmsDuration, lastPeriod: lastPeriod) { (success) in
+            if success {
+                print("Updated User Info")
+                DispatchQueue.main.async {
+                    self.view.layoutIfNeeded()
+                    self.updateViews()
+                }
+            } else {
+                print("Failed to Update User Info")
+            }
+        }
     }
 }
+

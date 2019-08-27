@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import LocalAuthentication
 
 class SettingProfileViewController: UIViewController {
     
@@ -88,6 +89,9 @@ class SettingProfileViewController: UIViewController {
     @IBAction func authEnableButtonTapped(_ sender: Any) {
         authEnableButton.isSelected = true
         authDisableButton.isSelected = false
+        DispatchQueue.main.async {
+            self.authenticateUser()
+        }
     }
     
     @IBAction func authDisableButtonTapped(_ sender: Any) {
@@ -258,6 +262,42 @@ class SettingProfileViewController: UIViewController {
                 }
             } else {
                 print("Failed to Update User Info")
+            }
+        }
+    }
+    
+    func authenticateUser() {
+        let authContext = LAContext()
+        var authError: NSError?
+        authContext.canEvaluatePolicy(LAPolicy.deviceOwnerAuthenticationWithBiometrics, error: &authError)
+        if authError != nil {
+            print("Authentication not available on this device")
+            let alertController = UIAlertController (title: "Uh Oh!", message: "Biometric Authentication not supported. Please check settings to allow.", preferredStyle: .alert)
+            let action = UIAlertAction(title: "Dismiss", style: .default)
+            alertController.addAction(action)
+            self.present(alertController, animated: true)
+            authEnableButton.isSelected = false
+            authDisableButton.isSelected = true
+        } else {
+            authContext.evaluatePolicy(LAPolicy.deviceOwnerAuthenticationWithBiometrics, localizedReason: "Allow Touch ID") { (success, error) in
+                if let error = error {
+                    print("Authentication Error")
+                    print("Error in \(#function): \(error.localizedDescription) \n---\n \(error)")
+                    DispatchQueue.main.async {
+                        self.authEnableButton.isSelected = false
+                        self.authDisableButton.isSelected = true
+                    }
+                } else {
+                    if success {
+                        print("Authentication was successful")
+                        let alertController = UIAlertController (title: "Authentication", message: "Use Biometric Authentication to log into app.", preferredStyle: .alert)
+                        let action = UIAlertAction(title: "Dismiss", style: .default)
+                        alertController.addAction(action)
+                        self.present(alertController, animated: true)
+                    } else {
+                        print("Authentication Failed")
+                    }
+                }
             }
         }
     }

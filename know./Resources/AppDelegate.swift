@@ -40,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func transitionToAuthVC() {
         let storyboard: UIStoryboard = UIStoryboard(name: "Onboarding", bundle: nil)
-        let view = storyboard.instantiateViewController(withIdentifier: "homeNavigationController") as! UINavigationController
+        let view = storyboard.instantiateViewController(withIdentifier: "authViewController")
         self.window?.rootViewController = view
         self.window?.makeKeyAndVisible()
     }

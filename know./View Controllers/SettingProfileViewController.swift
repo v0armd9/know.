@@ -41,12 +41,22 @@ class SettingProfileViewController: UIViewController {
         setNavBarView()
     }
     
+    //Segue to Popup View (to transfer birthday data)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toPopupPickerView" {
+            let destination = segue.destination as? PopupPickerViewController
+            guard let birthday = UserController.shared.currentUser?.birthdate else { return }
+            destination?.birthday = birthday
+        }
+    }
+    
     //Actions
     @IBAction func unwindToSettingProfileVC(segue:UIStoryboardSegue) {
         //Get Data from Popup ViewController for Data Fetch
         let data = segue.source as? PopupPickerViewController
         guard let date = data?.datePickerView.date else { return }
         self.birthday = date
+        birthdayButton.setTitle(date.stringWith(dateStyle: .medium, timeStyle: .none), for: .normal)
     }
     
     @IBAction func editButtonTapped(_ sender: Any) {
@@ -68,15 +78,6 @@ class SettingProfileViewController: UIViewController {
     @IBAction func pmsFalseButtonTapped(_ sender: Any) {
         pmsNoButton.isSelected = true
         pmsYesButton.isSelected  = false
-    }
-    
-    //Segue to Popup View (to transfer birthday data)
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toPopupPickerView" {
-            let destination = segue.destination as? PopupPickerViewController
-            guard let birthday = UserController.shared.currentUser?.birthdate else { return }
-            destination?.birthday = birthday
-        }
     }
     
     //Helper Functions
@@ -188,6 +189,7 @@ class SettingProfileViewController: UIViewController {
     }
     
     func save() {
+        //Unwrap and set Properties
         guard let user = UserController.shared.currentUser,
             let name = nameTextField.text, name.isEmpty == false,
             let birthday = birthday,

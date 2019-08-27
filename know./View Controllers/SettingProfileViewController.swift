@@ -88,6 +88,7 @@ class SettingProfileViewController: UIViewController {
     @IBAction func authEnableButtonTapped(_ sender: Any) {
         authEnableButton.isSelected = true
         authDisableButton.isSelected = false
+        
     }
     
     @IBAction func authDisableButtonTapped(_ sender: Any) {
@@ -260,6 +261,10 @@ class SettingProfileViewController: UIViewController {
                 print("Failed to Update User Info")
             }
         }
+    }
+    
+    func checkForAuthCompatibility() {
+        
     }
 }
 

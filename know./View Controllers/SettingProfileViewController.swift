@@ -60,6 +60,8 @@ class SettingProfileViewController: UIViewController {
         guard let date = data?.datePickerView.date else { return }
         self.birthday = date
         birthdayButton.setTitle(date.stringWith(dateStyle: .medium, timeStyle: .none), for: .normal)
+        let age = Int(Date().timeIntervalSince(date) / secondsToYears)
+        ageLabel.text = "\(age)"
     }
     
     @IBAction func editButtonTapped(_ sender: Any) {

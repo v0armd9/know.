@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HAH-7b-PXz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1ba-wM-3ld">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -64,26 +64,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ytr-Hl-NSK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1678" y="-25"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="yas-w2-4C3">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HAH-7b-PXz" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="o11-Ck-50c">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" red="0.58823529409999997" green="0.71372549019999998" blue="0.80784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="neh-ng-7se" kind="relationship" relationship="rootViewController" id="WrE-ct-1AP"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dyN-Hg-8tI" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="922" y="-25"/>
+            <point key="canvasLocation" x="3497.1014492753625" y="-25.446428571428569"/>
         </scene>
         <!--Onboarding-->
         <scene sceneID="8wM-kg-v7p">
@@ -91,7 +72,25 @@
                 <viewControllerPlaceholder storyboardName="Onboarding" id="Oqe-f7-JGY" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xsg-TG-5mI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2661" y="-25"/>
+            <point key="canvasLocation" x="4480.434782608696" y="-25.446428571428569"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="fcd-5Y-HTd">
+            <objects>
+                <navigationController storyboardIdentifier="beginOnboardNavController" automaticallyAdjustsScrollViewInsets="NO" id="1ba-wM-3ld" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zhK-2z-49G">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="neh-ng-7se" kind="relationship" relationship="rootViewController" id="2Ak-kL-zKB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mqi-2M-xiC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2586.9565217391305" y="-25.446428571428569"/>
         </scene>
     </scenes>
     <resources>

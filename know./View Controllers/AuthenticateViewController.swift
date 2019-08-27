@@ -17,10 +17,18 @@ class AuthenticateViewController: UIViewController {
     //Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        authenticateUser()
+        checkIfAuthRequired()
     }
     
     //Helper Function
+    func checkIfAuthRequired() {
+        if UserController.shared.currentUser?.authEnabled == true {
+            authenticateUser()
+        } else {
+            self.performSegue(withIdentifier: "toHomeScreenVC", sender: self)
+        }
+    }
+    
     func authenticateUser() {
         let authContext = LAContext()
         var authError: NSError?

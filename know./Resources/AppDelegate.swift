@@ -38,13 +38,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    func transitionToHomeVC() {
-        let storyboard: UIStoryboard = UIStoryboard(name: "Onboarding", bundle: nil)
-        let view = storyboard.instantiateViewController(withIdentifier: "mainTabBarController")
-        self.window?.rootViewController = view
-        self.window?.makeKeyAndVisible()
-    }
-    
     func transitionToAuthVC() {
         let storyboard: UIStoryboard = UIStoryboard(name: "Onboarding", bundle: nil)
         let view = storyboard.instantiateViewController(withIdentifier: "homeNavigationController") as! UINavigationController
@@ -64,15 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             DispatchQueue.main.async {
                 self.window = UIWindow(frame: UIScreen.main.bounds)
                 if success {
-                    if UserController.shared.currentUser?.authEnabled == true {
-                        DispatchQueue.main.async {
-                            self.transitionToAuthVC()
-                        }
-                    } else {
-                        DispatchQueue.main.async {
-                            self.transitionToHomeVC()
-                        }
-                    }
+                    self.transitionToAuthVC()
                 } else {
                     self.transitionToOnboardingVC()
                 }

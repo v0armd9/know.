@@ -26,61 +26,59 @@ class AddSymptomsViewController: UIViewController {
         setNavigationBarView()
     }
     
-    func saveButtonTapped() {
-        //Property for DAY model object
-        guard let currentDate = currentDate else { return }
-        //Properties for FLOW model object
-        let flow: Flow
-        flow.spotting = spottingButton.isSelected ? true : false
-        flow.light = lightButton.isSelected ? true : false
-        flow.medium = mediumButton.isSelected ? true : false
-        flow.heavy = heavyButton.isSelected ? true : false
-        //Properties for SYMPTOM model object
-        let symptom: Symptom
-        symptom.headache = headacheButton.isSelected ? true : false
-        symptom.cramping = crampButton.isSelected ? true : false
-        symptom.backPain = backacheButton.isSelected ? true : false
-        symptom.breastTenderness = breastButton.isSelected ? true : false
-        symptom.nausea = nauseaButton.isSelected ? true : false
-        symptom.fatigue = fatigueButton.isSelected ? true : false
-        symptom.insomnia = insomniaButton.isSelected ? true : false
-        symptom.acne = acneButton.isSelected ? true : false
-        //Properties for MOOD model object
-        let mood: Mood
-        mood.happy = happyButton.isSelected ? true : false
-        mood.sensitive = sensitiveButton.isSelected ? true : false
-        mood.sad = sadButton.isSelected ? true : false
-        mood.depressed = depressedButton.isSelected ? true : false
-        mood.nervous = nervousButton.isSelected ? true : false
-        mood.irritated = irritatedButton.isSelected ? true : false
-        mood.content = contentButton.isSelected ? true : false
-        mood.moodSwings = moodswingButton.isSelected ? true : false
-        mood.angry = angryButton.isSelected ? true : false
-        //Properties for SEX model object
-        let sex: Sex
-        sex.protected = protectedButton.isSelected ? true : false
-        sex.sexDrive = sexdriveButton.isSelected ? true : false
-        sex.masturbation = masturbateButton.isSelected ? true : false
-        //Properties for CUSTOM model object
-        let customEntry: CustomEntry
-        customEntry.text = customEntryText
-        //Save Functions
-        saveDay(date: currentDate) { (day) in
-            if let day = day {
-                self.saveSymptoms(day: day, flow: flow, symptom: symptom, mood: mood, sex: sex, entry: customEntry, completion: { (success) in
-                    if success {
-                        //Present popup that says save was successfull and goback to home view controller
-                    }
-                })
-            } else {
-                print("Failed to save Day object")
-            }
-        }
-    }
-    
-    
-    
     //Helper Functions
+//    func saveTapped() {
+//        //Property for DAY model object
+//        guard let currentDate = currentDate else { return }
+//        //Properties for FLOW model object
+//        let flow: Flow
+//        flow.spotting = spottingButton.isSelected ? true : false
+//        flow.light = lightButton.isSelected ? true : false
+//        flow.medium = mediumButton.isSelected ? true : false
+//        flow.heavy = heavyButton.isSelected ? true : false
+//        //Properties for SYMPTOM model object
+//        let symptom: Symptom
+//        symptom.headache = headacheButton.isSelected ? true : false
+//        symptom.cramping = crampButton.isSelected ? true : false
+//        symptom.backPain = backacheButton.isSelected ? true : false
+//        symptom.breastTenderness = breastButton.isSelected ? true : false
+//        symptom.nausea = nauseaButton.isSelected ? true : false
+//        symptom.fatigue = fatigueButton.isSelected ? true : false
+//        symptom.insomnia = insomniaButton.isSelected ? true : false
+//        symptom.acne = acneButton.isSelected ? true : false
+//        //Properties for MOOD model object
+//        let mood: Mood
+//        mood.happy = happyButton.isSelected ? true : false
+//        mood.sensitive = sensitiveButton.isSelected ? true : false
+//        mood.sad = sadButton.isSelected ? true : false
+//        mood.depressed = depressedButton.isSelected ? true : false
+//        mood.nervous = nervousButton.isSelected ? true : false
+//        mood.irritated = irritatedButton.isSelected ? true : false
+//        mood.content = contentButton.isSelected ? true : false
+//        mood.moodSwings = moodswingButton.isSelected ? true : false
+//        mood.angry = angryButton.isSelected ? true : false
+//        //Properties for SEX model object
+//        let sex: Sex
+//        sex.protected = protectedButton.isSelected ? true : false
+//        sex.sexDrive = sexdriveButton.isSelected ? true : false
+//        sex.masturbation = masturbateButton.isSelected ? true : false
+//        //Properties for CUSTOM model object
+//        let customEntry: CustomEntry
+//        customEntry.text = customEntryText
+//        //Save Functions
+//        saveDay(date: currentDate) { (day) in
+//            if let day = day {
+//                self.saveSymptoms(day: day, flow: flow, symptom: symptom, mood: mood, sex: sex, entry: customEntry, completion: { (success) in
+//                    if success {
+//                        //Present popup that says save was successfull and goback to home view controller
+//                    }
+//                })
+//            } else {
+//                print("Failed to save Day object")
+//            }
+//        }
+//    }
+
     func setNavigationBarView() {
         func setNavTitle() {
             guard let currentDate = currentDate else { return }
@@ -134,3 +132,4 @@ class AddSymptomsViewController: UIViewController {
         completion(true)
     }
 }
+

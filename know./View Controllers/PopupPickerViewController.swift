@@ -16,13 +16,17 @@ class PopupPickerViewController: UIViewController {
     //Outlets
     @IBOutlet weak var datePickerView: UIDatePicker!
     @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var exitButton: UIButton!
+    @IBOutlet weak var popupView: UIView!
+    @IBOutlet weak var titleLabel: UILabel!
     
     //Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let birthday = birthday else { return }
         datePickerView.setDate(birthday, animated: true)
+        setPopupView()
     }
     
     @IBAction func exitButtonTapped(_ sender: Any) {
@@ -32,5 +36,13 @@ class PopupPickerViewController: UIViewController {
     @IBAction func saveButtonTapped(_ sender: Any) {
         birthday = datePickerView.date
         self.performSegue(withIdentifier: "unwindToProfileSettingsVC", sender: self)
+    }
+    
+    @IBAction func cancelButtonTapped(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func setPopupView() {
+        popupView.layer.cornerRadius = 25
     }
 }

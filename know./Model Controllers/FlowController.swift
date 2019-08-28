@@ -14,14 +14,15 @@ class FlowController {
     static let shared = FlowController()
     var flows: [Flow] = []
     
-    func saveFlowDetails(forDay day: Day, spotting: Bool, light: Bool, medium: Bool, heavy: Bool, completion: @escaping (Flow?) -> Void) {
-        let flowDetail = Flow(day: day, spotting: spotting, light: light, medium: medium, heavy: heavy)
-        let record = CKRecord(flow: flowDetail)
+    func saveFlowDetails(forDay day: Day, spotting: Bool, light: Bool, medium: Bool, heavy: Bool, completion: @escaping (Bool) -> Void) {
+        let flow = Flow(day: day, spotting: spotting, light: light, medium: medium, heavy: heavy)
+        let record = CKRecord(flow: flow)
         CloudKitController.shared.save(record: record) { (record) in
             if let record = record {
                 guard let flowDetail = Flow(record: record, day: day) else { return }
+                self.flows.append(flowDetail)
                 print("Flow Saved On FlowController")
-                completion(flowDetail)
+                completion(true)
             }
         }
     }

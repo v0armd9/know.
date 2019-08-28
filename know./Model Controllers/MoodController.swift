@@ -14,14 +14,15 @@ class MoodController {
     static let shared = MoodController()
     var moods: [Mood] = []
     
-    func saveMoods(forDay day: Day, happy: Bool, sensitive: Bool, sad: Bool, depressed: Bool, nervous: Bool, irritated: Bool, content: Bool, moodSwings: Bool, angry: Bool, completion: @escaping(Mood?) -> Void) {
+    func saveMoods(forDay day: Day, happy: Bool, sensitive: Bool, sad: Bool, depressed: Bool, nervous: Bool, irritated: Bool, content: Bool, moodSwings: Bool, angry: Bool, completion: @escaping(Bool) -> Void) {
         let mood = Mood(day: day, happy: happy, sensitive: sensitive, sad: sad, depressed: depressed, nervous: nervous, irritated: irritated, content: content, moodSwings: moodSwings, angry: angry)
         let record = CKRecord(mood: mood)
         CloudKitController.shared.save(record: record) { (record) in
             if let record = record {
                 guard let mood = Mood(record: record, day: day) else { return }
+                self.moods.append(mood)
                 print("Mood Saved on MoodController")
-                completion(mood)
+                completion(true)
             }
         }
     }

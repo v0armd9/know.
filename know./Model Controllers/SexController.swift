@@ -14,14 +14,15 @@ class SexController {
     static let shared = SexController()
     var sexDetails: [Sex] = []
     
-    func saveSexDetails(forDay day: Day, protected: Bool, sexDrive: Bool, masturbation: Bool, completion: @escaping(Sex?) -> Void) {
+    func saveSexDetails(forDay day: Day, protected: Bool, sexDrive: Bool, masturbation: Bool, completion: @escaping(Bool) -> Void) {
         let sex = Sex(day: day, protected: protected, sexDrive: sexDrive, masturbation: masturbation)
         let record = CKRecord(sex: sex)
         CloudKitController.shared.save(record: record) { (record) in
             if let record = record {
                 guard let sex = Sex(record: record, day: day) else { return }
+                self.sexDetails.append(sex)
                 print("Sex Saved on SexController")
-                completion(sex)
+                completion(true)
             }
         }
     }

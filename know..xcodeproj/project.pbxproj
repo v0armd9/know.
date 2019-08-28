@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		530B8597231702EB005D1D72 /* AddSymptomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530B8596231702EB005D1D72 /* AddSymptomsViewController.swift */; };
 		53381C5F230EF5CD00FA1D91 /* Nunito-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 53381C50230EF5CD00FA1D91 /* Nunito-ExtraLight.ttf */; };
 		53381C60230EF5CD00FA1D91 /* Nunito-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 53381C51230EF5CD00FA1D91 /* Nunito-LightItalic.ttf */; };
 		53381C61230EF5CD00FA1D91 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 53381C52230EF5CD00FA1D91 /* OFL.txt */; };
@@ -78,6 +79,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		530B8596231702EB005D1D72 /* AddSymptomsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSymptomsViewController.swift; sourceTree = "<group>"; };
 		53381C50230EF5CD00FA1D91 /* Nunito-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Nunito-ExtraLight.ttf"; path = "know./Nunito/Nunito-ExtraLight.ttf"; sourceTree = SOURCE_ROOT; };
 		53381C51230EF5CD00FA1D91 /* Nunito-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Nunito-LightItalic.ttf"; path = "know./Nunito/Nunito-LightItalic.ttf"; sourceTree = SOURCE_ROOT; };
 		53381C52230EF5CD00FA1D91 /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = OFL.txt; path = know./Nunito/OFL.txt; sourceTree = SOURCE_ROOT; };
@@ -288,6 +290,7 @@
 				53D097322314A730000D086E /* PopupPickerViewController.swift */,
 				53EAE00F2315D143008BDF38 /* AuthenticateViewController.swift */,
 				58184AC42316F27A0061BFDD /* SymptomCollectionViewCell.swift */,
+				530B8596231702EB005D1D72 /* AddSymptomsViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -472,6 +475,7 @@
 				53F5887B231091B30076D7D2 /* InfoDetailViewController.swift in Sources */,
 				53B140FA230DE0BB008AE180 /* OnboardPeriodLengthViewController.swift in Sources */,
 				58CD1108230C7742009A8333 /* LabelHelper.swift in Sources */,
+				530B8597231702EB005D1D72 /* AddSymptomsViewController.swift in Sources */,
 				58C0A28A230B04B700A63ACD /* AppDelegate.swift in Sources */,
 				53381C6F230EFAC800FA1D91 /* OnboardHeightViewController.swift in Sources */,
 				53B140F2230CAA30008AE180 /* SexController.swift in Sources */,

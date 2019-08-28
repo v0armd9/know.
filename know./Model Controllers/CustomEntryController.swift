@@ -14,14 +14,15 @@ class CustomEntryController {
     static let shared = CustomEntryController()
     var customEntries: [CustomEntry] = []
     
-    func saveEntry(forDay day: Day, text: String, completion: @escaping(CustomEntry?) -> Void) {
+    func saveEntry(forDay day: Day, text: String, completion: @escaping(Bool) -> Void) {
         let entry = CustomEntry(day: day, text: text)
         let record = CKRecord(customEntry: entry)
         CloudKitController.shared.save(record: record) { (record) in
             if let record = record {
                 guard let entry = CustomEntry(record: record, day: day) else { return }
+                self.customEntries.append(entry)
                 print("Custom Entry Saved on CustomEntryController")
-                completion(entry)
+                completion(true)
             }
         }
     }

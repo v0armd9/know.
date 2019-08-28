@@ -14,6 +14,7 @@ class SettingProfileViewController: UIViewController {
     //Properties
     let secondsToYears = 31536000.0
     var birthday = UserController.shared.currentUser?.birthdate
+    var updatedBirthday: Date?
     
     //Outlets
     @IBOutlet weak var nameLabel: UILabel!
@@ -43,6 +44,9 @@ class SettingProfileViewController: UIViewController {
         super.viewDidLoad()
         updateViews()
         setNavBarView()
+        setDelegates()
+        tapGestureRecognizer()
+        
     }
     
     //Segue to Popup View (to transfer birthday data)
@@ -59,7 +63,7 @@ class SettingProfileViewController: UIViewController {
         //Get Data from Popup ViewController for Data Fetch
         let data = segue.source as? PopupPickerViewController
         guard let date = data?.datePickerView.date else { return }
-        self.birthday = date
+        self.updatedBirthday = date
         birthdayButton.setTitle(date.stringWith(dateStyle: .medium, timeStyle: .none), for: .normal)
         let age = Int(Date().timeIntervalSince(date) / secondsToYears)
         ageLabel.text = "\(age)"
@@ -112,6 +116,20 @@ class SettingProfileViewController: UIViewController {
         label.sizeToFit()
         label.font = UIFont(name: "Nunito-Regular", size: 30)
         navigationItem.titleView = label
+    }
+    
+    func tapGestureRecognizer() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    func setDelegates() {
+        nameTextField.delegate = self
+        ageTextField.delegate = self
+        heightTextField.delegate = self
+        weightTextField.delegate = self
+        cycleLengthTextField.delegate = self
+        periodLabelTextField.delegate = self
     }
     
     func updateViews() {
@@ -230,7 +248,7 @@ class SettingProfileViewController: UIViewController {
         //Unwrap and set Properties
         guard let user = UserController.shared.currentUser,
             let name = nameTextField.text, name.isEmpty == false,
-            let birthday = birthday,
+            let birthday = updatedBirthday,
             let height = Int(heightTextField.text ?? "0"),
             let weight = Int(weightTextField.text ?? "0"),
             let cycleLength = Int(cycleLengthTextField.text ?? "0"),
@@ -253,7 +271,7 @@ class SettingProfileViewController: UIViewController {
             authEnabled = false
         }
         //Save Updated Info
-        UserController.shared.update(user: user, withName: name, age: age, height: height, weight: weight, cycleLength: cycleLength, periodLength: periodLength, pms: pms, pmsDuration: pmsDuration, lastPeriod: lastPeriod, authEnabled: authEnabled) { (success) in
+        UserController.shared.update(user: user, withName: name, birthdate: birthday, age: age, height: height, weight: weight, cycleLength: cycleLength, periodLength: periodLength, pms: pms, pmsDuration: pmsDuration, lastPeriod: lastPeriod, authEnabled: authEnabled) { (success) in
             if success {
                 print("Updated User Info")
                 DispatchQueue.main.async {
@@ -303,3 +321,24 @@ class SettingProfileViewController: UIViewController {
     }
 }
 
+//Dismiss Keyboard when screen tapped
+extension SettingProfileViewController {
+    
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SettingProfileViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}
+
+//Dismiss Keyboard when "Enter" tapped
+extension SettingProfileViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}

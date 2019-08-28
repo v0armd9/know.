@@ -19,8 +19,7 @@ class OnboardNameViewController: UIViewController {
     //Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
-        view.addGestureRecognizer(tap)
+        allowKeyboardDismiss()
     }
 
     //Actions
@@ -29,6 +28,13 @@ class OnboardNameViewController: UIViewController {
             UserController.shared.currentUser = User(name: name, age: nil, birthdate: nil, height: nil, weight: nil, cycleLength: nil, periodLength: nil, pms: nil, pmsDuration: nil, lastPeriod: nil)
             self.performSegue(withIdentifier: "toWelcomeVC", sender: self)
         }
+    }
+    
+    //Helper Function
+    func allowKeyboardDismiss() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+        nameTextField.delegate = self
     }
 }
 
@@ -44,10 +50,10 @@ extension OnboardNameViewController {
     }
 }
 
-//Extensions to Dismiss keyboard
+//Dismiss Keyboard when "Enter" tapped
 extension OnboardNameViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        nameTextField.resignFirstResponder()
+        textField.resignFirstResponder()
         return true
     }
 }

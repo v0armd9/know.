@@ -20,6 +20,7 @@ class DayController {
         CloudKitController.shared.save(record: record) { (record) in
             if let record = record {
                 guard let day = Day(record: record, user: user) else { return }
+                self.days.append(day)
                 print("Day Saved on DayController")
                 completion(day)
             }

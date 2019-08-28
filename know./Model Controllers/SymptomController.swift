@@ -14,14 +14,15 @@ class SymptomController {
     static let shared = SymptomController()
     var symptoms: [Symptom] = []
     
-    func saveSymptoms(forDay day: Day, headache: Bool, cramping: Bool, backPain: Bool, breastTenderness: Bool, nausea: Bool, fatigue: Bool, insomnia: Bool, acne: Bool, completion: @escaping(Symptom?) -> Void) {
+    func saveSymptoms(forDay day: Day, headache: Bool, cramping: Bool, backPain: Bool, breastTenderness: Bool, nausea: Bool, fatigue: Bool, insomnia: Bool, acne: Bool, completion: @escaping(Bool) -> Void) {
         let symptom = Symptom(day: day, headache: headache, cramping: cramping, backPain: backPain, breastTenderness: breastTenderness, nausea: nausea, fatigue: fatigue, insomnia: insomnia, acne: acne)
         let record = CKRecord(symptom: symptom)
         CloudKitController.shared.save(record: record) { (record) in
             if let record = record {
                 guard let symptom = Symptom(record: record, day: day) else { return }
+                self.symptoms.append(symptom)
                 print("Symptom Saved on SymptomController")
-                completion(symptom)
+                completion(true)
             }
         }
     }

@@ -988,6 +988,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" red="0.5568627451" green="0.71764705880000002" blue="0.81960784310000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </tabBar>
                     <connections>
                         <segue destination="Pt7-Ip-m8K" kind="relationship" relationship="viewControllers" id="m7e-1I-pzC"/>
@@ -1616,7 +1617,7 @@
         <image name="notSureButtonOnboarding" width="78" height="101"/>
         <image name="thatSOkayWeWill" width="294" height="178"/>
         <image name="weAreSoExcitedTo" width="364" height="19"/>
-        <image name="welcomeInfo" width="349" height="329"/>
+        <image name="welcomeInfo" width="345" height="329"/>
         <image name="welcomeToKnow" width="236" height="21"/>
     </resources>
     <inferredMetricsTieBreakers>

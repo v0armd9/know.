@@ -59,6 +59,7 @@
 		53F5887B231091B30076D7D2 /* InfoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F5887A231091B30076D7D2 /* InfoDetailViewController.swift */; };
 		53F5887F231443330076D7D2 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F5887E231443330076D7D2 /* Alerts.swift */; };
 		53F5888123144DE60076D7D2 /* OnboardStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F5888023144DE60076D7D2 /* OnboardStartViewController.swift */; };
+		58184AC52316F27A0061BFDD /* SymptomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58184AC42316F27A0061BFDD /* SymptomCollectionViewCell.swift */; };
 		58229A2E2310637A00C29826 /* infoTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58229A2D2310637A00C29826 /* infoTab.storyboard */; };
 		58229A302310639600C29826 /* homeTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58229A2F2310639600C29826 /* homeTab.storyboard */; };
 		58229A32231063BB00C29826 /* shareTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58229A31231063BB00C29826 /* shareTab.storyboard */; };
@@ -129,6 +130,7 @@
 		53F5887A231091B30076D7D2 /* InfoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoDetailViewController.swift; sourceTree = "<group>"; };
 		53F5887E231443330076D7D2 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		53F5888023144DE60076D7D2 /* OnboardStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardStartViewController.swift; sourceTree = "<group>"; };
+		58184AC42316F27A0061BFDD /* SymptomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomCollectionViewCell.swift; sourceTree = "<group>"; };
 		58229A2D2310637A00C29826 /* infoTab.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = infoTab.storyboard; sourceTree = "<group>"; };
 		58229A2F2310639600C29826 /* homeTab.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = homeTab.storyboard; sourceTree = "<group>"; };
 		58229A31231063BB00C29826 /* shareTab.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = shareTab.storyboard; sourceTree = "<group>"; };
@@ -285,6 +287,7 @@
 				53D09730231479F8000D086E /* SettingProfileViewController.swift */,
 				53D097322314A730000D086E /* PopupPickerViewController.swift */,
 				53EAE00F2315D143008BDF38 /* AuthenticateViewController.swift */,
+				58184AC42316F27A0061BFDD /* SymptomCollectionViewCell.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -456,6 +459,7 @@
 				58985CBF23159D4C00D3016B /* CalendarTabViewController.swift in Sources */,
 				53F58875231085C60076D7D2 /* InfoListViewController.swift in Sources */,
 				53B140F6230DB88D008AE180 /* UserController.swift in Sources */,
+				58184AC52316F27A0061BFDD /* SymptomCollectionViewCell.swift in Sources */,
 				53B140E3230B11E7008AE180 /* Sex.swift in Sources */,
 				53B140EC230CA8F2008AE180 /* FlowController.swift in Sources */,
 				53B140E1230B11E0008AE180 /* Mood.swift in Sources */,
@@ -623,13 +627,13 @@
 				CODE_SIGN_ENTITLEMENTS = know./know..entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8MJ3MC3A9A;
+				DEVELOPMENT_TEAM = QP48FW2MG5;
 				INFOPLIST_FILE = "$(SRCROOT)/know./Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.DMA.know;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DarinArmstrong.know;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -644,13 +648,13 @@
 				CODE_SIGN_ENTITLEMENTS = know./know..entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8MJ3MC3A9A;
+				DEVELOPMENT_TEAM = QP48FW2MG5;
 				INFOPLIST_FILE = "$(SRCROOT)/know./Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.DMA.know;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DarinArmstrong.know;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

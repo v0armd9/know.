@@ -25,6 +25,6 @@ class SettingListTableViewController: UITableViewController {
         label.textAlignment = .center
         label.sizeToFit()
         label.font = UIFont(name: "Nunito-Regular", size: 30)
-        navigationItem.titleView = label
+        navBarItem.titleView = label
     }
 }

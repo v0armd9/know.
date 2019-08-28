@@ -67,6 +67,9 @@ class CalendarTabViewController: UIViewController {
     @IBOutlet weak var buttonFortyOne: UIButton!
     @IBOutlet weak var buttonFortyTwo: UIButton!
     @IBOutlet weak var customPicker: UIPickerView!
+    @IBOutlet weak var symptomCollectionView: UICollectionView!
+    
+
     
     override func viewWillAppear(_ animated: Bool){
         super.viewWillAppear(animated)
@@ -486,8 +489,27 @@ extension CalendarTabViewController: UIPickerViewDataSource, UIPickerViewDelegat
             break
         }
     }
-    
-    
-    
+}
 
+extension CalendarTabViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return months.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "symptomCell", for: indexPath) as! SymptomCollectionViewCell
+        
+        cell.symptomLabel.text = months[indexPath.row]
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = collectionView.bounds.width/2
+        let height = collectionView.bounds.width/4
+        return CGSize(width: width, height: height)
+    }
+    
+    
 }

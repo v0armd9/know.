@@ -11,8 +11,17 @@ import Foundation
 extension Date {
     func stringWith(dateStyle: DateFormatter.Style, timeStyle: DateFormatter.Style) -> String {
         let formatter = DateFormatter()
+        formatter.dateStyle = dateStyle
+        formatter.timeStyle = timeStyle
+        return formatter.string(from: self)
+    }
+    
+    func formattedDate() -> Date {
+        let formatter = DateFormatter()
         formatter.dateStyle = .short
         formatter.timeStyle = .none
-        return formatter.string(from: self)
+        let formattedDateString = formatter.string(from: self)
+        let formattedDate = formatter.date(from: formattedDateString)
+        return formattedDate!
     }
 }

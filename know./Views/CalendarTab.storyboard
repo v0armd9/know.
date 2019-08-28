@@ -569,7 +569,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="zjn-n8-oKb" customClass="SymptomCollectionViewCell" customModule="know_" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="symptomCell" id="zjn-n8-oKb" customClass="SymptomCollectionViewCell" customModule="know_" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="160" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -615,7 +615,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Rdv-iR-Duy"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Calendar" id="bib-Ix-RSb"/>
+                    <tabBarItem key="tabBarItem" title="Calendar" image="Calendar Icon" id="bib-Ix-RSb"/>
                     <navigationItem key="navigationItem" title="My Calendar" id="fhw-QX-ZBv"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -672,5 +672,8 @@
             <point key="canvasLocation" x="11234.782608695654" y="310.71428571428572"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Calendar Icon" width="36" height="33"/>
+    </resources>
     <color key="tintColor" red="0.58823529409999997" green="0.71372549019999998" blue="0.80784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

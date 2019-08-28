@@ -301,9 +301,5 @@ class SettingProfileViewController: UIViewController {
             }
         }
     }
-        
-    func checkForAuthCompatibility() {
-      
-    }
 }
 

@@ -17,14 +17,20 @@ class AuthenticateViewController: UIViewController {
     //Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         checkIfAuthRequired()
     }
     
     //Helper Function
     func checkIfAuthRequired() {
         if UserController.shared.currentUser?.authEnabled == true {
+            print("User Requires Authentication")
             authenticateUser()
         } else {
+            print("User Does Not Require Authentication")
             self.performSegue(withIdentifier: "toHomeScreenVC", sender: self)
         }
     }
@@ -35,6 +41,12 @@ class AuthenticateViewController: UIViewController {
         authContext.canEvaluatePolicy(LAPolicy.deviceOwnerAuthenticationWithBiometrics, error: &authError)
         if authError != nil {
             print("Authentication not available on this device")
+            let alertController = UIAlertController (title: "Uh Oh!", message: "Authentication is not supported on this device. Please Disable User Authentication in your settings.", preferredStyle: .alert)
+            let action = UIAlertAction(title: "Okay", style: .default) { (_) -> Void in
+                self.performSegue(withIdentifier: "toHomeScreenVC", sender: self)
+            }
+            alertController.addAction(action)
+            self.present(alertController, animated: true)
         } else {
             authContext.evaluatePolicy(LAPolicy.deviceOwnerAuthenticationWithBiometrics, localizedReason: "Unlock to view App Information") { (success, error) in
                 if let error = error {

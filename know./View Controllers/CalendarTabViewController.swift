@@ -122,6 +122,8 @@ class CalendarTabViewController: UIViewController {
             buttonFortyTwo
         ]
         setButtons(date: startDate)
+        symptomCollectionView.delegate = self
+        symptomCollectionView.dataSource = self
         customPicker.delegate = self
         customPicker.dataSource = self
         let currentMonth = Calendar.current.component(.month, from: selectedDate)
@@ -500,14 +502,14 @@ extension CalendarTabViewController: UICollectionViewDelegate, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "symptomCell", for: indexPath) as! SymptomCollectionViewCell
         
-        cell.symptomLabel.text = months[indexPath.row]
+        cell.symptomLabel.text = "- \(months[indexPath.row])"
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = collectionView.bounds.width/2
-        let height = collectionView.bounds.width/4
+        let width = collectionView.bounds.width/3
+        let height = collectionView.bounds.width/10
         return CGSize(width: width, height: height)
     }
     

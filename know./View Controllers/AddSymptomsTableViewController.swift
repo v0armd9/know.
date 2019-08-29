@@ -14,6 +14,13 @@ class AddSymptomsTableViewController: UITableViewController {
     var currentDate: Date = Date()
     var customEntryText: String = ""
     
+    //Landing Pads
+    var fetchedFlow: Flow?
+    var fetchedSymptoms: Symptom?
+    var fetchedMood: Mood?
+    var fetchedSex: Sex?
+    var fetchedCustom: CustomEntry?
+    
     //FLOW image name tuples
     let spotting = ("a.spotting", "a.spotting2")
     let light = ("a.light", "a.light2")
@@ -43,7 +50,7 @@ class AddSymptomsTableViewController: UITableViewController {
     let low = ("d.low", "d.low2")
     let mast = ("d.mast", "d.mast2")
     //CUSTOM image name tuple
-    let custom = ("e.custom", "e.custom2")
+    let customImage = ("e.custom", "e.custom2")
     
     //Outlets
     @IBOutlet weak var flowLabel: CustomLabel!
@@ -84,6 +91,7 @@ class AddSymptomsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationBarView()
+        getFetchedDataToLoadView()
     }
     
     //Actions
@@ -181,9 +189,11 @@ class AddSymptomsTableViewController: UITableViewController {
     }
     
     @IBAction func fatigueBT(_ sender: Any) {
+        setStatusForButton(button: fatigueButton, symptom: fatigue)
     }
     
     @IBAction func happyBT(_ sender: Any) {
+        setStatusForButton(button: happyButton, symptom: happy)
     }
     
     @IBAction func sadBT(_ sender: Any) {
@@ -289,7 +299,7 @@ class AddSymptomsTableViewController: UITableViewController {
             customButton.isSelected = false
             customTextLabel.text = ""
         }
-        setImageForButton(button: customButton, symptom: custom)
+        setImageForButton(button: customButton, symptom: customImage)
     }
     
     //Helper Functions
@@ -402,7 +412,55 @@ class AddSymptomsTableViewController: UITableViewController {
         }
         completion(true)
     }
+    
+    func initialButtonStat(symptom: Bool, button: UIButton, image: (unselected: String, selected: String)) {
+        if symptom == true {
+            button.isSelected = true
+            button.setImage(UIImage(named: image.selected), for: .selected)
+        }
+    }
+    
+    func checkSymptomStatus(flow: Flow, symptom: Symptom, mood: Mood, sex: Sex, custom: CustomEntry) {
+        //Properties for FLOW model object
+        initialButtonStat(symptom: flow.spotting, button: spottingButton, image: spotting)
+        initialButtonStat(symptom: flow.light, button: lightButton, image: light)
+        initialButtonStat(symptom: flow.medium, button: mediumButton, image: medium)
+        initialButtonStat(symptom: flow.heavy, button: heavyButton, image: heavy)
+        //Properties for SYMPTOM model object
+        initialButtonStat(symptom: symptom.headache, button: headacheButton, image: head)
+        initialButtonStat(symptom: symptom.cramping, button: crampingButton, image: cramp)
+        initialButtonStat(symptom: symptom.backPain, button: backacheButton, image: back)
+        initialButtonStat(symptom: symptom.breastTenderness, button: tenderButton, image: breast)
+        initialButtonStat(symptom: symptom.nausea, button: nauseaButton, image: nausea)
+        initialButtonStat(symptom: symptom.fatigue, button: fatigueButton, image: fatigue)
+        initialButtonStat(symptom: symptom.insomnia, button: insomniaButton, image: insomnia)
+        initialButtonStat(symptom: symptom.acne, button: acneButton, image: acne)
+        //Properties for MOOD model object
+        initialButtonStat(symptom: mood.happy, button: happyButton, image: happy)
+        initialButtonStat(symptom: mood.sensitive, button: sensitiveButton, image: sensitive)
+        initialButtonStat(symptom: mood.sad, button: sadButton, image: sad)
+        initialButtonStat(symptom: mood.depressed, button: depressedButton, image: depress)
+        initialButtonStat(symptom: mood.nervous, button: nervousButton, image: nervous)
+        initialButtonStat(symptom: mood.irritated, button: irritatedButton, image: irritated)
+//        initialButtonStat(symptom: mood.content, button: contentButton, image: content)
+        initialButtonStat(symptom: mood.moodSwings, button: moodswingButton, image: moodswing)
+//        initialButtonStat(symptom: mood.angry, button: angryButton, image: angry)
+        //Properties for SEX model object
+        initialButtonStat(symptom: sex.protected, button: protectedButton, image: protected)
+        initialButtonStat(symptom: sex.sexDrive, button: highdriveButton, image: high)
+        initialButtonStat(symptom: sex.masturbation, button: masturbateButton, image: mast)
+        customTextLabel.text = custom.text
+        customButton.isSelected = true
+        customButton.setImage(UIImage(named: customImage.1), for: .selected)
+    }
+    
+    func getFetchedDataToLoadView() {
+        guard let flow = fetchedFlow,
+        let symptom = fetchedSymptoms,
+        let mood = fetchedMood,
+        let sex = fetchedSex,
+        let custom = fetchedCustom
+            else { return }
+        checkSymptomStatus(flow: flow, symptom: symptom, mood: mood, sex: sex, custom: custom)
+    }
 }
-
-
-

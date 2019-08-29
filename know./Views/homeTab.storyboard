@@ -316,7 +316,7 @@
                                                                         </button>
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a6S-dT-Lzx">
                                                                             <rect key="frame" x="664.5" y="0.0" width="78" height="112.5"/>
-                                                                            <state key="normal" title="fatigue"/>
+                                                                            <state key="normal" image="b.fatigue"/>
                                                                             <connections>
                                                                                 <action selector="fatigueBT:" destination="kTP-qe-cAQ" eventType="touchUpInside" id="OaO-Ue-at6"/>
                                                                             </connections>
@@ -370,7 +370,7 @@
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" secondItem="AKd-ln-7MS" secondAttribute="height" multiplier="72:104" id="K30-yX-VZ2"/>
                                                                             </constraints>
-                                                                            <state key="normal" title="happy"/>
+                                                                            <state key="normal" image="c.happy"/>
                                                                             <connections>
                                                                                 <action selector="happyBT:" destination="kTP-qe-cAQ" eventType="touchUpInside" id="vAz-YV-kwd"/>
                                                                             </connections>
@@ -765,12 +765,14 @@
         <image name="b.backpain" width="72" height="104"/>
         <image name="b.breast" width="72" height="104"/>
         <image name="b.cramp" width="72" height="104"/>
+        <image name="b.fatigue" width="72" height="104"/>
         <image name="b.head" width="72" height="104"/>
         <image name="b.insomnia" width="72" height="104"/>
         <image name="b.nausea" width="72" height="104"/>
         <image name="buttonSmallCancel" width="128" height="48"/>
         <image name="buttonSmallConfirm" width="128" height="48"/>
         <image name="c.depress" width="72" height="104"/>
+        <image name="c.happy" width="72" height="104"/>
         <image name="c.irritated" width="72" height="104"/>
         <image name="c.moodswing" width="72" height="104"/>
         <image name="c.nervous" width="72" height="104"/>

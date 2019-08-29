@@ -44,7 +44,6 @@ class AddSymptomsTableViewController: UITableViewController {
     let mast = ("d.mast", "d.mast2")
     //CUSTOM image name tuple
     let custom = ("e.custom", "e.custom2")
-
     
     //Outlets
     @IBOutlet weak var flowLabel: CustomLabel!
@@ -403,6 +402,7 @@ class AddSymptomsTableViewController: UITableViewController {
         }
         completion(true)
     }
-
-
 }
+
+
+

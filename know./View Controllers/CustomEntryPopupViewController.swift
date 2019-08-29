@@ -24,6 +24,7 @@ class CustomEntryPopupViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setPopupView()
+        tapGestureRecognizer()
     }
     
     func setPopupView() {
@@ -47,4 +48,30 @@ class CustomEntryPopupViewController: UIViewController {
         self.performSegue(withIdentifier: "unwindSymptomsVC", sender: self)
     }
     
+    //Functions to dismiss keyboard
+    func tapGestureRecognizer() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+}
+//Dismiss Keyboard when screen tapped
+extension CustomEntryPopupViewController {
+    
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(CustomEntryPopupViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}
+
+//Dismiss Keyboard when "Enter" tapped
+extension CustomEntryPopupViewController: UITextViewDelegate {
+    func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
+        textView.resignFirstResponder()
+        return true
+    }
 }

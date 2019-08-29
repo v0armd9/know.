@@ -23,6 +23,7 @@ class CustomEntry {
     
     //Designated Initializer
     init(day: Day, text: String, ckRecordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString)) {
+        self.day = day
         self.text = text
         self.ckRecordID = ckRecordID
     }

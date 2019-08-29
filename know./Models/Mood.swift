@@ -31,6 +31,7 @@ class Mood {
     
     //Designated Initializer
     init(day: Day, happy: Bool = false, sensitive: Bool = false, sad: Bool = false, depressed: Bool = false, nervous: Bool = false, irritated: Bool = false, content: Bool = false, moodSwings: Bool = false, angry: Bool = false, ckRecordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString)) {
+        self.day = day
         self.happy = happy
         self.sensitive = sensitive
         self.sad = sad

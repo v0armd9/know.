@@ -20,7 +20,20 @@ class CalendarTabViewController: UIViewController {
     var selectedMonth: Int?
     var selectedYear: Int?
     
-    var selectedDate: Date = Date()
+    var selectedDate: Date = Date().formattedDate()
+    
+    var user = UserController.shared.currentUser {
+        didSet {
+            guard let cycles = user?.cycles else {return}
+            for cycle in cycles {
+                periods.append(cycle.periodDateInterval)
+            }
+        }
+    }
+    
+    var periods: [DateInterval] = []
+    
+    var dayToDisplay: Day?
     
     
     @IBOutlet weak var lastRow: UIStackView!
@@ -68,8 +81,6 @@ class CalendarTabViewController: UIViewController {
     @IBOutlet weak var buttonFortyTwo: UIButton!
     @IBOutlet weak var customPicker: UIPickerView!
     @IBOutlet weak var symptomCollectionView: UICollectionView!
-    
-
     
     override func viewWillAppear(_ animated: Bool){
         super.viewWillAppear(animated)
@@ -136,223 +147,305 @@ class CalendarTabViewController: UIViewController {
     @IBAction func buttonOneTapped(_ sender: UIButton) {
         let button = classArray[0]
         changeDate(button: button)
+        guard let day = button.day else {return}
+        fetchSymptoms(day: day)
     }
     @IBAction func buttonTwoTapped(_ sender: UIButton) {
         let button = classArray[1]
         changeDate(button: button)
+        guard let day = button.day else {return}
+        fetchSymptoms(day: day)
     }
     
     @IBAction func buttonThreeTapped(_ sender: UIButton) {
         let button = classArray[2]
         changeDate(button: button)
+        guard let day = button.day else {return}
+        fetchSymptoms(day: day)
     }
     
     @IBAction func buttonFourTapped(_ sender: UIButton) {
         let button = classArray[3]
         changeDate(button: button)
+        guard let day = button.day else {return}
+        fetchSymptoms(day: day)
     }
     
     @IBAction func buttonFiveTapped(_ sender: UIButton) {
         let button = classArray[4]
         changeDate(button: button)
+        guard let day = button.day else {return}
+        fetchSymptoms(day: day)
     }
     
     @IBAction func buttonSixTapped(_ sender: Any) {
         let button = classArray[5]
         changeDate(button: button)
+        guard let day = button.day else {return}
+        fetchSymptoms(day: day)
     }
     
     @IBAction func buttonSevenTapped(_ sender: UIButton) {
         let button = classArray[6]
         changeDate(button: button)
+        guard let day = button.day else {return}
+        fetchSymptoms(day: day)
     }
     
     @IBAction func buttonEightTapped(_ sender: UIButton) {
         let button = classArray[7]
         changeDate(button: button)
+        guard let day = button.day else {return}
+        fetchSymptoms(day: day)
     }
     
     @IBAction func buttonNineTapped(_ sender: UIButton) {
         let button = classArray[8]
         changeDate(button: button)
+        guard let day = button.day else {return}
+        fetchSymptoms(day: day)
     }
     
     @IBAction func buttonTenTapped(_ sender: UIButton) {
         let button = classArray[9]
         changeDate(button: button)
+        guard let day = button.day else {return}
+        fetchSymptoms(day: day)
     }
     
     @IBAction func buttonElevenTapped(_ sender: UIButton) {
         let button = classArray[10]
         changeDate(button: button)
+        guard let day = button.day else {return}
+        fetchSymptoms(day: day)
     }
     
     @IBAction func buttonTwelveTapped(_ sender: UIButton) {
         let button = classArray[11]
         changeDate(button: button)
+        guard let day = button.day else {return}
+        fetchSymptoms(day: day)
     }
     
     @IBAction func buttonThirteenTapped(_ sender: UIButton) {
         let button = classArray[12]
         changeDate(button: button)
+        guard let day = button.day else {return}
+        fetchSymptoms(day: day)
     }
     
     @IBAction func buttonFourteenTapped(_ sender: UIButton) {
         let button = classArray[13]
         changeDate(button: button)
+        guard let day = button.day else {return}
+        fetchSymptoms(day: day)
     }
     
     @IBAction func buttonFifteenTapped(_ sender: UIButton) {
         let button = classArray[14]
         changeDate(button: button)
+        guard let day = button.day else {return}
+        fetchSymptoms(day: day)
     }
     
     @IBAction func buttonSixteenTapped(_ sender: UIButton) {
         let button = classArray[15]
         changeDate(button: button)
+        guard let day = button.day else {return}
+        fetchSymptoms(day: day)
     }
     
     @IBAction func buttonSeventeenTapped(_ sender: UIButton) {
         let button = classArray[16]
         changeDate(button: button)
+        guard let day = button.day else {return}
+        fetchSymptoms(day: day)
     }
     
     @IBAction func buttonEighteenTapped(_ sender: UIButton) {
         let button = classArray[17]
         changeDate(button: button)
+        guard let day = button.day else {return}
+        fetchSymptoms(day: day)
     }
     
     @IBAction func buttonNineteenTapped(_ sender: UIButton) {
         let button = classArray[18]
         changeDate(button: button)
+        guard let day = button.day else {return}
+        fetchSymptoms(day: day)
     }
     
     @IBAction func buttonTwentyTapped(_ sender: UIButton) {
         let button = classArray[19]
         changeDate(button: button)
+        guard let day = button.day else {return}
+        fetchSymptoms(day: day)
     }
     
     @IBAction func buttonTwentyOneTapped(_ sender: UIButton) {
         let button = classArray[20]
         changeDate(button: button)
+        guard let day = button.day else {return}
+        fetchSymptoms(day: day)
     }
     
     @IBAction func buttonTwentyTwoTapped(_ sender: UIButton) {
         let button = classArray[21]
         changeDate(button: button)
+        guard let day = button.day else {return}
+        fetchSymptoms(day: day)
     }
     
     @IBAction func buttonTwentyThreeTapped(_ sender: UIButton) {
         let button = classArray[22]
         changeDate(button: button)
+        guard let day = button.day else {return}
+        fetchSymptoms(day: day)
     }
     
     @IBAction func buttonTwentyFourTapped(_ sender: UIButton) {
         let button = classArray[23]
         changeDate(button: button)
+        guard let day = button.day else {return}
+        fetchSymptoms(day: day)
     }
     
     @IBAction func buttonTwentyFiveTapped(_ sender: UIButton) {
         let button = classArray[24]
         changeDate(button: button)
+        guard let day = button.day else {return}
+        fetchSymptoms(day: day)
     }
     
     @IBAction func buttonTwentySixTapped(_ sender: UIButton) {
         let button = classArray[25]
         changeDate(button: button)
+        guard let day = button.day else {return}
+        fetchSymptoms(day: day)
     }
     
     @IBAction func buttonTwentySevenTapped(_ sender: UIButton) {
         let button = classArray[26]
         changeDate(button: button)
+        guard let day = button.day else {return}
+        fetchSymptoms(day: day)
     }
     
     @IBAction func buttonTwentyEightTapped(_ sender: UIButton) {
         let button = classArray[27]
         changeDate(button: button)
+        guard let day = button.day else {return}
+        fetchSymptoms(day: day)
     }
     
     @IBAction func buttonTwentyNineTapped(_ sender: UIButton) {
         let button = classArray[28]
         changeDate(button: button)
+        guard let day = button.day else {return}
+        fetchSymptoms(day: day)
     }
     
     @IBAction func buttonThirtyTapped(_ sender: UIButton) {
         let button = classArray[29]
         changeDate(button: button)
+        guard let day = button.day else {return}
+        fetchSymptoms(day: day)
     }
     
     @IBAction func buttonThirtyOneTapped(_ sender: UIButton) {
         let button = classArray[30]
         changeDate(button: button)
+        guard let day = button.day else {return}
+        fetchSymptoms(day: day)
     }
     
     @IBAction func buttonThirtyTwoTapped(_ sender: UIButton) {
         let button = classArray[31]
         changeDate(button: button)
+        guard let day = button.day else {return}
+        fetchSymptoms(day: day)
     }
     
     @IBAction func buttonThirtyThreeTapped(_ sender: UIButton) {
         let button = classArray[32]
         changeDate(button: button)
+        guard let day = button.day else {return}
+        fetchSymptoms(day: day)
     }
     
     @IBAction func buttonThirtyFourTapped(_ sender: UIButton) {
         let button = classArray[33]
         changeDate(button: button)
+        guard let day = button.day else {return}
+        fetchSymptoms(day: day)
     }
     
     @IBAction func buttonThirtyFiveTapped(_ sender: UIButton) {
         let button = classArray[34]
         changeDate(button: button)
+        guard let day = button.day else {return}
+        fetchSymptoms(day: day)
     }
     
     @IBAction func buttonThirtySixTapped(_ sender: UIButton) {
         let button = classArray[35]
         changeDate(button: button)
+        guard let day = button.day else {return}
+        fetchSymptoms(day: day)
     }
     
     @IBAction func buttonThirtySevenTapped(_ sender: UIButton) {
         let button = classArray[36]
         changeDate(button: button)
+        guard let day = button.day else {return}
+        fetchSymptoms(day: day)
     }
     
     @IBAction func buttonThirtyEightTapped(_ sender: UIButton) {
         let button = classArray[37]
         changeDate(button: button)
+        guard let day = button.day else {return}
+        fetchSymptoms(day: day)
     }
     
     @IBAction func buttonThirtyNineTapped(_ sender: UIButton) {
         let button = classArray[38]
         changeDate(button: button)
+        guard let day = button.day else {return}
+        fetchSymptoms(day: day)
     }
     
     @IBAction func buttonFortyTapped(_ sender: UIButton) {
         let button = classArray[39]
         changeDate(button: button)
+        guard let day = button.day else {return}
+        fetchSymptoms(day: day)
     }
     
     @IBAction func buttonFortyOneTapped(_ sender: UIButton) {
         let button = classArray[40]
         changeDate(button: button)
+        guard let day = button.day else {return}
+        fetchSymptoms(day: day)
     }
     
     @IBAction func buttonFortyTwoTapped(_ sender: UIButton) {
         let button = classArray[41]
         changeDate(button: button)
+        guard let day = button.day else {return}
+        fetchSymptoms(day: day)
     }
-    
-    
     
     class Button {
         let date: Date
         let button: UIButton
-        //let nextButton: Button?
+        let day: Day?
         
-        init(date: Date, button: UIButton) {
+        init(date: Date, button: UIButton, day: Day?) {
             self.date = date
             self.button = button
-            //self.nextButton = nextButton
+            self.day = day
         }
     }
     
@@ -372,10 +465,20 @@ class CalendarTabViewController: UIViewController {
     }
     
     func setButtons(date: Date) {
-        var date = date
+        var date = date.formattedDate()
         var classButtons: [Button] = []
+        guard let user = self.user else {return}
         for button in buttons {
-            classButtons.append(Button(date: date, button: button))
+            DayController.shared.fetchSingleDay(forUser: user, andDate: date.formattedDate()) { (day) in
+                if let day = day {
+                    classButtons.append(Button(date: date, button: button, day: day))
+                }
+                for button in classButtons {
+                    DispatchQueue.main.async {
+                        self.displayPeriod(button: button)
+                    }
+                }
+            }
             print(classButtons.count)
             let dayNumber = Calendar.current.dateComponents([Calendar.Component.day], from: date).day!
             let buttonMonth = Calendar.current.component(.month, from: date)
@@ -389,8 +492,6 @@ class CalendarTabViewController: UIViewController {
                     button.setAttributedTitle(buttonTitle, for: .normal)
                 }
             }
-            
-            
             date = Calendar.current.date(byAdding: .day, value: 1, to: date)!
         }
         classArray = classButtons
@@ -402,24 +503,25 @@ class CalendarTabViewController: UIViewController {
     
     func setUpMonthView() {
         let selectedMonth = Calendar.current.component(.month, from: selectedDate)
-        
-//        for button in classArray {
-//            let buttonMonth = Calendar.current.component(.month, from: button.date)
-//            UIView.performWithoutAnimation {
-//            if selectedMonth != buttonMonth {
-//                    button.button.titleLabel?.textColor = .gray
-//                    button.button.backgroundColor = .blue
-//            } else {
-//                button.button.titleLabel?.textColor = UIColor(hexString: "#96B6CE")
-//                button.button.backgroundColor = .white
-//                }
-//            }
-//        }
         let lastRowMonth = Calendar.current.component(.month, from: classArray[35].date)
         if lastRowMonth != selectedMonth {
             self.lastRow.isHidden = true
         } else {
             self.lastRow.isHidden = false
+        }
+    }
+    
+    func displayPeriod(button: Button) {
+        for period in periods {
+            if period.start == button.date {
+                button.button.setBackgroundImage(#imageLiteral(resourceName: "periodStartBackground"), for: .normal)
+            } else if period.end == button.date {
+                button.button.setBackgroundImage(#imageLiteral(resourceName: "periodEndBackground"), for: .normal)
+            } else if period.contains(button.date) {
+                button.button.setBackgroundImage(#imageLiteral(resourceName: "periodMidBackground"), for: .normal)
+            } else {
+                button.button.setBackgroundImage(nil, for: .normal)
+            }
         }
     }
     
@@ -438,8 +540,34 @@ class CalendarTabViewController: UIViewController {
         }
     }
     
-    
-}
+    func fetchSymptoms(day: Day) {
+        FlowController.shared.fetchFlowDetails(forDay: day) { (flow) in
+            if let flow = flow {
+                day.flowDetails = flow
+            }
+        }
+        SymptomController.shared.fetchSymptoms(forDay: day) { (symptoms) in
+            if let symptoms = symptoms {
+                day.symptomList = symptoms
+            }
+        }
+        MoodController.shared.fetchMoods(forDay: day) { (moods) in
+            if let moods = moods {
+                day.moodList = moods
+            }
+        }
+        SexController.shared.fetchSexDetails(forDay: day) { (sexDetails) in
+            if let sexDetails = sexDetails {
+                day.sexDetails = sexDetails
+            }
+        }
+        CustomEntryController.shared.fetchCustomEntries(forDay: day) { (customEntries) in
+            if let customEntries = customEntries {
+                day.customEntries = customEntries
+            }
+        }
+    }
+}//end of class
 
 extension CalendarTabViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

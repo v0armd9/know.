@@ -40,6 +40,24 @@ class DayController {
         }
     }
     
+    func fetchSingleDay(forUser user: User, andDate date: Date, completion: @escaping(Day?) -> Void) {
+        let datePredicate = NSPredicate(format: "%K == %@", DayConstants.dateKey, date as CVarArg)
+        let query = CKQuery(recordType: DayConstants.dayTypeKey, predicate: datePredicate)
+        CKContainer.default().privateCloudDatabase.perform(query, inZoneWith: nil) { (records, error) in
+            if let error = error {
+                print("Error in \(#function): \(error.localizedDescription) /n---/n \(error)")
+                completion(nil)
+                return
+            }
+            guard let records = records else {completion(nil); return}
+            var day: Day? = nil
+            for record in records {
+                day = Day(record: record, user: user)
+            }
+            completion(day)
+        }
+    }
+    
     func deleteDay(forDay day: Day, completion: @escaping(Bool) -> Void) {
         CloudKitController.shared.delete(recordID: day.ckRecordID) { (success) in
             if success {

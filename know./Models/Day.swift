@@ -58,7 +58,7 @@ extension Day: Equatable {
 //Magic String Constants
 struct DayConstants {
     static let dayTypeKey = "Day"
-    fileprivate static let dateKey = "date"
+    static let dateKey = "date"
     fileprivate static let flowKey = "flowDetails"
     fileprivate static let symptomKey = "symptomList"
     fileprivate static let moodKey = "moodList"

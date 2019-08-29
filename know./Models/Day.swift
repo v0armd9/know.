@@ -21,8 +21,14 @@ class Day {
     var ckRecordID: CKRecord.ID
     weak var user: User?
     
+    var userReference: CKRecord.Reference? {
+        guard let user = user else { return nil }
+        return CKRecord.Reference(recordID: user.ckRecordID, action: .deleteSelf)
+    }
+    
     //Designated Initializer
     init(user: User, date: Date, flowDetails: [Flow] = [], symptomList: [Symptom] = [], moodList: [Mood] = [], sexDetails: [Sex] = [], customEntries: [CustomEntry] = [], ckRecordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString)) {
+        self.user = user
         self.date = date
         self.flowDetails = flowDetails
         self.symptomList = symptomList
@@ -45,6 +51,7 @@ extension CKRecord {
     convenience init(day: Day) {
         self.init(recordType: DayConstants.dayTypeKey, recordID: day.ckRecordID)
         self.setValue(day.date, forKey: DayConstants.dateKey)
+        self.setValue(day.userReference, forKey: DayConstants.userReference)
     }
 }
 
@@ -59,6 +66,7 @@ extension Day: Equatable {
 struct DayConstants {
     static let dayTypeKey = "Day"
     static let dateKey = "date"
+    static let userReference = "userReference"
     fileprivate static let flowKey = "flowDetails"
     fileprivate static let symptomKey = "symptomList"
     fileprivate static let moodKey = "moodList"

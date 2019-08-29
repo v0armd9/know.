@@ -59,7 +59,7 @@
                                 </constraints>
                                 <state key="normal" image="add"/>
                                 <connections>
-                                    <segue destination="kTP-qe-cAQ" kind="show" id="KHQ-BO-cLp"/>
+                                    <segue destination="kTP-qe-cAQ" kind="show" identifier="toSymptomVC" id="KHQ-BO-cLp"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Symptoms" textAlignment="right" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumFontSize="1" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gr2-cn-VOR" customClass="CustomLabel" customModule="know_" customModuleProvider="target">
@@ -137,7 +137,9 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="dayLabel" destination="uND-xb-uFk" id="FFU-lY-BpD"/>
                         <outlet property="monthLabel" destination="TGy-b1-6fc" id="zYM-Qg-GuC"/>
+                        <outlet property="trackerLabel" destination="ovI-qD-VmU" id="QgE-XA-al2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dWm-yP-fOI" userLabel="First Responder" sceneMemberID="firstResponder"/>

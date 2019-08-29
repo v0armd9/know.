@@ -11,7 +11,7 @@ import UIKit
 class AddSymptomsTableViewController: UITableViewController {
 
     //Properties
-    var currentDate: Date = Date()
+    var currentDate: Date?
     var customEntryText: String = ""
     
     //Landing Pads
@@ -20,6 +20,7 @@ class AddSymptomsTableViewController: UITableViewController {
     var fetchedMood: Mood?
     var fetchedSex: Sex?
     var fetchedCustom: CustomEntry?
+    var dayObject: Day?
     
     //FLOW image name tuples
     let spotting = ("a.spotting", "a.spotting2")
@@ -96,7 +97,7 @@ class AddSymptomsTableViewController: UITableViewController {
     
     //Actions
     @IBAction func saveButtonTapped(_ sender: Any) {
-        saveTapped()
+        saveNewData()
     }
     
     //Toggle Symptom Icon
@@ -305,7 +306,7 @@ class AddSymptomsTableViewController: UITableViewController {
     //Helper Functions
     func setNavigationBarView() {
         func setNavTitle() {
-            currentDate = currentDate.formattedDate()
+            guard let currentDate = currentDate else { return }
             let label = UILabel()
             label.text = currentDate.stringWith(dateStyle: .long, timeStyle: .none)
             label.textColor = #colorLiteral(red: 0.554766655, green: 0.7184440494, blue: 0.8180738091, alpha: 1)
@@ -331,10 +332,10 @@ class AddSymptomsTableViewController: UITableViewController {
         setImageForButton(button: button, symptom: symptom)
     }
     
-    func saveTapped() {
+    func saveNewData() {
         //save DAY model object
         if let user = UserController.shared.currentUser {
-            let currentDate = self.currentDate.formattedDate()
+            guard let currentDate = currentDate?.formattedDate() else { return }
             DayController.shared.saveDay(forUser: user, date: currentDate) { (day) in
                 if let day = day {
                     DispatchQueue.main.async {
@@ -391,24 +392,38 @@ class AddSymptomsTableViewController: UITableViewController {
     
     func saveSymptoms(day: Day, flow: Flow, symptom: Symptom, mood: Mood, sex: Sex, entry: CustomEntry, completion: @escaping(Bool) -> Void) {
         FlowController.shared.saveFlowDetails(forDay: day, spotting: flow.spotting, light: flow.light, medium: flow.medium, heavy: flow.heavy) { (success) in
-            if success {
-            } else { completion(false); return }
+            if !success { completion(false); return }
         }
         SymptomController.shared.saveSymptoms(forDay: day, headache: symptom.headache, cramping: symptom.cramping, backPain: symptom.backPain, breastTenderness: symptom.breastTenderness, nausea: symptom.nausea, fatigue: symptom.fatigue, insomnia: symptom.insomnia, acne: symptom.acne) { (success) in
-            if success {
-            } else { completion(false); return }
+            if !success { completion(false); return }
         }
         MoodController.shared.saveMoods(forDay: day, happy: mood.happy, sensitive: mood.sensitive, sad: mood.sad, depressed: mood.depressed, nervous: mood.nervous, irritated: mood.irritated, content: mood.content, moodSwings: mood.moodSwings, angry: mood.angry) { (success) in
-            if success {
-            } else { completion(false); return }
+            if !success { completion(false); return }
         }
         SexController.shared.saveSexDetails(forDay: day, protected: sex.protected, sexDrive: sex.sexDrive, masturbation: sex.masturbation) { (success) in
-            if success {
-            } else { completion(false); return }
+            if !success { completion(false); return }
         }
         CustomEntryController.shared.saveEntry(forDay: day, text: entry.text) { (success) in
-            if success {
-            } else { completion(false); return }
+            if !success { completion(false); return }
+        }
+        completion(true)
+    }
+    
+    func updateSymptoms(flow: Flow, symptom: Symptom, mood: Mood, sex: Sex, entry: CustomEntry, completion: @escaping(Bool) -> Void) {
+        FlowController.shared.update(flow: flow, withSpotting: flow.spotting, light: flow.light, medium: flow.medium, heavy: flow.heavy) { (success) in
+            if !success { completion(false); return }
+        }
+        SymptomController.shared.update(symptom: symptom, withHeadache: symptom.headache, cramping: symptom.cramping, backPain: symptom.backPain, breastTenderness: symptom.breastTenderness, nausea: symptom.nausea, fatigue: symptom.fatigue, insomnia: symptom.insomnia, acne: symptom.acne) { (success) in
+            if !success { completion(false); return }
+        }
+        MoodController.shared.update(mood: mood, withHappy: mood.happy, sensitive: mood.sensitive, sad: mood.sad, depressed: mood.depressed, nervous: mood.nervous, irritated: mood.irritated, content: mood.content, moodSwings: mood.moodSwings, angry: mood.angry) { (success) in
+            if !success { completion(false); return }
+        }
+        SexController.shared.update(sexDetails: sex, withProtected: sex.protected, sexDrive: sex.sexDrive, masturbation: sex.masturbation) { (success) in
+            if !success { completion(false); return }
+        }
+        CustomEntryController.shared.update(entry: entry, text: entry.text) { (success) in
+            if !success { completion(false); return }
         }
         completion(true)
     }
@@ -455,12 +470,16 @@ class AddSymptomsTableViewController: UITableViewController {
     }
     
     func getFetchedDataToLoadView() {
-        guard let flow = fetchedFlow,
-        let symptom = fetchedSymptoms,
-        let mood = fetchedMood,
-        let sex = fetchedSex,
-        let custom = fetchedCustom
+        guard let day = dayObject,
+            let flow = day.flowDetails.first,
+            let symptom = day.symptomList.first,
+            let mood = day.moodList.first,
+            let sex = day.sexDetails.first,
+            let custom = day.customEntries.first
             else { return }
         checkSymptomStatus(flow: flow, symptom: symptom, mood: mood, sex: sex, custom: custom)
     }
 }
+
+
+//NEED TO FIGURE OUT UPDATING SYMPTOMS IF A DAY OBJECT ALREADY EXISTS

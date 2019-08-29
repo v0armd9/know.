@@ -59,7 +59,6 @@
 		53F58877231087040076D7D2 /* HealthInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F58876231087040076D7D2 /* HealthInfo.swift */; };
 		53F58879231087DC0076D7D2 /* HealthInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F58878231087DC0076D7D2 /* HealthInfoController.swift */; };
 		53F5887B231091B30076D7D2 /* InfoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F5887A231091B30076D7D2 /* InfoDetailViewController.swift */; };
-		53F5887F231443330076D7D2 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F5887E231443330076D7D2 /* Alerts.swift */; };
 		53F5888123144DE60076D7D2 /* OnboardStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F5888023144DE60076D7D2 /* OnboardStartViewController.swift */; };
 		58184AC52316F27A0061BFDD /* SymptomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58184AC42316F27A0061BFDD /* SymptomCollectionViewCell.swift */; };
 		58184AC7231845910061BFDD /* Cycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58184AC6231845910061BFDD /* Cycle.swift */; };
@@ -134,7 +133,6 @@
 		53F58876231087040076D7D2 /* HealthInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthInfo.swift; sourceTree = "<group>"; };
 		53F58878231087DC0076D7D2 /* HealthInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthInfoController.swift; sourceTree = "<group>"; };
 		53F5887A231091B30076D7D2 /* InfoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoDetailViewController.swift; sourceTree = "<group>"; };
-		53F5887E231443330076D7D2 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		53F5888023144DE60076D7D2 /* OnboardStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardStartViewController.swift; sourceTree = "<group>"; };
 		58184AC42316F27A0061BFDD /* SymptomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomCollectionViewCell.swift; sourceTree = "<group>"; };
 		58184AC6231845910061BFDD /* Cycle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cycle.swift; sourceTree = "<group>"; };
@@ -178,7 +176,6 @@
 				53B140E7230C6426008AE180 /* CloudKitController.swift */,
 				53B14103230DFEB7008AE180 /* DateFormatter.swift */,
 				58CD1107230C7742009A8333 /* LabelHelper.swift */,
-				53F5887E231443330076D7D2 /* Alerts.swift */,
 				58462712231483D2007EFA08 /* ColorExtension.swift */,
 			);
 			path = Helpers;
@@ -493,7 +490,6 @@
 				53B140F2230CAA30008AE180 /* SexController.swift in Sources */,
 				53381C792310782100FA1D91 /* CustomEntry.swift in Sources */,
 				53B140DD230B0FD9008AE180 /* Symptom.swift in Sources */,
-				53F5887F231443330076D7D2 /* Alerts.swift in Sources */,
 				53381C71230F033400FA1D91 /* OnboardWeightViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -643,13 +639,13 @@
 				CODE_SIGN_ENTITLEMENTS = know./know..entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QP48FW2MG5;
+				DEVELOPMENT_TEAM = 8MJ3MC3A9A;
 				INFOPLIST_FILE = "$(SRCROOT)/know./Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.DarinArmstrong.know;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DMA.know;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -664,13 +660,13 @@
 				CODE_SIGN_ENTITLEMENTS = know./know..entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QP48FW2MG5;
+				DEVELOPMENT_TEAM = 8MJ3MC3A9A;
 				INFOPLIST_FILE = "$(SRCROOT)/know./Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.DarinArmstrong.know;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DMA.know;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

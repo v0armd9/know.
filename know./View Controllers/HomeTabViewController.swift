@@ -11,6 +11,8 @@ import UIKit
 class HomeTabViewController: UIViewController {
     
     @IBOutlet weak var monthLabel: UILabel!
+    @IBOutlet weak var dayLabel: UILabel!
+    @IBOutlet weak var trackerLabel: UILabel!
     
     let wheelView = UIView()
     var counter = 0
@@ -23,16 +25,23 @@ class HomeTabViewController: UIViewController {
             monthLabel.text = arrayOfMonths[monthNum-1]
         }
     }
+    
+    var dayObject: Day?
+    var flow: [Flow] = []
+    var symptoms: [Symptom] = []
+    var moods: [Mood] = []
+    var sex: [Sex] = []
+    var custom: [CustomEntry] = []
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        fetchDayData()
         addButtons(buttonCount: 18) { (success) in
             if success {
-                DispatchQueue.main.async {
-                    self.selectedDate = Date()
-                    self.updateButtonsFuture()
-                    self.updateButtonsPast()
-                }
+                self.selectedDate = Date()
+                self.updateButtonsFuture()
+                self.updateButtonsPast()
             }
             self.navigationItem.title = "My Cycle ⏏︎"
         }
@@ -44,7 +53,6 @@ class HomeTabViewController: UIViewController {
     
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         if motion == .motionShake {
-            print(counter)
             if counter > 0 {
                 let newCounter = counter
                 for _ in 1...newCounter {
@@ -61,6 +69,14 @@ class HomeTabViewController: UIViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toSymptomVC" {
+            let destination = segue.destination as? AddSymptomsTableViewController
+            guard let day = dayObject else { return }
+            destination?.day = day
+        }
+    }
+    
     @IBAction func viewSwipedUp(_ sender: UISwipeGestureRecognizer) {
         swipeUp()
     }
@@ -69,6 +85,20 @@ class HomeTabViewController: UIViewController {
         swipeDown()
     }
     
+    func fetchDayData() {
+        guard let user = UserController.shared.currentUser else { return }
+        let date = selectedDate ?? Date()
+        DayController.shared.fetchSingleDay(forUser: user, andDate: date) { (day) in
+            if let day = day {
+                self.dayObject = day
+                self.flow = day.flowDetails
+                self.symptoms = day.symptomList
+                self.moods = day.moodList
+                self.sex = day.sexDetails
+                self.custom = day.customEntries
+            }
+        }
+    }
     
     func addButtons(buttonCount: Int, completion: @escaping (Bool) -> Void) {
         let wheelView = self.wheelView

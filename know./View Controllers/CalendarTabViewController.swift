@@ -440,7 +440,7 @@ class CalendarTabViewController: UIViewController {
     class Button {
         let date: Date
         let button: UIButton
-        let day: Day?
+        var day: Day?
         
         init(date: Date, button: UIButton, day: Day?) {
             self.date = date
@@ -467,18 +467,8 @@ class CalendarTabViewController: UIViewController {
     func setButtons(date: Date) {
         var date = date.formattedDate()
         var classButtons: [Button] = []
-        guard let user = self.user else {return}
         for button in buttons {
-            DayController.shared.fetchSingleDay(forUser: user, andDate: date.formattedDate()) { (day) in
-                if let day = day {
-                    classButtons.append(Button(date: date, button: button, day: day))
-                }
-                for button in classButtons {
-                    DispatchQueue.main.async {
-                        self.displayPeriod(button: button)
-                    }
-                }
-            }
+            classButtons.append(Button(date: date, button: button, day: nil))
             print(classButtons.count)
             let dayNumber = Calendar.current.dateComponents([Calendar.Component.day], from: date).day!
             let buttonMonth = Calendar.current.component(.month, from: date)
@@ -496,8 +486,19 @@ class CalendarTabViewController: UIViewController {
         }
         classArray = classButtons
         DispatchQueue.main.async {
-            
             self.setUpMonthView()
+            self.setUpDay()
+        }
+    }
+    
+    func setUpDay() {
+        guard let user = self.user else {return}
+        for button in classArray {
+            DayController.shared.fetchSingleDay(forUser: user, andDate: button.date.formattedDate()) { (day) in
+                if let day = day {
+                    button.day = day
+                }
+            }
         }
     }
     

@@ -383,27 +383,22 @@ class AddSymptomsTableViewController: UITableViewController {
     func saveSymptoms(day: Day, flow: Flow, symptom: Symptom, mood: Mood, sex: Sex, entry: CustomEntry, completion: @escaping(Bool) -> Void) {
         FlowController.shared.saveFlowDetails(forDay: day, spotting: flow.spotting, light: flow.light, medium: flow.medium, heavy: flow.heavy) { (success) in
             if success {
-                print("The Input Mood Data was Saved!")
             } else { completion(false); return }
         }
         SymptomController.shared.saveSymptoms(forDay: day, headache: symptom.headache, cramping: symptom.cramping, backPain: symptom.backPain, breastTenderness: symptom.breastTenderness, nausea: symptom.nausea, fatigue: symptom.fatigue, insomnia: symptom.insomnia, acne: symptom.acne) { (success) in
             if success {
-                print("The Input Symptom Data was Saved!")
             } else { completion(false); return }
         }
         MoodController.shared.saveMoods(forDay: day, happy: mood.happy, sensitive: mood.sensitive, sad: mood.sad, depressed: mood.depressed, nervous: mood.nervous, irritated: mood.irritated, content: mood.content, moodSwings: mood.moodSwings, angry: mood.angry) { (success) in
             if success {
-                print("The Input Mood Data was Saved!")
             } else { completion(false); return }
         }
         SexController.shared.saveSexDetails(forDay: day, protected: sex.protected, sexDrive: sex.sexDrive, masturbation: sex.masturbation) { (success) in
             if success {
-                print("The Input Sex Data was Saved!")
             } else { completion(false); return }
         }
         CustomEntryController.shared.saveEntry(forDay: day, text: entry.text) { (success) in
             if success {
-                print("The Input Custom Data was Saved!")
             } else { completion(false); return }
         }
         completion(true)

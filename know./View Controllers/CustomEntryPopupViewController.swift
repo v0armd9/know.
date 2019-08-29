@@ -29,7 +29,8 @@ class CustomEntryPopupViewController: UIViewController {
     func setPopupView() {
         popupView.layer.cornerRadius = 25
         addSymptomTextView.text = customEntryText
-        addSymptomTextView.layer.borderWidth = 5
+        addSymptomTextView.layer.cornerRadius = 20
+        addSymptomTextView.layer.borderWidth = 2
         addSymptomTextView.layer.borderColor = #colorLiteral(red: 0.5245693922, green: 0.6367838979, blue: 0.7222397327, alpha: 1)
     }
 

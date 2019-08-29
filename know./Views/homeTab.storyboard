@@ -528,16 +528,16 @@
                                                     <rect key="frame" x="30" y="10" width="890" height="341.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Custom" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oTj-0D-Dwq" customClass="CustomLabel" customModule="know_" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="890" height="8"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="890" height="35.5"/>
                                                             <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="24"/>
                                                             <color key="textColor" red="0.3411764706" green="0.3411764706" blue="0.3411764706" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="1SM-XJ-z6D">
-                                                            <rect key="frame" x="0.0" y="17" width="890" height="324.5"/>
+                                                            <rect key="frame" x="0.0" y="44.5" width="890" height="297"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qwz-t7-Eau">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="116"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="77.5" height="112"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="Qwz-t7-Eau" secondAttribute="height" multiplier="72:104" id="CQX-wk-LgU"/>
                                                                     </constraints>
@@ -546,56 +546,30 @@
                                                                         <action selector="customBT:" destination="kTP-qe-cAQ" eventType="touchUpInside" id="ln2-1K-QOR"/>
                                                                     </connections>
                                                                 </button>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OhZ-sD-idE">
-                                                                    <rect key="frame" x="105" y="0.0" width="785" height="324.5"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OhZ-sD-idE">
+                                                                    <rect key="frame" x="102.5" y="0.0" width="787.5" height="0.0"/>
                                                                     <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="18"/>
                                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
                                                             <constraints>
-                                                                <constraint firstAttribute="bottom" secondItem="OhZ-sD-idE" secondAttribute="bottom" id="Gq0-Pb-9qg"/>
                                                                 <constraint firstItem="OhZ-sD-idE" firstAttribute="top" secondItem="1SM-XJ-z6D" secondAttribute="top" id="lgQ-gF-WUX"/>
                                                             </constraints>
                                                         </stackView>
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="oTj-0D-Dwq" secondAttribute="trailing" id="0KZ-2S-EK1"/>
-                                                        <constraint firstItem="1SM-XJ-z6D" firstAttribute="height" secondItem="BRa-0m-TIx" secondAttribute="height" multiplier="0.95" id="N4i-hy-PDq"/>
+                                                        <constraint firstItem="1SM-XJ-z6D" firstAttribute="height" secondItem="BRa-0m-TIx" secondAttribute="height" multiplier="0.87" id="e2u-xk-ooY"/>
                                                     </constraints>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="BRa-0m-TIx" secondAttribute="bottom" constant="10" id="Drl-sq-qd1"/>
                                                 <constraint firstItem="BRa-0m-TIx" firstAttribute="leading" secondItem="ggs-fm-0dG" secondAttribute="leading" constant="30" id="ReB-sw-Unn"/>
-                                                <constraint firstItem="Qwz-t7-Eau" firstAttribute="height" secondItem="ggs-fm-0dG" secondAttribute="height" multiplier="0.32" id="huQ-20-ufI"/>
+                                                <constraint firstItem="Qwz-t7-Eau" firstAttribute="height" secondItem="ggs-fm-0dG" secondAttribute="height" multiplier="0.31" id="huQ-20-ufI"/>
                                                 <constraint firstItem="BRa-0m-TIx" firstAttribute="top" secondItem="ggs-fm-0dG" secondAttribute="top" constant="10" id="sbQ-8G-TNd"/>
                                                 <constraint firstAttribute="trailing" secondItem="BRa-0m-TIx" secondAttribute="trailing" constant="30" id="yQD-h0-Wka"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="saveCell" rowHeight="203" id="fhW-cZ-UKT">
-                                        <rect key="frame" x="0.0" y="1086" width="950" height="203"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fhW-cZ-UKT" id="Gpr-DR-cTv">
-                                            <rect key="frame" x="0.0" y="0.0" width="950" height="202.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wUa-Hk-CHQ">
-                                                    <rect key="frame" x="237.5" y="121.5" width="475" height="60.5"/>
-                                                    <color key="backgroundColor" red="0.54671287540000002" green="0.63341903690000001" blue="0.71373790500000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                    <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="20"/>
-                                                    <state key="normal" title="Save">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </state>
-                                                </button>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="wUa-Hk-CHQ" secondAttribute="bottom" constant="10" id="3Mf-Nh-L1I"/>
-                                                <constraint firstItem="wUa-Hk-CHQ" firstAttribute="centerX" secondItem="Gpr-DR-cTv" secondAttribute="centerX" id="3f5-wx-GVi"/>
-                                                <constraint firstItem="wUa-Hk-CHQ" firstAttribute="height" secondItem="Gpr-DR-cTv" secondAttribute="height" multiplier="0.3" id="UNa-Zc-j6Q"/>
-                                                <constraint firstItem="wUa-Hk-CHQ" firstAttribute="width" secondItem="Gpr-DR-cTv" secondAttribute="width" multiplier="0.5" id="jhs-wK-vZ3"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>

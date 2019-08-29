@@ -52,18 +52,18 @@
                                     <constraint firstAttribute="height" constant="3" id="cua-ce-ABE"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aNp-yU-w6a">
-                                <rect key="frame" x="322" y="576" width="80.5" height="80.5"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aNp-yU-w6a">
+                                <rect key="frame" x="338" y="592" width="48.5" height="48.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="aNp-yU-w6a" secondAttribute="height" multiplier="1:1" id="PDh-zq-J5h"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="add"/>
+                                <state key="normal" image="add"/>
                                 <connections>
                                     <segue destination="kTP-qe-cAQ" kind="show" id="KHQ-BO-cLp"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Symptoms" textAlignment="right" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumFontSize="1" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gr2-cn-VOR" customClass="CustomLabel" customModule="know_" customModuleProvider="target">
-                                <rect key="frame" x="190" y="576" width="127" height="80.5"/>
+                                <rect key="frame" x="206" y="592" width="127" height="48.5"/>
                                 <fontDescription key="fontDescription" name="Nunito-SemiBold" family="Nunito SemiBold" pointSize="18"/>
                                 <color key="textColor" red="0.37647058823529411" green="0.37647058823529411" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -82,6 +82,19 @@
                                 <color key="textColor" red="0.37647058823529411" green="0.37647058823529411" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fSU-jh-bzt">
+                                <rect key="frame" x="338" y="84.5" width="48.5" height="48.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="fSU-jh-bzt" secondAttribute="height" multiplier="1:1" id="Y2r-Hi-sgF"/>
+                                </constraints>
+                                <state key="normal" image="addNewCycleButton"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start New Cycle" textAlignment="right" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumFontSize="1" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FR3-xJ-ECs" customClass="CustomLabel" customModule="know_" customModuleProvider="target">
+                                <rect key="frame" x="200.5" y="96.5" width="132.5" height="25"/>
+                                <fontDescription key="fontDescription" name="Nunito-SemiBold" family="Nunito SemiBold" pointSize="18"/>
+                                <color key="textColor" red="0.37647058820000001" green="0.37647058820000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
@@ -94,17 +107,22 @@
                             <constraint firstItem="G6s-p9-siH" firstAttribute="top" secondItem="TGy-b1-6fc" secondAttribute="bottom" id="CJG-vp-XJJ"/>
                             <constraint firstItem="TGy-b1-6fc" firstAttribute="width" relation="lessThanOrEqual" secondItem="Q8n-Je-0fQ" secondAttribute="width" multiplier="0.25" id="DKP-lG-WVh"/>
                             <constraint firstItem="ovI-qD-VmU" firstAttribute="width" secondItem="uND-xb-uFk" secondAttribute="width" multiplier="1.5" id="GSR-SA-XD7"/>
+                            <constraint firstItem="aNp-yU-w6a" firstAttribute="leading" secondItem="gr2-cn-VOR" secondAttribute="trailing" constant="5" id="Ghf-YO-sXk"/>
                             <constraint firstItem="uND-xb-uFk" firstAttribute="width" secondItem="Q8n-Je-0fQ" secondAttribute="width" multiplier="0.2" id="KhX-7T-gt2"/>
-                            <constraint firstItem="aNp-yU-w6a" firstAttribute="leading" secondItem="gr2-cn-VOR" secondAttribute="trailing" constant="5" id="NgD-L3-2Wf"/>
                             <constraint firstItem="TGy-b1-6fc" firstAttribute="centerY" secondItem="Q8n-Je-0fQ" secondAttribute="centerY" constant="2.5" id="OHv-vf-B05"/>
                             <constraint firstItem="gr2-cn-VOR" firstAttribute="centerY" secondItem="aNp-yU-w6a" secondAttribute="centerY" id="RRq-tc-UDI"/>
-                            <constraint firstItem="aNp-yU-w6a" firstAttribute="height" secondItem="Q8n-Je-0fQ" secondAttribute="height" multiplier="0.1" id="RfC-Hw-xE2"/>
+                            <constraint firstItem="aNp-yU-w6a" firstAttribute="height" secondItem="Q8n-Je-0fQ" secondAttribute="height" multiplier="0.06" id="RfC-Hw-xE2"/>
+                            <constraint firstItem="fSU-jh-bzt" firstAttribute="centerY" secondItem="uBa-Lo-M1f" secondAttribute="centerY" multiplier="0.3" id="Uio-Z5-R1R"/>
+                            <constraint firstItem="fSU-jh-bzt" firstAttribute="height" secondItem="Q8n-Je-0fQ" secondAttribute="height" multiplier="0.06" id="VyN-cc-cjd"/>
                             <constraint firstItem="TGy-b1-6fc" firstAttribute="top" secondItem="Ute-P2-zRh" secondAttribute="bottom" id="XPY-Zi-oBV"/>
+                            <constraint firstItem="FR3-xJ-ECs" firstAttribute="centerY" secondItem="fSU-jh-bzt" secondAttribute="centerY" id="Zpd-Ax-GLk"/>
                             <constraint firstItem="uND-xb-uFk" firstAttribute="centerX" secondItem="uBa-Lo-M1f" secondAttribute="centerX" multiplier="1.6" id="c6I-hQ-pqA"/>
                             <constraint firstItem="G6s-p9-siH" firstAttribute="centerX" secondItem="TGy-b1-6fc" secondAttribute="centerX" id="dQq-ye-m0z"/>
                             <constraint firstItem="aNp-yU-w6a" firstAttribute="centerY" secondItem="uBa-Lo-M1f" secondAttribute="centerY" multiplier="1.7" id="etu-ON-Wgq"/>
+                            <constraint firstItem="fSU-jh-bzt" firstAttribute="leading" secondItem="FR3-xJ-ECs" secondAttribute="trailing" constant="5" id="kkF-bp-qIQ"/>
                             <constraint firstItem="ovI-qD-VmU" firstAttribute="top" secondItem="uND-xb-uFk" secondAttribute="bottom" id="osK-fC-jRD"/>
                             <constraint firstItem="ovI-qD-VmU" firstAttribute="leading" secondItem="uND-xb-uFk" secondAttribute="leading" id="ppb-aZ-hkP"/>
+                            <constraint firstItem="fSU-jh-bzt" firstAttribute="centerX" secondItem="uBa-Lo-M1f" secondAttribute="centerX" multiplier="1.75" id="rlI-Rp-mmq"/>
                             <constraint firstItem="TGy-b1-6fc" firstAttribute="centerX" secondItem="uBa-Lo-M1f" secondAttribute="centerX" multiplier="0.4" id="xdU-U1-R1P"/>
                             <constraint firstItem="aNp-yU-w6a" firstAttribute="centerX" secondItem="uBa-Lo-M1f" secondAttribute="centerX" multiplier="1.75" id="yFb-z2-0cc"/>
                         </constraints>
@@ -742,6 +760,7 @@
         <image name="a.medium" width="72" height="104"/>
         <image name="a.spotting" width="72" height="104"/>
         <image name="add" width="54" height="54"/>
+        <image name="addNewCycleButton" width="54" height="54"/>
         <image name="b.acne" width="72" height="104"/>
         <image name="b.backpain" width="72" height="104"/>
         <image name="b.breast" width="72" height="104"/>

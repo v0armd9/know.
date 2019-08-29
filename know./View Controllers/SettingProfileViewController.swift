@@ -258,6 +258,7 @@ class SettingProfileViewController: UIViewController {
             var pms = user.pms,
             var authEnabled = user.authEnabled
             else { return }
+        let cycles = user.cycles
         let age = Int(Date().timeIntervalSince(birthday) / secondsToYears)
         if pmsYesButton.isSelected {
             pms = true
@@ -271,7 +272,7 @@ class SettingProfileViewController: UIViewController {
             authEnabled = false
         }
         //Save Updated Info
-        UserController.shared.update(user: user, withName: name, birthdate: birthday, age: age, height: height, weight: weight, cycleLength: cycleLength, periodLength: periodLength, pms: pms, pmsDuration: pmsDuration, lastPeriod: lastPeriod, authEnabled: authEnabled) { (success) in
+        UserController.shared.update(user: user, withName: name, cycles: cycles, birthdate: birthday, age: age, height: height, weight: weight, cycleLength: cycleLength, periodLength: periodLength, pms: pms, pmsDuration: pmsDuration, lastPeriod: lastPeriod, authEnabled: authEnabled) { (success) in
             if success {
                 print("Updated User Info")
                 DispatchQueue.main.async {

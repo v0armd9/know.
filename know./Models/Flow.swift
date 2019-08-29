@@ -26,6 +26,7 @@ class Flow {
     
     //Designated Initializer
     init(day: Day, spotting: Bool = false, light: Bool = false, medium: Bool = false, heavy: Bool = false, ckRecordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString)) {
+        self.day = day
         self.spotting = spotting
         self.light = light
         self.medium = medium

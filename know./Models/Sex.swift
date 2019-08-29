@@ -25,6 +25,7 @@ class Sex {
     
     //Designated Initializer
     init(day: Day, protected: Bool = false, sexDrive: Bool = false, masturbation: Bool = false, ckRecordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString)) {
+        self.day = day
         self.protected = protected
         self.sexDrive = sexDrive
         self.masturbation = masturbation

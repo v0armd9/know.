@@ -30,6 +30,7 @@ class Symptom {
     
     //Designated Initializer
     init(day: Day, headache: Bool = false, cramping: Bool = false, backPain: Bool = false, breastTenderness: Bool = false, nausea: Bool = false, fatigue: Bool = false, insomnia: Bool = false, acne: Bool = false, ckRecordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString)) {
+        self.day = day
         self.headache = headache
         self.cramping = cramping
         self.backPain = backPain

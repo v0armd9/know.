@@ -27,6 +27,7 @@ class AddSymptomsTableViewController: UITableViewController {
     let insomnia = ("b.insomnia", "b.insomnia2")
     let nausea = ("b.nausea", "b.nausea2")
     let breast = ("b.breast", "b.breast2")
+    let fatigue = ("b.fatigue", "b.fatigue2")
     //MOOD image name tuples
     let happy = ("c.happy", "c.happy2")
     let depress = ("c.depress", "c.depress2")
@@ -79,8 +80,6 @@ class AddSymptomsTableViewController: UITableViewController {
     @IBOutlet weak var customLabel: CustomLabel!
     @IBOutlet weak var customButton: UIButton!
     @IBOutlet weak var customTextLabel: UILabel!
-    
-    
     
     //Lifecycle
     override func viewDidLoad() {
@@ -293,7 +292,6 @@ class AddSymptomsTableViewController: UITableViewController {
         }
         setImageForButton(button: customButton, symptom: custom)
     }
-    
     
     //Helper Functions
     func setNavigationBarView() {

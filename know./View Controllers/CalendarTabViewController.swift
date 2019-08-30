@@ -26,7 +26,7 @@ class CalendarTabViewController: UIViewController {
         didSet {
             guard let cycles = user?.cycles else {return}
             for cycle in cycles {
-                periods.append(cycle.periodDateInterval)
+             //   periods.append(cycle.periodDateInterval)
             }
         }
     }

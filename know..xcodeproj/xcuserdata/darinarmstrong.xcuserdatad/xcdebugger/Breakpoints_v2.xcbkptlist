@@ -51,5 +51,164 @@
             landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "know./View Controllers/HomeTabViewController.swift"
+            timestampString = "588894079.452594"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
+            landmarkName = "newStartButton(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "know./View Controllers/HomeTabViewController.swift"
+            timestampString = "588894079.453341"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "165"
+            endingLineNumber = "165"
+            landmarkName = "newStartButton(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "know_.HomeTabViewController.newStartButton(__C.UIButton) -&gt; ()"
+                  moduleName = "know."
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/darinarmstrong/Desktop/iOS_Development/DevMountain/GroupCapstone/know./know./know./View%20Controllers/HomeTabViewController.swift"
+                  timestampString = "588892693.282708"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "144"
+                  endingLineNumber = "144"
+                  offsetFromSymbolStart = "8936">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "know_.HomeTabViewController.newStartButton(__C.UIButton) -&gt; ()"
+                  moduleName = "know."
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/darinarmstrong/Desktop/iOS_Development/DevMountain/GroupCapstone/know./know./know./View%20Controllers/HomeTabViewController.swift"
+                  timestampString = "588892693.284948"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "144"
+                  endingLineNumber = "144"
+                  offsetFromSymbolStart = "9744">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Optional&lt;know_.Cycle&gt;) -&gt; () in know_.HomeTabViewController.newStartButton(__C.UIButton) -&gt; ()"
+                  moduleName = "know."
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/darinarmstrong/Desktop/iOS_Development/DevMountain/GroupCapstone/know./know./know./View%20Controllers/HomeTabViewController.swift"
+                  timestampString = "588892693.287096"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "145"
+                  endingLineNumber = "145"
+                  offsetFromSymbolStart = "128">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "know./View Controllers/HomeTabViewController.swift"
+            timestampString = "588894079.453637"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "selectedDate"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "know./View Controllers/HomeTabViewController.swift"
+            timestampString = "588894079.453895"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "351"
+            endingLineNumber = "351"
+            landmarkName = "fetchAllCyclesForUser()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Array&lt;know_.Cycle&gt;&gt;) -&gt; () in know_.HomeTabViewController.fetchAllCyclesForUser() -&gt; ()"
+                  moduleName = "know."
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/darinarmstrong/Desktop/iOS_Development/DevMountain/GroupCapstone/know./know./know./View%20Controllers/HomeTabViewController.swift"
+                  timestampString = "588892693.300095"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "329"
+                  endingLineNumber = "329"
+                  offsetFromSymbolStart = "3160">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 () -&gt; () in closure #1 (Swift.Optional&lt;Swift.Array&lt;know_.Cycle&gt;&gt;) -&gt; () in know_.HomeTabViewController.fetchAllCyclesForUser() -&gt; ()"
+                  moduleName = "know."
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/darinarmstrong/Desktop/iOS_Development/DevMountain/GroupCapstone/know./know./know./View%20Controllers/HomeTabViewController.swift"
+                  timestampString = "588892693.301773"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "330"
+                  endingLineNumber = "330"
+                  offsetFromSymbolStart = "92">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "know./View Controllers/HomeTabViewController.swift"
+            timestampString = "588894079.4543999"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "352"
+            endingLineNumber = "352"
+            landmarkName = "fetchAllCyclesForUser()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

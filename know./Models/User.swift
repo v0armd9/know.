@@ -19,7 +19,7 @@ class User {
     var birthdate: Date?
     var height: Int?
     var weight: Int?
-    var cycleLength: Int?
+    var cycleLength: [Int]?
     var periodLength: Int?
     var pms: Bool?
     var pmsDuration: Int?
@@ -28,7 +28,7 @@ class User {
     var ckRecordID: CKRecord.ID
     
     //Designated Initializer
-    init(days: [Day] = [], name: String?, cycles: [Cycle] = [], age: Int?, birthdate: Date?, height: Int?, weight: Int?, cycleLength: Int?, periodLength: Int?, pms: Bool?, pmsDuration: Int?, lastPeriod: Date?, authEnabled: Bool? = false, ckRecordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString)) {
+    init(days: [Day] = [], name: String?, cycles: [Cycle] = [], age: Int?, birthdate: Date?, height: Int?, weight: Int?, cycleLength: [Int]?, periodLength: Int?, pms: Bool?, pmsDuration: Int?, lastPeriod: Date?, authEnabled: Bool? = false, ckRecordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString)) {
         self.days = days
         self.name = name
         self.cycles = cycles
@@ -52,7 +52,7 @@ class User {
             let birthdate = record[UserConstants.birthdateKey] as? Date,
             let height = record[UserConstants.heightKey] as? Int,
             let weight = record[UserConstants.weightKey] as? Int,
-            let cycleLength = record[UserConstants.cycleKey] as? Int,
+            let cycleLength = record[UserConstants.cycleKey] as? [Int],
             let periodLength = record[UserConstants.periodKey] as? Int,
             let pms = record[UserConstants.pmsKey] as? Bool,
             let pmsDuration = record[UserConstants.pmsDurationKey] as? Int,

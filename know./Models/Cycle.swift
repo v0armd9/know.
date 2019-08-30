@@ -12,8 +12,9 @@ import CloudKit
 class Cycle {
     
     //Class Properties
-    var cycleDateInterval: DateInterval
-    var periodDateInterval: DateInterval
+    var cycleDateStart: Date
+    var periodEndDate: Date
+    var cycleEndDate: Date
     var recordID: CKRecord.ID
     weak var user: User?
     
@@ -23,19 +24,21 @@ class Cycle {
     }
     
     //Designated Initializer
-    init(cycleDateInterval: DateInterval, periodDateInterval: DateInterval, recordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString), user: User?) {
+    init(cycleDateStart: Date, periodEndDate: Date, cycleEndDate: Date, recordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString), user: User?) {
         self.user = user
-        self.cycleDateInterval = cycleDateInterval
-        self.periodDateInterval = periodDateInterval
+        self.cycleDateStart = cycleDateStart
+        self.periodEndDate = periodEndDate
+        self.cycleEndDate = cycleEndDate
         self.recordID = recordID
     }
     
     //Initialize class object from a record
     convenience init?(record: CKRecord, user: User?) {
-        guard let cycleDateInterval = record[CycleConstants.cycleDateInterval] as? DateInterval,
-        let periodDateInterval = record[CycleConstants.periodDateInterval] as? DateInterval
+        guard let cycleDateStart = record[CycleConstants.cycleDateStart] as? Date,
+        let periodEndDate = record[CycleConstants.periodEndDate] as? Date,
+            let cycleEndDate = record[CycleConstants.cycleEndDate] as? Date
             else {return nil}
-        self.init(cycleDateInterval: cycleDateInterval, periodDateInterval: periodDateInterval, user: user)
+        self.init(cycleDateStart: cycleDateStart, periodEndDate: periodEndDate, cycleEndDate: cycleEndDate, recordID: record.recordID, user: user)
     }
 }
 
@@ -44,8 +47,9 @@ extension CKRecord {
     convenience init(cycle: Cycle) {
         self.init(recordType: CycleConstants.recordType, recordID: cycle.recordID)
         self.setValue(cycle.userReference, forKey: CycleConstants.userReferenceKey)
-        self.setValue(cycle.cycleDateInterval, forKey: CycleConstants.cycleDateInterval)
-        self.setValue(cycle.periodDateInterval, forKey: CycleConstants.periodDateInterval)
+        self.setValue(cycle.cycleDateStart, forKey: CycleConstants.cycleDateStart)
+        self.setValue(cycle.periodEndDate, forKey: CycleConstants.periodEndDate)
+        self.setValue(cycle.cycleEndDate, forKey: CycleConstants.cycleEndDate)
     }
 }
 
@@ -60,6 +64,7 @@ extension Cycle: Equatable {
 struct CycleConstants {
     static let recordType = "Cycle"
     static let userReferenceKey = "UserReference"
-    fileprivate static let cycleDateInterval = "CycleDateInterval"
-    fileprivate static let periodDateInterval = "PeriodDateInterval"
+    fileprivate static let cycleDateStart = "CycleDateStart"
+    fileprivate static let periodEndDate = "PeriodEndDate"
+    fileprivate static let cycleEndDate = "CycleEndDate"
 }

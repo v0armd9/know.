@@ -41,7 +41,7 @@ class Day {
     //Initialize class object from a record
     convenience init?(record: CKRecord, user: User) {
         guard let date = record[DayConstants.dateKey] as? Date else { return nil }
-        self.init(user: user, date: date, ckRecordID: record.recordID)
+        self.init(user: user, date: date, flowDetails: nil, symptomList: nil, moodList: nil, sexDetails: nil, customEntry: nil, ckRecordID: record.recordID)
     }
 }
 

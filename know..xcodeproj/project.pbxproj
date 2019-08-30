@@ -255,13 +255,13 @@
 			isa = PBXGroup;
 			children = (
 				53B140F3230DB34C008AE180 /* User.swift */,
-				58184AC6231845910061BFDD /* Cycle.swift */,
 				53B140E4230B11FB008AE180 /* Day.swift */,
 				53B140DE230B0FE8008AE180 /* Flow.swift */,
 				53B140DC230B0FD9008AE180 /* Symptom.swift */,
 				53B140E0230B11E0008AE180 /* Mood.swift */,
 				53B140E2230B11E7008AE180 /* Sex.swift */,
 				53381C782310782100FA1D91 /* CustomEntry.swift */,
+				58184AC6231845910061BFDD /* Cycle.swift */,
 				53F58876231087040076D7D2 /* HealthInfo.swift */,
 			);
 			path = Models;
@@ -277,8 +277,8 @@
 				53B140EF230CA9EB008AE180 /* MoodController.swift */,
 				53B140F1230CAA30008AE180 /* SexController.swift */,
 				53381C7A2310797B00FA1D91 /* CustomEntryController.swift */,
-				53F58878231087DC0076D7D2 /* HealthInfoController.swift */,
 				58184AC823184D170061BFDD /* CycleController.swift */,
+				53F58878231087DC0076D7D2 /* HealthInfoController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";

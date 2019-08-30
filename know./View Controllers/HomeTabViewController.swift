@@ -27,11 +27,11 @@ class HomeTabViewController: UIViewController {
     }
     
     var dayObject: Day?
-    var flow: [Flow] = []
-    var symptoms: [Symptom] = []
-    var moods: [Mood] = []
-    var sex: [Sex] = []
-    var custom: [CustomEntry] = []
+    var flow: Flow?
+    var symptoms: Symptom?
+    var moods: Mood?
+    var sex: Sex?
+    var custom: CustomEntry?
     
 
     override func viewDidLoad() {
@@ -73,7 +73,7 @@ class HomeTabViewController: UIViewController {
         if segue.identifier == "toSymptomVC" {
             let destination = segue.destination as? AddSymptomsTableViewController
             guard let day = dayObject else { return }
-            destination?.day = day
+            destination?.dayObject = day
         }
     }
     
@@ -95,7 +95,7 @@ class HomeTabViewController: UIViewController {
                 self.symptoms = day.symptomList
                 self.moods = day.moodList
                 self.sex = day.sexDetails
-                self.custom = day.customEntries
+                self.custom = day.customEntry
             }
         }
     }

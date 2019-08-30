@@ -27,11 +27,11 @@ class SexController {
         }
     }
     
-    func fetchSexDetails(forDay day: Day, completion: @escaping([Sex]?) -> Void) {
+    func fetchSexDetails(forDay day: Day, completion: @escaping(Sex?) -> Void) {
         let dayID = day.ckRecordID
         let dayPreicate = NSPredicate(format: "%K == %@", SexConstants.dayReferenceKey, dayID)
-        let sexIDs = day.sexDetails.compactMap({$0.ckRecordID})
-        let avoidDuplicatePred = NSPredicate(format: "NOT(recordID IN %@)", sexIDs)
+        guard let sexID = day.sexDetails?.ckRecordID else { return }
+        let avoidDuplicatePred = NSPredicate(format: "NOT(recordID IN %@)", sexID)
         let compoundPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [dayPreicate, avoidDuplicatePred])
         CloudKitController.shared.fetchRecords(ofType: SexConstants.sexTypeKey, withPredicate: compoundPredicate) { (records) in
             if let records = records {
@@ -39,7 +39,7 @@ class SexController {
                 let sex = records.compactMap({Sex(record: $0, day: day)})
                 sexDetails.append(contentsOf: sex)
                 print("SexDetails Fetched on SexController")
-                completion(sexDetails)
+                completion(sexDetails.first)
             }
         }
     }

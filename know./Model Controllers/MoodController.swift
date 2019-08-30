@@ -27,10 +27,10 @@ class MoodController {
         }
     }
     
-    func fetchMoods(forDay day: Day, completion: @escaping([Mood]?) -> Void) {
+    func fetchMoods(forDay day: Day, completion: @escaping(Mood?) -> Void) {
         let dayID = day.ckRecordID
         let dayPreicate = NSPredicate(format: "%K == %@", MoodConstants.dayReferenceKey, dayID)
-        let moodIDs = day.moodList.compactMap({$0.ckRecordID})
+        guard let moodIDs = day.moodList?.ckRecordID else { return }
         let avoidDuplicatePred = NSPredicate(format: "NOT(recordID IN %@)", moodIDs)
         let compoundPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [dayPreicate, avoidDuplicatePred])
         CloudKitController.shared.fetchRecords(ofType: MoodConstants.moodTypeKey, withPredicate: compoundPredicate) { (records) in
@@ -39,7 +39,7 @@ class MoodController {
                 let mood = records.compactMap({Mood(record: $0, day: day)})
                 moods.append(contentsOf: mood)
                 print("Moods Fetched on MoodController")
-                completion(moods)
+                completion(moods.first)
             }
         }
     }

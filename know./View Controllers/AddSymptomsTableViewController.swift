@@ -11,7 +11,7 @@ import UIKit
 class AddSymptomsTableViewController: UITableViewController {
 
     //Properties
-    var currentDate: Date?
+    var viewedDate: Date!
     var customEntryText: String = ""
     
     //Landing Pads
@@ -95,12 +95,13 @@ class AddSymptomsTableViewController: UITableViewController {
         getFetchedDataToLoadView()
     }
     
-    //Actions
+    //Nav bar save button action
     @IBAction func saveButtonTapped(_ sender: Any) {
-        saveNewData()
+        saveOrUpdateData()
     }
     
-    //Toggle Symptom Icon
+    //TOGGLE BUTTON PROPERTIES/VIEWS
+    //Flow Buttons (Only one may be selected for a day_
     @IBAction func spottingBT(_ sender: Any) {
         if spottingButton.isSelected {
             spottingButton.isSelected = false
@@ -161,6 +162,7 @@ class AddSymptomsTableViewController: UITableViewController {
         setImageForButton(button: heavyButton, symptom: heavy)
     }
     
+    //Symptom Buttons (any amount may be selected)
     @IBAction func headacheBT(_ sender: Any) {
         setStatusForButton(button: headacheButton, symptom: head)
     }
@@ -193,6 +195,7 @@ class AddSymptomsTableViewController: UITableViewController {
         setStatusForButton(button: fatigueButton, symptom: fatigue)
     }
     
+    //Mood Buttons (any amount may be selected)
     @IBAction func happyBT(_ sender: Any) {
         setStatusForButton(button: happyButton, symptom: happy)
     }
@@ -227,6 +230,7 @@ class AddSymptomsTableViewController: UITableViewController {
         setStatusForButton(button: moodswingButton, symptom: moodswing)
     }
     
+    //Sex Buttons (only one may be selected for protected or sex drive values)
     @IBAction func protectedBT(_ sender: Any) {
         if protectedButton.isSelected {
             protectedButton.isSelected = false
@@ -275,11 +279,12 @@ class AddSymptomsTableViewController: UITableViewController {
         setStatusForButton(button: masturbateButton, symptom: mast)
     }
     
+    //Custom Entry Button
     @IBAction func customBT(_ sender: Any) {
         self.performSegue(withIdentifier: "toCustomEntryPopup", sender: self)
     }
     
-    //Navigation
+    //NAVIGATION
     //Segue to Popup View (to transfer birthday data)
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "" {
@@ -288,8 +293,8 @@ class AddSymptomsTableViewController: UITableViewController {
         }
     }
     
+    //Get Data from Popup ViewController for Data Fetch
     @IBAction func unwindToSymptomVC(segue:UIStoryboardSegue) {
-        //Get Data from Popup ViewController for Data Fetch
         let data = segue.source as? CustomEntryPopupViewController
         guard let text = data?.customEntryText else { return }
         self.customEntryText = text
@@ -303,12 +308,13 @@ class AddSymptomsTableViewController: UITableViewController {
         setImageForButton(button: customButton, symptom: customImage)
     }
     
-    //Helper Functions
+    //VIEWS
+    //Set Navigation View
     func setNavigationBarView() {
         func setNavTitle() {
-            guard let currentDate = currentDate else { return }
+            let viewedDate = self.viewedDate ?? Date()
             let label = UILabel()
-            label.text = currentDate.stringWith(dateStyle: .long, timeStyle: .none)
+            label.text = viewedDate.stringWith(dateStyle: .long, timeStyle: .none)
             label.textColor = #colorLiteral(red: 0.554766655, green: 0.7184440494, blue: 0.8180738091, alpha: 1)
             label.textAlignment = .center
             label.sizeToFit()
@@ -317,12 +323,25 @@ class AddSymptomsTableViewController: UITableViewController {
         }
     }
     
+    //Load correct status/images fpr buttons if on a date with an existing Day object
+    func getFetchedDataToLoadView() {
+        guard let day = dayObject,
+            let flow = day.flowDetails,
+            let symptom = day.symptomList,
+            let mood = day.moodList,
+            let sex = day.sexDetails,
+            let custom = day.customEntry
+            else { return }
+        checkSymptomStatus(flow: flow, symptom: symptom, mood: mood, sex: sex, custom: custom)
+    }
+    
     //Set Images
     func setImageForButton(button: UIButton, symptom: (unselected: String, selected: String)) {
         button.setImage(UIImage(named: symptom.selected), for: .selected)
         button.setImage(UIImage(named: symptom.unselected), for: .normal)
     }
     
+    //Change button status and set image
     func setStatusForButton(button: UIButton, symptom: (unselected: String, selected: String)) {
         if button.isSelected {
             button.isSelected = false
@@ -332,102 +351,7 @@ class AddSymptomsTableViewController: UITableViewController {
         setImageForButton(button: button, symptom: symptom)
     }
     
-    func saveNewData() {
-        //save DAY model object
-        if let user = UserController.shared.currentUser {
-            guard let currentDate = currentDate?.formattedDate() else { return }
-            DayController.shared.saveDay(forUser: user, date: currentDate) { (day) in
-                if let day = day {
-                    DispatchQueue.main.async {
-                        //Properties for FLOW model object
-                        let flow = Flow(day: day)
-                        flow.spotting = self.spottingButton.isSelected ? true : false
-                        flow.light = self.lightButton.isSelected ? true : false
-                        flow.medium = self.mediumButton.isSelected ? true : false
-                        flow.heavy = self.heavyButton.isSelected ? true : false
-                        //Properties for SYMPTOM model object
-                        let symptom = Symptom(day: day)
-                        symptom.headache = self.headacheButton.isSelected ? true : false
-                        symptom.cramping = self.crampingButton.isSelected ? true : false
-                        symptom.backPain = self.backacheButton.isSelected ? true : false
-                        symptom.breastTenderness = self.tenderButton.isSelected ? true : false
-                        symptom.nausea = self.nauseaButton.isSelected ? true : false
-                        symptom.fatigue = self.fatigueButton.isSelected ? true : false
-                        symptom.insomnia = self.insomniaButton.isSelected ? true : false
-                        symptom.acne = self.acneButton.isSelected ? true : false
-                        //Properties for MOOD model object
-                        let mood = Mood(day: day)
-                        mood.happy = self.happyButton.isSelected ? true : false
-                        mood.sensitive = self.sensitiveButton.isSelected ? true : false
-                        mood.sad = self.sadButton.isSelected ? true : false
-                        mood.depressed = self.depressedButton.isSelected ? true : false
-                        mood.nervous = self.nervousButton.isSelected ? true : false
-                        mood.irritated = self.irritatedButton.isSelected ? true : false
-                        mood.content = self.contentButton.isSelected ? true : false
-                        mood.moodSwings = self.moodswingButton.isSelected ? true : false
-                        mood.angry = self.angryButton.isSelected ? true : false
-                        //Properties for SEX model object
-                        let sex = Sex(day: day)
-                        sex.protected = self.protectedButton.isSelected ? true : false
-                        sex.sexDrive = self.highdriveButton.isSelected ? true : false
-                        sex.masturbation = self.masturbateButton.isSelected ? true : false
-                        //Properties for CUSTOM model object
-                        let customEntry = CustomEntry(day: day, text: "")
-                        customEntry.text = self.customEntryText
-                        //Save all model objects
-                        self.saveSymptoms(day: day, flow: flow, symptom: symptom, mood: mood, sex: sex, entry: customEntry, completion: { (success) in
-                            if success {
-                                //Present popup that says save was successfull and goback to home view controller
-                                print("Saved the input data!")
-                                self.navigationController?.popViewController(animated: true)
-                            } else {
-                                print("Error saving the input data")
-                            }
-                        })
-                    }
-                }
-            }
-        }
-    }
-    
-    func saveSymptoms(day: Day, flow: Flow, symptom: Symptom, mood: Mood, sex: Sex, entry: CustomEntry, completion: @escaping(Bool) -> Void) {
-        FlowController.shared.saveFlowDetails(forDay: day, spotting: flow.spotting, light: flow.light, medium: flow.medium, heavy: flow.heavy) { (success) in
-            if !success { completion(false); return }
-        }
-        SymptomController.shared.saveSymptoms(forDay: day, headache: symptom.headache, cramping: symptom.cramping, backPain: symptom.backPain, breastTenderness: symptom.breastTenderness, nausea: symptom.nausea, fatigue: symptom.fatigue, insomnia: symptom.insomnia, acne: symptom.acne) { (success) in
-            if !success { completion(false); return }
-        }
-        MoodController.shared.saveMoods(forDay: day, happy: mood.happy, sensitive: mood.sensitive, sad: mood.sad, depressed: mood.depressed, nervous: mood.nervous, irritated: mood.irritated, content: mood.content, moodSwings: mood.moodSwings, angry: mood.angry) { (success) in
-            if !success { completion(false); return }
-        }
-        SexController.shared.saveSexDetails(forDay: day, protected: sex.protected, sexDrive: sex.sexDrive, masturbation: sex.masturbation) { (success) in
-            if !success { completion(false); return }
-        }
-        CustomEntryController.shared.saveEntry(forDay: day, text: entry.text) { (success) in
-            if !success { completion(false); return }
-        }
-        completion(true)
-    }
-    
-    func updateSymptoms(flow: Flow, symptom: Symptom, mood: Mood, sex: Sex, entry: CustomEntry, completion: @escaping(Bool) -> Void) {
-        FlowController.shared.update(flow: flow, withSpotting: flow.spotting, light: flow.light, medium: flow.medium, heavy: flow.heavy) { (success) in
-            if !success { completion(false); return }
-        }
-        SymptomController.shared.update(symptom: symptom, withHeadache: symptom.headache, cramping: symptom.cramping, backPain: symptom.backPain, breastTenderness: symptom.breastTenderness, nausea: symptom.nausea, fatigue: symptom.fatigue, insomnia: symptom.insomnia, acne: symptom.acne) { (success) in
-            if !success { completion(false); return }
-        }
-        MoodController.shared.update(mood: mood, withHappy: mood.happy, sensitive: mood.sensitive, sad: mood.sad, depressed: mood.depressed, nervous: mood.nervous, irritated: mood.irritated, content: mood.content, moodSwings: mood.moodSwings, angry: mood.angry) { (success) in
-            if !success { completion(false); return }
-        }
-        SexController.shared.update(sexDetails: sex, withProtected: sex.protected, sexDrive: sex.sexDrive, masturbation: sex.masturbation) { (success) in
-            if !success { completion(false); return }
-        }
-        CustomEntryController.shared.update(entry: entry, text: entry.text) { (success) in
-            if !success { completion(false); return }
-        }
-        completion(true)
-    }
-    
+    //Check Button status if viewing an already existing Day
     func initialButtonStat(symptom: Bool, button: UIButton, image: (unselected: String, selected: String)) {
         if symptom == true {
             button.isSelected = true
@@ -435,6 +359,7 @@ class AddSymptomsTableViewController: UITableViewController {
         }
     }
     
+    //Set existing value properties for buttons
     func checkSymptomStatus(flow: Flow, symptom: Symptom, mood: Mood, sex: Sex, custom: CustomEntry) {
         //Properties for FLOW model object
         initialButtonStat(symptom: flow.spotting, button: spottingButton, image: spotting)
@@ -457,9 +382,9 @@ class AddSymptomsTableViewController: UITableViewController {
         initialButtonStat(symptom: mood.depressed, button: depressedButton, image: depress)
         initialButtonStat(symptom: mood.nervous, button: nervousButton, image: nervous)
         initialButtonStat(symptom: mood.irritated, button: irritatedButton, image: irritated)
-//        initialButtonStat(symptom: mood.content, button: contentButton, image: content)
+        //        initialButtonStat(symptom: mood.content, button: contentButton, image: content)
         initialButtonStat(symptom: mood.moodSwings, button: moodswingButton, image: moodswing)
-//        initialButtonStat(symptom: mood.angry, button: angryButton, image: angry)
+        //        initialButtonStat(symptom: mood.angry, button: angryButton, image: angry)
         //Properties for SEX model object
         initialButtonStat(symptom: sex.protected, button: protectedButton, image: protected)
         initialButtonStat(symptom: sex.sexDrive, button: highdriveButton, image: high)
@@ -469,15 +394,152 @@ class AddSymptomsTableViewController: UITableViewController {
         customButton.setImage(UIImage(named: customImage.1), for: .selected)
     }
     
-    func getFetchedDataToLoadView() {
-        guard let day = dayObject,
-            let flow = day.flowDetails.first,
-            let symptom = day.symptomList.first,
-            let mood = day.moodList.first,
-            let sex = day.sexDetails.first,
-            let custom = day.customEntries.first
-            else { return }
-        checkSymptomStatus(flow: flow, symptom: symptom, mood: mood, sex: sex, custom: custom)
+    //COLLECT DATA
+    //Properties for FLOW model object
+    func getFlowData(flow: Flow) -> Flow {
+        flow.spotting = self.spottingButton.isSelected ? true : false
+        flow.light = self.lightButton.isSelected ? true : false
+        flow.medium = self.mediumButton.isSelected ? true : false
+        flow.heavy = self.heavyButton.isSelected ? true : false
+        return flow
+    }
+    
+    //Properties for SYMPTOM model object
+    func getSymptomData(symptom: Symptom) -> Symptom {
+        symptom.headache = self.headacheButton.isSelected ? true : false
+        symptom.cramping = self.crampingButton.isSelected ? true : false
+        symptom.backPain = self.backacheButton.isSelected ? true : false
+        symptom.breastTenderness = self.tenderButton.isSelected ? true : false
+        symptom.nausea = self.nauseaButton.isSelected ? true : false
+        symptom.fatigue = self.fatigueButton.isSelected ? true : false
+        symptom.insomnia = self.insomniaButton.isSelected ? true : false
+        symptom.acne = self.acneButton.isSelected ? true : false
+        return symptom
+    }
+    
+    //Properties for MOOD model object
+    func getMoodData(mood: Mood) -> Mood {
+        mood.happy = self.happyButton.isSelected ? true : false
+        mood.sensitive = self.sensitiveButton.isSelected ? true : false
+        mood.sad = self.sadButton.isSelected ? true : false
+        mood.depressed = self.depressedButton.isSelected ? true : false
+        mood.nervous = self.nervousButton.isSelected ? true : false
+        mood.irritated = self.irritatedButton.isSelected ? true : false
+        mood.content = self.contentButton.isSelected ? true : false
+        mood.moodSwings = self.moodswingButton.isSelected ? true : false
+        mood.angry = self.angryButton.isSelected ? true : false
+        return mood
+    }
+    
+    //Properties for SEX model object
+    func getSexData(sex: Sex) -> Sex {
+        sex.protected = self.protectedButton.isSelected ? true : false
+        sex.sexDrive = self.highdriveButton.isSelected ? true : false
+        sex.masturbation = self.masturbateButton.isSelected ? true : false
+        return sex
+    }
+    
+    //Properties for CUSTOM model object
+    func getCustomEntryData(entry: CustomEntry) -> CustomEntry {
+        entry.text = self.customEntryText
+        return entry
+    }
+    
+    //CRUD
+    //Save all Day properties
+    func saveSymptoms(day: Day, flow: Flow, symptom: Symptom, mood: Mood, sex: Sex, entry: CustomEntry, completion: @escaping(Bool) -> Void) {
+        FlowController.shared.saveFlowDetails(forDay: day, spotting: flow.spotting, light: flow.light, medium: flow.medium, heavy: flow.heavy) { (success) in
+            if !success { completion(false); return }
+        }
+        SymptomController.shared.saveSymptoms(forDay: day, headache: symptom.headache, cramping: symptom.cramping, backPain: symptom.backPain, breastTenderness: symptom.breastTenderness, nausea: symptom.nausea, fatigue: symptom.fatigue, insomnia: symptom.insomnia, acne: symptom.acne) { (success) in
+            if !success { completion(false); return }
+        }
+        MoodController.shared.saveMoods(forDay: day, happy: mood.happy, sensitive: mood.sensitive, sad: mood.sad, depressed: mood.depressed, nervous: mood.nervous, irritated: mood.irritated, content: mood.content, moodSwings: mood.moodSwings, angry: mood.angry) { (success) in
+            if !success { completion(false); return }
+        }
+        SexController.shared.saveSexDetails(forDay: day, protected: sex.protected, sexDrive: sex.sexDrive, masturbation: sex.masturbation) { (success) in
+            if !success { completion(false); return }
+        }
+        CustomEntryController.shared.saveEntry(forDay: day, text: entry.text) { (success) in
+            if !success { completion(false); return }
+        }
+        completion(true)
+    }
+    
+    //Update all Day properties
+    func updateSymptoms(flow: Flow, symptom: Symptom, mood: Mood, sex: Sex, entry: CustomEntry, completion: @escaping(Bool) -> Void) {
+        FlowController.shared.update(flow: flow, withSpotting: flow.spotting, light: flow.light, medium: flow.medium, heavy: flow.heavy) { (success) in
+            if !success { completion(false); return }
+        }
+        SymptomController.shared.update(symptom: symptom, withHeadache: symptom.headache, cramping: symptom.cramping, backPain: symptom.backPain, breastTenderness: symptom.breastTenderness, nausea: symptom.nausea, fatigue: symptom.fatigue, insomnia: symptom.insomnia, acne: symptom.acne) { (success) in
+            if !success { completion(false); return }
+        }
+        MoodController.shared.update(mood: mood, withHappy: mood.happy, sensitive: mood.sensitive, sad: mood.sad, depressed: mood.depressed, nervous: mood.nervous, irritated: mood.irritated, content: mood.content, moodSwings: mood.moodSwings, angry: mood.angry) { (success) in
+            if !success { completion(false); return }
+        }
+        SexController.shared.update(sexDetails: sex, withProtected: sex.protected, sexDrive: sex.sexDrive, masturbation: sex.masturbation) { (success) in
+            if !success { completion(false); return }
+        }
+        CustomEntryController.shared.update(entry: entry, text: entry.text) { (success) in
+            if !success { completion(false); return }
+        }
+        completion(true)
+    }
+    
+    //Save or Update Day depending on if a day already exists or not
+    func saveOrUpdateData() {
+        guard let user = UserController.shared.currentUser else { return }
+        //Update day object if one already exists on the current date
+        if let dayObject = dayObject {
+            DispatchQueue.main.async {
+                guard var flow = dayObject.flowDetails,
+                    var symptom = dayObject.symptomList,
+                    var mood = dayObject.moodList,
+                    var sex = dayObject.sexDetails,
+                    var custom = dayObject.customEntry
+                    else { return }
+                flow = self.getFlowData(flow: flow)
+                symptom = self.getSymptomData(symptom: symptom)
+                mood = self.getMoodData(mood: mood)
+                sex = self.getSexData(sex: sex)
+                custom = self.getCustomEntryData(entry: custom)
+                self.updateSymptoms(flow: flow, symptom: symptom, mood: mood, sex: sex, entry: custom, completion: { (success) in
+                    if success {
+                        print("Updatetd the input data!")
+                        self.navigationController?.popViewController(animated: true)
+                    } else {
+                        print("Error updating the input data")
+                    }
+                })
+            }
+        //Save new day object if one does not exist on the current date
+        } else {
+            guard let date = viewedDate?.formattedDate() else { return }
+            DayController.shared.saveDay(forUser: user, date: date) { (day) in
+                if let day = day {
+                    DispatchQueue.main.async {
+                        var flow = Flow(day: day)
+                        flow = self.getFlowData(flow: flow)
+                        var symptom = Symptom(day: day)
+                        symptom = self.getSymptomData(symptom: symptom)
+                        var mood = Mood(day: day)
+                        mood = self.getMoodData(mood: mood)
+                        var sex = Sex(day: day)
+                        sex = self.getSexData(sex: sex)
+                        var customEntry = CustomEntry(day: day, text: "")
+                        customEntry = self.getCustomEntryData(entry: customEntry)
+                        self.saveSymptoms(day: day, flow: flow, symptom: symptom, mood: mood, sex: sex, entry: customEntry, completion: { (success) in
+                            if success {
+                                print("Saved the input data!")
+                                self.navigationController?.popViewController(animated: true)
+                            } else {
+                                print("Error saving the input data")
+                            }
+                        })
+                    }
+                }
+            }
+        }
     }
 }
 

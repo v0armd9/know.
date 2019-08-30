@@ -13,8 +13,8 @@ class CycleController {
     
     static let shared = CycleController()
     
-    func saveCycle(forUser user: User, cycle: DateInterval, period: DateInterval, completion: @escaping(Cycle?) -> Void) {
-        let cycle = Cycle(cycleDateInterval: cycle, periodDateInterval: period, user: user)
+    func saveCycle(forUser user: User, cycleStart: Date, periodEnd: Date, cycleEnd: Date, completion: @escaping(Cycle?) -> Void) {
+        let cycle = Cycle(cycleDateStart: cycleStart, periodEndDate: periodEnd, cycleEndDate: cycleEnd, user: user)
         let record = CKRecord(cycle: cycle)
         CloudKitController.shared.save(record: record) { (record) in
             if let record = record {
@@ -35,6 +35,15 @@ class CycleController {
                 cycles.append(contentsOf: cycle)
                 print("Cycles Fetched for User")
                 completion(cycles)
+            }
+        }
+    }
+    
+    func updateCycle(cycle: Cycle) {
+        let record = CKRecord(cycle: cycle)
+        CloudKitController.shared.update(record: record) { (success) in
+            if success {
+                print("Cycle updated successfully")
             }
         }
     }

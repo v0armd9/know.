@@ -32,6 +32,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="KzM-zR-hti">
+                                <rect key="frame" x="0.0" y="-41.5" width="414" height="808"/>
+                            </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumFontSize="1" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TGy-b1-6fc" customClass="CustomLabel" customModule="know_" customModuleProvider="target">
                                 <rect key="frame" x="45" y="386" width="76" height="41"/>
                                 <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="30"/>
@@ -88,6 +91,9 @@
                                     <constraint firstAttribute="width" secondItem="fSU-jh-bzt" secondAttribute="height" multiplier="1:1" id="Y2r-Hi-sgF"/>
                                 </constraints>
                                 <state key="normal" image="addNewCycleButton"/>
+                                <connections>
+                                    <action selector="newStartButton:" destination="r1U-z3-EID" eventType="touchUpInside" id="UAI-1c-iOd"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start New Cycle" textAlignment="right" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumFontSize="1" translatesAutoresizingMaskIntoConstraints="NO" id="FR3-xJ-ECs" customClass="CustomLabel" customModule="know_" customModuleProvider="target">
                                 <rect key="frame" x="200.5" y="96.5" width="132.5" height="25"/>
@@ -103,12 +109,16 @@
                             <constraint firstItem="Ute-P2-zRh" firstAttribute="width" secondItem="TGy-b1-6fc" secondAttribute="width" id="1oC-W3-dxB"/>
                             <constraint firstItem="gr2-cn-VOR" firstAttribute="height" secondItem="aNp-yU-w6a" secondAttribute="height" id="2li-2q-Ysz"/>
                             <constraint firstItem="Ute-P2-zRh" firstAttribute="centerX" secondItem="TGy-b1-6fc" secondAttribute="centerX" id="6kO-fV-Ith"/>
+                            <constraint firstItem="KzM-zR-hti" firstAttribute="width" secondItem="Q8n-Je-0fQ" secondAttribute="width" id="7eQ-cS-XY8"/>
                             <constraint firstItem="uND-xb-uFk" firstAttribute="centerY" secondItem="uBa-Lo-M1f" secondAttribute="centerY" id="8BA-jU-6zT"/>
                             <constraint firstItem="G6s-p9-siH" firstAttribute="top" secondItem="TGy-b1-6fc" secondAttribute="bottom" id="CJG-vp-XJJ"/>
                             <constraint firstItem="TGy-b1-6fc" firstAttribute="width" relation="lessThanOrEqual" secondItem="Q8n-Je-0fQ" secondAttribute="width" multiplier="0.25" id="DKP-lG-WVh"/>
+                            <constraint firstItem="KzM-zR-hti" firstAttribute="height" secondItem="Q8n-Je-0fQ" secondAttribute="height" id="EDQ-b7-xaQ"/>
                             <constraint firstItem="ovI-qD-VmU" firstAttribute="width" secondItem="uND-xb-uFk" secondAttribute="width" multiplier="1.5" id="GSR-SA-XD7"/>
                             <constraint firstItem="aNp-yU-w6a" firstAttribute="leading" secondItem="gr2-cn-VOR" secondAttribute="trailing" constant="5" id="Ghf-YO-sXk"/>
+                            <constraint firstItem="KzM-zR-hti" firstAttribute="centerY" secondItem="Q8n-Je-0fQ" secondAttribute="centerYWithinMargins" id="Gvm-Ka-0up"/>
                             <constraint firstItem="uND-xb-uFk" firstAttribute="width" secondItem="Q8n-Je-0fQ" secondAttribute="width" multiplier="0.2" id="KhX-7T-gt2"/>
+                            <constraint firstItem="KzM-zR-hti" firstAttribute="centerX" secondItem="Q8n-Je-0fQ" secondAttribute="centerXWithinMargins" id="MAR-IU-eqg"/>
                             <constraint firstItem="TGy-b1-6fc" firstAttribute="centerY" secondItem="Q8n-Je-0fQ" secondAttribute="centerY" constant="2.5" id="OHv-vf-B05"/>
                             <constraint firstItem="gr2-cn-VOR" firstAttribute="centerY" secondItem="aNp-yU-w6a" secondAttribute="centerY" id="RRq-tc-UDI"/>
                             <constraint firstItem="aNp-yU-w6a" firstAttribute="height" secondItem="Q8n-Je-0fQ" secondAttribute="height" multiplier="0.06" id="RfC-Hw-xE2"/>
@@ -137,6 +147,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="KzM-zR-hti" id="jO6-Uq-blz"/>
                         <outlet property="dayLabel" destination="uND-xb-uFk" id="FFU-lY-BpD"/>
                         <outlet property="monthLabel" destination="TGy-b1-6fc" id="zYM-Qg-GuC"/>
                         <outlet property="trackerLabel" destination="ovI-qD-VmU" id="QgE-XA-al2"/>

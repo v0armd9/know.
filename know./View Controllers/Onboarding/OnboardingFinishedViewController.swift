@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CloudKit
 
 class OnboardingFinishedViewController: UIViewController {
 
@@ -44,13 +45,27 @@ class OnboardingFinishedViewController: UIViewController {
         let pmsDuration = user.pmsDuration,
         let lastPeriod = user.lastPeriod
             else { return }
+        let cycleLengthInt = cycleLength.first
         UserController.shared.saveUser(withName: name, age: age, birthdate: birthday, height: height, weight: weight, cycleLength: cycleLength, periodLength: periodLength, pms: pms, pmsDuration: pmsDuration, lastPeriod: lastPeriod) { (success) in
             if success {
                 print("Saved \(name)'s User Info!")
+                guard let user = UserController.shared.currentUser else {return}
+                self.createFirstCycle(user: user, periodLength: periodLength, cycleLength: cycleLengthInt!, startDate: lastPeriod)
             } else {
                 print("Error saving user")
                 //Error notification for user?
             }
+        }
+    }
+    
+    func createFirstCycle(user: User, periodLength: Int, cycleLength: Int, startDate: Date) {
+        let startDate = startDate.formattedDate()
+        let periodEndDate = Calendar.current.date(byAdding: .day, value: periodLength-1, to: startDate)!
+        let cycleEndDate = Calendar.current.date(byAdding: .day, value: cycleLength-1, to: startDate)!
+        CycleController.shared.saveCycle(forUser: user, cycleStart: startDate, periodEnd: periodEndDate, cycleEnd: cycleEndDate) { (cycle) in
+            if let cycle = cycle {
+                user.cycles.append(cycle)
+        }
         }
     }
 }

@@ -16,13 +16,52 @@ class HomeTabViewController: UIViewController {
     
     let wheelView = UIView()
     var counter = 0
+    var dayLateCounter = 0
     var selectedButton: UIButton?
     let arrayOfMonths = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
     var selectedDate: Date? {
         didSet{
-            guard let selectedDate = selectedDate else {return}
-            let monthNum = Calendar.current.component(.month, from: selectedDate)
-            monthLabel.text = arrayOfMonths[monthNum-1]
+            DispatchQueue.main.async {
+                guard let selectedDate = self.selectedDate?.formattedDate() else {return}
+                let monthNum = Calendar.current.component(.month, from: selectedDate)
+                self.monthLabel.text = self.arrayOfMonths[monthNum-1]
+                guard let user = UserController.shared.currentUser else {return}
+                var dayNumber = 0
+                var remainingNumber = 0
+                for cycle in user.cycles {
+                    let cycleDateInterval = DateInterval(start: cycle.cycleDateStart, end: cycle.cycleEndDate)
+                    if cycleDateInterval.contains(selectedDate) {
+                        let nextDay = Calendar.current.date(byAdding: .day, value: 1, to: selectedDate)!
+                        let previousDay = Calendar.current.date(byAdding: .day, value: -1, to: selectedDate)!
+                        let dayDurationInterval = DateInterval(start: cycle.cycleDateStart.formattedDate(), end: nextDay.formattedDate())
+                        let remainingInterval = DateInterval(start: previousDay, end: cycle.cycleEndDate)
+                        
+                        dayNumber = Int(dayDurationInterval.duration) / 86400
+                        remainingNumber = Int(remainingInterval.duration) / 86400
+                        self.dayLabel.text = "Cycle Day \(dayNumber)"
+                        
+                        self.trackerLabel.text = "\(remainingNumber) days until next cycle start"
+                        break
+                    }
+                }
+                guard let lastCycleEnd = user.cycles.last?.cycleEndDate else {return}
+                
+                if self.selectedDate! > lastCycleEnd {
+                    print(self.selectedDate)
+                    print(lastCycleEnd)
+                    self.dayLateCounter = 0
+                    var testDate = lastCycleEnd
+                    while testDate < self.selectedDate! {
+                        self.dayLateCounter += 1
+                        testDate = Calendar.current.date(byAdding: .day, value: 1, to: testDate)!
+                    }
+                    DispatchQueue.main.async {
+                        self.dayLabel.text = "\(self.dayLateCounter) Days Late"
+                        self.trackerLabel.text = "Let us Know. when your period starts!"
+                    }
+                }
+                
+            }
         }
     }
     
@@ -33,16 +72,17 @@ class HomeTabViewController: UIViewController {
     var sex: Sex?
     var custom: CustomEntry?
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchDayData()
         addButtons(buttonCount: 18) { (success) in
             if success {
-                self.selectedDate = Date()
+                self.selectedDate = Date().formattedDate()
                 self.updateButtonsFuture()
                 self.updateButtonsPast()
             }
+            self.fetchAllCyclesForUser()
             self.navigationItem.title = "My Cycle ⏏︎"
         }
     }
@@ -85,10 +125,53 @@ class HomeTabViewController: UIViewController {
         swipeDown()
     }
     
+    @IBAction func newStartButton(_ sender: UIButton) {
+        guard let user = UserController.shared.currentUser else {return}
+        let newEndDate = Calendar.current.date(byAdding: .day, value: -1, to: (selectedDate?.formattedDate())!)
+        if let lastCycle = user.cycles.last {
+            lastCycle.cycleEndDate = newEndDate!
+            CycleController.shared.updateCycle(cycle: lastCycle)
+            let durationDateInterval = DateInterval(start: lastCycle.cycleDateStart, end: newEndDate!)
+            let average = Int(durationDateInterval.duration)/86400
+            user.cycleLength?.append(average)
+            let name = user.name ?? nil
+            let cycles = user.cycles
+            let birthdate = user.birthdate ?? nil
+            let age = user.age ?? nil
+            let height = user.height ?? nil
+            let weight = user.weight ?? nil
+            let cycleLength = user.cycleLength ?? nil
+            let periodLength = user.periodLength ?? nil
+            let pms = user.pms ?? nil
+            let pmsDuration = user.pmsDuration ?? nil
+            let authEnabled = user.authEnabled ?? nil
+            UserController.shared.update(user: user, withName: name, cycles: cycles, birthdate: birthdate, age: age, height: height, weight: weight, cycleLength: cycleLength, periodLength: periodLength, pms: pms, pmsDuration: pmsDuration, lastPeriod: (selectedDate?.formattedDate())!, authEnabled: authEnabled) { (success) in
+                if success {
+                    print("successfully updated user")
+                }
+            }
+            var sum = 0
+            for int in user.cycleLength! {
+                sum += int
+            }
+            let averageLength = sum/(user.cycleLength!.count)
+            let endDate = Calendar.current.date(byAdding: .day, value: averageLength-1, to: (selectedDate?.formattedDate())!)!
+            let periodEndDate = Calendar.current.date(byAdding: .day, value: user.periodLength!-1, to: (selectedDate?.formattedDate())!)!
+            CycleController.shared.saveCycle(forUser: user, cycleStart: ((selectedDate?.formattedDate())!), periodEnd: periodEndDate, cycleEnd: endDate) { (cycle) in
+                if let cycle = cycle {
+                    user.cycles.append(cycle)
+                    let selectedDate = self.selectedDate?.formattedDate()
+                    self.selectedDate = selectedDate
+                }
+            }
+        }
+    }
+    
+    
     func fetchDayData() {
         guard let user = UserController.shared.currentUser else { return }
         let date = selectedDate ?? Date()
-        DayController.shared.fetchSingleDay(forUser: user, andDate: date) { (day) in
+        DayController.shared.fetchSingleDay(forUser: user, andDate: date.formattedDate()) { (day) in
             if let day = day {
                 self.dayObject = day
                 self.flow = day.flowDetails
@@ -177,7 +260,7 @@ class HomeTabViewController: UIViewController {
         let dayNumber = Calendar.current.component(.day, from: date)
         let button = wheelView.subviews[7] as? UIButton
         button?.setTitle(String(dayNumber), for: .normal)
-        self.selectedDate = Calendar.current.date(byAdding: .day, value: 1, to: selectedDate!)!
+        self.selectedDate = Calendar.current.date(byAdding: .day, value: 1, to: (selectedDate?.formattedDate())!)!
         let newButton = wheelView.subviews[17] as? UIButton
         let oldButton = wheelView.subviews[16] as? UIButton
         newButton?.setBackgroundImage(#imageLiteral(resourceName: "selectedWheelButton"), for: .normal)
@@ -200,7 +283,7 @@ class HomeTabViewController: UIViewController {
         let dayNumber = Calendar.current.component(.day, from: date)
         let button = wheelView.subviews[11] as? UIButton
         button?.setTitle(String(dayNumber), for: .normal)
-        self.selectedDate = Calendar.current.date(byAdding: .day, value: -1, to: selectedDate!)!
+        self.selectedDate = Calendar.current.date(byAdding: .day, value: -1, to: (selectedDate?.formattedDate())!)!
         let newButton = wheelView.subviews[17] as? UIButton
         let oldButton = wheelView.subviews[0] as? UIButton
         newButton?.setBackgroundImage(#imageLiteral(resourceName: "selectedWheelButton"), for: .normal)
@@ -240,5 +323,52 @@ class HomeTabViewController: UIViewController {
             }
         }
         reorderSubviewsBackward()
+    }
+    
+    
+    
+    func fetchAllCyclesForUser() {
+        guard let user = UserController.shared.currentUser else {return}
+        CycleController.shared.fetchCycles(forUser: user) { (cycles) in
+            if var cycles = cycles {
+                cycles.sort(by: { $0.cycleDateStart < $1.cycleDateStart })
+                user.cycles = cycles
+                guard let lastCycleEnd = user.cycles.last?.cycleEndDate else {return}
+                
+                if self.selectedDate! > lastCycleEnd {
+                    self.dayLateCounter = 0
+                    var testDate = lastCycleEnd
+                    while testDate < self.selectedDate! {
+                        self.dayLateCounter += 1
+                        testDate = Calendar.current.date(byAdding: .day, value: 1, to: testDate)!
+                    }
+                    DispatchQueue.main.async {
+                        self.dayLabel.text = "\(self.dayLateCounter) Days Late"
+                        self.trackerLabel.text = "Let us Know. when your period starts!"
+                    }
+                }
+                let selectedDate = self.selectedDate
+                self.selectedDate = selectedDate!
+                var dayNumber = 0
+                var remainingNumber = 0
+                for cycle in user.cycles {
+                    let cycleDateInterval = DateInterval(start: cycle.cycleDateStart, end: cycle.cycleEndDate)
+                    if cycleDateInterval.contains((self.selectedDate?.formattedDate())!) {
+                        let nextDay = Calendar.current.date(byAdding: .day, value: 1, to: (self.selectedDate?.formattedDate())!)!
+                        let previousDay = Calendar.current.date(byAdding: .day, value: -1, to: (self.selectedDate?.formattedDate())!)!
+                        let dayDurationInterval = DateInterval(start: cycle.cycleDateStart.formattedDate(), end: nextDay.formattedDate())
+                        let remainingInterval = DateInterval(start: previousDay, end: cycle.cycleEndDate)
+                        
+                        dayNumber = Int(dayDurationInterval.duration) / 86400
+                        remainingNumber = Int(remainingInterval.duration) / 86400
+                        break
+                    }
+                }
+                DispatchQueue.main.async {
+                    self.dayLabel.text = "Cycle Day \(dayNumber)"
+                    self.trackerLabel.text = "\(remainingNumber) days until next cycle start"
+                }
+            }
+        }
     }
 }

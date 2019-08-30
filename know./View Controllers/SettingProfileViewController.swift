@@ -260,7 +260,6 @@ class SettingProfileViewController: UIViewController {
             else { return }
         let cycles = user.cycles
         let age = Int(Date().timeIntervalSince(birthday) / secondsToYears)
-        let cycles = user.cycles
         if pmsYesButton.isSelected {
             pms = true
         } else {

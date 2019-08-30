@@ -27,11 +27,11 @@ class SymptomController {
         }
     }
     
-    func fetchSymptoms(forDay day: Day, completion: @escaping([Symptom]?) -> Void) {
+    func fetchSymptoms(forDay day: Day, completion: @escaping(Symptom?) -> Void) {
         let dayID = day.ckRecordID
         let dayPreicate = NSPredicate(format: "%K == %@", SymptomConstants.dayReferenceKey, dayID)
-        let symptomIDs = day.symptomList.compactMap({$0.ckRecordID})
-        let avoidDuplicatePred = NSPredicate(format: "NOT(recordID IN %@)", symptomIDs)
+        guard let symptomID = day.symptomList?.ckRecordID else { return }
+        let avoidDuplicatePred = NSPredicate(format: "NOT(recordID IN %@)", symptomID)
         let compoundPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [dayPreicate, avoidDuplicatePred])
         CloudKitController.shared.fetchRecords(ofType: SymptomConstants.symptomTypeKey, withPredicate: compoundPredicate) { (records) in
             if let records = records {
@@ -39,7 +39,7 @@ class SymptomController {
                 let symptom = records.compactMap({Symptom(record: $0, day: day)})
                 symptoms.append(contentsOf: symptom)
                 print("Symptoms Fetched on SymptomController")
-                completion(symptoms)
+                completion(symptoms.first)
             }
         }
     }

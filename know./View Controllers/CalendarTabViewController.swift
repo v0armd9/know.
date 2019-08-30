@@ -562,9 +562,9 @@ class CalendarTabViewController: UIViewController {
                 day.sexDetails = sexDetails
             }
         }
-        CustomEntryController.shared.fetchCustomEntries(forDay: day) { (customEntries) in
-            if let customEntries = customEntries {
-                day.customEntries = customEntries
+        CustomEntryController.shared.fetchCustomEntry(forDay: day) { (customEntry) in
+            if let customEntry = customEntry {
+                day.customEntry = customEntry
             }
         }
     }

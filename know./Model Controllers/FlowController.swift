@@ -27,11 +27,11 @@ class FlowController {
         }
     }
     
-    func fetchFlowDetails(forDay day: Day, completion: @escaping([Flow]?) -> Void) {
+    func fetchFlowDetails(forDay day: Day, completion: @escaping(Flow?) -> Void) {
         let dayID = day.ckRecordID
         let dayPredicate = NSPredicate(format: "%K == %@", FlowConstants.dayReferenceKey, dayID)
-        let flowDetailsIDs = day.flowDetails.compactMap({$0.ckRecordID})
-        let avoidDuplicatePred = NSPredicate(format: "NOT(recordID IN %@)", flowDetailsIDs)
+        guard let flowDetailsID = day.flowDetails?.ckRecordID else { return }
+        let avoidDuplicatePred = NSPredicate(format: "NOT(recordID IN %@)", flowDetailsID)
         let compoundPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [dayPredicate, avoidDuplicatePred])
         CloudKitController.shared.fetchRecords(ofType: FlowConstants.flowTypeKey, withPredicate: compoundPredicate) { (records) in
             if let records = records {
@@ -39,7 +39,7 @@ class FlowController {
                 let flow = records.compactMap({Flow(record: $0, day: day)})
                 flows.append(contentsOf: flow)
                 print("Flows Fetched On FlowController")
-                completion(flows)
+                completion(flows.first)
             }
         }
     }

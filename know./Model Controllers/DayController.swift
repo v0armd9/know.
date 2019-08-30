@@ -15,7 +15,7 @@ class DayController {
     var days: [Day] = []
     
     func saveDay(forUser user: User, date: Date, completion: @escaping(Day?) -> Void) {
-        let day = Day(user: user, date: date)
+        let day = Day(user: user, date: date, flowDetails: nil, symptomList: nil, moodList: nil, sexDetails: nil, customEntry: nil)
         let record = CKRecord(day: day)
         CloudKitController.shared.save(record: record) { (record) in
             if let record = record {

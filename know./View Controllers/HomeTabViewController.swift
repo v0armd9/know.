@@ -124,6 +124,19 @@ class HomeTabViewController: UIViewController {
         }
     }
     
+    @IBAction func cycleStartButtonTapped(_ sender: Any) {
+        performSegue(withIdentifier: "toConfirmPopupVC", sender: self)
+    }
+    
+    @IBAction func addSymptomButtonTapped(_ sender: Any) {
+        guard let selectedDate = selectedDate else { return }
+        if selectedDate > Date() {
+            performSegue(withIdentifier: "toConfirmPopupVC", sender: self)
+        } else {
+            performSegue(withIdentifier: "toSymptomVC", sender: self)
+        }
+    }
+    
     //Get Data from Popup ViewController for Data Fetch
     @IBAction func unwindFromConfirmPopup(segue:UIStoryboardSegue) {
         let data = segue.source as? ConfirmNewCyclePopupViewController

@@ -25,8 +25,8 @@ class ConfirmNewCyclePopupViewController: UIViewController {
     //Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        checkDate()
         setView()
+        checkDate()
     }
 
     //Helper func for view
@@ -42,7 +42,7 @@ class ConfirmNewCyclePopupViewController: UIViewController {
         if date > Date() {
             futureDateSelected = true
             acceptButton.isHidden = true
-            textLabel.text = "Can't select a future date as period start date."
+            textLabel.text = "Can't select a future date to add symptoms or start new cycle."
         }
     }
     

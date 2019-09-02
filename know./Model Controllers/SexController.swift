@@ -30,9 +30,6 @@ class SexController {
     func fetchSexDetails(forDay day: Day, completion: @escaping(Sex?) -> Void) {
         let dayID = day.ckRecordID
         let dayPreicate = NSPredicate(format: "%K == %@", SexConstants.dayReferenceKey, dayID)
-//        guard let sexID = day.sexDetails?.ckRecordID else { return }
-//        let avoidDuplicatePred = NSPredicate(format: "NOT(recordID IN %@)", sexID)
-//        let compoundPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [dayPreicate, avoidDuplicatePred])
         CloudKitController.shared.fetchRecords(ofType: SexConstants.sexTypeKey, withPredicate: dayPreicate) { (records) in
             if let records = records {
                 var sexDetails: [Sex] = []

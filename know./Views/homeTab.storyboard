@@ -59,7 +59,7 @@
                                 </constraints>
                                 <state key="normal" image="add"/>
                                 <connections>
-                                    <segue destination="kTP-qe-cAQ" kind="show" identifier="toSymptomVC" id="KHQ-BO-cLp"/>
+                                    <action selector="addSymptomButtonTapped:" destination="r1U-z3-EID" eventType="touchUpInside" id="v7v-aS-jko"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Symptoms" textAlignment="right" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumFontSize="1" translatesAutoresizingMaskIntoConstraints="NO" id="gr2-cn-VOR" customClass="CustomLabel" customModule="know_" customModuleProvider="target">
@@ -89,8 +89,8 @@
                                 </constraints>
                                 <state key="normal" image="addNewCycleButton"/>
                                 <connections>
+                                    <action selector="cycleStartButtonTapped:" destination="r1U-z3-EID" eventType="touchUpInside" id="ARo-3S-Ynt"/>
                                     <action selector="newStartButton:" destination="r1U-z3-EID" eventType="touchUpInside" id="UAI-1c-iOd"/>
-                                    <segue destination="XvS-ze-gAq" kind="presentation" identifier="toConfirmPopupVC" id="Bbk-xE-A3u"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Period" textAlignment="right" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumFontSize="1" translatesAutoresizingMaskIntoConstraints="NO" id="FR3-xJ-ECs" customClass="CustomLabel" customModule="know_" customModuleProvider="target">
@@ -144,6 +144,8 @@
                         <outlet property="dayLabel" destination="uND-xb-uFk" id="FFU-lY-BpD"/>
                         <outlet property="monthLabel" destination="TGy-b1-6fc" id="zYM-Qg-GuC"/>
                         <outlet property="trackerLabel" destination="ovI-qD-VmU" id="QgE-XA-al2"/>
+                        <segue destination="XvS-ze-gAq" kind="presentation" identifier="toConfirmPopupVC" modalPresentationStyle="overCurrentContext" id="zrd-NA-56A"/>
+                        <segue destination="kTP-qe-cAQ" kind="show" identifier="toSymptomVC" id="BAO-Dc-mvx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dWm-yP-fOI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -827,26 +829,26 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ODQ-iw-W0a">
                                 <rect key="frame" x="41.5" y="208.5" width="331" height="268.5"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="CaW-mN-ccK">
-                                        <rect key="frame" x="16.5" y="13.5" width="298" height="242"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="CaW-mN-ccK">
+                                        <rect key="frame" x="10" y="10" width="311" height="248.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thursday, Aug 28" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tiG-6P-UAl">
-                                                <rect key="frame" x="0.0" y="0.0" width="298" height="34.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="311" height="40"/>
                                                 <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="20"/>
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Would you like to mark this date as your period start date?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Yq-Z7-koX">
-                                                <rect key="frame" x="0.0" y="44.5" width="298" height="133"/>
+                                                <rect key="frame" x="0.0" y="50" width="311" height="121"/>
                                                 <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="22"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Yyk-Cu-noa">
-                                                <rect key="frame" x="0.0" y="187.5" width="298" height="54.5"/>
+                                                <rect key="frame" x="0.0" y="181" width="311" height="67.5"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mLf-BW-5uw">
-                                                        <rect key="frame" x="0.0" y="0.0" width="144" height="54.5"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mLf-BW-5uw">
+                                                        <rect key="frame" x="0.0" y="0.0" width="150.5" height="67.5"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="mLf-BW-5uw" secondAttribute="height" multiplier="128:48" id="siC-va-MQl"/>
                                                         </constraints>
@@ -858,8 +860,8 @@
                                                             <action selector="cancelButtonTapped:" destination="XvS-ze-gAq" eventType="touchUpInside" id="lIe-BR-FAF"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zIp-Ac-fUw">
-                                                        <rect key="frame" x="154" y="0.0" width="144" height="54.5"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zIp-Ac-fUw">
+                                                        <rect key="frame" x="160.5" y="0.0" width="150.5" height="67.5"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="zIp-Ac-fUw" secondAttribute="height" multiplier="128:48" id="dD3-Ss-o62"/>
                                                         </constraints>
@@ -875,10 +877,12 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="CaW-mN-ccK" firstAttribute="centerY" secondItem="ODQ-iw-W0a" secondAttribute="centerY" id="IyJ-U0-ubb"/>
-                                    <constraint firstItem="CaW-mN-ccK" firstAttribute="height" secondItem="ODQ-iw-W0a" secondAttribute="height" multiplier="0.9" id="fln-er-dbB"/>
-                                    <constraint firstItem="CaW-mN-ccK" firstAttribute="width" secondItem="ODQ-iw-W0a" secondAttribute="width" multiplier="0.9" id="r22-R8-dIc"/>
-                                    <constraint firstItem="CaW-mN-ccK" firstAttribute="centerX" secondItem="ODQ-iw-W0a" secondAttribute="centerX" id="sCp-E6-zdY"/>
+                                    <constraint firstItem="tiG-6P-UAl" firstAttribute="height" secondItem="ODQ-iw-W0a" secondAttribute="height" multiplier="0.15" id="1iE-US-cL2"/>
+                                    <constraint firstAttribute="bottom" secondItem="CaW-mN-ccK" secondAttribute="bottom" constant="10" id="Lhs-r6-N2g"/>
+                                    <constraint firstItem="4Yq-Z7-koX" firstAttribute="height" secondItem="ODQ-iw-W0a" secondAttribute="height" multiplier="0.45" id="R6B-LW-b7b"/>
+                                    <constraint firstItem="CaW-mN-ccK" firstAttribute="leading" secondItem="ODQ-iw-W0a" secondAttribute="leading" constant="10" id="WoD-Py-XLO"/>
+                                    <constraint firstAttribute="trailing" secondItem="CaW-mN-ccK" secondAttribute="trailing" constant="10" id="ftl-6m-NWO"/>
+                                    <constraint firstItem="CaW-mN-ccK" firstAttribute="top" secondItem="ODQ-iw-W0a" secondAttribute="top" constant="10" id="xTb-X6-JRM"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -896,6 +900,8 @@
                         <viewLayoutGuide key="safeArea" id="tyS-T5-IOT"/>
                     </view>
                     <connections>
+                        <outlet property="acceptButton" destination="zIp-Ac-fUw" id="ah5-gv-bgQ"/>
+                        <outlet property="cancelButton" destination="mLf-BW-5uw" id="pXi-wd-F7u"/>
                         <outlet property="dateLabel" destination="tiG-6P-UAl" id="uup-Cp-qO9"/>
                         <outlet property="popupView" destination="ODQ-iw-W0a" id="4PE-ib-edd"/>
                         <outlet property="textLabel" destination="4Yq-Z7-koX" id="Vlf-5a-oVE"/>

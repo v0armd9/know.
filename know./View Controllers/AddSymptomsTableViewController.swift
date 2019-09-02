@@ -14,12 +14,7 @@ class AddSymptomsTableViewController: UITableViewController {
     var viewedDate: Date?
     var customEntryText: String = ""
     
-    //Landing Pads
-    var fetchedFlow: Flow?
-    var fetchedSymptoms: Symptom?
-    var fetchedMood: Mood?
-    var fetchedSex: Sex?
-    var fetchedCustom: CustomEntry?
+    //Landing Pad
     var dayObject: Day?
     
     //FLOW image name tuples
@@ -97,10 +92,6 @@ class AddSymptomsTableViewController: UITableViewController {
         getFetchedDataToLoadView()
     }
     
-    //Nav bar save button action
-    @IBAction func saveButtonTapped(_ sender: Any) {
-        saveOrUpdateData()
-    }
     
     //TOGGLE BUTTON PROPERTIES/VIEWS
     //Flow Buttons (Only one may be selected for a day_
@@ -288,6 +279,11 @@ class AddSymptomsTableViewController: UITableViewController {
         self.performSegue(withIdentifier: "toCustomEntryPopup", sender: self)
     }
     
+    //Nav bar save button action
+    @IBAction func saveButtonTapped(_ sender: Any) {
+        saveOrUpdateData()
+    }
+    
     //NAVIGATION
     //Segue to Popup View (to transfer birthday data)
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -329,12 +325,12 @@ class AddSymptomsTableViewController: UITableViewController {
     
     //Load correct status/images fpr buttons if on a date with an existing Day object
     func getFetchedDataToLoadView() {
-        guard let day = dayObject,
-            let flow = day.flowDetails,
-            let symptom = day.symptomList,
-            let mood = day.moodList,
-            let sex = day.sexDetails,
-            let custom = day.customEntry
+        guard let _ = dayObject,
+            let flow = FlowController.shared.flow,
+            let symptom = SymptomController.shared.symptoms,
+            let mood = MoodController.shared.moods,
+            let sex = SexController.shared.sexDetails,
+            let custom = CustomEntryController.shared.customEntries
             else { return }
         checkSymptomStatus(flow: flow, symptom: symptom, mood: mood, sex: sex, custom: custom)
     }
@@ -386,14 +382,15 @@ class AddSymptomsTableViewController: UITableViewController {
         initialButtonStat(symptom: mood.depressed, button: depressedButton, image: depress)
         initialButtonStat(symptom: mood.nervous, button: nervousButton, image: nervous)
         initialButtonStat(symptom: mood.irritated, button: irritatedButton, image: irritated)
-        //        initialButtonStat(symptom: mood.content, button: contentButton, image: content)
+        initialButtonStat(symptom: mood.content, button: contentButton, image: content)
         initialButtonStat(symptom: mood.moodSwings, button: moodswingButton, image: moodswing)
-        //        initialButtonStat(symptom: mood.angry, button: angryButton, image: angry)
+        initialButtonStat(symptom: mood.angry, button: angryButton, image: angry)
         //Properties for SEX model object
         initialButtonStat(symptom: sex.protected, button: protectedButton, image: protected)
         initialButtonStat(symptom: sex.sexDrive, button: highdriveButton, image: high)
         initialButtonStat(symptom: sex.masturbation, button: masturbateButton, image: mast)
         customTextLabel.text = custom.text
+        customEntryText = custom.text
         customButton.isSelected = true
         customButton.setImage(UIImage(named: customImage.1), for: .selected)
     }
@@ -494,7 +491,7 @@ class AddSymptomsTableViewController: UITableViewController {
     func saveOrUpdateData() {
         guard let user = UserController.shared.currentUser else { return }
         //Update day object if one already exists on the current date
-        if let dayObject = dayObject {
+        if dayObject != nil {
             DispatchQueue.main.async {
                 guard var flow = FlowController.shared.flow,
                     var symptom = SymptomController.shared.symptoms,

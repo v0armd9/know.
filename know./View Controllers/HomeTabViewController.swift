@@ -73,7 +73,6 @@ class HomeTabViewController: UIViewController {
     var sex: Sex?
     var customEntry: CustomEntry?
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchDayData()
@@ -117,16 +116,24 @@ class HomeTabViewController: UIViewController {
             let day = dayObject ?? nil
             destination?.dayObject = day
             destination?.viewedDate = selectedDate
-            destination?.fetchedFlow = self.flow
-            destination?.fetchedSymptoms = self.symptoms
-            destination?.fetchedMood = self.moods
-            destination?.fetchedSex = self.sex
-            destination?.fetchedCustom = self.customEntry
         }
         if segue.identifier == "toConfirmPopupVC" {
             let destination = segue.destination as? ConfirmNewCyclePopupViewController
             guard let selectedDate = self.selectedDate else { return }
             destination?.date = selectedDate
+        }
+    }
+    
+    @IBAction func cycleStartButtonTapped(_ sender: Any) {
+        performSegue(withIdentifier: "toConfirmPopupVC", sender: self)
+    }
+    
+    @IBAction func addSymptomButtonTapped(_ sender: Any) {
+        guard let selectedDate = selectedDate else { return }
+        if selectedDate > Date() {
+            performSegue(withIdentifier: "toConfirmPopupVC", sender: self)
+        } else {
+            performSegue(withIdentifier: "toSymptomVC", sender: self)
         }
     }
     

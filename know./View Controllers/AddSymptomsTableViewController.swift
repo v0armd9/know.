@@ -93,7 +93,6 @@ class AddSymptomsTableViewController: UITableViewController {
         getFetchedDataToLoadView()
     }
     
-    
     //TOGGLE BUTTON PROPERTIES/VIEWS
     //Flow Buttons (Only one may be selected for a day_
     @IBAction func spottingBT(_ sender: Any) {

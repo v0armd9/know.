@@ -113,7 +113,7 @@ class SettingProfileViewController: UIViewController {
         label.textColor = #colorLiteral(red: 0.554766655, green: 0.7184440494, blue: 0.8180738091, alpha: 1)
         label.textAlignment = .center
         label.sizeToFit()
-        label.font = UIFont(name: "Nunito-Regular", size: 30)
+        label.font = UIFont(name: "Nunito-Bold", size: 25)
         navigationItem.titleView = label
     }
     
@@ -144,6 +144,8 @@ class SettingProfileViewController: UIViewController {
             let pmsDuration = user.pmsDuration,
             let authEnabled = user.authEnabled
             else { return }
+        let sum = cycleLength.reduce(0, +)
+        let average = sum / cycleLength.count
         DispatchQueue.main.async {
             //Label Text
             self.nameLabel.text = name
@@ -151,8 +153,8 @@ class SettingProfileViewController: UIViewController {
             self.ageLabel.text = "\(age)"
             self.heightLabel.text = "\(height)"
             self.weightLabel.text = "\(weight)"
-            self.cycleLengthLabel.text = "\(cycleLength)"
-            self.periodLengthLabel.text = "\(periodLength)"
+            self.cycleLengthLabel.text = "\(average) Days"
+            self.periodLengthLabel.text = "\(periodLength) Days "
             self.pmsLabel.text = pms ? "Yes (\(pmsDuration) Days)" : "No"
             self.authLabel.text = authEnabled ? "Enabled" : "Disabled"
             //Text Fields Hidden

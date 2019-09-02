@@ -13,15 +13,19 @@ class ConfirmNewCyclePopupViewController: UIViewController {
     //Properties
     var date: Date?
     var confirmed: Bool = false
+    var futureDateSelected = false
     
     //Outlets
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var textLabel: UILabel!
     @IBOutlet weak var popupView: UIView!
+    @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var acceptButton: UIButton!
     
     //Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        checkDate()
         setView()
     }
 
@@ -31,6 +35,15 @@ class ConfirmNewCyclePopupViewController: UIViewController {
         let formattedDate = date.prettyDateString()
         dateLabel.text = formattedDate
         popupView.layer.cornerRadius = 25
+    }
+    
+    func checkDate() {
+        guard let date = date else { return }
+        if date > Date() {
+            futureDateSelected = true
+            acceptButton.isHidden = true
+            textLabel.text = "Can't select a future date as period start date."
+        }
     }
     
     //Actions

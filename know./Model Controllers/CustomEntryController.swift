@@ -30,9 +30,6 @@ class CustomEntryController {
     func fetchCustomEntry(forDay day: Day, completion: @escaping(CustomEntry?) -> Void) {
         let dayID = day.ckRecordID
         let dayPreicate = NSPredicate(format: "%K == %@", CustomEntryConstants.dayReferenceKey, dayID)
-//        guard let entryID = day.customEntry?.ckRecordID else { return }
-//        let avoidDuplicatePred = NSPredicate(format: "NOT(recordID IN %@)", entryID)
-//        let compoundPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [dayPreicate, avoidDuplicatePred])
         CloudKitController.shared.fetchRecords(ofType: CustomEntryConstants.customTypeKey, withPredicate: dayPreicate) { (records) in
             if let records = records {
                 var entries: [CustomEntry] = []

@@ -845,7 +845,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Yyk-Cu-noa">
                                                 <rect key="frame" x="0.0" y="187.5" width="298" height="54.5"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mLf-BW-5uw">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mLf-BW-5uw">
                                                         <rect key="frame" x="0.0" y="0.0" width="144" height="54.5"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="mLf-BW-5uw" secondAttribute="height" multiplier="128:48" id="siC-va-MQl"/>
@@ -858,7 +858,7 @@
                                                             <action selector="cancelButtonTapped:" destination="XvS-ze-gAq" eventType="touchUpInside" id="lIe-BR-FAF"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zIp-Ac-fUw">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zIp-Ac-fUw">
                                                         <rect key="frame" x="154" y="0.0" width="144" height="54.5"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="zIp-Ac-fUw" secondAttribute="height" multiplier="128:48" id="dD3-Ss-o62"/>
@@ -896,6 +896,8 @@
                         <viewLayoutGuide key="safeArea" id="tyS-T5-IOT"/>
                     </view>
                     <connections>
+                        <outlet property="acceptButton" destination="zIp-Ac-fUw" id="ah5-gv-bgQ"/>
+                        <outlet property="cancelButton" destination="mLf-BW-5uw" id="pXi-wd-F7u"/>
                         <outlet property="dateLabel" destination="tiG-6P-UAl" id="uup-Cp-qO9"/>
                         <outlet property="popupView" destination="ODQ-iw-W0a" id="4PE-ib-edd"/>
                         <outlet property="textLabel" destination="4Yq-Z7-koX" id="Vlf-5a-oVE"/>

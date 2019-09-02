@@ -11,7 +11,7 @@ import UIKit
 class AddSymptomsTableViewController: UITableViewController {
 
     //Properties
-    var viewedDate: Date!
+    var viewedDate: Date?
     var customEntryText: String = ""
     
     //Landing Pads
@@ -44,6 +44,8 @@ class AddSymptomsTableViewController: UITableViewController {
     let nervous = ("c.nervous", "c.nervous2")
     let sad = ("c.sad", "c.sad2")
     let sensitive = ("c.sensitive", "c.sensitive2")
+    let angry = ("c.angry", "c.angry2")
+    let content = ("c.content", "c.content2")
     //SEX image name tuples
     let protected = ("d.protected", "d.protected2")
     let unprotected = ("d.unprotected", "d.unprotected2")
@@ -205,6 +207,7 @@ class AddSymptomsTableViewController: UITableViewController {
     }
     
     @IBAction func angryBT(_ sender: Any) {
+        setStatusForButton(button: angryButton, symptom: angry)
     }
     
     @IBAction func sensitiveBT(_ sender: Any) {
@@ -224,6 +227,7 @@ class AddSymptomsTableViewController: UITableViewController {
     }
     
     @IBAction func contentBT(_ sender: Any) {
+        setStatusForButton(button: contentButton, symptom: content)
     }
     
     @IBAction func moodswingBT(_ sender: Any) {
@@ -287,7 +291,7 @@ class AddSymptomsTableViewController: UITableViewController {
     //NAVIGATION
     //Segue to Popup View (to transfer birthday data)
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "" {
+        if segue.identifier == "toCustomEntryPopup" {
             let destination = segue.destination as? CustomEntryPopupViewController
             destination?.customEntryText = customEntryText
         }
@@ -542,6 +546,3 @@ class AddSymptomsTableViewController: UITableViewController {
         }
     }
 }
-
-
-//NEED TO FIGURE OUT UPDATING SYMPTOMS IF A DAY OBJECT ALREADY EXISTS

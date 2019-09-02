@@ -40,6 +40,9 @@ class MoodController {
                 moods.append(contentsOf: mood)
                 print("Moods Fetched on MoodController")
                 completion(moods.first)
+            } else {
+                print("Error Fetching Moods")
+                completion(nil)
             }
         }
     }

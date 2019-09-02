@@ -10,7 +10,7 @@ import UIKit
 
 class CustomEntryPopupViewController: UIViewController {
 
-    var customEntryText = ""
+    var customEntryText: String?
     
     //Outlets
     @IBOutlet weak var dismissButton: UIButton!

@@ -40,6 +40,9 @@ class SymptomController {
                 symptoms.append(contentsOf: symptom)
                 print("Symptoms Fetched on SymptomController")
                 completion(symptoms.first)
+            } else {
+                print("Error Fetching Symptoms")
+                completion(nil)
             }
         }
     }

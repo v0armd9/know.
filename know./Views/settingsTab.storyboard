@@ -99,7 +99,7 @@
                             <outlet property="delegate" destination="Atu-HX-9HN" id="qRk-mf-3GS"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Settings" id="cRh-Fc-Dg2"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="Settings icon" id="cRh-Fc-Dg2"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
@@ -642,6 +642,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Settings icon" width="23" height="25"/>
         <image name="buttonSmallCancel" width="128" height="48"/>
         <image name="buttonSmallConfirm" width="128" height="48"/>
     </resources>

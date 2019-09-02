@@ -43,6 +43,10 @@ class ConfirmNewCyclePopupViewController: UIViewController {
             futureDateSelected = true
             acceptButton.isHidden = true
             textLabel.text = "Can't select a future date to add symptoms or start new cycle."
+        } else if date < (UserController.shared.currentUser?.cycles.last!.cycleDateStart)! {
+            futureDateSelected = true
+            acceptButton.isHidden = true
+            textLabel.text = "You can't start a cycle on a date prior to your current cycle start date."
         }
     }
     

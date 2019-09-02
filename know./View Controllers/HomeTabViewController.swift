@@ -46,7 +46,7 @@ class HomeTabViewController: UIViewController {
                     }
                 }
                 guard let lastCycleEnd = user.cycles.last?.cycleEndDate else {return}
-                
+                guard let firstCycleStart = user.cycles.first?.cycleDateStart else {return}
                 if self.selectedDate! > lastCycleEnd {
                     print("period is late")
                     self.dayLateCounter = 0
@@ -58,6 +58,12 @@ class HomeTabViewController: UIViewController {
                     DispatchQueue.main.async {
                         self.dayLabel.text = "\(self.dayLateCounter) Days Late"
                         self.trackerLabel.text = "Let us Know. when your period starts!"
+                    }
+                }
+                if self.selectedDate! < firstCycleStart {
+                    DispatchQueue.main.async {
+                        self.dayLabel.text = "--"
+                        self.trackerLabel.text = "We didn't Know. you back then!"
                     }
                 }
             }

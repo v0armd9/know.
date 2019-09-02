@@ -15,6 +15,8 @@ class CalendarTabViewController: UIViewController {
     
     let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
     
+    let symptomData: [String] = ["No Symptoms Logged"]
+    
     var years: [Int] = []
     
     var selectedMonth: Int?
@@ -22,20 +24,14 @@ class CalendarTabViewController: UIViewController {
     
     var selectedDate: Date = Date().formattedDate()
     
-    var user = UserController.shared.currentUser {
-        didSet {
-            guard let cycles = user?.cycles else {return}
-            for cycle in cycles {
-             //   periods.append(cycle.periodDateInterval)
-            }
-        }
-    }
+    var user = UserController.shared.currentUser
     
     var periods: [DateInterval] = []
     
     var dayToDisplay: Day?
     
     
+    @IBOutlet weak var selectedDateLabel: UILabel!
     @IBOutlet weak var lastRow: UIStackView!
     @IBOutlet weak var buttonOne: UIButton!
     @IBOutlet weak var buttonTwo: UIButton!
@@ -146,12 +142,14 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonOneTapped(_ sender: UIButton) {
         let button = classArray[0]
+        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
         guard let day = button.day else {return}
         fetchSymptoms(day: day)
     }
     @IBAction func buttonTwoTapped(_ sender: UIButton) {
         let button = classArray[1]
+        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
         guard let day = button.day else {return}
         fetchSymptoms(day: day)
@@ -159,6 +157,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonThreeTapped(_ sender: UIButton) {
         let button = classArray[2]
+        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
         guard let day = button.day else {return}
         fetchSymptoms(day: day)
@@ -166,6 +165,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonFourTapped(_ sender: UIButton) {
         let button = classArray[3]
+        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
         guard let day = button.day else {return}
         fetchSymptoms(day: day)
@@ -173,6 +173,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonFiveTapped(_ sender: UIButton) {
         let button = classArray[4]
+        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
         guard let day = button.day else {return}
         fetchSymptoms(day: day)
@@ -180,6 +181,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonSixTapped(_ sender: Any) {
         let button = classArray[5]
+        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
         guard let day = button.day else {return}
         fetchSymptoms(day: day)
@@ -187,6 +189,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonSevenTapped(_ sender: UIButton) {
         let button = classArray[6]
+        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
         guard let day = button.day else {return}
         fetchSymptoms(day: day)
@@ -194,6 +197,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonEightTapped(_ sender: UIButton) {
         let button = classArray[7]
+        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
         guard let day = button.day else {return}
         fetchSymptoms(day: day)
@@ -201,6 +205,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonNineTapped(_ sender: UIButton) {
         let button = classArray[8]
+        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
         guard let day = button.day else {return}
         fetchSymptoms(day: day)
@@ -208,6 +213,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonTenTapped(_ sender: UIButton) {
         let button = classArray[9]
+        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
         guard let day = button.day else {return}
         fetchSymptoms(day: day)
@@ -215,6 +221,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonElevenTapped(_ sender: UIButton) {
         let button = classArray[10]
+        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
         guard let day = button.day else {return}
         fetchSymptoms(day: day)
@@ -222,6 +229,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonTwelveTapped(_ sender: UIButton) {
         let button = classArray[11]
+        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
         guard let day = button.day else {return}
         fetchSymptoms(day: day)
@@ -229,6 +237,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonThirteenTapped(_ sender: UIButton) {
         let button = classArray[12]
+        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
         guard let day = button.day else {return}
         fetchSymptoms(day: day)
@@ -236,6 +245,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonFourteenTapped(_ sender: UIButton) {
         let button = classArray[13]
+        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
         guard let day = button.day else {return}
         fetchSymptoms(day: day)
@@ -243,6 +253,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonFifteenTapped(_ sender: UIButton) {
         let button = classArray[14]
+        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
         guard let day = button.day else {return}
         fetchSymptoms(day: day)
@@ -250,6 +261,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonSixteenTapped(_ sender: UIButton) {
         let button = classArray[15]
+        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
         guard let day = button.day else {return}
         fetchSymptoms(day: day)
@@ -257,6 +269,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonSeventeenTapped(_ sender: UIButton) {
         let button = classArray[16]
+        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
         guard let day = button.day else {return}
         fetchSymptoms(day: day)
@@ -264,6 +277,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonEighteenTapped(_ sender: UIButton) {
         let button = classArray[17]
+        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
         guard let day = button.day else {return}
         fetchSymptoms(day: day)
@@ -271,6 +285,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonNineteenTapped(_ sender: UIButton) {
         let button = classArray[18]
+        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
         guard let day = button.day else {return}
         fetchSymptoms(day: day)
@@ -278,6 +293,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonTwentyTapped(_ sender: UIButton) {
         let button = classArray[19]
+        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
         guard let day = button.day else {return}
         fetchSymptoms(day: day)
@@ -285,6 +301,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonTwentyOneTapped(_ sender: UIButton) {
         let button = classArray[20]
+        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
         guard let day = button.day else {return}
         fetchSymptoms(day: day)
@@ -292,6 +309,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonTwentyTwoTapped(_ sender: UIButton) {
         let button = classArray[21]
+        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
         guard let day = button.day else {return}
         fetchSymptoms(day: day)
@@ -299,6 +317,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonTwentyThreeTapped(_ sender: UIButton) {
         let button = classArray[22]
+        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
         guard let day = button.day else {return}
         fetchSymptoms(day: day)
@@ -306,6 +325,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonTwentyFourTapped(_ sender: UIButton) {
         let button = classArray[23]
+        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
         guard let day = button.day else {return}
         fetchSymptoms(day: day)
@@ -313,6 +333,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonTwentyFiveTapped(_ sender: UIButton) {
         let button = classArray[24]
+        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
         guard let day = button.day else {return}
         fetchSymptoms(day: day)
@@ -320,6 +341,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonTwentySixTapped(_ sender: UIButton) {
         let button = classArray[25]
+        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
         guard let day = button.day else {return}
         fetchSymptoms(day: day)
@@ -327,6 +349,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonTwentySevenTapped(_ sender: UIButton) {
         let button = classArray[26]
+        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
         guard let day = button.day else {return}
         fetchSymptoms(day: day)
@@ -334,6 +357,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonTwentyEightTapped(_ sender: UIButton) {
         let button = classArray[27]
+        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
         guard let day = button.day else {return}
         fetchSymptoms(day: day)
@@ -341,6 +365,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonTwentyNineTapped(_ sender: UIButton) {
         let button = classArray[28]
+        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
         guard let day = button.day else {return}
         fetchSymptoms(day: day)
@@ -348,6 +373,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonThirtyTapped(_ sender: UIButton) {
         let button = classArray[29]
+        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
         guard let day = button.day else {return}
         fetchSymptoms(day: day)
@@ -355,6 +381,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonThirtyOneTapped(_ sender: UIButton) {
         let button = classArray[30]
+        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
         guard let day = button.day else {return}
         fetchSymptoms(day: day)
@@ -362,6 +389,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonThirtyTwoTapped(_ sender: UIButton) {
         let button = classArray[31]
+        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
         guard let day = button.day else {return}
         fetchSymptoms(day: day)
@@ -369,6 +397,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonThirtyThreeTapped(_ sender: UIButton) {
         let button = classArray[32]
+        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
         guard let day = button.day else {return}
         fetchSymptoms(day: day)
@@ -376,6 +405,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonThirtyFourTapped(_ sender: UIButton) {
         let button = classArray[33]
+        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
         guard let day = button.day else {return}
         fetchSymptoms(day: day)
@@ -383,6 +413,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonThirtyFiveTapped(_ sender: UIButton) {
         let button = classArray[34]
+        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
         guard let day = button.day else {return}
         fetchSymptoms(day: day)
@@ -390,6 +421,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonThirtySixTapped(_ sender: UIButton) {
         let button = classArray[35]
+        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
         guard let day = button.day else {return}
         fetchSymptoms(day: day)
@@ -397,6 +429,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonThirtySevenTapped(_ sender: UIButton) {
         let button = classArray[36]
+        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
         guard let day = button.day else {return}
         fetchSymptoms(day: day)
@@ -404,6 +437,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonThirtyEightTapped(_ sender: UIButton) {
         let button = classArray[37]
+        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
         guard let day = button.day else {return}
         fetchSymptoms(day: day)
@@ -411,6 +445,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonThirtyNineTapped(_ sender: UIButton) {
         let button = classArray[38]
+        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
         guard let day = button.day else {return}
         fetchSymptoms(day: day)
@@ -418,6 +453,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonFortyTapped(_ sender: UIButton) {
         let button = classArray[39]
+        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
         guard let day = button.day else {return}
         fetchSymptoms(day: day)
@@ -425,6 +461,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonFortyOneTapped(_ sender: UIButton) {
         let button = classArray[40]
+        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
         guard let day = button.day else {return}
         fetchSymptoms(day: day)
@@ -432,6 +469,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonFortyTwoTapped(_ sender: UIButton) {
         let button = classArray[41]
+        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
         guard let day = button.day else {return}
         fetchSymptoms(day: day)
@@ -499,6 +537,7 @@ class CalendarTabViewController: UIViewController {
                     button.day = day
                 }
             }
+            displayPeriod(button: button, user: user)
         }
     }
     
@@ -565,9 +604,30 @@ class CalendarTabViewController: UIViewController {
         CustomEntryController.shared.fetchCustomEntry(forDay: day) { (customEntry) in
             if let customEntry = customEntry {
                 day.customEntry = customEntry
+                
             }
         }
     }
+    
+    func displayPeriod(button: Button, user: User) {
+        for cycle in user.cycles {
+            let dateInterval = DateInterval(start: cycle.cycleDateStart, end: cycle.periodEndDate)
+            if cycle.cycleDateStart == button.date {
+                button.button.setBackgroundImage(#imageLiteral(resourceName: "periodStartBackground"), for: .normal)
+                break
+            } else if cycle.periodEndDate == button.date {
+                button.button.setBackgroundImage(#imageLiteral(resourceName: "periodEndBackground"), for: .normal)
+                break
+            } else if dateInterval.contains(button.date) {
+                button.button.setBackgroundImage(#imageLiteral(resourceName: "periodMidBackground"), for: .normal)
+                break
+            } else {
+                button.button.setBackgroundImage(nil, for: .normal)
+            }
+        }
+        
+    }
+    
 }//end of class
 
 extension CalendarTabViewController: UIPickerViewDataSource, UIPickerViewDelegate {
@@ -625,22 +685,21 @@ extension CalendarTabViewController: UIPickerViewDataSource, UIPickerViewDelegat
 extension CalendarTabViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return months.count
+        return symptomData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "symptomCell", for: indexPath) as! SymptomCollectionViewCell
         
-        cell.symptomLabel.text = "- \(months[indexPath.row])"
+        cell.symptomLabel.text = "- \(symptomData[indexPath.row])"
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = collectionView.bounds.width/3
+        let width = collectionView.bounds.width/2.1
         let height = collectionView.bounds.width/10
         return CGSize(width: width, height: height)
     }
-    
-    
 }
+

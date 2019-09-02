@@ -401,29 +401,29 @@
                                         <rect key="frame" x="0.0" y="509" width="373" height="71"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Experiences PMS:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ib-Is-29q" customClass="CustomLabel" customModule="know_" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="373" height="35.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="373" height="34.5"/>
                                                 <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="20"/>
                                                 <color key="textColor" red="0.5568627451" green="0.71764705880000002" blue="0.81960784310000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ggO-Kb-Alh">
-                                                <rect key="frame" x="0.0" y="35.5" width="373" height="35.5"/>
+                                                <rect key="frame" x="0.0" y="34.5" width="373" height="34.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jZD-T8-mlz">
-                                                        <rect key="frame" x="0.0" y="0.0" width="119" height="35.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="119" height="34.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" white="0.23110195489999999" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hyG-xF-kC1">
-                                                        <rect key="frame" x="127" y="0.0" width="119" height="35.5"/>
+                                                        <rect key="frame" x="127" y="0.0" width="119" height="34.5"/>
                                                         <state key="normal" title="Yes"/>
                                                         <connections>
                                                             <action selector="pmsTrueButtonTapped:" destination="7IU-AF-TyA" eventType="touchUpInside" id="G4V-zF-g2X"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q6B-x7-Kpc">
-                                                        <rect key="frame" x="254" y="0.0" width="119" height="35.5"/>
+                                                        <rect key="frame" x="254" y="0.0" width="119" height="34.5"/>
                                                         <state key="normal" title="No"/>
                                                         <connections>
                                                             <action selector="pmsFalseButtonTapped:" destination="7IU-AF-TyA" eventType="touchUpInside" id="rfj-nk-VVI"/>
@@ -431,6 +431,14 @@
                                                     </button>
                                                 </subviews>
                                             </stackView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9aX-ep-Yli">
+                                                <rect key="frame" x="0.0" y="69" width="373" height="2"/>
+                                                <color key="backgroundColor" white="0.80186037389999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="2" id="t1g-lw-ZCZ"/>
+                                                </constraints>
+                                                <viewLayoutGuide key="safeArea" id="1VR-mY-e38"/>
+                                            </view>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="ggO-Kb-Alh" firstAttribute="height" secondItem="2Ib-Is-29q" secondAttribute="height" id="zDg-dC-2bE"/>
@@ -530,6 +538,15 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mR4-n1-nxT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="DGk-8M-MdC">
+                    <rect key="frame" x="0.0" y="0.0" width="373" height="2"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.80186037389999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="2" id="5C4-L1-6hs"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="Biv-gO-C6q"/>
+                </view>
             </objects>
             <point key="canvasLocation" x="12318.840579710146" y="519.64285714285711"/>
         </scene>

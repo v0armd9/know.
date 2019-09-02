@@ -399,6 +399,9 @@ class HomeTabViewController: UIViewController {
                 self.dayObject?.moodList = self.moods
                 self.dayObject?.sexDetails = self.sex
                 self.dayObject?.customEntry = self.customEntry
+            } else {
+                self.dayObject = nil
+                print("No DayObject saved for \(date.prettyDateString())")
             }
         }
     }

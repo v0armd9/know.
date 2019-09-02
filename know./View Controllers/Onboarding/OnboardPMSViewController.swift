@@ -49,28 +49,41 @@ class OnboardPMSViewController: UIViewController {
     @IBAction func yesButtonTapped(_ sender: Any) {
         experiencesPms = true
         UIView.animate(withDuration: 0.5) {
+            self.yesButton.isSelected = true
+            self.noButton.isSelected = false
             self.dayCountLabel.isHidden = false
             self.dayPickerView.isHidden = false
             self.viewBar.isHidden = false
             self.dayCountLabel.alpha = 1
             self.dayPickerView.alpha = 1
             self.viewBar.alpha = 1
+            self.setButtonViews()
         }
     }
     
     @IBAction func noButtonTapped(_ sender: Any) {
         experiencesPms = false
         UIView.animate(withDuration: 1) {
+            self.yesButton.isSelected = false
+            self.noButton.isSelected = true
             self.dayCountLabel.alpha = 0
             self.dayPickerView.alpha = 0
             self.viewBar.alpha = 0
             self.dayCountLabel.isHidden = true
             self.dayPickerView.isHidden = true
             self.viewBar.isHidden = true
+            self.setButtonViews()
         }
     }
     
     @IBAction func nextButtonTapped(_ sender: Any) {
+    }
+    
+    func setButtonViews() {
+        yesButton.setImage(UIImage(named: "yes"), for: .normal)
+        yesButton.setImage(UIImage(named: "yesActive"), for: .selected)
+        noButton.setImage(UIImage(named: "no"), for: .normal)
+        noButton.setImage(UIImage(named: "noActive"), for: .selected)
     }
     
     //Navigation

@@ -218,6 +218,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VHt-bA-oK4"/>
                     </view>
+                    <navigationItem key="navigationItem" id="ESM-4H-XTz"/>
                     <connections>
                         <outlet property="eightTextLabel" destination="PoO-26-aLA" id="bJ9-Vj-WCq"/>
                         <outlet property="eightTitleLabel" destination="q8L-A1-S6l" id="TkZ-M3-rDH"/>

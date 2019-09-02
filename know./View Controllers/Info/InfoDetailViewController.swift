@@ -37,8 +37,19 @@ class InfoDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateView()
+        setNavigationBarView()
+    }
+    
+    //Set Navigation View
+    func setNavigationBarView() {
         guard let info = info else { return }
-        self.title = info.subject
+        let label = UILabel()
+        label.text = info.subject
+        label.textColor = #colorLiteral(red: 0.554766655, green: 0.7184440494, blue: 0.8180738091, alpha: 1)
+        label.textAlignment = .center
+        label.sizeToFit()
+        label.font = UIFont(name: "Nunito-Bold", size: 25)
+        navigationItem.titleView = label
     }
     
     //Helper Function to Load Necessary Data

@@ -21,7 +21,7 @@ class CustomEntryController {
             if let record = record {
                 guard let entry = CustomEntry(record: record, day: day) else { return }
                 self.customEntries = entry
-                print("Custom Entry Saved on CustomEntryController")
+                print("Custom Entry Saved")
                 completion(true)
             }
         }
@@ -36,7 +36,7 @@ class CustomEntryController {
                 let entry = records.compactMap({CustomEntry(record: $0, day: day)})
                 entries.append(contentsOf: entry)
                 self.customEntries = entries.first
-                print("Custom Entries Fetched on CustomEntryController")
+                print("Custom Entries Fetched")
                 completion(entries.first)
             }
         }

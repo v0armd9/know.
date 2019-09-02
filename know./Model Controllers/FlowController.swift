@@ -21,7 +21,7 @@ class FlowController {
             if let record = record {
                 guard let flowDetail = Flow(record: record, day: day) else { return }
                 self.flow = flowDetail
-                print("Flow Saved On FlowController")
+                print("Flow Saved")
                 completion(true)
             }
         }
@@ -36,7 +36,7 @@ class FlowController {
                 let flow = records.compactMap({Flow(record: $0, day: day)})
                 flows.append(contentsOf: flow)
                 self.flow = flows.first
-                print("Flows Fetched On FlowController")
+                print("Flows Fetched")
                 completion(flows.first)
             } else {
                 print("Error Fetching Flow")

@@ -829,7 +829,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ODQ-iw-W0a">
                                 <rect key="frame" x="41.5" y="208.5" width="331" height="268.5"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="CaW-mN-ccK">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="CaW-mN-ccK">
                                         <rect key="frame" x="10" y="10" width="311" height="248.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thursday, Aug 28" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tiG-6P-UAl">
@@ -881,6 +881,7 @@
                                     <constraint firstAttribute="bottom" secondItem="CaW-mN-ccK" secondAttribute="bottom" constant="10" id="Lhs-r6-N2g"/>
                                     <constraint firstItem="4Yq-Z7-koX" firstAttribute="height" secondItem="ODQ-iw-W0a" secondAttribute="height" multiplier="0.45" id="R6B-LW-b7b"/>
                                     <constraint firstItem="CaW-mN-ccK" firstAttribute="leading" secondItem="ODQ-iw-W0a" secondAttribute="leading" constant="10" id="WoD-Py-XLO"/>
+                                    <constraint firstItem="Yyk-Cu-noa" firstAttribute="height" secondItem="ODQ-iw-W0a" secondAttribute="height" multiplier="0.35" id="dvo-eA-JNa"/>
                                     <constraint firstAttribute="trailing" secondItem="CaW-mN-ccK" secondAttribute="trailing" constant="10" id="ftl-6m-NWO"/>
                                     <constraint firstItem="CaW-mN-ccK" firstAttribute="top" secondItem="ODQ-iw-W0a" secondAttribute="top" constant="10" id="xTb-X6-JRM"/>
                                 </constraints>

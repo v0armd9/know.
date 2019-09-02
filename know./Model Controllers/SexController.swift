@@ -14,14 +14,14 @@ class SexController {
     static let shared = SexController()
     var sexDetails: Sex?
     
-    func saveSexDetails(forDay day: Day, protected: Bool, sexDrive: Bool, masturbation: Bool, completion: @escaping(Bool) -> Void) {
-        let sex = Sex(day: day, protected: protected, sexDrive: sexDrive, masturbation: masturbation)
+    func saveSexDetails(forDay day: Day, protected: Bool, unprotected: Bool, sexDrive: Bool, lowDrive: Bool, masturbation: Bool, completion: @escaping(Bool) -> Void) {
+        let sex = Sex(day: day, protected: protected, unprotected: unprotected, sexDrive: sexDrive, lowDrive: lowDrive, masturbation: masturbation)
         let record = CKRecord(sex: sex)
         CloudKitController.shared.save(record: record) { (record) in
             if let record = record {
                 guard let sex = Sex(record: record, day: day) else { return }
                 self.sexDetails = sex
-                print("Sex Saved on SexController")
+                print("Sex Saved")
                 completion(true)
             }
         }
@@ -36,15 +36,17 @@ class SexController {
                 let sex = records.compactMap({Sex(record: $0, day: day)})
                 sexDetails.append(contentsOf: sex)
                 self.sexDetails = sexDetails.first
-                print("SexDetails Fetched on SexController")
+                print("SexDetails Fetched")
                 completion(sexDetails.first)
             }
         }
     }
     
-    func update(sexDetails: Sex, withProtected protected: Bool, sexDrive: Bool, masturbation: Bool, completion: @escaping(Bool) -> Void) {
+    func update(sexDetails: Sex, withProtected protected: Bool, unprotected: Bool, sexDrive: Bool, lowDrive: Bool, masturbation: Bool, completion: @escaping(Bool) -> Void) {
         sexDetails.protected = protected
+        sexDetails.unprotected = unprotected
         sexDetails.sexDrive = sexDrive
+        sexDetails.lowDrive = lowDrive
         sexDetails.masturbation = masturbation
         let record = CKRecord(sex: sexDetails)
         CloudKitController.shared.update(record: record) { (success) in

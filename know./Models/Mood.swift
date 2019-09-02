@@ -71,7 +71,7 @@ extension CKRecord {
         self.setValue(mood.nervous, forKey: MoodConstants.nervousKey)
         self.setValue(mood.irritated, forKey: MoodConstants.irritatedKey)
         self.setValue(mood.content, forKey: MoodConstants.contentKey)
-        self.setValue(mood.moodSwings, forKey: MoodConstants.moodTypeKey)
+        self.setValue(mood.moodSwings, forKey: MoodConstants.moodSwingKey)
         self.setValue(mood.angry, forKey: MoodConstants.angryKey)
         self.setValue(mood.dayReference, forKey: MoodConstants.dayReferenceKey)
     }

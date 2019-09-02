@@ -34,6 +34,8 @@ class MoodController {
             if let records = records {
                 var moods: [Mood] = []
                 let mood = records.compactMap({Mood(record: $0, day: day)})
+                guard let record = records.first else { return }
+                let fetchedMood = Mood(record: record, day: day)
                 moods.append(contentsOf: mood)
                 self.moods = moods.first
                 print("Moods Fetched on MoodController")

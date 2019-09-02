@@ -92,10 +92,6 @@ class AddSymptomsTableViewController: UITableViewController {
         getFetchedDataToLoadView()
     }
     
-    //Nav bar save button action
-    @IBAction func saveButtonTapped(_ sender: Any) {
-        saveOrUpdateData()
-    }
     
     //TOGGLE BUTTON PROPERTIES/VIEWS
     //Flow Buttons (Only one may be selected for a day_
@@ -281,6 +277,11 @@ class AddSymptomsTableViewController: UITableViewController {
     //Custom Entry Button
     @IBAction func customBT(_ sender: Any) {
         self.performSegue(withIdentifier: "toCustomEntryPopup", sender: self)
+    }
+    
+    //Nav bar save button action
+    @IBAction func saveButtonTapped(_ sender: Any) {
+        saveOrUpdateData()
     }
     
     //NAVIGATION

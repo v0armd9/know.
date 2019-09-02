@@ -84,6 +84,7 @@ class AddSymptomsTableViewController: UITableViewController {
     @IBOutlet weak var customLabel: CustomLabel!
     @IBOutlet weak var customButton: UIButton!
     @IBOutlet weak var customTextLabel: UILabel!
+    @IBOutlet weak var navBarItem: UINavigationItem!
     
     //Lifecycle
     override func viewDidLoad() {
@@ -311,16 +312,14 @@ class AddSymptomsTableViewController: UITableViewController {
     //VIEWS
     //Set Navigation View
     func setNavigationBarView() {
-        func setNavTitle() {
-            let viewedDate = self.viewedDate ?? Date()
-            let label = UILabel()
-            label.text = viewedDate.stringWith(dateStyle: .long, timeStyle: .none)
-            label.textColor = #colorLiteral(red: 0.554766655, green: 0.7184440494, blue: 0.8180738091, alpha: 1)
-            label.textAlignment = .center
-            label.sizeToFit()
-            label.font = UIFont(name: "Nunito-Regular", size: 25)
-            navigationItem.titleView = label
-        }
+        let viewedDate = self.viewedDate ?? Date()
+        let label = UILabel()
+        label.text = viewedDate.prettyDateString()
+        label.textColor = #colorLiteral(red: 0.554766655, green: 0.7184440494, blue: 0.8180738091, alpha: 1)
+        label.textAlignment = .center
+        label.sizeToFit()
+        label.font = UIFont(name: "Nunito-Bold", size: 25)
+        navigationItem.titleView = label
     }
     
     //Load correct status/images fpr buttons if on a date with an existing Day object

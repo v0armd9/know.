@@ -162,7 +162,7 @@
             </objects>
             <point key="canvasLocation" x="11274" y="-13"/>
         </scene>
-        <!--Title-->
+        <!--Add Symptoms Table View Controller-->
         <scene sceneID="sPm-hD-jHe">
             <objects>
                 <tableViewController id="kTP-qe-cAQ" customClass="AddSymptomsTableViewController" customModule="know_" customModuleProvider="target" sceneMemberID="viewController">
@@ -660,7 +660,7 @@
                             <outlet property="delegate" destination="kTP-qe-cAQ" id="Rlc-9C-WzZ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Title" id="9u9-Qc-pMs">
+                    <navigationItem key="navigationItem" id="9u9-Qc-pMs">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="ko4-bF-x03">
                             <connections>
                                 <action selector="saveButtonTapped:" destination="kTP-qe-cAQ" id="rdV-ed-gu0"/>
@@ -693,6 +693,7 @@
                         <outlet property="moodLabel" destination="hgK-DC-mwr" id="a7t-uP-PZi"/>
                         <outlet property="moodswingButton" destination="m2o-eu-KZw" id="KFs-X6-LKi"/>
                         <outlet property="nauseaButton" destination="Rmb-Rk-fJb" id="Qwj-ZM-ilu"/>
+                        <outlet property="navBarItem" destination="9u9-Qc-pMs" id="A5v-aB-6w0"/>
                         <outlet property="nervousButton" destination="43L-9L-BG6" id="f88-u0-vnl"/>
                         <outlet property="protectedButton" destination="KGE-Fo-bPp" id="gMW-fV-9Kz"/>
                         <outlet property="sadButton" destination="mMh-Tg-I2s" id="ZqO-mC-IQ1"/>

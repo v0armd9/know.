@@ -22,12 +22,12 @@
                                 <rect key="frame" x="0.0" y="3.5" width="414" height="896"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="A2Y-x8-NJN">
-                                <rect key="frame" x="41.5" y="631.5" width="331" height="162"/>
+                                <rect key="frame" x="41.5" y="641" width="331" height="143"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kb8-5P-iuu">
-                                        <rect key="frame" x="0.0" y="0.0" width="331" height="73"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="331" height="63.5"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="kb8-5P-iuu" secondAttribute="height" multiplier="331:73" id="rTo-pB-WT4"/>
+                                            <constraint firstAttribute="width" secondItem="kb8-5P-iuu" secondAttribute="height" multiplier="250:48" id="rTo-pB-WT4"/>
                                         </constraints>
                                         <state key="normal" image="trackButton">
                                             <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -37,9 +37,9 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aUg-oW-p42">
-                                        <rect key="frame" x="0.0" y="89" width="331" height="73"/>
+                                        <rect key="frame" x="0.0" y="79.5" width="331" height="63.5"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="aUg-oW-p42" secondAttribute="height" multiplier="331:73" id="ahA-Wa-ZKN"/>
+                                            <constraint firstAttribute="width" secondItem="aUg-oW-p42" secondAttribute="height" multiplier="250:48" id="ahA-Wa-ZKN"/>
                                         </constraints>
                                         <state key="normal" image="followButton">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -61,6 +61,10 @@
                         <viewLayoutGuide key="safeArea" id="HMx-YI-KlR"/>
                     </view>
                     <navigationItem key="navigationItem" id="t8l-76-LRF"/>
+                    <connections>
+                        <outlet property="followButton" destination="aUg-oW-p42" id="EaW-xj-A68"/>
+                        <outlet property="trackButton" destination="kb8-5P-iuu" id="8sy-c0-biG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ytr-Hl-NSK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -95,8 +99,8 @@
     </scenes>
     <resources>
         <image name="Launch_Logo Screen" width="414" height="897"/>
-        <image name="followButton" width="344" height="73"/>
-        <image name="trackButton" width="344" height="73"/>
+        <image name="followButton" width="250" height="48"/>
+        <image name="trackButton" width="250" height="48"/>
     </resources>
     <color key="tintColor" red="0.58823529409999997" green="0.71372549019999998" blue="0.80784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

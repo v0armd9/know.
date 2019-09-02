@@ -11,24 +11,14 @@ import CloudKit
 
 class OnboardingFinishedViewController: UIViewController {
 
-    //Properties
-    
-    
     //Outlets
     @IBOutlet weak var welcomeLabel: UIImageView!
     @IBOutlet weak var textImageView: UIImageView!
     @IBOutlet weak var nextButton: UIButton!
     
-    
     //Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-    }
-    
-    //Actions
-    @IBAction func nextButtonTapped(_ sender: Any) {
-
     }
     
     //Navigation
@@ -46,18 +36,20 @@ class OnboardingFinishedViewController: UIViewController {
         let lastPeriod = user.lastPeriod
             else { return }
         let cycleLengthInt = cycleLength.first
+        //Create new user with the input info from onboarding
         UserController.shared.saveUser(withName: name, age: age, birthdate: birthday, height: height, weight: weight, cycleLength: cycleLength, periodLength: periodLength, pms: pms, pmsDuration: pmsDuration, lastPeriod: lastPeriod) { (success) in
             if success {
                 print("Saved \(name)'s User Info!")
                 guard let user = UserController.shared.currentUser else {return}
+                //Create the first cycle
                 self.createFirstCycle(user: user, periodLength: periodLength, cycleLength: cycleLengthInt!, startDate: lastPeriod)
             } else {
                 print("Error saving user")
-                //Error notification for user?
             }
         }
     }
     
+    //Create the first cycle using onboarding data
     func createFirstCycle(user: User, periodLength: Int, cycleLength: Int, startDate: Date) {
         let startDate = startDate.formattedDate()
         let periodEndDate = Calendar.current.date(byAdding: .day, value: periodLength-1, to: startDate)!
@@ -65,7 +57,7 @@ class OnboardingFinishedViewController: UIViewController {
         CycleController.shared.saveCycle(forUser: user, cycleStart: startDate, periodEnd: periodEndDate, cycleEnd: cycleEndDate) { (cycle) in
             if let cycle = cycle {
                 user.cycles.append(cycle)
-        }
+            }
         }
     }
 }

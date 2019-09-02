@@ -11,8 +11,14 @@ import UIKit
 
 class OnboardStartViewController: UIViewController {
 
+    //Outlets
+    @IBOutlet weak var trackButton: UIButton!
+    @IBOutlet weak var followButton: UIButton!
+    
+    //Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        followButton.isHidden = true
     }
     
     //Check if user is signed into iCloud before beginning onboarding

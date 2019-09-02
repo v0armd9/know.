@@ -20,7 +20,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="8We-hs-XUY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Share" image="Share icon" selectedImage="Share icon active" id="HXV-Xb-MVq"/>
+                    <tabBarItem key="tabBarItem" title="Share" image="Share icon" id="HXV-Xb-MVq"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MqZ-JN-a7j" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -29,8 +29,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Share icon" width="34" height="26"/>
-        <image name="Share icon active" width="34" height="26"/>
+        <image name="Share icon" width="22" height="17"/>
     </resources>
     <color key="tintColor" red="0.58823529409999997" green="0.71372549019999998" blue="0.80784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

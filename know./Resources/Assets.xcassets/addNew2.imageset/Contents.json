@@ -2,14 +2,16 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Share Blue Tiny.png",
+      "filename" : "addNew2.png",
       "scale" : "1x"
     },
     {
+      "scale" : "2x",
       "idiom" : "universal",
-      "scale" : "2x"
+      "filename" : "addNew2@2x.png"
     },
     {
+      "filename" : "addNew2@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

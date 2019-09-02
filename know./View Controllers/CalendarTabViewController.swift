@@ -138,11 +138,32 @@ class CalendarTabViewController: UIViewController {
         customPicker.selectRow(currentMonth - 1, inComponent: 0, animated: false)
         customPicker.selectRow(currentYear - 2014, inComponent: 1, animated: false)
         customPicker.reloadAllComponents()
+        selectedDateLabel.text = "   \(selectedDate.stringWith(dateStyle: .medium, timeStyle: .none))"
+        if let user = user {
+            DayController.shared.fetchSingleDay(forUser: user, andDate: selectedDate) { (day) in
+                if let day = day {
+                    self.fetchSymptoms(day: day, completion: { (success) in
+                        if success {
+                            self.convertSymptomsToString(day: day)
+                        }
+                    })
+                }
+            }
+        }
     }
+    
+    @IBAction func addSymptomTapped(_ sender: UIButton) {
+        if selectedDate > Date() {
+            performSegue(withIdentifier: "toConfirmPopupVC", sender: self)
+        } else {
+            performSegue(withIdentifier: "toSymptomVC", sender: self)
+        }
+    }
+    
     
     @IBAction func buttonOneTapped(_ sender: UIButton) {
         let button = classArray[0]
-        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
+        selectedDateLabel.text = "   \(button.date.stringWith(dateStyle: .medium, timeStyle: .none))"
         changeDate(button: button)
         symptomData = ["No Symptoms Logged"]
         symptomCollectionView.reloadData()
@@ -155,7 +176,7 @@ class CalendarTabViewController: UIViewController {
     }
     @IBAction func buttonTwoTapped(_ sender: UIButton) {
         let button = classArray[1]
-        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
+        selectedDateLabel.text = "   \(button.date.stringWith(dateStyle: .medium, timeStyle: .none))"
         changeDate(button: button)
         symptomData = ["No Symptoms Logged"]
         symptomCollectionView.reloadData()
@@ -169,7 +190,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonThreeTapped(_ sender: UIButton) {
         let button = classArray[2]
-        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
+        selectedDateLabel.text = "   \(button.date.stringWith(dateStyle: .medium, timeStyle: .none))"
         changeDate(button: button)
         symptomData = ["No Symptoms Logged"]
         symptomCollectionView.reloadData()
@@ -183,7 +204,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonFourTapped(_ sender: UIButton) {
         let button = classArray[3]
-        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
+        selectedDateLabel.text = "   \(button.date.stringWith(dateStyle: .medium, timeStyle: .none))"
         changeDate(button: button)
         symptomData = ["No Symptoms Logged"]
         symptomCollectionView.reloadData()
@@ -197,7 +218,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonFiveTapped(_ sender: UIButton) {
         let button = classArray[4]
-        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
+        selectedDateLabel.text = "   \(button.date.stringWith(dateStyle: .medium, timeStyle: .none))"
         changeDate(button: button)
         symptomData = ["No Symptoms Logged"]
         symptomCollectionView.reloadData()
@@ -211,7 +232,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonSixTapped(_ sender: Any) {
         let button = classArray[5]
-        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
+        selectedDateLabel.text = "   \(button.date.stringWith(dateStyle: .medium, timeStyle: .none))"
         changeDate(button: button)
         symptomData = ["No Symptoms Logged"]
         symptomCollectionView.reloadData()
@@ -225,7 +246,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonSevenTapped(_ sender: UIButton) {
         let button = classArray[6]
-        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
+        selectedDateLabel.text = "   \(button.date.stringWith(dateStyle: .medium, timeStyle: .none))"
         changeDate(button: button)
         symptomData = ["No Symptoms Logged"]
         symptomCollectionView.reloadData()
@@ -239,7 +260,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonEightTapped(_ sender: UIButton) {
         let button = classArray[7]
-        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
+        selectedDateLabel.text = "   \(button.date.stringWith(dateStyle: .medium, timeStyle: .none))"
         changeDate(button: button)
         symptomData = ["No Symptoms Logged"]
         symptomCollectionView.reloadData()
@@ -253,7 +274,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonNineTapped(_ sender: UIButton) {
         let button = classArray[8]
-        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
+        selectedDateLabel.text = "   \(button.date.stringWith(dateStyle: .medium, timeStyle: .none))"
         changeDate(button: button)
         symptomData = ["No Symptoms Logged"]
         symptomCollectionView.reloadData()
@@ -267,7 +288,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonTenTapped(_ sender: UIButton) {
         let button = classArray[9]
-        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
+        selectedDateLabel.text = "   \(button.date.stringWith(dateStyle: .medium, timeStyle: .none))"
         changeDate(button: button)
         symptomData = ["No Symptoms Logged"]
         symptomCollectionView.reloadData()
@@ -281,7 +302,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonElevenTapped(_ sender: UIButton) {
         let button = classArray[10]
-        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
+        selectedDateLabel.text = "   \(button.date.stringWith(dateStyle: .medium, timeStyle: .none))"
         changeDate(button: button)
         symptomData = ["No Symptoms Logged"]
         symptomCollectionView.reloadData()
@@ -295,7 +316,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonTwelveTapped(_ sender: UIButton) {
         let button = classArray[11]
-        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
+        selectedDateLabel.text = "   \(button.date.stringWith(dateStyle: .medium, timeStyle: .none))"
         changeDate(button: button)
         symptomData = ["No Symptoms Logged"]
         symptomCollectionView.reloadData()
@@ -309,7 +330,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonThirteenTapped(_ sender: UIButton) {
         let button = classArray[12]
-        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
+        selectedDateLabel.text = "   \(button.date.stringWith(dateStyle: .medium, timeStyle: .none))"
         changeDate(button: button)
         symptomData = ["No Symptoms Logged"]
         symptomCollectionView.reloadData()
@@ -323,7 +344,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonFourteenTapped(_ sender: UIButton) {
         let button = classArray[13]
-        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
+        selectedDateLabel.text = "   \(button.date.stringWith(dateStyle: .medium, timeStyle: .none))"
         changeDate(button: button)
         symptomData = ["No Symptoms Logged"]
         symptomCollectionView.reloadData()
@@ -337,7 +358,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonFifteenTapped(_ sender: UIButton) {
         let button = classArray[14]
-        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
+        selectedDateLabel.text = "   \(button.date.stringWith(dateStyle: .medium, timeStyle: .none))"
         changeDate(button: button)
         symptomData = ["No Symptoms Logged"]
         symptomCollectionView.reloadData()
@@ -351,7 +372,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonSixteenTapped(_ sender: UIButton) {
         let button = classArray[15]
-        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
+        selectedDateLabel.text = "   \(button.date.stringWith(dateStyle: .medium, timeStyle: .none))"
         changeDate(button: button)
         symptomData = ["No Symptoms Logged"]
         symptomCollectionView.reloadData()
@@ -365,7 +386,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonSeventeenTapped(_ sender: UIButton) {
         let button = classArray[16]
-        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
+        selectedDateLabel.text = "   \(button.date.stringWith(dateStyle: .medium, timeStyle: .none))"
         changeDate(button: button)
         symptomData = ["No Symptoms Logged"]
         symptomCollectionView.reloadData()
@@ -379,7 +400,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonEighteenTapped(_ sender: UIButton) {
         let button = classArray[17]
-        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
+        selectedDateLabel.text = "   \(button.date.stringWith(dateStyle: .medium, timeStyle: .none))"
         changeDate(button: button)
         symptomData = ["No Symptoms Logged"]
         symptomCollectionView.reloadData()
@@ -393,7 +414,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonNineteenTapped(_ sender: UIButton) {
         let button = classArray[18]
-        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
+        selectedDateLabel.text = "   \(button.date.stringWith(dateStyle: .medium, timeStyle: .none))"
         changeDate(button: button)
         symptomData = ["No Symptoms Logged"]
         symptomCollectionView.reloadData()
@@ -407,7 +428,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonTwentyTapped(_ sender: UIButton) {
         let button = classArray[19]
-        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
+        selectedDateLabel.text = "   \(button.date.stringWith(dateStyle: .medium, timeStyle: .none))"
         changeDate(button: button)
         symptomData = ["No Symptoms Logged"]
         symptomCollectionView.reloadData()
@@ -421,7 +442,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonTwentyOneTapped(_ sender: UIButton) {
         let button = classArray[20]
-        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
+        selectedDateLabel.text = "   \(button.date.stringWith(dateStyle: .medium, timeStyle: .none))"
         changeDate(button: button)
         symptomData = ["No Symptoms Logged"]
         symptomCollectionView.reloadData()
@@ -435,7 +456,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonTwentyTwoTapped(_ sender: UIButton) {
         let button = classArray[21]
-        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
+        selectedDateLabel.text = "   \(button.date.stringWith(dateStyle: .medium, timeStyle: .none))"
         changeDate(button: button)
         symptomData = ["No Symptoms Logged"]
         symptomCollectionView.reloadData()
@@ -449,7 +470,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonTwentyThreeTapped(_ sender: UIButton) {
         let button = classArray[22]
-        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
+        selectedDateLabel.text = "   \(button.date.stringWith(dateStyle: .medium, timeStyle: .none))"
         changeDate(button: button)
         symptomData = ["No Symptoms Logged"]
         symptomCollectionView.reloadData()
@@ -463,7 +484,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonTwentyFourTapped(_ sender: UIButton) {
         let button = classArray[23]
-        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
+        selectedDateLabel.text = "   \(button.date.stringWith(dateStyle: .medium, timeStyle: .none))"
         changeDate(button: button)
         symptomData = ["No Symptoms Logged"]
         symptomCollectionView.reloadData()
@@ -477,7 +498,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonTwentyFiveTapped(_ sender: UIButton) {
         let button = classArray[24]
-        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
+        selectedDateLabel.text = "   \(button.date.stringWith(dateStyle: .medium, timeStyle: .none))"
         changeDate(button: button)
         symptomData = ["No Symptoms Logged"]
         symptomCollectionView.reloadData()
@@ -491,7 +512,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonTwentySixTapped(_ sender: UIButton) {
         let button = classArray[25]
-        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
+        selectedDateLabel.text = "   \(button.date.stringWith(dateStyle: .medium, timeStyle: .none))"
         changeDate(button: button)
         symptomData = ["No Symptoms Logged"]
         symptomCollectionView.reloadData()
@@ -505,7 +526,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonTwentySevenTapped(_ sender: UIButton) {
         let button = classArray[26]
-        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
+        selectedDateLabel.text = "   \(button.date.stringWith(dateStyle: .medium, timeStyle: .none))"
         changeDate(button: button)
         symptomData = ["No Symptoms Logged"]
         symptomCollectionView.reloadData()
@@ -519,7 +540,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonTwentyEightTapped(_ sender: UIButton) {
         let button = classArray[27]
-        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
+        selectedDateLabel.text = "   \(button.date.stringWith(dateStyle: .medium, timeStyle: .none))"
         changeDate(button: button)
         symptomData = ["No Symptoms Logged"]
         symptomCollectionView.reloadData()
@@ -533,7 +554,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonTwentyNineTapped(_ sender: UIButton) {
         let button = classArray[28]
-        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
+        selectedDateLabel.text = "   \(button.date.stringWith(dateStyle: .medium, timeStyle: .none))"
         changeDate(button: button)
         symptomData = ["No Symptoms Logged"]
         symptomCollectionView.reloadData()
@@ -547,7 +568,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonThirtyTapped(_ sender: UIButton) {
         let button = classArray[29]
-        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
+        selectedDateLabel.text = "   \(button.date.stringWith(dateStyle: .medium, timeStyle: .none))"
         changeDate(button: button)
         symptomData = ["No Symptoms Logged"]
         symptomCollectionView.reloadData()
@@ -561,7 +582,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonThirtyOneTapped(_ sender: UIButton) {
         let button = classArray[30]
-        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
+        selectedDateLabel.text = "   \(button.date.stringWith(dateStyle: .medium, timeStyle: .none))"
         changeDate(button: button)
         symptomData = ["No Symptoms Logged"]
         symptomCollectionView.reloadData()
@@ -575,7 +596,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonThirtyTwoTapped(_ sender: UIButton) {
         let button = classArray[31]
-        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
+        selectedDateLabel.text = "   \(button.date.stringWith(dateStyle: .medium, timeStyle: .none))"
         changeDate(button: button)
         symptomData = ["No Symptoms Logged"]
         symptomCollectionView.reloadData()
@@ -589,7 +610,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonThirtyThreeTapped(_ sender: UIButton) {
         let button = classArray[32]
-        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
+        selectedDateLabel.text = "   \(button.date.stringWith(dateStyle: .medium, timeStyle: .none))"
         changeDate(button: button)
         symptomData = ["No Symptoms Logged"]
         symptomCollectionView.reloadData()
@@ -603,7 +624,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonThirtyFourTapped(_ sender: UIButton) {
         let button = classArray[33]
-        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
+        selectedDateLabel.text = "   \(button.date.stringWith(dateStyle: .medium, timeStyle: .none))"
         changeDate(button: button)
         symptomData = ["No Symptoms Logged"]
         symptomCollectionView.reloadData()
@@ -617,7 +638,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonThirtyFiveTapped(_ sender: UIButton) {
         let button = classArray[34]
-        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
+        selectedDateLabel.text = "   \(button.date.stringWith(dateStyle: .medium, timeStyle: .none))"
         changeDate(button: button)
         symptomData = ["No Symptoms Logged"]
         symptomCollectionView.reloadData()
@@ -631,7 +652,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonThirtySixTapped(_ sender: UIButton) {
         let button = classArray[35]
-        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
+        selectedDateLabel.text = "   \(button.date.stringWith(dateStyle: .medium, timeStyle: .none))"
         changeDate(button: button)
         symptomData = ["No Symptoms Logged"]
         symptomCollectionView.reloadData()
@@ -645,7 +666,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonThirtySevenTapped(_ sender: UIButton) {
         let button = classArray[36]
-        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
+        selectedDateLabel.text = "   \(button.date.stringWith(dateStyle: .medium, timeStyle: .none))"
         changeDate(button: button)
         symptomData = ["No Symptoms Logged"]
         symptomCollectionView.reloadData()
@@ -659,7 +680,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonThirtyEightTapped(_ sender: UIButton) {
         let button = classArray[37]
-        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
+        selectedDateLabel.text = "   \(button.date.stringWith(dateStyle: .medium, timeStyle: .none))"
         changeDate(button: button)
         symptomData = ["No Symptoms Logged"]
         symptomCollectionView.reloadData()
@@ -673,7 +694,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonThirtyNineTapped(_ sender: UIButton) {
         let button = classArray[38]
-        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
+        selectedDateLabel.text = "   \(button.date.stringWith(dateStyle: .medium, timeStyle: .none))"
         changeDate(button: button)
         symptomData = ["No Symptoms Logged"]
         symptomCollectionView.reloadData()
@@ -687,7 +708,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonFortyTapped(_ sender: UIButton) {
         let button = classArray[39]
-        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
+        selectedDateLabel.text = "   \(button.date.stringWith(dateStyle: .medium, timeStyle: .none))"
         changeDate(button: button)
         symptomData = ["No Symptoms Logged"]
         symptomCollectionView.reloadData()
@@ -701,7 +722,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonFortyOneTapped(_ sender: UIButton) {
         let button = classArray[40]
-        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
+        selectedDateLabel.text = "   \(button.date.stringWith(dateStyle: .medium, timeStyle: .none))"
         changeDate(button: button)
         symptomData = ["No Symptoms Logged"]
         symptomCollectionView.reloadData()
@@ -715,7 +736,7 @@ class CalendarTabViewController: UIViewController {
     
     @IBAction func buttonFortyTwoTapped(_ sender: UIButton) {
         let button = classArray[41]
-        selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
+        selectedDateLabel.text = "   \(button.date.stringWith(dateStyle: .medium, timeStyle: .none))"
         changeDate(button: button)
         symptomData = ["No Symptoms Logged"]
         symptomCollectionView.reloadData()
@@ -821,11 +842,12 @@ class CalendarTabViewController: UIViewController {
         let cellMonth = Calendar.current.component(.month, from: button.date)
         let cellDay = Calendar.current.component(.day, from: button.date)
         let cellYear = Calendar.current.component(.year, from: button.date)
+        let components = DateComponents(calendar: Calendar.current, year: cellYear, month: cellMonth, day: cellDay)
+        guard let newDate = Calendar.current.date(from: components) else {return}
+        selectedDate = newDate
+        print(selectedDate)
         if cellMonth != selectedMonth {
             customPicker.selectRow(cellMonth - 1, inComponent: 0, animated: true)
-            let components = DateComponents(calendar: Calendar.current, year: cellYear, month: cellMonth, day: cellDay)
-            guard let newDate = Calendar.current.date(from: components) else {return}
-            selectedDate = newDate
             let startDate = getStartDate(date: newDate)
             setButtons(date: startDate)
             setUpMonthView()
@@ -977,7 +999,7 @@ class CalendarTabViewController: UIViewController {
         if let sex = day.sexDetails {
             if sex.protected {
                 symptomArray.append("Protected Sex")
-            } else if !sex.protected {
+            } else if sex.unprotected {
                 symptomArray.append("Unprotected Sex")
             }
             if sex.masturbation {
@@ -986,7 +1008,7 @@ class CalendarTabViewController: UIViewController {
             if sex.sexDrive {
                 symptomArray.append("High Sex Drive")
             }
-            if !sex.sexDrive {
+            if sex.lowDrive {
                 symptomArray.append("Low Sex Drive")
             }
         }
@@ -1016,7 +1038,24 @@ class CalendarTabViewController: UIViewController {
                 button.button.setBackgroundImage(nil, for: .normal)
             }
         }
-        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toSymptomVC" {
+            let destination = segue.destination as? AddSymptomsTableViewController
+            for button in classArray {
+                if button.date == selectedDate {
+                    let day = button.day ?? nil
+                    destination?.dayObject = day
+                    break
+                }
+            }
+            destination?.viewedDate = selectedDate
+        }
+        if segue.identifier == "toConfirmPopupVC" {
+            let destination = segue.destination as? ConfirmNewCyclePopupViewController
+            destination?.date = selectedDate
+        }
     }
     
 }//end of class
@@ -1037,14 +1076,19 @@ extension CalendarTabViewController: UIPickerViewDataSource, UIPickerViewDelegat
         }
     }
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         switch component {
         case 0:
-            return months[row]
+            let monthData = months[row]
+            let month = NSAttributedString(string: monthData, attributes: [NSAttributedString.Key.font: UIFont(name: "Nunito-ExtraBold", size: 21)!])
+            return month
         case 1:
-            return String(years[row])
+            let yearData = String(years[row])
+            let year = NSAttributedString(string: yearData, attributes: [NSAttributedString.Key.font: UIFont(name: "Nunito-ExtraBold", size: 21)!])
+            return year
         default:
-            return ""
+            let empty = NSAttributedString(string: "", attributes: [NSAttributedString.Key.font: UIFont(name: "Nunito-ExtraBold", size: 21)!])
+            return empty
         }
     }
     
@@ -1089,7 +1133,7 @@ extension CalendarTabViewController: UICollectionViewDelegate, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = collectionView.bounds.width/2.1
-        let height = collectionView.bounds.width/10
+        let height = collectionView.bounds.width/15
         return CGSize(width: width, height: height)
     }
 }

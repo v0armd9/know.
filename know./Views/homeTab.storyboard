@@ -136,7 +136,7 @@
                             <outletCollection property="gestureRecognizers" destination="5JN-yR-Na2" appends="YES" id="IsX-G7-O7K"/>
                         </connections>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" image="HomeTabBarButton" selectedImage="Home icon active" id="Cnj-5K-YrN"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="HomeTabBarButton" id="Cnj-5K-YrN"/>
                     <navigationItem key="navigationItem" title="My Cycle ⏏︎" id="5YF-9W-BpP"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -165,7 +165,7 @@
         <!--Add Symptoms Table View Controller-->
         <scene sceneID="sPm-hD-jHe">
             <objects>
-                <tableViewController id="kTP-qe-cAQ" customClass="AddSymptomsTableViewController" customModule="know_" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="symptomView" id="kTP-qe-cAQ" customClass="AddSymptomsTableViewController" customModule="know_" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="mde-oD-HyI">
                         <rect key="frame" x="0.0" y="0.0" width="950" height="1412"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -815,7 +815,7 @@
         <!--Confirm New Cycle Popup View Controller-->
         <scene sceneID="p9g-eU-LXa">
             <objects>
-                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="XvS-ze-gAq" customClass="ConfirmNewCyclePopupViewController" customModule="know_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="futureDatePopUp" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="XvS-ze-gAq" customClass="ConfirmNewCyclePopupViewController" customModule="know_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="z5J-WA-Fky">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -919,8 +919,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Home icon active" width="36" height="32"/>
-        <image name="HomeTabBarButton" width="36" height="30"/>
+        <image name="HomeTabBarButton" width="24" height="20"/>
         <image name="a.heavy" width="72" height="104"/>
         <image name="a.light" width="72" height="104"/>
         <image name="a.medium" width="72" height="104"/>

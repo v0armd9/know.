@@ -18,7 +18,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Item-->
+        <!--Info-->
         <scene sceneID="Fo2-5C-OXT">
             <objects>
                 <viewController id="PqR-JQ-ZwF" customClass="InfoListViewController" customModule="know_" customModuleProvider="target" sceneMemberID="viewController">
@@ -64,7 +64,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fkn-zg-CEe"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" image="Info icon active" selectedImage="Info icon active" id="syQ-vw-EJo"/>
+                    <tabBarItem key="tabBarItem" title="Info" image="Info icon" id="syQ-vw-EJo"/>
                     <navigationItem key="navigationItem" id="81k-d7-kMl"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -245,7 +245,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Info icon active" width="36" height="36"/>
+        <image name="Info icon" width="25" height="25"/>
     </resources>
     <color key="tintColor" red="0.58823529409999997" green="0.71372549019999998" blue="0.80784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

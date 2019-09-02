@@ -12,7 +12,7 @@ import CloudKit
 class CustomEntryController {
     
     static let shared = CustomEntryController()
-    var customEntries: [CustomEntry] = []
+    var customEntries: CustomEntry?
     
     func saveEntry(forDay day: Day, text: String, completion: @escaping(Bool) -> Void) {
         let entry = CustomEntry(day: day, text: text)
@@ -20,7 +20,7 @@ class CustomEntryController {
         CloudKitController.shared.save(record: record) { (record) in
             if let record = record {
                 guard let entry = CustomEntry(record: record, day: day) else { return }
-                self.customEntries.append(entry)
+                self.customEntries = entry
                 print("Custom Entry Saved on CustomEntryController")
                 completion(true)
             }
@@ -30,14 +30,15 @@ class CustomEntryController {
     func fetchCustomEntry(forDay day: Day, completion: @escaping(CustomEntry?) -> Void) {
         let dayID = day.ckRecordID
         let dayPreicate = NSPredicate(format: "%K == %@", CustomEntryConstants.dayReferenceKey, dayID)
-        guard let entryID = day.customEntry?.ckRecordID else { return }
-        let avoidDuplicatePred = NSPredicate(format: "NOT(recordID IN %@)", entryID)
-        let compoundPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [dayPreicate, avoidDuplicatePred])
-        CloudKitController.shared.fetchRecords(ofType: CustomEntryConstants.customTypeKey, withPredicate: compoundPredicate) { (records) in
+//        guard let entryID = day.customEntry?.ckRecordID else { return }
+//        let avoidDuplicatePred = NSPredicate(format: "NOT(recordID IN %@)", entryID)
+//        let compoundPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [dayPreicate, avoidDuplicatePred])
+        CloudKitController.shared.fetchRecords(ofType: CustomEntryConstants.customTypeKey, withPredicate: dayPreicate) { (records) in
             if let records = records {
                 var entries: [CustomEntry] = []
                 let entry = records.compactMap({CustomEntry(record: $0, day: day)})
                 entries.append(contentsOf: entry)
+                self.customEntries = entries.first
                 print("Custom Entries Fetched on CustomEntryController")
                 completion(entries.first)
             }

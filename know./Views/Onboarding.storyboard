@@ -37,7 +37,7 @@
                                 <rect key="frame" x="62" y="476" width="290" height="45"/>
                                 <color key="textColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="30"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" textContentType="name"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Before we start, can we get your name?" textAlignment="center" lineBreakMode="clip" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="1" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4bj-D5-EjY" customClass="CustomLabel" customModule="know_" customModuleProvider="target">
                                 <rect key="frame" x="31" y="281.5" width="352" height="116.5"/>
@@ -45,12 +45,12 @@
                                 <color key="textColor" red="0.56862745100000001" green="0.56862745100000001" blue="0.56862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ciD-XS-mlh">
-                                <rect key="frame" x="103.5" y="598.5" width="207" height="71"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ciD-XS-mlh">
+                                <rect key="frame" x="124" y="606" width="166" height="56.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ciD-XS-mlh" secondAttribute="height" multiplier="140:48" id="xOA-RO-Zrv"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="continueButton"/>
+                                <state key="normal" image="continueButton"/>
                                 <connections>
                                     <action selector="continueButtonTapped:" destination="19Y-6d-AgB" eventType="touchUpInside" id="U27-zk-DDD"/>
                                 </connections>
@@ -70,7 +70,7 @@
                             <constraint firstItem="537-wH-nWh" firstAttribute="width" secondItem="QLr-cs-vuM" secondAttribute="width" multiplier="0.7" id="bmR-rz-j88"/>
                             <constraint firstItem="4bj-D5-EjY" firstAttribute="width" secondItem="QLr-cs-vuM" secondAttribute="width" multiplier="0.85" id="j6p-AX-1S9"/>
                             <constraint firstItem="4bj-D5-EjY" firstAttribute="centerY" secondItem="oBV-MD-C5D" secondAttribute="centerY" multiplier="0.75" id="tOV-6z-9ZF"/>
-                            <constraint firstItem="ciD-XS-mlh" firstAttribute="width" secondItem="QLr-cs-vuM" secondAttribute="width" multiplier="0.5" id="yT7-Bo-vfs"/>
+                            <constraint firstItem="ciD-XS-mlh" firstAttribute="width" secondItem="QLr-cs-vuM" secondAttribute="width" multiplier="0.4" id="yT7-Bo-vfs"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oBV-MD-C5D"/>
                     </view>
@@ -949,7 +949,7 @@
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="welcomeInfo" translatesAutoresizingMaskIntoConstraints="NO" id="0Yw-aG-Tbf">
-                                <rect key="frame" x="31" y="174" width="352" height="331.5"/>
+                                <rect key="frame" x="31" y="196.5" width="352" height="332"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="0Yw-aG-Tbf" secondAttribute="height" multiplier="349:329" id="jSl-jG-Q5j"/>
                                 </constraints>
@@ -961,7 +961,7 @@
                             <constraint firstItem="0Yw-aG-Tbf" firstAttribute="centerX" secondItem="32H-fW-VXW" secondAttribute="centerX" id="CV4-P0-sRR"/>
                             <constraint firstItem="f51-FW-OrW" firstAttribute="centerY" secondItem="32H-fW-VXW" secondAttribute="centerY" multiplier="1.65" id="DX0-FL-cxw"/>
                             <constraint firstItem="0Yw-aG-Tbf" firstAttribute="width" secondItem="wKb-bp-X0S" secondAttribute="width" multiplier="0.85" id="J9R-Qa-dx6"/>
-                            <constraint firstItem="0Yw-aG-Tbf" firstAttribute="centerY" secondItem="32H-fW-VXW" secondAttribute="centerY" multiplier="0.75" id="Sjf-eJ-OYg"/>
+                            <constraint firstItem="0Yw-aG-Tbf" firstAttribute="centerY" secondItem="32H-fW-VXW" secondAttribute="centerY" multiplier="0.8" id="Sjf-eJ-OYg"/>
                             <constraint firstItem="f51-FW-OrW" firstAttribute="height" secondItem="wKb-bp-X0S" secondAttribute="height" multiplier="0.1" id="UuJ-uq-eAh"/>
                             <constraint firstItem="tNN-17-7Mp" firstAttribute="centerX" secondItem="32H-fW-VXW" secondAttribute="centerX" multiplier="0.7" id="jI6-J0-Hqy"/>
                             <constraint firstItem="f51-FW-OrW" firstAttribute="centerX" secondItem="32H-fW-VXW" secondAttribute="centerX" id="jwH-ht-iiR"/>
@@ -1407,12 +1407,12 @@
                                 <color key="textColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JBu-IC-7ud">
-                                <rect key="frame" x="103.5" y="598.5" width="207" height="71"/>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JBu-IC-7ud">
+                                <rect key="frame" x="124" y="606" width="166" height="56.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="JBu-IC-7ud" secondAttribute="height" multiplier="140:48" id="DKF-EI-zke"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="continueButton"/>
+                                <state key="normal" image="continueButton"/>
                                 <connections>
                                     <segue destination="Kzk-kc-byd" kind="show" id="4mj-kM-MPL"/>
                                 </connections>
@@ -1428,7 +1428,7 @@
                             <constraint firstItem="nSb-rE-7Vd" firstAttribute="top" secondItem="vwh-t1-Yfq" secondAttribute="bottom" constant="40" id="Sti-cy-kqy"/>
                             <constraint firstItem="nSb-rE-7Vd" firstAttribute="width" secondItem="vwh-t1-Yfq" secondAttribute="width" id="TFG-KI-HjY"/>
                             <constraint firstItem="vwh-t1-Yfq" firstAttribute="width" secondItem="tgw-Dj-AQ9" secondAttribute="width" multiplier="0.85" id="XH0-k6-J1G"/>
-                            <constraint firstItem="JBu-IC-7ud" firstAttribute="width" secondItem="tgw-Dj-AQ9" secondAttribute="width" multiplier="0.5" id="XNv-nU-jEC"/>
+                            <constraint firstItem="JBu-IC-7ud" firstAttribute="width" secondItem="tgw-Dj-AQ9" secondAttribute="width" multiplier="0.4" id="XNv-nU-jEC"/>
                             <constraint firstItem="vwh-t1-Yfq" firstAttribute="centerY" secondItem="3D8-Fw-3CS" secondAttribute="centerY" multiplier="0.75" id="ZTh-dz-sPd"/>
                             <constraint firstItem="nSb-rE-7Vd" firstAttribute="centerX" secondItem="vwh-t1-Yfq" secondAttribute="centerX" id="cgO-x4-Wuz"/>
                             <constraint firstItem="JBu-IC-7ud" firstAttribute="centerY" secondItem="3D8-Fw-3CS" secondAttribute="centerY" multiplier="1.4" id="gjS-oG-fyl"/>
@@ -1556,10 +1556,10 @@
         <image name="welcomeToKnow" width="236" height="21"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="nBI-cn-Tc2"/>
+        <segue reference="Q4A-E5-B4g"/>
         <segue reference="cWI-kO-8o1"/>
         <segue reference="W1e-NQ-VQr"/>
-        <segue reference="v1n-Wh-ddl"/>
+        <segue reference="aRo-Rl-1HY"/>
         <segue reference="d0s-17-4Wb"/>
         <segue reference="Cyo-f5-QaX"/>
         <segue reference="cbz-Vz-e0U"/>

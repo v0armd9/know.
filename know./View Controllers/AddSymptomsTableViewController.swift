@@ -11,7 +11,7 @@ import UIKit
 class AddSymptomsTableViewController: UITableViewController {
 
     //Properties
-    var viewedDate: Date!
+    var viewedDate: Date?
     var customEntryText: String = ""
     
     //Landing Pads
@@ -44,6 +44,8 @@ class AddSymptomsTableViewController: UITableViewController {
     let nervous = ("c.nervous", "c.nervous2")
     let sad = ("c.sad", "c.sad2")
     let sensitive = ("c.sensitive", "c.sensitive2")
+    let angry = ("c.angry", "c.angry2")
+    let content = ("c.content", "c.content2")
     //SEX image name tuples
     let protected = ("d.protected", "d.protected2")
     let unprotected = ("d.unprotected", "d.unprotected2")
@@ -205,6 +207,7 @@ class AddSymptomsTableViewController: UITableViewController {
     }
     
     @IBAction func angryBT(_ sender: Any) {
+        setStatusForButton(button: angryButton, symptom: angry)
     }
     
     @IBAction func sensitiveBT(_ sender: Any) {
@@ -224,6 +227,7 @@ class AddSymptomsTableViewController: UITableViewController {
     }
     
     @IBAction func contentBT(_ sender: Any) {
+        setStatusForButton(button: contentButton, symptom: content)
     }
     
     @IBAction func moodswingBT(_ sender: Any) {
@@ -287,7 +291,7 @@ class AddSymptomsTableViewController: UITableViewController {
     //NAVIGATION
     //Segue to Popup View (to transfer birthday data)
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "" {
+        if segue.identifier == "toCustomEntryPopup" {
             let destination = segue.destination as? CustomEntryPopupViewController
             destination?.customEntryText = customEntryText
         }
@@ -492,12 +496,15 @@ class AddSymptomsTableViewController: UITableViewController {
         //Update day object if one already exists on the current date
         if let dayObject = dayObject {
             DispatchQueue.main.async {
-                guard var flow = dayObject.flowDetails,
-                    var symptom = dayObject.symptomList,
-                    var mood = dayObject.moodList,
-                    var sex = dayObject.sexDetails,
-                    var custom = dayObject.customEntry
-                    else { return }
+                guard var flow = FlowController.shared.flow,
+                    var symptom = SymptomController.shared.symptoms,
+                    var mood = MoodController.shared.moods,
+                    var sex = SexController.shared.sexDetails,
+                    var custom = CustomEntryController.shared.customEntries
+                    else {
+                        print("Something went wrong")
+                        return
+                    }
                 flow = self.getFlowData(flow: flow)
                 symptom = self.getSymptomData(symptom: symptom)
                 mood = self.getMoodData(mood: mood)
@@ -542,6 +549,3 @@ class AddSymptomsTableViewController: UITableViewController {
         }
     }
 }
-
-
-//NEED TO FIGURE OUT UPDATING SYMPTOMS IF A DAY OBJECT ALREADY EXISTS

@@ -24,4 +24,11 @@ extension Date {
         let formattedDate = formatter.date(from: formattedDateString)
         return formattedDate!
     }
+    
+    func prettyDateString() -> String {
+        let formatter = DateFormatter()
+        formatter.timeStyle = .none
+        formatter.setLocalizedDateFormatFromTemplate("EEEE, MMM d")
+        return formatter.string(from: self)
+    }
 }

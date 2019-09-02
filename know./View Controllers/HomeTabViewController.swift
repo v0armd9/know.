@@ -15,6 +15,7 @@ class HomeTabViewController: UIViewController {
     @IBOutlet weak var trackerLabel: UILabel!
     
     let wheelView = UIView()
+    var confirmed: Bool = false
     var counter = 0
     var dayLateCounter = 0
     var selectedButton: UIButton?
@@ -60,8 +61,8 @@ class HomeTabViewController: UIViewController {
                         self.trackerLabel.text = "Let us Know. when your period starts!"
                     }
                 }
-                
             }
+            self.fetchDayData()
         }
     }
     
@@ -70,7 +71,7 @@ class HomeTabViewController: UIViewController {
     var symptoms: Symptom?
     var moods: Mood?
     var sex: Sex?
-    var custom: CustomEntry?
+    var customEntry: CustomEntry?
     
     
     override func viewDidLoad() {
@@ -110,10 +111,31 @@ class HomeTabViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let selectedDate = self.selectedDate ?? Date()
         if segue.identifier == "toSymptomVC" {
             let destination = segue.destination as? AddSymptomsTableViewController
-            guard let day = dayObject else { return }
+            let day = dayObject ?? nil
             destination?.dayObject = day
+            destination?.viewedDate = selectedDate
+            destination?.fetchedFlow = self.flow
+            destination?.fetchedSymptoms = self.symptoms
+            destination?.fetchedMood = self.moods
+            destination?.fetchedSex = self.sex
+            destination?.fetchedCustom = self.customEntry
+        }
+        if segue.identifier == "toConfirmPopupVC" {
+            let destination = segue.destination as? ConfirmNewCyclePopupViewController
+            guard let selectedDate = self.selectedDate else { return }
+            destination?.date = selectedDate
+        }
+    }
+    
+    //Get Data from Popup ViewController for Data Fetch
+    @IBAction func unwindFromConfirmPopup(segue:UIStoryboardSegue) {
+        let data = segue.source as? ConfirmNewCyclePopupViewController
+        let confirmed = data?.confirmed ?? false
+        if confirmed == true {
+            createNewCycle()
         }
     }
     
@@ -126,6 +148,10 @@ class HomeTabViewController: UIViewController {
     }
     
     @IBAction func newStartButton(_ sender: UIButton) {
+        
+    }
+    
+    func createNewCycle() {
         guard let user = UserController.shared.currentUser else {return}
         let newEndDate = Calendar.current.date(byAdding: .day, value: -1, to: (selectedDate?.formattedDate())!)
         if let lastCycle = user.cycles.last {
@@ -147,7 +173,7 @@ class HomeTabViewController: UIViewController {
             let authEnabled = user.authEnabled ?? nil
             UserController.shared.update(user: user, withName: name, cycles: cycles, birthdate: birthdate, age: age, height: height, weight: weight, cycleLength: cycleLength, periodLength: periodLength, pms: pms, pmsDuration: pmsDuration, lastPeriod: (selectedDate?.formattedDate())!, authEnabled: authEnabled) { (success) in
                 if success {
-                    print("successfully updated user")
+                    print("Successfully updated user!")
                 }
             }
             var sum = 0
@@ -161,24 +187,9 @@ class HomeTabViewController: UIViewController {
                 if let cycle = cycle {
                     user.cycles.append(cycle)
                     let selectedDate = self.selectedDate?.formattedDate()
+                    print("A new cycle was started!")
                     self.selectedDate = selectedDate
                 }
-            }
-        }
-    }
-    
-    
-    func fetchDayData() {
-        guard let user = UserController.shared.currentUser else { return }
-        let date = selectedDate ?? Date()
-        DayController.shared.fetchSingleDay(forUser: user, andDate: date.formattedDate()) { (day) in
-            if let day = day {
-                self.dayObject = day
-                self.flow = day.flowDetails
-                self.symptoms = day.symptomList
-                self.moods = day.moodList
-                self.sex = day.sexDetails
-                self.custom = day.customEntry
             }
         }
     }
@@ -220,7 +231,6 @@ class HomeTabViewController: UIViewController {
     
     func updateButtonsFuture() {
         var date = Calendar.current.date(byAdding: .day, value: 1, to: Date())!
-        print(date)
         for n in 0...9 {
             let dayNumber = Calendar.current.component(.day, from: date)
             print(dayNumber)
@@ -302,7 +312,6 @@ class HomeTabViewController: UIViewController {
     
     func swipeUp() {
         self.counter -= 1
-        print(self.counter)
         UIView.animate(withDuration: 1) {
             self.wheelView.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi/9) * CGFloat(self.counter))
             
@@ -315,7 +324,6 @@ class HomeTabViewController: UIViewController {
     
     func swipeDown() {
         self.counter += 1
-        print(self.counter)
         UIView.animate(withDuration: 1) {
             self.wheelView.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi/9) * CGFloat(self.counter))
             for button in self.wheelView.subviews {
@@ -368,6 +376,50 @@ class HomeTabViewController: UIViewController {
                     self.dayLabel.text = "Cycle Day \(dayNumber)"
                     self.trackerLabel.text = "\(remainingNumber) days until next cycle start"
                 }
+            }
+        }
+    }
+    
+    func fetchDayData() {
+        guard let user = UserController.shared.currentUser else { return }
+        let date = selectedDate ?? Date()
+        DayController.shared.fetchSingleDay(forUser: user, andDate: date.formattedDate()) { (day) in
+            if let day = day {
+                self.fetchSymptomData(day: day)
+                self.dayObject = day
+                self.dayObject?.flowDetails = self.flow
+                self.dayObject?.symptomList = self.symptoms
+                self.dayObject?.moodList = self.moods
+                self.dayObject?.sexDetails = self.sex
+                self.dayObject?.customEntry = self.customEntry
+            }
+        }
+    }
+    
+    func fetchSymptomData(day: Day) {
+        FlowController.shared.fetchFlowDetails(forDay: day) { (flow) in
+            if let flow = flow {
+                self.flow = flow
+            }
+        }
+        SymptomController.shared.fetchSymptoms(forDay: day) { (symptom) in
+            if let symptom = symptom {
+                self.symptoms = symptom
+            }
+        }
+        MoodController.shared.fetchMoods(forDay: day) { (mood) in
+            if let mood = mood {
+                self.moods = mood
+            }
+        }
+        SexController.shared.fetchSexDetails(forDay: day) { (sex) in
+            if let sex = sex {
+                self.sex = sex
+            }
+        }
+        CustomEntryController.shared.fetchCustomEntry(forDay: day) { (entry) in
+            if let entry = entry {
+                self.customEntry = entry
             }
         }
     }

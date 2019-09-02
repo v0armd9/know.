@@ -496,12 +496,15 @@ class AddSymptomsTableViewController: UITableViewController {
         //Update day object if one already exists on the current date
         if let dayObject = dayObject {
             DispatchQueue.main.async {
-                guard var flow = dayObject.flowDetails,
-                    var symptom = dayObject.symptomList,
-                    var mood = dayObject.moodList,
-                    var sex = dayObject.sexDetails,
-                    var custom = dayObject.customEntry
-                    else { return }
+                guard var flow = FlowController.shared.flow,
+                    var symptom = SymptomController.shared.symptoms,
+                    var mood = MoodController.shared.moods,
+                    var sex = SexController.shared.sexDetails,
+                    var custom = CustomEntryController.shared.customEntries
+                    else {
+                        print("Something went wrong")
+                        return
+                    }
                 flow = self.getFlowData(flow: flow)
                 symptom = self.getSymptomData(symptom: symptom)
                 mood = self.getMoodData(mood: mood)

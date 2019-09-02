@@ -117,6 +117,11 @@ class HomeTabViewController: UIViewController {
             let day = dayObject ?? nil
             destination?.dayObject = day
             destination?.viewedDate = selectedDate
+            destination?.fetchedFlow = self.flow
+            destination?.fetchedSymptoms = self.symptoms
+            destination?.fetchedMood = self.moods
+            destination?.fetchedSex = self.sex
+            destination?.fetchedCustom = self.customEntry
         }
         if segue.identifier == "toConfirmPopupVC" {
             let destination = segue.destination as? ConfirmNewCyclePopupViewController

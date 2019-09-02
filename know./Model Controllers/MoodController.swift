@@ -12,7 +12,7 @@ import CloudKit
 class MoodController {
     
     static let shared = MoodController()
-    var moods: [Mood] = []
+    var moods: Mood?
     
     func saveMoods(forDay day: Day, happy: Bool, sensitive: Bool, sad: Bool, depressed: Bool, nervous: Bool, irritated: Bool, content: Bool, moodSwings: Bool, angry: Bool, completion: @escaping(Bool) -> Void) {
         let mood = Mood(day: day, happy: happy, sensitive: sensitive, sad: sad, depressed: depressed, nervous: nervous, irritated: irritated, content: content, moodSwings: moodSwings, angry: angry)
@@ -20,7 +20,7 @@ class MoodController {
         CloudKitController.shared.save(record: record) { (record) in
             if let record = record {
                 guard let mood = Mood(record: record, day: day) else { return }
-                self.moods.append(mood)
+                self.moods = mood
                 print("Mood Saved on MoodController")
                 completion(true)
             }
@@ -30,14 +30,12 @@ class MoodController {
     func fetchMoods(forDay day: Day, completion: @escaping(Mood?) -> Void) {
         let dayID = day.ckRecordID
         let dayPreicate = NSPredicate(format: "%K == %@", MoodConstants.dayReferenceKey, dayID)
-        guard let moodIDs = day.moodList?.ckRecordID else { return }
-        let avoidDuplicatePred = NSPredicate(format: "NOT(recordID IN %@)", moodIDs)
-        let compoundPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [dayPreicate, avoidDuplicatePred])
-        CloudKitController.shared.fetchRecords(ofType: MoodConstants.moodTypeKey, withPredicate: compoundPredicate) { (records) in
+        CloudKitController.shared.fetchRecords(ofType: MoodConstants.moodTypeKey, withPredicate: dayPreicate) { (records) in
             if let records = records {
                 var moods: [Mood] = []
                 let mood = records.compactMap({Mood(record: $0, day: day)})
                 moods.append(contentsOf: mood)
+                self.moods = moods.first
                 print("Moods Fetched on MoodController")
                 completion(moods.first)
             } else {

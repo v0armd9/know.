@@ -12,7 +12,7 @@ import CloudKit
 class SymptomController {
     
     static let shared = SymptomController()
-    var symptoms: [Symptom] = []
+    var symptoms: Symptom?
     
     func saveSymptoms(forDay day: Day, headache: Bool, cramping: Bool, backPain: Bool, breastTenderness: Bool, nausea: Bool, fatigue: Bool, insomnia: Bool, acne: Bool, completion: @escaping(Bool) -> Void) {
         let symptom = Symptom(day: day, headache: headache, cramping: cramping, backPain: backPain, breastTenderness: breastTenderness, nausea: nausea, fatigue: fatigue, insomnia: insomnia, acne: acne)
@@ -20,7 +20,7 @@ class SymptomController {
         CloudKitController.shared.save(record: record) { (record) in
             if let record = record {
                 guard let symptom = Symptom(record: record, day: day) else { return }
-                self.symptoms.append(symptom)
+                self.symptoms = symptom
                 print("Symptom Saved on SymptomController")
                 completion(true)
             }
@@ -30,14 +30,15 @@ class SymptomController {
     func fetchSymptoms(forDay day: Day, completion: @escaping(Symptom?) -> Void) {
         let dayID = day.ckRecordID
         let dayPreicate = NSPredicate(format: "%K == %@", SymptomConstants.dayReferenceKey, dayID)
-        guard let symptomID = day.symptomList?.ckRecordID else { return }
-        let avoidDuplicatePred = NSPredicate(format: "NOT(recordID IN %@)", symptomID)
-        let compoundPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [dayPreicate, avoidDuplicatePred])
-        CloudKitController.shared.fetchRecords(ofType: SymptomConstants.symptomTypeKey, withPredicate: compoundPredicate) { (records) in
+//        guard let symptomID = day.symptomList?.ckRecordID else { return }
+//        let avoidDuplicatePred = NSPredicate(format: "NOT(recordID IN %@)", symptomID)
+//        let compoundPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [dayPreicate, avoidDuplicatePred])
+        CloudKitController.shared.fetchRecords(ofType: SymptomConstants.symptomTypeKey, withPredicate: dayPreicate) { (records) in
             if let records = records {
                 var symptoms: [Symptom] = []
                 let symptom = records.compactMap({Symptom(record: $0, day: day)})
                 symptoms.append(contentsOf: symptom)
+                self.symptoms = symptoms.first
                 print("Symptoms Fetched on SymptomController")
                 completion(symptoms.first)
             } else {

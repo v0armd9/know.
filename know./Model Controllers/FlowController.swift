@@ -12,7 +12,7 @@ import CloudKit
 class FlowController {
     
     static let shared = FlowController()
-    var flows: [Flow] = []
+    var flow: Flow?
     
     func saveFlowDetails(forDay day: Day, spotting: Bool, light: Bool, medium: Bool, heavy: Bool, completion: @escaping (Bool) -> Void) {
         let flow = Flow(day: day, spotting: spotting, light: light, medium: medium, heavy: heavy)
@@ -20,7 +20,7 @@ class FlowController {
         CloudKitController.shared.save(record: record) { (record) in
             if let record = record {
                 guard let flowDetail = Flow(record: record, day: day) else { return }
-                self.flows.append(flowDetail)
+                self.flow = flowDetail
                 print("Flow Saved On FlowController")
                 completion(true)
             }
@@ -38,6 +38,7 @@ class FlowController {
                 var flows: [Flow] = []
                 let flow = records.compactMap({Flow(record: $0, day: day)})
                 flows.append(contentsOf: flow)
+                self.flow = flows.first
                 print("Flows Fetched On FlowController")
                 completion(flows.first)
             } else {

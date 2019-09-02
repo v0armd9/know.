@@ -15,7 +15,7 @@ class CalendarTabViewController: UIViewController {
     
     let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
     
-    let symptomData: [String] = ["No Symptoms Logged"]
+    var symptomData: [String] = ["No Symptoms Logged"]
     
     var years: [Int] = []
     
@@ -144,335 +144,587 @@ class CalendarTabViewController: UIViewController {
         let button = classArray[0]
         selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
+        symptomData = ["No Symptoms Logged"]
+        symptomCollectionView.reloadData()
         guard let day = button.day else {return}
-        fetchSymptoms(day: day)
+        fetchSymptoms(day: day) { (success) in
+            if success {
+                self.convertSymptomsToString(day: day)
+            }
+        }
     }
     @IBAction func buttonTwoTapped(_ sender: UIButton) {
         let button = classArray[1]
         selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
+        symptomData = ["No Symptoms Logged"]
+        symptomCollectionView.reloadData()
         guard let day = button.day else {return}
-        fetchSymptoms(day: day)
+        fetchSymptoms(day: day) { (success) in
+            if success {
+                self.convertSymptomsToString(day: day)
+            }
+        }
     }
     
     @IBAction func buttonThreeTapped(_ sender: UIButton) {
         let button = classArray[2]
         selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
+        symptomData = ["No Symptoms Logged"]
+        symptomCollectionView.reloadData()
         guard let day = button.day else {return}
-        fetchSymptoms(day: day)
+        fetchSymptoms(day: day) { (success) in
+            if success {
+                self.convertSymptomsToString(day: day)
+            }
+        }
     }
     
     @IBAction func buttonFourTapped(_ sender: UIButton) {
         let button = classArray[3]
         selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
+        symptomData = ["No Symptoms Logged"]
+        symptomCollectionView.reloadData()
         guard let day = button.day else {return}
-        fetchSymptoms(day: day)
+        fetchSymptoms(day: day) { (success) in
+            if success {
+                self.convertSymptomsToString(day: day)
+            }
+        }
     }
     
     @IBAction func buttonFiveTapped(_ sender: UIButton) {
         let button = classArray[4]
         selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
+        symptomData = ["No Symptoms Logged"]
+        symptomCollectionView.reloadData()
         guard let day = button.day else {return}
-        fetchSymptoms(day: day)
+        fetchSymptoms(day: day) { (success) in
+            if success {
+                self.convertSymptomsToString(day: day)
+            }
+        }
     }
     
     @IBAction func buttonSixTapped(_ sender: Any) {
         let button = classArray[5]
         selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
+        symptomData = ["No Symptoms Logged"]
+        symptomCollectionView.reloadData()
         guard let day = button.day else {return}
-        fetchSymptoms(day: day)
+        fetchSymptoms(day: day) { (success) in
+            if success {
+                self.convertSymptomsToString(day: day)
+            }
+        }
     }
     
     @IBAction func buttonSevenTapped(_ sender: UIButton) {
         let button = classArray[6]
         selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
+        symptomData = ["No Symptoms Logged"]
+        symptomCollectionView.reloadData()
         guard let day = button.day else {return}
-        fetchSymptoms(day: day)
+        fetchSymptoms(day: day) { (success) in
+            if success {
+                self.convertSymptomsToString(day: day)
+            }
+        }
     }
     
     @IBAction func buttonEightTapped(_ sender: UIButton) {
         let button = classArray[7]
         selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
+        symptomData = ["No Symptoms Logged"]
+        symptomCollectionView.reloadData()
         guard let day = button.day else {return}
-        fetchSymptoms(day: day)
+        fetchSymptoms(day: day) { (success) in
+            if success {
+                self.convertSymptomsToString(day: day)
+            }
+        }
     }
     
     @IBAction func buttonNineTapped(_ sender: UIButton) {
         let button = classArray[8]
         selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
+        symptomData = ["No Symptoms Logged"]
+        symptomCollectionView.reloadData()
         guard let day = button.day else {return}
-        fetchSymptoms(day: day)
+        fetchSymptoms(day: day) { (success) in
+            if success {
+                self.convertSymptomsToString(day: day)
+            }
+        }
     }
     
     @IBAction func buttonTenTapped(_ sender: UIButton) {
         let button = classArray[9]
         selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
+        symptomData = ["No Symptoms Logged"]
+        symptomCollectionView.reloadData()
         guard let day = button.day else {return}
-        fetchSymptoms(day: day)
+        fetchSymptoms(day: day) { (success) in
+            if success {
+                self.convertSymptomsToString(day: day)
+            }
+        }
     }
     
     @IBAction func buttonElevenTapped(_ sender: UIButton) {
         let button = classArray[10]
         selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
+        symptomData = ["No Symptoms Logged"]
+        symptomCollectionView.reloadData()
         guard let day = button.day else {return}
-        fetchSymptoms(day: day)
+        fetchSymptoms(day: day) { (success) in
+            if success {
+                self.convertSymptomsToString(day: day)
+            }
+        }
     }
     
     @IBAction func buttonTwelveTapped(_ sender: UIButton) {
         let button = classArray[11]
         selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
+        symptomData = ["No Symptoms Logged"]
+        symptomCollectionView.reloadData()
         guard let day = button.day else {return}
-        fetchSymptoms(day: day)
+        fetchSymptoms(day: day) { (success) in
+            if success {
+                self.convertSymptomsToString(day: day)
+            }
+        }
     }
     
     @IBAction func buttonThirteenTapped(_ sender: UIButton) {
         let button = classArray[12]
         selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
+        symptomData = ["No Symptoms Logged"]
+        symptomCollectionView.reloadData()
         guard let day = button.day else {return}
-        fetchSymptoms(day: day)
+        fetchSymptoms(day: day) { (success) in
+            if success {
+                self.convertSymptomsToString(day: day)
+            }
+        }
     }
     
     @IBAction func buttonFourteenTapped(_ sender: UIButton) {
         let button = classArray[13]
         selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
+        symptomData = ["No Symptoms Logged"]
+        symptomCollectionView.reloadData()
         guard let day = button.day else {return}
-        fetchSymptoms(day: day)
+        fetchSymptoms(day: day) { (success) in
+            if success {
+                self.convertSymptomsToString(day: day)
+            }
+        }
     }
     
     @IBAction func buttonFifteenTapped(_ sender: UIButton) {
         let button = classArray[14]
         selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
+        symptomData = ["No Symptoms Logged"]
+        symptomCollectionView.reloadData()
         guard let day = button.day else {return}
-        fetchSymptoms(day: day)
+        fetchSymptoms(day: day) { (success) in
+            if success {
+                self.convertSymptomsToString(day: day)
+            }
+        }
     }
     
     @IBAction func buttonSixteenTapped(_ sender: UIButton) {
         let button = classArray[15]
         selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
+        symptomData = ["No Symptoms Logged"]
+        symptomCollectionView.reloadData()
         guard let day = button.day else {return}
-        fetchSymptoms(day: day)
+        fetchSymptoms(day: day) { (success) in
+            if success {
+                self.convertSymptomsToString(day: day)
+            }
+        }
     }
     
     @IBAction func buttonSeventeenTapped(_ sender: UIButton) {
         let button = classArray[16]
         selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
+        symptomData = ["No Symptoms Logged"]
+        symptomCollectionView.reloadData()
         guard let day = button.day else {return}
-        fetchSymptoms(day: day)
+        fetchSymptoms(day: day) { (success) in
+            if success {
+                self.convertSymptomsToString(day: day)
+            }
+        }
     }
     
     @IBAction func buttonEighteenTapped(_ sender: UIButton) {
         let button = classArray[17]
         selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
+        symptomData = ["No Symptoms Logged"]
+        symptomCollectionView.reloadData()
         guard let day = button.day else {return}
-        fetchSymptoms(day: day)
+        fetchSymptoms(day: day) { (success) in
+            if success {
+                self.convertSymptomsToString(day: day)
+            }
+        }
     }
     
     @IBAction func buttonNineteenTapped(_ sender: UIButton) {
         let button = classArray[18]
         selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
+        symptomData = ["No Symptoms Logged"]
+        symptomCollectionView.reloadData()
         guard let day = button.day else {return}
-        fetchSymptoms(day: day)
+        fetchSymptoms(day: day) { (success) in
+            if success {
+                self.convertSymptomsToString(day: day)
+            }
+        }
     }
     
     @IBAction func buttonTwentyTapped(_ sender: UIButton) {
         let button = classArray[19]
         selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
+        symptomData = ["No Symptoms Logged"]
+        symptomCollectionView.reloadData()
         guard let day = button.day else {return}
-        fetchSymptoms(day: day)
+        fetchSymptoms(day: day) { (success) in
+            if success {
+                self.convertSymptomsToString(day: day)
+            }
+        }
     }
     
     @IBAction func buttonTwentyOneTapped(_ sender: UIButton) {
         let button = classArray[20]
         selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
+        symptomData = ["No Symptoms Logged"]
+        symptomCollectionView.reloadData()
         guard let day = button.day else {return}
-        fetchSymptoms(day: day)
+        fetchSymptoms(day: day) { (success) in
+            if success {
+                self.convertSymptomsToString(day: day)
+            }
+        }
     }
     
     @IBAction func buttonTwentyTwoTapped(_ sender: UIButton) {
         let button = classArray[21]
         selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
+        symptomData = ["No Symptoms Logged"]
+        symptomCollectionView.reloadData()
         guard let day = button.day else {return}
-        fetchSymptoms(day: day)
+        fetchSymptoms(day: day) { (success) in
+            if success {
+                self.convertSymptomsToString(day: day)
+            }
+        }
     }
     
     @IBAction func buttonTwentyThreeTapped(_ sender: UIButton) {
         let button = classArray[22]
         selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
+        symptomData = ["No Symptoms Logged"]
+        symptomCollectionView.reloadData()
         guard let day = button.day else {return}
-        fetchSymptoms(day: day)
+        fetchSymptoms(day: day) { (success) in
+            if success {
+                self.convertSymptomsToString(day: day)
+            }
+        }
     }
     
     @IBAction func buttonTwentyFourTapped(_ sender: UIButton) {
         let button = classArray[23]
         selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
+        symptomData = ["No Symptoms Logged"]
+        symptomCollectionView.reloadData()
         guard let day = button.day else {return}
-        fetchSymptoms(day: day)
+        fetchSymptoms(day: day) { (success) in
+            if success {
+                self.convertSymptomsToString(day: day)
+            }
+        }
     }
     
     @IBAction func buttonTwentyFiveTapped(_ sender: UIButton) {
         let button = classArray[24]
         selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
+        symptomData = ["No Symptoms Logged"]
+        symptomCollectionView.reloadData()
         guard let day = button.day else {return}
-        fetchSymptoms(day: day)
+        fetchSymptoms(day: day) { (success) in
+            if success {
+                self.convertSymptomsToString(day: day)
+            }
+        }
     }
     
     @IBAction func buttonTwentySixTapped(_ sender: UIButton) {
         let button = classArray[25]
         selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
+        symptomData = ["No Symptoms Logged"]
+        symptomCollectionView.reloadData()
         guard let day = button.day else {return}
-        fetchSymptoms(day: day)
+        fetchSymptoms(day: day) { (success) in
+            if success {
+                self.convertSymptomsToString(day: day)
+            }
+        }
     }
     
     @IBAction func buttonTwentySevenTapped(_ sender: UIButton) {
         let button = classArray[26]
         selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
+        symptomData = ["No Symptoms Logged"]
+        symptomCollectionView.reloadData()
         guard let day = button.day else {return}
-        fetchSymptoms(day: day)
+        fetchSymptoms(day: day) { (success) in
+            if success {
+                self.convertSymptomsToString(day: day)
+            }
+        }
     }
     
     @IBAction func buttonTwentyEightTapped(_ sender: UIButton) {
         let button = classArray[27]
         selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
+        symptomData = ["No Symptoms Logged"]
+        symptomCollectionView.reloadData()
         guard let day = button.day else {return}
-        fetchSymptoms(day: day)
+        fetchSymptoms(day: day) { (success) in
+            if success {
+                self.convertSymptomsToString(day: day)
+            }
+        }
     }
     
     @IBAction func buttonTwentyNineTapped(_ sender: UIButton) {
         let button = classArray[28]
         selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
+        symptomData = ["No Symptoms Logged"]
+        symptomCollectionView.reloadData()
         guard let day = button.day else {return}
-        fetchSymptoms(day: day)
+        fetchSymptoms(day: day) { (success) in
+            if success {
+                self.convertSymptomsToString(day: day)
+            }
+        }
     }
     
     @IBAction func buttonThirtyTapped(_ sender: UIButton) {
         let button = classArray[29]
         selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
+        symptomData = ["No Symptoms Logged"]
+        symptomCollectionView.reloadData()
         guard let day = button.day else {return}
-        fetchSymptoms(day: day)
+        fetchSymptoms(day: day) { (success) in
+            if success {
+                self.convertSymptomsToString(day: day)
+            }
+        }
     }
     
     @IBAction func buttonThirtyOneTapped(_ sender: UIButton) {
         let button = classArray[30]
         selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
+        symptomData = ["No Symptoms Logged"]
+        symptomCollectionView.reloadData()
         guard let day = button.day else {return}
-        fetchSymptoms(day: day)
+        fetchSymptoms(day: day) { (success) in
+            if success {
+                self.convertSymptomsToString(day: day)
+            }
+        }
     }
     
     @IBAction func buttonThirtyTwoTapped(_ sender: UIButton) {
         let button = classArray[31]
         selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
+        symptomData = ["No Symptoms Logged"]
+        symptomCollectionView.reloadData()
         guard let day = button.day else {return}
-        fetchSymptoms(day: day)
+        fetchSymptoms(day: day) { (success) in
+            if success {
+                self.convertSymptomsToString(day: day)
+            }
+        }
     }
     
     @IBAction func buttonThirtyThreeTapped(_ sender: UIButton) {
         let button = classArray[32]
         selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
+        symptomData = ["No Symptoms Logged"]
+        symptomCollectionView.reloadData()
         guard let day = button.day else {return}
-        fetchSymptoms(day: day)
+        fetchSymptoms(day: day) { (success) in
+            if success {
+                self.convertSymptomsToString(day: day)
+            }
+        }
     }
     
     @IBAction func buttonThirtyFourTapped(_ sender: UIButton) {
         let button = classArray[33]
         selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
+        symptomData = ["No Symptoms Logged"]
+        symptomCollectionView.reloadData()
         guard let day = button.day else {return}
-        fetchSymptoms(day: day)
+        fetchSymptoms(day: day) { (success) in
+            if success {
+                self.convertSymptomsToString(day: day)
+            }
+        }
     }
     
     @IBAction func buttonThirtyFiveTapped(_ sender: UIButton) {
         let button = classArray[34]
         selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
+        symptomData = ["No Symptoms Logged"]
+        symptomCollectionView.reloadData()
         guard let day = button.day else {return}
-        fetchSymptoms(day: day)
+        fetchSymptoms(day: day) { (success) in
+            if success {
+                self.convertSymptomsToString(day: day)
+            }
+        }
     }
     
     @IBAction func buttonThirtySixTapped(_ sender: UIButton) {
         let button = classArray[35]
         selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
+        symptomData = ["No Symptoms Logged"]
+        symptomCollectionView.reloadData()
         guard let day = button.day else {return}
-        fetchSymptoms(day: day)
+        fetchSymptoms(day: day) { (success) in
+            if success {
+                self.convertSymptomsToString(day: day)
+            }
+        }
     }
     
     @IBAction func buttonThirtySevenTapped(_ sender: UIButton) {
         let button = classArray[36]
         selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
+        symptomData = ["No Symptoms Logged"]
+        symptomCollectionView.reloadData()
         guard let day = button.day else {return}
-        fetchSymptoms(day: day)
+        fetchSymptoms(day: day) { (success) in
+            if success {
+                self.convertSymptomsToString(day: day)
+            }
+        }
     }
     
     @IBAction func buttonThirtyEightTapped(_ sender: UIButton) {
         let button = classArray[37]
         selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
+        symptomData = ["No Symptoms Logged"]
+        symptomCollectionView.reloadData()
         guard let day = button.day else {return}
-        fetchSymptoms(day: day)
+        fetchSymptoms(day: day) { (success) in
+            if success {
+                self.convertSymptomsToString(day: day)
+            }
+        }
     }
     
     @IBAction func buttonThirtyNineTapped(_ sender: UIButton) {
         let button = classArray[38]
         selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
+        symptomData = ["No Symptoms Logged"]
+        symptomCollectionView.reloadData()
         guard let day = button.day else {return}
-        fetchSymptoms(day: day)
+        fetchSymptoms(day: day) { (success) in
+            if success {
+                self.convertSymptomsToString(day: day)
+            }
+        }
     }
     
     @IBAction func buttonFortyTapped(_ sender: UIButton) {
         let button = classArray[39]
         selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
+        symptomData = ["No Symptoms Logged"]
+        symptomCollectionView.reloadData()
         guard let day = button.day else {return}
-        fetchSymptoms(day: day)
+        fetchSymptoms(day: day) { (success) in
+            if success {
+                self.convertSymptomsToString(day: day)
+            }
+        }
     }
     
     @IBAction func buttonFortyOneTapped(_ sender: UIButton) {
         let button = classArray[40]
         selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
+        symptomData = ["No Symptoms Logged"]
+        symptomCollectionView.reloadData()
         guard let day = button.day else {return}
-        fetchSymptoms(day: day)
+        fetchSymptoms(day: day) { (success) in
+            if success {
+                self.convertSymptomsToString(day: day)
+            }
+        }
     }
     
     @IBAction func buttonFortyTwoTapped(_ sender: UIButton) {
         let button = classArray[41]
         selectedDateLabel.text = button.date.stringWith(dateStyle: .medium, timeStyle: .none)
         changeDate(button: button)
+        symptomData = ["No Symptoms Logged"]
+        symptomCollectionView.reloadData()
         guard let day = button.day else {return}
-        fetchSymptoms(day: day)
+        fetchSymptoms(day: day) { (success) in
+            if success {
+                self.convertSymptomsToString(day: day)
+            }
+        }
     }
     
     class Button {
@@ -580,32 +832,171 @@ class CalendarTabViewController: UIViewController {
         }
     }
     
-    func fetchSymptoms(day: Day) {
+    func fetchSymptoms(day: Day, completion:@escaping (Bool) -> Void) {
+        var completeCounter = 0
         FlowController.shared.fetchFlowDetails(forDay: day) { (flow) in
             if let flow = flow {
                 day.flowDetails = flow
+                completeCounter += 1
+                if completeCounter == 5 {
+                    completion(true)
+                }
+            } else {
+                completeCounter += 1
+                if completeCounter == 5 {
+                    completion(true)
+                }
             }
         }
         SymptomController.shared.fetchSymptoms(forDay: day) { (symptoms) in
             if let symptoms = symptoms {
                 day.symptomList = symptoms
+                completeCounter += 1
+                if completeCounter == 5 {
+                    completion(true)
+                }
+            } else {
+                completeCounter += 1
+                if completeCounter == 5 {
+                    completion(true)
+                }
             }
         }
         MoodController.shared.fetchMoods(forDay: day) { (moods) in
             if let moods = moods {
                 day.moodList = moods
+                completeCounter += 1
+                if completeCounter == 5 {
+                    completion(true)
+                }
+            } else {
+                completeCounter += 1
+                if completeCounter == 5 {
+                    completion(true)
+                }
             }
         }
         SexController.shared.fetchSexDetails(forDay: day) { (sexDetails) in
             if let sexDetails = sexDetails {
                 day.sexDetails = sexDetails
+                completeCounter += 1
+                if completeCounter == 5 {
+                    completion(true)
+                }
+            } else {
+                completeCounter += 1
+                if completeCounter == 5 {
+                    completion(true)
+                }
             }
         }
         CustomEntryController.shared.fetchCustomEntry(forDay: day) { (customEntry) in
             if let customEntry = customEntry {
                 day.customEntry = customEntry
-                
+                completeCounter += 1
+                if completeCounter == 5 {
+                    completion(true)
+                }
+            } else {
+                completeCounter += 1
+                if completeCounter == 5 {
+                    completion(true)
+                }
             }
+        }
+    }
+    
+    func convertSymptomsToString(day: Day) {
+        var symptomArray: [String] = []
+        if let flowDetails = day.flowDetails {
+            if flowDetails.spotting {
+                symptomArray.append("Spotting")
+            } else if flowDetails.light {
+                symptomArray.append("Light Flow")
+            } else if flowDetails.medium {
+                symptomArray.append("Medium Flow")
+            } else if flowDetails.heavy {
+                symptomArray.append("Heavy Flow")
+            }
+        }
+        if let symptoms = day.symptomList {
+            if symptoms.acne {
+                symptomArray.append("Acne")
+            }
+            if symptoms.backPain {
+                symptomArray.append("Back Pain")
+            }
+            if symptoms.breastTenderness {
+                symptomArray.append("Tender Breasts")
+            }
+            if symptoms.cramping {
+                symptomArray.append("Cramps")
+            }
+            if symptoms.fatigue {
+                symptomArray.append("Fatigue")
+            }
+            if symptoms.headache {
+                symptomArray.append("Headache")
+            }
+            if symptoms.insomnia {
+                symptomArray.append("Insomnia")
+            }
+            if symptoms.nausea {
+                symptomArray.append("Nausea")
+            }
+        }
+        if let mood = day.moodList {
+            if mood.happy {
+                symptomArray.append("Happy")
+            }
+            if mood.angry {
+                symptomArray.append("Angry")
+            }
+            if mood.depressed {
+                symptomArray.append("Depressed")
+            }
+            if mood.irritated {
+                symptomArray.append("Irritated")
+            }
+            if mood.moodSwings {
+                symptomArray.append("Mood Swings")
+            }
+            if mood.content {
+                symptomArray.append("Content")
+            }
+            if mood.nervous {
+                symptomArray.append("Nervous")
+            }
+            if mood.sad {
+                symptomArray.append("Sad")
+            }
+            if mood.sensitive {
+                symptomArray.append("Sensitive")
+            }
+        }
+        if let sex = day.sexDetails {
+            if sex.protected {
+                symptomArray.append("Protected Sex")
+            } else if !sex.protected {
+                symptomArray.append("Unprotected Sex")
+            }
+            if sex.masturbation {
+                symptomArray.append("Masturbation")
+            }
+            if sex.sexDrive {
+                symptomArray.append("High Sex Drive")
+            }
+            if !sex.sexDrive {
+                symptomArray.append("Low Sex Drive")
+            }
+        }
+        if let custom = day.customEntry {
+            symptomArray.append(custom.text)
+        }
+        
+        self.symptomData = symptomArray
+        DispatchQueue.main.async {
+            self.symptomCollectionView.reloadData()
         }
     }
     

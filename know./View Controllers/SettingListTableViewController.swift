@@ -9,7 +9,6 @@
 import UIKit
 
 class SettingListTableViewController: UITableViewController {
-
     
     @IBOutlet weak var navBarItem: UINavigationItem!
     
@@ -24,7 +23,7 @@ class SettingListTableViewController: UITableViewController {
         label.textColor = #colorLiteral(red: 0.554766655, green: 0.7184440494, blue: 0.8180738091, alpha: 1)
         label.textAlignment = .center
         label.sizeToFit()
-        label.font = UIFont(name: "Nunito-Regular", size: 30)
-        navBarItem.titleView = label
+        label.font = UIFont(name: "Nunito-Regular", size: 25)
+        navigationItem.titleView = label
     }
 }

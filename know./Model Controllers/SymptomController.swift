@@ -21,7 +21,7 @@ class SymptomController {
             if let record = record {
                 guard let symptom = Symptom(record: record, day: day) else { return }
                 self.symptoms = symptom
-                print("Symptom Saved on SymptomController")
+                print("Symptom Saved")
                 completion(true)
             }
         }
@@ -36,7 +36,7 @@ class SymptomController {
                 let symptom = records.compactMap({Symptom(record: $0, day: day)})
                 symptoms.append(contentsOf: symptom)
                 self.symptoms = symptoms.first
-                print("Symptoms Fetched on SymptomController")
+                print("Symptoms Fetched")
                 completion(symptoms.first)
             } else {
                 print("Error Fetching Symptoms")

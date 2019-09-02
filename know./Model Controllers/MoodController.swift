@@ -21,7 +21,7 @@ class MoodController {
             if let record = record {
                 guard let mood = Mood(record: record, day: day) else { return }
                 self.moods = mood
-                print("Mood Saved on MoodController")
+                print("Mood Saved")
                 completion(true)
             }
         }
@@ -36,7 +36,7 @@ class MoodController {
                 let mood = records.compactMap({Mood(record: $0, day: day)})
                 moods.append(contentsOf: mood)
                 self.moods = moods.first
-                print("Moods Fetched on MoodController")
+                print("Moods Fetched")
                 completion(moods.first)
             } else {
                 print("Error Fetching Moods")

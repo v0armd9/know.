@@ -162,7 +162,7 @@
             </objects>
             <point key="canvasLocation" x="11274" y="-13"/>
         </scene>
-        <!--Title-->
+        <!--Add Symptoms Table View Controller-->
         <scene sceneID="sPm-hD-jHe">
             <objects>
                 <tableViewController id="kTP-qe-cAQ" customClass="AddSymptomsTableViewController" customModule="know_" customModuleProvider="target" sceneMemberID="viewController">
@@ -660,7 +660,7 @@
                             <outlet property="delegate" destination="kTP-qe-cAQ" id="Rlc-9C-WzZ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Title" id="9u9-Qc-pMs">
+                    <navigationItem key="navigationItem" id="9u9-Qc-pMs">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="ko4-bF-x03">
                             <connections>
                                 <action selector="saveButtonTapped:" destination="kTP-qe-cAQ" id="rdV-ed-gu0"/>
@@ -693,6 +693,7 @@
                         <outlet property="moodLabel" destination="hgK-DC-mwr" id="a7t-uP-PZi"/>
                         <outlet property="moodswingButton" destination="m2o-eu-KZw" id="KFs-X6-LKi"/>
                         <outlet property="nauseaButton" destination="Rmb-Rk-fJb" id="Qwj-ZM-ilu"/>
+                        <outlet property="navBarItem" destination="9u9-Qc-pMs" id="A5v-aB-6w0"/>
                         <outlet property="nervousButton" destination="43L-9L-BG6" id="f88-u0-vnl"/>
                         <outlet property="protectedButton" destination="KGE-Fo-bPp" id="gMW-fV-9Kz"/>
                         <outlet property="sadButton" destination="mMh-Tg-I2s" id="ZqO-mC-IQ1"/>
@@ -829,60 +830,62 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ODQ-iw-W0a">
                                 <rect key="frame" x="41.5" y="208.5" width="331" height="268.5"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="CaW-mN-ccK">
-                                        <rect key="frame" x="10" y="10" width="311" height="248.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thursday, Aug 28" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tiG-6P-UAl">
+                                        <rect key="frame" x="10" y="10" width="311" height="40"/>
+                                        <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="20"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Would you like to mark this date as your period start date?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Yq-Z7-koX">
+                                        <rect key="frame" x="10" y="60" width="311" height="129"/>
+                                        <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="22"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Yyk-Cu-noa">
+                                        <rect key="frame" x="10" y="199" width="311" height="54"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thursday, Aug 28" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tiG-6P-UAl">
-                                                <rect key="frame" x="0.0" y="0.0" width="311" height="40"/>
-                                                <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="20"/>
-                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Would you like to mark this date as your period start date?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Yq-Z7-koX">
-                                                <rect key="frame" x="0.0" y="50" width="311" height="121"/>
-                                                <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="22"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Yyk-Cu-noa">
-                                                <rect key="frame" x="0.0" y="181" width="311" height="67.5"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mLf-BW-5uw">
-                                                        <rect key="frame" x="0.0" y="0.0" width="150.5" height="67.5"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" secondItem="mLf-BW-5uw" secondAttribute="height" multiplier="128:48" id="siC-va-MQl"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                        <state key="normal" image="buttonSmallCancel">
-                                                            <color key="titleColor" red="0.5568627451" green="0.71764705880000002" blue="0.81960784310000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="cancelButtonTapped:" destination="XvS-ze-gAq" eventType="touchUpInside" id="lIe-BR-FAF"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zIp-Ac-fUw">
-                                                        <rect key="frame" x="160.5" y="0.0" width="150.5" height="67.5"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" secondItem="zIp-Ac-fUw" secondAttribute="height" multiplier="128:48" id="dD3-Ss-o62"/>
-                                                        </constraints>
-                                                        <state key="normal" image="buttonSmallConfirm"/>
-                                                        <connections>
-                                                            <action selector="acceptButtonTapped:" destination="XvS-ze-gAq" eventType="touchUpInside" id="qoT-Is-bA1"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mLf-BW-5uw">
+                                                <rect key="frame" x="0.0" y="0.0" width="150.5" height="54"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="mLf-BW-5uw" secondAttribute="height" multiplier="128:48" id="siC-va-MQl"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <state key="normal" image="buttonSmallCancel">
+                                                    <color key="titleColor" red="0.5568627451" green="0.71764705880000002" blue="0.81960784310000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="cancelButtonTapped:" destination="XvS-ze-gAq" eventType="touchUpInside" id="lIe-BR-FAF"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zIp-Ac-fUw">
+                                                <rect key="frame" x="160.5" y="0.0" width="150.5" height="54"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="zIp-Ac-fUw" secondAttribute="height" multiplier="128:48" id="dD3-Ss-o62"/>
+                                                </constraints>
+                                                <state key="normal" image="buttonSmallConfirm"/>
+                                                <connections>
+                                                    <action selector="acceptButtonTapped:" destination="XvS-ze-gAq" eventType="touchUpInside" id="qoT-Is-bA1"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="tiG-6P-UAl" firstAttribute="height" secondItem="ODQ-iw-W0a" secondAttribute="height" multiplier="0.15" id="1iE-US-cL2"/>
-                                    <constraint firstAttribute="bottom" secondItem="CaW-mN-ccK" secondAttribute="bottom" constant="10" id="Lhs-r6-N2g"/>
-                                    <constraint firstItem="4Yq-Z7-koX" firstAttribute="height" secondItem="ODQ-iw-W0a" secondAttribute="height" multiplier="0.45" id="R6B-LW-b7b"/>
-                                    <constraint firstItem="CaW-mN-ccK" firstAttribute="leading" secondItem="ODQ-iw-W0a" secondAttribute="leading" constant="10" id="WoD-Py-XLO"/>
-                                    <constraint firstAttribute="trailing" secondItem="CaW-mN-ccK" secondAttribute="trailing" constant="10" id="ftl-6m-NWO"/>
-                                    <constraint firstItem="CaW-mN-ccK" firstAttribute="top" secondItem="ODQ-iw-W0a" secondAttribute="top" constant="10" id="xTb-X6-JRM"/>
+                                    <constraint firstItem="4Yq-Z7-koX" firstAttribute="top" secondItem="tiG-6P-UAl" secondAttribute="bottom" constant="10" id="DTn-zL-XYQ"/>
+                                    <constraint firstItem="4Yq-Z7-koX" firstAttribute="height" secondItem="ODQ-iw-W0a" secondAttribute="height" multiplier="0.48" id="PGp-GL-Pge"/>
+                                    <constraint firstItem="Yyk-Cu-noa" firstAttribute="height" secondItem="ODQ-iw-W0a" secondAttribute="height" multiplier="0.2" id="QTZ-7q-fO9"/>
+                                    <constraint firstItem="tiG-6P-UAl" firstAttribute="height" secondItem="ODQ-iw-W0a" secondAttribute="height" multiplier="0.15" id="Ux0-uC-ycO"/>
+                                    <constraint firstItem="Yyk-Cu-noa" firstAttribute="top" secondItem="4Yq-Z7-koX" secondAttribute="bottom" constant="10" id="Xhf-lg-Pgc"/>
+                                    <constraint firstAttribute="trailing" secondItem="4Yq-Z7-koX" secondAttribute="trailing" constant="10" id="Xyn-Z9-A2x"/>
+                                    <constraint firstItem="tiG-6P-UAl" firstAttribute="top" secondItem="ODQ-iw-W0a" secondAttribute="top" constant="10" id="a3a-Pb-Xyl"/>
+                                    <constraint firstItem="Yyk-Cu-noa" firstAttribute="leading" secondItem="ODQ-iw-W0a" secondAttribute="leading" constant="10" id="bb8-4v-gqH"/>
+                                    <constraint firstAttribute="bottom" secondItem="Yyk-Cu-noa" secondAttribute="bottom" constant="10" id="f2e-u1-9Sv"/>
+                                    <constraint firstAttribute="trailing" secondItem="Yyk-Cu-noa" secondAttribute="trailing" constant="10" id="fEh-xq-R8p"/>
+                                    <constraint firstItem="tiG-6P-UAl" firstAttribute="leading" secondItem="ODQ-iw-W0a" secondAttribute="leading" constant="10" id="fXi-eW-V8W"/>
+                                    <constraint firstItem="4Yq-Z7-koX" firstAttribute="leading" secondItem="ODQ-iw-W0a" secondAttribute="leading" constant="10" id="gzN-A4-zrR"/>
+                                    <constraint firstAttribute="trailing" secondItem="tiG-6P-UAl" secondAttribute="trailing" constant="10" id="p2g-vz-mzn"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -895,6 +898,7 @@
                             <constraint firstItem="tyS-T5-IOT" firstAttribute="bottom" secondItem="qu5-Em-JG9" secondAttribute="bottom" id="N7P-UI-pOw"/>
                             <constraint firstItem="ODQ-iw-W0a" firstAttribute="width" secondItem="z5J-WA-Fky" secondAttribute="width" multiplier="0.8" id="Qk0-nF-tLa"/>
                             <constraint firstItem="ODQ-iw-W0a" firstAttribute="centerX" secondItem="tyS-T5-IOT" secondAttribute="centerX" id="Qxj-mO-ghm"/>
+                            <constraint firstItem="qu5-Em-JG9" firstAttribute="centerX" secondItem="z5J-WA-Fky" secondAttribute="centerX" id="eJz-dg-5kU"/>
                             <constraint firstItem="qu5-Em-JG9" firstAttribute="trailing" secondItem="tyS-T5-IOT" secondAttribute="trailing" id="h4M-FD-CCz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tyS-T5-IOT"/>

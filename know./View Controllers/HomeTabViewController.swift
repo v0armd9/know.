@@ -48,8 +48,7 @@ class HomeTabViewController: UIViewController {
                 guard let lastCycleEnd = user.cycles.last?.cycleEndDate else {return}
                 
                 if self.selectedDate! > lastCycleEnd {
-                    print(self.selectedDate)
-                    print(lastCycleEnd)
+                    print("period is late")
                     self.dayLateCounter = 0
                     var testDate = lastCycleEnd
                     while testDate < self.selectedDate! {
@@ -75,7 +74,6 @@ class HomeTabViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchDayData()
         addButtons(buttonCount: 18) { (success) in
             if success {
                 self.selectedDate = Date().formattedDate()
@@ -240,7 +238,6 @@ class HomeTabViewController: UIViewController {
         var date = Calendar.current.date(byAdding: .day, value: 1, to: Date())!
         for n in 0...9 {
             let dayNumber = Calendar.current.component(.day, from: date)
-            print(dayNumber)
             let button = wheelView.subviews[n] as? UIButton
             button?.setTitle(String(dayNumber), for: .normal)
             date = Calendar.current.date(byAdding: .day, value: 1, to: date)!
@@ -399,6 +396,9 @@ class HomeTabViewController: UIViewController {
                 self.dayObject?.moodList = self.moods
                 self.dayObject?.sexDetails = self.sex
                 self.dayObject?.customEntry = self.customEntry
+            } else {
+                self.dayObject = nil
+                print("No DayObject saved for \(date.prettyDateString())")
             }
         }
     }

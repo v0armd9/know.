@@ -84,6 +84,7 @@ class AddSymptomsTableViewController: UITableViewController {
     @IBOutlet weak var customLabel: CustomLabel!
     @IBOutlet weak var customButton: UIButton!
     @IBOutlet weak var customTextLabel: UILabel!
+    @IBOutlet weak var navBarItem: UINavigationItem!
     
     //Lifecycle
     override func viewDidLoad() {
@@ -91,7 +92,6 @@ class AddSymptomsTableViewController: UITableViewController {
         setNavigationBarView()
         getFetchedDataToLoadView()
     }
-    
     
     //TOGGLE BUTTON PROPERTIES/VIEWS
     //Flow Buttons (Only one may be selected for a day_
@@ -311,16 +311,14 @@ class AddSymptomsTableViewController: UITableViewController {
     //VIEWS
     //Set Navigation View
     func setNavigationBarView() {
-        func setNavTitle() {
-            let viewedDate = self.viewedDate ?? Date()
-            let label = UILabel()
-            label.text = viewedDate.stringWith(dateStyle: .long, timeStyle: .none)
-            label.textColor = #colorLiteral(red: 0.554766655, green: 0.7184440494, blue: 0.8180738091, alpha: 1)
-            label.textAlignment = .center
-            label.sizeToFit()
-            label.font = UIFont(name: "Nunito-Regular", size: 25)
-            navigationItem.titleView = label
-        }
+        let viewedDate = self.viewedDate ?? Date()
+        let label = UILabel()
+        label.text = viewedDate.prettyDateString()
+        label.textColor = #colorLiteral(red: 0.554766655, green: 0.7184440494, blue: 0.8180738091, alpha: 1)
+        label.textAlignment = .center
+        label.sizeToFit()
+        label.font = UIFont(name: "Nunito-Bold", size: 25)
+        navigationItem.titleView = label
     }
     
     //Load correct status/images fpr buttons if on a date with an existing Day object
@@ -387,7 +385,9 @@ class AddSymptomsTableViewController: UITableViewController {
         initialButtonStat(symptom: mood.angry, button: angryButton, image: angry)
         //Properties for SEX model object
         initialButtonStat(symptom: sex.protected, button: protectedButton, image: protected)
+        initialButtonStat(symptom: sex.unprotected, button: unprotectedButton, image: unprotected)
         initialButtonStat(symptom: sex.sexDrive, button: highdriveButton, image: high)
+        initialButtonStat(symptom: sex.lowDrive, button: lowdriveButton, image: low)
         initialButtonStat(symptom: sex.masturbation, button: masturbateButton, image: mast)
         customTextLabel.text = custom.text
         customEntryText = custom.text
@@ -435,7 +435,9 @@ class AddSymptomsTableViewController: UITableViewController {
     //Properties for SEX model object
     func getSexData(sex: Sex) -> Sex {
         sex.protected = self.protectedButton.isSelected ? true : false
+        sex.unprotected = self.unprotectedButton.isSelected ? true : false
         sex.sexDrive = self.highdriveButton.isSelected ? true : false
+        sex.lowDrive = self.lowdriveButton.isSelected ? true : false
         sex.masturbation = self.masturbateButton.isSelected ? true : false
         return sex
     }
@@ -458,7 +460,7 @@ class AddSymptomsTableViewController: UITableViewController {
         MoodController.shared.saveMoods(forDay: day, happy: mood.happy, sensitive: mood.sensitive, sad: mood.sad, depressed: mood.depressed, nervous: mood.nervous, irritated: mood.irritated, content: mood.content, moodSwings: mood.moodSwings, angry: mood.angry) { (success) in
             if !success { completion(false); return }
         }
-        SexController.shared.saveSexDetails(forDay: day, protected: sex.protected, sexDrive: sex.sexDrive, masturbation: sex.masturbation) { (success) in
+        SexController.shared.saveSexDetails(forDay: day, protected: sex.protected, unprotected: sex.unprotected, sexDrive: sex.sexDrive, lowDrive: sex.lowDrive, masturbation: sex.masturbation) { (success) in
             if !success { completion(false); return }
         }
         CustomEntryController.shared.saveEntry(forDay: day, text: entry.text) { (success) in
@@ -478,7 +480,7 @@ class AddSymptomsTableViewController: UITableViewController {
         MoodController.shared.update(mood: mood, withHappy: mood.happy, sensitive: mood.sensitive, sad: mood.sad, depressed: mood.depressed, nervous: mood.nervous, irritated: mood.irritated, content: mood.content, moodSwings: mood.moodSwings, angry: mood.angry) { (success) in
             if !success { completion(false); return }
         }
-        SexController.shared.update(sexDetails: sex, withProtected: sex.protected, sexDrive: sex.sexDrive, masturbation: sex.masturbation) { (success) in
+        SexController.shared.update(sexDetails: sex, withProtected: sex.protected, unprotected: sex.unprotected, sexDrive: sex.sexDrive, lowDrive: sex.lowDrive, masturbation: sex.masturbation) { (success) in
             if !success { completion(false); return }
         }
         CustomEntryController.shared.update(entry: entry, text: entry.text) { (success) in

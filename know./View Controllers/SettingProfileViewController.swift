@@ -113,7 +113,7 @@ class SettingProfileViewController: UIViewController {
         label.textColor = #colorLiteral(red: 0.554766655, green: 0.7184440494, blue: 0.8180738091, alpha: 1)
         label.textAlignment = .center
         label.sizeToFit()
-        label.font = UIFont(name: "Nunito-Regular", size: 30)
+        label.font = UIFont(name: "Nunito-Bold", size: 25)
         navigationItem.titleView = label
     }
     
@@ -144,15 +144,17 @@ class SettingProfileViewController: UIViewController {
             let pmsDuration = user.pmsDuration,
             let authEnabled = user.authEnabled
             else { return }
+        let sum = cycleLength.reduce(0, +)
+        let average = sum / cycleLength.count
         DispatchQueue.main.async {
             //Label Text
             self.nameLabel.text = name
             self.birthdayLabel.text = birthday.stringWith(dateStyle: .medium, timeStyle: .none)
             self.ageLabel.text = "\(age)"
-            self.heightLabel.text = "\(height)"
-            self.weightLabel.text = "\(weight)"
-            self.cycleLengthLabel.text = "\(cycleLength)"
-            self.periodLengthLabel.text = "\(periodLength)"
+            self.heightLabel.text = "\(height) cm."
+            self.weightLabel.text = "\(weight) lbs."
+            self.cycleLengthLabel.text = "\(average) Days"
+            self.periodLengthLabel.text = "\(periodLength) Days "
             self.pmsLabel.text = pms ? "Yes (\(pmsDuration) Days)" : "No"
             self.authLabel.text = authEnabled ? "Enabled" : "Disabled"
             //Text Fields Hidden
@@ -171,7 +173,17 @@ class SettingProfileViewController: UIViewController {
     }
     
     func loadEditingView() {
-        guard let birthday = birthday else { return }
+        guard let user = UserController.shared.currentUser,
+            let name = user.name,
+            let birthday = user.birthdate,
+            let age = user.age,
+            let height = user.height,
+            let weight = user.weight,
+            let cycleLength = user.cycleLength,
+            let periodLength = user.periodLength
+            else { return }
+        let sum = cycleLength.reduce(0, +)
+        let average = sum / cycleLength.count
         editBarButton.title = "Save"
         //TextFields
         nameTextField.isHidden = false
@@ -185,13 +197,13 @@ class SettingProfileViewController: UIViewController {
         authEnableButton.isHidden = false
         authDisableButton.isHidden = false
         //TextField Text
-        nameTextField.text = nameLabel.text
+        nameTextField.text = name
         birthdayButton.setTitle(birthday.stringWith(dateStyle: .medium, timeStyle: .none), for: .normal)
-        ageTextField.text = ageLabel.text
-        heightTextField.text = heightLabel.text
-        weightTextField.text = weightLabel.text
-        cycleLengthTextField.text = cycleLengthLabel.text
-        periodLabelTextField.text = periodLengthLabel.text
+        ageTextField.text = "\(age)"
+        heightTextField.text = "\(height)"
+        weightTextField.text = "\(weight)"
+        cycleLengthTextField.text = "\(average)"
+        periodLabelTextField.text = "\(periodLength)"
         if pmsLabel.text == "No" {
             pmsNoButton.isSelected = true
             pmsYesButton.isSelected = false
@@ -247,11 +259,11 @@ class SettingProfileViewController: UIViewController {
         //Unwrap and set Properties
         guard let user = UserController.shared.currentUser,
             let name = nameTextField.text, name.isEmpty == false,
-            let birthday = updatedBirthday,
-            let height = Int(heightTextField.text ?? "0"),
-            let weight = Int(weightTextField.text ?? "0"),
-            let cycleLength = Int(cycleLengthTextField.text ?? "0"),
-            let periodLength = Int(periodLabelTextField.text ?? "0"),
+            let birthday = updatedBirthday ?? birthday,
+            let height = Int(heightTextField.text ?? "200"),
+            let weight = Int(weightTextField.text ?? "170"),
+            let cycleLength = Int(cycleLengthTextField.text ?? "28"),
+            let periodLength = Int(periodLabelTextField.text ?? "4"),
             let lastPeriod = user.lastPeriod,
             var pmsDuration = user.pmsDuration,
             var pms = user.pms,

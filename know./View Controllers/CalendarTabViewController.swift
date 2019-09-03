@@ -1023,15 +1023,19 @@ class CalendarTabViewController: UIViewController {
     }
     
     func displayPeriod(button: Button, user: User) {
+        guard let lastCycle = user.cycles.last else {return}
+        let nextStart = Calendar.current.date(byAdding: .day, value: 1, to: lastCycle.cycleEndDate)!
+        let nextEnd = Calendar.current.date(byAdding: .day, value: user.periodLength!, to: lastCycle.cycleEndDate)!
+        let nextPeriod = DateInterval(start: nextStart, end: nextEnd)
         for cycle in user.cycles {
             let dateInterval = DateInterval(start: cycle.cycleDateStart, end: cycle.periodEndDate)
-            if cycle.cycleDateStart == button.date {
+            if cycle.cycleDateStart == button.date || nextPeriod.start == button.date {
                 button.button.setBackgroundImage(#imageLiteral(resourceName: "periodStartBackground"), for: .normal)
                 break
-            } else if cycle.periodEndDate == button.date {
+            } else if cycle.periodEndDate == button.date || nextPeriod.end == button.date {
                 button.button.setBackgroundImage(#imageLiteral(resourceName: "periodEndBackground"), for: .normal)
                 break
-            } else if dateInterval.contains(button.date) {
+            } else if dateInterval.contains(button.date) || nextPeriod.contains(button.date) {
                 button.button.setBackgroundImage(#imageLiteral(resourceName: "periodMidBackground"), for: .normal)
                 break
             } else {

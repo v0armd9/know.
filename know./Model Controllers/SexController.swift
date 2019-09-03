@@ -51,10 +51,11 @@ class SexController {
         let record = CKRecord(sex: sexDetails)
         CloudKitController.shared.update(record: record) { (success) in
             if success {
-                print("SexDetails Updated on SexController")
+                print("SexDetails Updated")
+                self.sexDetails = sexDetails
                 completion(true)
             } else {
-                print("SexDetails Failed to Update on SexController")
+                print("SexDetails Failed to Update")
                 completion(false)
             }
         }

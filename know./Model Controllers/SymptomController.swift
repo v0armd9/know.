@@ -57,10 +57,11 @@ class SymptomController {
         let record = CKRecord(symptom: symptom)
         CloudKitController.shared.update(record: record) { (success) in
             if success {
-                print("Symptom Updated on SymptomController")
+                print("Symptom Updated")
+                self.symptoms = symptom
                 completion(true)
             } else {
-                print("Symptom Failed to Update on SymptomController")
+                print("Symptom Failed to Update")
                 completion(false)
             }
         }

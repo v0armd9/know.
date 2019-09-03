@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -41,14 +42,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="My Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oZV-Kn-0DX">
-                                                    <rect key="frame" x="15" y="10" width="89.5" height="23.5"/>
+                                                    <rect key="frame" x="15" y="8" width="89.5" height="27.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="20"/>
                                                     <color key="textColor" white="0.23110195489999999" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="&gt;" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hl4-vZ-2zJ">
-                                                    <rect key="frame" x="383" y="13" width="11" height="20.5"/>
+                                                    <rect key="frame" x="383" y="12" width="11" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.54671287540000002" green="0.63341903690000001" blue="0.71373790500000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -72,14 +73,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Sharing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ufx-09-1Wl">
-                                                    <rect key="frame" x="15" y="10" width="69" height="23.5"/>
+                                                    <rect key="frame" x="15" y="8" width="69.5" height="27.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="20"/>
                                                     <color key="textColor" white="0.23110195489999999" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="&gt;" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yoR-gG-YKh">
-                                                    <rect key="frame" x="383" y="13" width="11" height="20.5"/>
+                                                    <rect key="frame" x="383" y="12" width="11" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.54671287540000002" green="0.63341903690000001" blue="0.71373790500000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -87,6 +88,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="Ly1-Ji-jrZ" kind="show" id="7C8-RE-PdA"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="g7G-nq-M7w" detailTextLabel="oQc-oO-QjQ" style="IBUITableViewCellStyleValue1" id="x5n-fs-AcT">
                                         <rect key="frame" x="0.0" y="159" width="414" height="44"/>
@@ -96,14 +100,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Unfollow Cycles" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="g7G-nq-M7w">
-                                                    <rect key="frame" x="15" y="10" width="144.5" height="23.5"/>
+                                                    <rect key="frame" x="15" y="8" width="143.5" height="27.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="20"/>
                                                     <color key="textColor" white="0.23110195489999999" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="&gt;" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oQc-oO-QjQ">
-                                                    <rect key="frame" x="383" y="13" width="11" height="20.5"/>
+                                                    <rect key="frame" x="383" y="12" width="11" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.54671287540000002" green="0.63341903690000001" blue="0.71373790500000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -111,6 +115,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="PI1-ws-EsE" kind="show" id="FOv-O8-5f2"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -131,7 +138,60 @@
             </objects>
             <point key="canvasLocation" x="12318.840579710146" y="1323.8839285714284"/>
         </scene>
-        <!--Title-->
+        <!--Share View Controller-->
+        <scene sceneID="jCA-S4-EpL">
+            <objects>
+                <viewController id="Ly1-Ji-jrZ" customClass="ShareViewController" customModule="know_" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="c3i-ve-ESc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="109" translatesAutoresizingMaskIntoConstraints="NO" id="is2-Wr-zhL">
+                                <rect key="frame" x="41.5" y="89.5" width="331" height="717"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="would you like to share this info?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gJP-ra-c2n">
+                                        <rect key="frame" x="0.0" y="0.0" width="331" height="51"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Some stuff" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LpM-Ve-vEi">
+                                        <rect key="frame" x="0.0" y="160" width="331" height="51"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tol-4s-fpb">
+                                        <rect key="frame" x="0.0" y="320" width="331" height="397"/>
+                                        <state key="normal" title="Share"/>
+                                        <connections>
+                                            <action selector="shareButton:" destination="jiM-Ph-Em2" eventType="touchUpInside" id="ky6-OT-0KA"/>
+                                            <action selector="shareButtonTapped:" destination="Ly1-Ji-jrZ" eventType="touchUpInside" id="EJx-Is-c78"/>
+                                            <action selector="shareButtonTapped:" destination="jiM-Ph-Em2" eventType="touchUpInside" id="HSw-Uu-8Ti"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="is2-Wr-zhL" firstAttribute="centerX" secondItem="c3i-ve-ESc" secondAttribute="centerX" id="3JY-8K-Qbh"/>
+                            <constraint firstItem="is2-Wr-zhL" firstAttribute="centerY" secondItem="c3i-ve-ESc" secondAttribute="centerY" id="VyL-bh-3pE"/>
+                            <constraint firstItem="is2-Wr-zhL" firstAttribute="height" secondItem="c3i-ve-ESc" secondAttribute="height" multiplier="0.8" id="g75-jE-qAQ"/>
+                            <constraint firstItem="is2-Wr-zhL" firstAttribute="width" secondItem="c3i-ve-ESc" secondAttribute="width" multiplier="0.8" id="jwJ-66-WJi"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="n5h-Ag-n1B"/>
+                    </view>
+                    <connections>
+                        <outlet property="shareButton" destination="Tol-4s-fpb" id="I9U-Oe-hZj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u3I-q2-g92" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="jiM-Ph-Em2" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="13099" y="1324"/>
+        </scene>
+        <!--Setting Profile View Controller-->
         <scene sceneID="Rx9-pv-ryg">
             <objects>
                 <viewController id="7IU-AF-TyA" customClass="SettingProfileViewController" customModule="know_" customModuleProvider="target" sceneMemberID="viewController">
@@ -533,7 +593,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qVg-FR-K3o"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="VJJ-Xz-AYR">
+                    <navigationItem key="navigationItem" id="VJJ-Xz-AYR">
                         <barButtonItem key="rightBarButtonItem" title="Edit" id="Gz0-tp-6uI">
                             <connections>
                                 <action selector="editButtonTapped:" destination="7IU-AF-TyA" id="nsJ-dr-C8E"/>
@@ -576,7 +636,7 @@
                     <viewLayoutGuide key="safeArea" id="Biv-gO-C6q"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="12318.840579710146" y="519.64285714285711"/>
+            <point key="canvasLocation" x="13128" y="541"/>
         </scene>
         <!--Popup Picker View Controller-->
         <scene sceneID="RTR-0H-0Gi">
@@ -677,12 +737,141 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DFR-1c-w2W" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="YMl-b0-oIR" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="13098.550724637682" y="519.64285714285711"/>
+            <point key="canvasLocation" x="13907" y="541"/>
+        </scene>
+        <!--Notification Settings View Controller-->
+        <scene sceneID="V1e-oF-0oe">
+            <objects>
+                <viewController id="PI1-ws-EsE" customClass="NotificationSettingsViewController" customModule="know_" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rEW-Xv-lrv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="axR-PB-s0u">
+                                <rect key="frame" x="20.5" y="118" width="373" height="145"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="xEv-Zm-AQ5">
+                                        <rect key="frame" x="0.0" y="0.0" width="373" height="71.5"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="kuo-c7-ZSg">
+                                                <rect key="frame" x="0.0" y="0.0" width="373" height="61.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upcoming Period" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="USR-h7-ohZ">
+                                                        <rect key="frame" x="0.0" y="0.0" width="186.5" height="61.5"/>
+                                                        <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="17"/>
+                                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zCP-XZ-jGt">
+                                                        <rect key="frame" x="201.5" y="0.0" width="78" height="61.5"/>
+                                                        <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="17"/>
+                                                        <state key="normal" title="Enabled"/>
+                                                        <connections>
+                                                            <action selector="upcomingEnableBT:" destination="PI1-ws-EsE" eventType="touchUpInside" id="HRJ-kS-jld"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VUe-et-YK6">
+                                                        <rect key="frame" x="294.5" y="0.0" width="78.5" height="61.5"/>
+                                                        <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="17"/>
+                                                        <state key="normal" title="Disabled"/>
+                                                        <connections>
+                                                            <action selector="upcomingDisableBT:" destination="PI1-ws-EsE" eventType="touchUpInside" id="kbB-9M-YAN"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="zCP-XZ-jGt" firstAttribute="width" secondItem="VUe-et-YK6" secondAttribute="width" id="dlb-Ay-gdY"/>
+                                                </constraints>
+                                            </stackView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZIO-69-zNa">
+                                                <rect key="frame" x="0.0" y="69.5" width="373" height="2"/>
+                                                <color key="backgroundColor" white="0.80186037389999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="2" id="KKr-FG-En6"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="USR-h7-ohZ" firstAttribute="width" secondItem="xEv-Zm-AQ5" secondAttribute="width" multiplier="0.5" id="cUt-np-W8R"/>
+                                        </constraints>
+                                        <viewLayoutGuide key="safeArea" id="qme-5x-JF9"/>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="U9J-Fx-3WL">
+                                        <rect key="frame" x="0.0" y="73.5" width="373" height="71.5"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="31o-ry-vRb">
+                                                <rect key="frame" x="0.0" y="0.0" width="373" height="61.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Late Period" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q0Y-w0-ryw">
+                                                        <rect key="frame" x="0.0" y="0.0" width="186.5" height="61.5"/>
+                                                        <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="17"/>
+                                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wzE-al-74B">
+                                                        <rect key="frame" x="201.5" y="0.0" width="78" height="61.5"/>
+                                                        <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="17"/>
+                                                        <state key="normal" title="Enabled"/>
+                                                        <connections>
+                                                            <action selector="lateEnableBT:" destination="PI1-ws-EsE" eventType="touchUpInside" id="PgD-eI-P71"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eOM-Xe-1gc">
+                                                        <rect key="frame" x="294.5" y="0.0" width="78.5" height="61.5"/>
+                                                        <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="17"/>
+                                                        <state key="normal" title="Disabled"/>
+                                                        <connections>
+                                                            <action selector="lateDisableBT:" destination="PI1-ws-EsE" eventType="touchUpInside" id="jj7-tj-dMR"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="wzE-al-74B" firstAttribute="width" secondItem="eOM-Xe-1gc" secondAttribute="width" id="8fm-pb-VOg"/>
+                                                </constraints>
+                                            </stackView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MpV-kj-T24">
+                                                <rect key="frame" x="0.0" y="69.5" width="373" height="2"/>
+                                                <color key="backgroundColor" white="0.80186037389999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="2" id="xIT-Ky-PJw"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="q0Y-w0-ryw" firstAttribute="width" secondItem="USR-h7-ohZ" secondAttribute="width" id="dCi-c9-y1y"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="axR-PB-s0u" firstAttribute="top" secondItem="pGC-ih-WdM" secondAttribute="top" constant="30" id="ZJE-gm-wIP"/>
+                            <constraint firstItem="axR-PB-s0u" firstAttribute="height" secondItem="pGC-ih-WdM" secondAttribute="height" multiplier="0.2" id="h6E-Ty-QYA"/>
+                            <constraint firstItem="axR-PB-s0u" firstAttribute="width" secondItem="rEW-Xv-lrv" secondAttribute="width" multiplier="0.9" id="yqY-eK-gfX"/>
+                            <constraint firstItem="axR-PB-s0u" firstAttribute="centerX" secondItem="rEW-Xv-lrv" secondAttribute="centerX" id="zd8-4S-fFT"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="pGC-ih-WdM"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ci7-zh-RKj"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="lateDisableButton" destination="eOM-Xe-1gc" id="2Bl-MD-GfF"/>
+                        <outlet property="lateEnableButton" destination="wzE-al-74B" id="eyd-1K-xTh"/>
+                        <outlet property="lateLabel" destination="q0Y-w0-ryw" id="436-up-Aax"/>
+                        <outlet property="upcomingDisableButton" destination="VUe-et-YK6" id="u3P-2f-SV8"/>
+                        <outlet property="upcomingEnableButton" destination="zCP-XZ-jGt" id="zTL-Sh-c0f"/>
+                        <outlet property="upcomingLabel" destination="USR-h7-ohZ" id="LGi-5i-Sw4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eGn-ik-Xkq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="13099" y="2087"/>
         </scene>
     </scenes>
     <resources>
         <image name="Settings icon" width="23" height="25"/>
-        <image name="buttonSmallCancel" width="128" height="48"/>
+        <image name="buttonSmallCancel" width="160" height="56"/>
         <image name="buttonSmallConfirm" width="128" height="48"/>
     </resources>
     <color key="tintColor" red="0.58823529409999997" green="0.71372549019999998" blue="0.80784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

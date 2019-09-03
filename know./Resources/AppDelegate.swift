@@ -8,11 +8,30 @@
 
 import UIKit
 import CloudKit
+import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
     
     var window: UIWindow?
+    
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        checkNotificationPermissions()
+        checkForiCloudUser()
+        return true
+    }
+    
+    func checkNotificationPermissions() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.badge, .sound, .alert
+        ]) { (granted, _) in
+            if granted {
+                print("User granted permission for notifications")
+            } else {
+                print("User denied permission for notifications")
+            }
+        }
+        UNUserNotificationCenter.current().delegate = self
+    }
     
     func checkForiCloudUser() {
         let container = CKContainer.default()
@@ -38,6 +57,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
+    func checkForExistingUserData() {
+        UserController.shared.fetchUser { (success) in
+            DispatchQueue.main.async {
+                self.window = UIWindow(frame: UIScreen.main.bounds)
+                if success {
+                    self.transitionToAuthVC()
+                } else {
+                    self.transitionToOnboardingVC()
+                }
+            }
+        }
+    }
+    
     func transitionToAuthVC() {
         let storyboard: UIStoryboard = UIStoryboard(name: "Onboarding", bundle: nil)
         let view = storyboard.instantiateViewController(withIdentifier: "authViewController")
@@ -50,19 +82,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let view = storyboard.instantiateInitialViewController() as! UINavigationController
         self.window?.rootViewController = view
         self.window?.makeKeyAndVisible()
-    }
-    
-    func checkForExistingUserData() {
-        UserController.shared.fetchUser { (success) in
-            DispatchQueue.main.async {
-                self.window = UIWindow(frame: UIScreen.main.bounds)
-                if success {
-                    self.transitionToAuthVC()
-                } else {
-                    self.transitionToOnboardingVC()
-                }
-            }
-        }
     }
     
     func application(_ application: UIApplication, userDidAcceptCloudKitShareWith cloudKitShareMetadata: CKShare.Metadata) {
@@ -87,6 +106,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         if let records = records {
                             let users = records.compactMap({User(record: $0)})
                             UserController.shared.viewedUsers = users
+                            print(users)
                         }
                     default:
                         break
@@ -97,11 +117,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         CKContainer(identifier: cloudKitShareMetadata.containerIdentifier).add(acceptShareOperation)
     }
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        checkForiCloudUser()
-        
-        return true
-    }
+
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

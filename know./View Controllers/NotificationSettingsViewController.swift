@@ -10,9 +10,12 @@ import UIKit
 
 class NotificationSettingsViewController: UIViewController {
 
+    //Properties
+    let user = UserController.shared.currentUser
+    let upcomingNotificationEnabled = UserController.shared.currentUser?.upcomingNotificationEnabled
+    let lateNotificationEnabled = UserController.shared.currentUser?.lateNotificationEnabled
     
     //Outlets
-    @IBOutlet weak var allLabel: UILabel!
     @IBOutlet weak var upcomingLabel: UILabel!
     @IBOutlet weak var lateLabel: UILabel!
     @IBOutlet weak var upcomingEnableButton: UIButton!
@@ -24,6 +27,7 @@ class NotificationSettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavBarView()
+        checkUserSettings()
     }
     
     //Set Navigation Bar
@@ -40,26 +44,40 @@ class NotificationSettingsViewController: UIViewController {
     //Actions
     @IBAction func upcomingEnableBT(_ sender: Any) {
         updateToggledButtons(select: upcomingEnableButton, deselect: upcomingDisableButton)
+        NotificationController.shared.scheduleUpcomingPeriodAlert()
     }
     
     @IBAction func upcomingDisableBT(_ sender: Any) {
         updateToggledButtons(select: upcomingDisableButton, deselect: upcomingEnableButton)
+        NotificationController.shared.cancelUpcomingPeriodAlert()
     }
     
     @IBAction func lateEnableBT(_ sender: Any) {
         updateToggledButtons(select: lateEnableButton, deselect: lateDisableButton)
+        NotificationController.shared.scheduleLatePeriodAlert()
     }
     
     @IBAction func lateDisableBT(_ sender: Any) {
         updateToggledButtons(select: lateDisableButton, deselect: lateEnableButton)
+        NotificationController.shared.cancelLatePeriodAlert()
     }
     
-    
-    func updateToggledButtons(select button: UIButton, deselect: UIButton) {
-        if button.isSelected {
-            button.isSelected = false
-            deselect.isSelected = true
+    func checkUserSettings() {
+        if upcomingNotificationEnabled == true {
+            updateToggledButtons(select: upcomingEnableButton, deselect: upcomingDisableButton)
         } else {
+            updateToggledButtons(select: upcomingDisableButton, deselect: upcomingEnableButton)
+        }
+        if lateNotificationEnabled == true {
+            updateToggledButtons(select: lateEnableButton, deselect: lateDisableButton)
+        } else {
+            updateToggledButtons(select: lateDisableButton, deselect: lateEnableButton)
+        }
+    }
+    
+    //Button Status
+    func updateToggledButtons(select button: UIButton, deselect: UIButton) {
+        if button.isSelected == false {
             button.isSelected = true
             deselect.isSelected = false
         }

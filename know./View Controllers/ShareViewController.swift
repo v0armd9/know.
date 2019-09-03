@@ -25,6 +25,17 @@ class ShareViewController: UIViewController {
     @IBAction func shareButtonTapped(_ sender: Any) {
         presentShareController()
     }
+    
+    //Set Navigation Bar
+    func setNavBarView() {
+        let label = UILabel()
+        label.text = "Sharing"
+        label.textColor = #colorLiteral(red: 0.554766655, green: 0.7184440494, blue: 0.8180738091, alpha: 1)
+        label.textAlignment = .center
+        label.sizeToFit()
+        label.font = UIFont(name: "Nunito-Bold", size: 25)
+        navigationItem.titleView = label
+    }
 
     //CloudKit Share Controller View
     func presentShareController() {

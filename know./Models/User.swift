@@ -25,10 +25,12 @@ class User {
     var pmsDuration: Int?
     var lastPeriod: Date?
     var authEnabled: Bool?
+    var upcomingNotificationEnabled: Bool?
+    var lateNotificationEnabled: Bool?
     var ckRecordID: CKRecord.ID
     
     //Designated Initializer
-    init(days: [Day] = [], name: String?, cycles: [Cycle] = [], age: Int?, birthdate: Date?, height: Int?, weight: Int?, cycleLength: [Int]?, periodLength: Int?, pms: Bool?, pmsDuration: Int?, lastPeriod: Date?, authEnabled: Bool? = false, ckRecordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString)) {
+    init(days: [Day] = [], name: String?, cycles: [Cycle] = [], age: Int?, birthdate: Date?, height: Int?, weight: Int?, cycleLength: [Int]?, periodLength: Int?, pms: Bool?, pmsDuration: Int?, lastPeriod: Date?, authEnabled: Bool? = false, upcomingNotificationEnabled: Bool? = false, lateNotificationEnabled: Bool? = false, ckRecordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString)) {
         self.days = days
         self.name = name
         self.cycles = cycles
@@ -42,6 +44,8 @@ class User {
         self.pmsDuration = pmsDuration
         self.lastPeriod = lastPeriod
         self.authEnabled = authEnabled
+        self.upcomingNotificationEnabled = upcomingNotificationEnabled
+        self.lateNotificationEnabled = lateNotificationEnabled
         self.ckRecordID = ckRecordID
     }
     
@@ -57,9 +61,11 @@ class User {
             let pms = record[UserConstants.pmsKey] as? Bool,
             let pmsDuration = record[UserConstants.pmsDurationKey] as? Int,
             let lastPeriod = record[UserConstants.lastPeriodKey] as? Date,
+            let upcomingNotificationEnabled = record[UserConstants.upcomingKey] as? Bool,
+            let lateNotificationEnabled = record[UserConstants.lateKey] as? Bool,
             let authEnabled = record[UserConstants.authKey] as? Bool
             else { return nil }
-        self.init(name: name, age: age, birthdate: birthdate, height: height, weight: weight, cycleLength: cycleLength, periodLength: periodLength, pms: pms, pmsDuration: pmsDuration, lastPeriod: lastPeriod, authEnabled: authEnabled, ckRecordID: record.recordID)
+        self.init(name: name, age: age, birthdate: birthdate, height: height, weight: weight, cycleLength: cycleLength, periodLength: periodLength, pms: pms, pmsDuration: pmsDuration, lastPeriod: lastPeriod, authEnabled: authEnabled, upcomingNotificationEnabled: upcomingNotificationEnabled, lateNotificationEnabled: lateNotificationEnabled, ckRecordID: record.recordID)
     }
 }
 
@@ -77,6 +83,8 @@ extension CKRecord {
         self.setValue(user.pms, forKey: UserConstants.pmsKey)
         self.setValue(user.pmsDuration, forKey: UserConstants.pmsDurationKey)
         self.setValue(user.lastPeriod, forKey: UserConstants.lastPeriodKey)
+        self.setValue(user.upcomingNotificationEnabled, forKey: UserConstants.upcomingKey)
+        self.setValue(user.lateNotificationEnabled, forKey: UserConstants.lateKey)
         self.setValue(user.authEnabled, forKey: UserConstants.authKey)
     }
 }
@@ -102,4 +110,6 @@ struct UserConstants {
     fileprivate static let pmsDurationKey = "pmsDuration"
     fileprivate static let lastPeriodKey = "lastPeriod"
     fileprivate static let authKey = "authEnabled"
+    fileprivate static let upcomingKey = "upcomingNotificationEnabled"
+    fileprivate static let lateKey = "lateNotificationEnabled"
 }

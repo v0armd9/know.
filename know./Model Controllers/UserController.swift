@@ -42,7 +42,7 @@ class UserController {
         }
     }
     
-    func update(user: User, withName name: String?, cycles: [Cycle]?, birthdate: Date?, age: Int?, height: Int?, weight: Int?, cycleLength: [Int]?, periodLength: Int?, pms: Bool?, pmsDuration: Int?, lastPeriod: Date?, authEnabled: Bool?, completion: @escaping(Bool) -> Void) {
+    func update(user: User, withName name: String?, cycles: [Cycle]?, birthdate: Date?, age: Int?, height: Int?, weight: Int?, cycleLength: [Int]?, periodLength: Int?, pms: Bool?, pmsDuration: Int?, lastPeriod: Date?, authEnabled: Bool?, updateNotificationEnabled: Bool?, lateNotificationEnabled: Bool, completion: @escaping(Bool) -> Void) {
         user.name = name
         user.cycles = cycles!
         user.birthdate = birthdate
@@ -54,6 +54,8 @@ class UserController {
         user.pms = pms
         user.pmsDuration = pmsDuration
         user.lastPeriod = lastPeriod
+        user.upcomingNotificationEnabled = updateNotificationEnabled
+        user.lateNotificationEnabled = lateNotificationEnabled
         user.authEnabled = authEnabled
         currentUser = user
         let record = CKRecord(user: user)

@@ -2,4 +2,438 @@
 <Bucket
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "know./Resources/AppDelegate.swift"
+            timestampString = "589245924.058113"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
+            landmarkName = "application(_:userDidAcceptCloudKitShareWith:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "know./Resources/AppDelegate.swift"
+            timestampString = "589245924.058187"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "application(_:userDidAcceptCloudKitShareWith:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "know./Resources/AppDelegate.swift"
+            timestampString = "589245924.058241"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
+            landmarkName = "application(_:userDidAcceptCloudKitShareWith:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "know_.AppDelegate.application(_: __C.UIApplication, userDidAcceptCloudKitShareWith: __C.CKShareMetadata) -&gt; ()"
+                  moduleName = "know."
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kaorishino/Documents/Documents%20-%20Madison%E2%80%99s%20MacBook%20Pro/DEV.MOUNTAIN/CLASS/Know./know./know./Resources/AppDelegate.swift"
+                  timestampString = "589239192.923247"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "90"
+                  endingLineNumber = "90"
+                  offsetFromSymbolStart = "274">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.CKShareMetadata, Swift.Optional&lt;__C.CKShare&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in know_.AppDelegate.application(_: __C.UIApplication, userDidAcceptCloudKitShareWith: __C.CKShareMetadata) -&gt; ()"
+                  moduleName = "know."
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kaorishino/Documents/Documents%20-%20Madison%E2%80%99s%20MacBook%20Pro/DEV.MOUNTAIN/CLASS/Know./know./know./Resources/AppDelegate.swift"
+                  timestampString = "589239192.924742"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "91"
+                  endingLineNumber = "91"
+                  offsetFromSymbolStart = "222">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "know./Resources/AppDelegate.swift"
+            timestampString = "589245924.058292"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "application(_:userDidAcceptCloudKitShareWith:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "know./Resources/AppDelegate.swift"
+            timestampString = "589245924.058341"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
+            landmarkName = "application(_:userDidAcceptCloudKitShareWith:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "know./Resources/AppDelegate.swift"
+            timestampString = "589245924.058387"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "application(_:userDidAcceptCloudKitShareWith:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "know_.AppDelegate.application(_: __C.UIApplication, userDidAcceptCloudKitShareWith: __C.CKShareMetadata) -&gt; ()"
+                  moduleName = "know."
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kaorishino/Documents/Documents%20-%20Madison%E2%80%99s%20MacBook%20Pro/DEV.MOUNTAIN/CLASS/Know./know./know./Resources/AppDelegate.swift"
+                  timestampString = "589239192.959651"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "97"
+                  endingLineNumber = "97"
+                  offsetFromSymbolStart = "466">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in know_.AppDelegate.application(_: __C.UIApplication, userDidAcceptCloudKitShareWith: __C.CKShareMetadata) -&gt; ()"
+                  moduleName = "know."
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kaorishino/Documents/Documents%20-%20Madison%E2%80%99s%20MacBook%20Pro/DEV.MOUNTAIN/CLASS/Know./know./know./Resources/AppDelegate.swift"
+                  timestampString = "589239192.961117"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "98"
+                  endingLineNumber = "98"
+                  offsetFromSymbolStart = "172">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "know./Resources/AppDelegate.swift"
+            timestampString = "589245924.058436"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
+            landmarkName = "application(_:userDidAcceptCloudKitShareWith:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "know./Resources/AppDelegate.swift"
+            timestampString = "589245924.058483"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "application(_:userDidAcceptCloudKitShareWith:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in know_.AppDelegate.application(_: __C.UIApplication, userDidAcceptCloudKitShareWith: __C.CKShareMetadata) -&gt; ()"
+                  moduleName = "know."
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kaorishino/Documents/Documents%20-%20Madison%E2%80%99s%20MacBook%20Pro/DEV.MOUNTAIN/CLASS/Know./know./know./Resources/AppDelegate.swift"
+                  timestampString = "589239192.969829"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "102"
+                  endingLineNumber = "102"
+                  offsetFromSymbolStart = "1193">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Array&lt;__C.CKRecord&gt;&gt;) -&gt; () in closure #2 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in know_.AppDelegate.application(_: __C.UIApplication, userDidAcceptCloudKitShareWith: __C.CKShareMetadata) -&gt; ()"
+                  moduleName = "know."
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kaorishino/Documents/Documents%20-%20Madison%E2%80%99s%20MacBook%20Pro/DEV.MOUNTAIN/CLASS/Know./know./know./Resources/AppDelegate.swift"
+                  timestampString = "589239192.971173"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "103"
+                  endingLineNumber = "103"
+                  offsetFromSymbolStart = "101">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "know./Resources/AppDelegate.swift"
+            timestampString = "589245924.058533"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
+            landmarkName = "application(_:userDidAcceptCloudKitShareWith:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in know_.AppDelegate.application(_: __C.UIApplication, userDidAcceptCloudKitShareWith: __C.CKShareMetadata) -&gt; ()"
+                  moduleName = "know."
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kaorishino/Documents/Documents%20-%20Madison%E2%80%99s%20MacBook%20Pro/DEV.MOUNTAIN/CLASS/Know./know./know./Resources/AppDelegate.swift"
+                  timestampString = "589239192.975965"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "102"
+                  endingLineNumber = "102"
+                  offsetFromSymbolStart = "1193">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Array&lt;__C.CKRecord&gt;&gt;) -&gt; () in closure #2 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in know_.AppDelegate.application(_: __C.UIApplication, userDidAcceptCloudKitShareWith: __C.CKShareMetadata) -&gt; ()"
+                  moduleName = "know."
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kaorishino/Documents/Documents%20-%20Madison%E2%80%99s%20MacBook%20Pro/DEV.MOUNTAIN/CLASS/Know./know./know./Resources/AppDelegate.swift"
+                  timestampString = "589239192.977239"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "103"
+                  endingLineNumber = "103"
+                  offsetFromSymbolStart = "101">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "know./Resources/AppDelegate.swift"
+            timestampString = "589245924.05858"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
+            landmarkName = "application(_:userDidAcceptCloudKitShareWith:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "know./Resources/AppDelegate.swift"
+            timestampString = "589245924.058632"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
+            landmarkName = "application(_:userDidAcceptCloudKitShareWith:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Array&lt;__C.CKRecord&gt;&gt;) -&gt; () in closure #2 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in know_.AppDelegate.application(_: __C.UIApplication, userDidAcceptCloudKitShareWith: __C.CKShareMetadata) -&gt; ()"
+                  moduleName = "know."
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kaorishino/Documents/Documents%20-%20Madison%E2%80%99s%20MacBook%20Pro/DEV.MOUNTAIN/CLASS/Know./know./know./Resources/AppDelegate.swift"
+                  timestampString = "589239192.985016"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "104"
+                  endingLineNumber = "104"
+                  offsetFromSymbolStart = "199">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Array&lt;__C.CKRecord&gt;&gt;) -&gt; () in closure #2 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in know_.AppDelegate.application(_: __C.UIApplication, userDidAcceptCloudKitShareWith: __C.CKShareMetadata) -&gt; ()"
+                  moduleName = "know."
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kaorishino/Documents/Documents%20-%20Madison%E2%80%99s%20MacBook%20Pro/DEV.MOUNTAIN/CLASS/Know./know./know./Resources/AppDelegate.swift"
+                  timestampString = "589239192.986197"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "104"
+                  endingLineNumber = "104"
+                  offsetFromSymbolStart = "308">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "know./Resources/AppDelegate.swift"
+            timestampString = "589245924.058679"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
+            landmarkName = "application(_:userDidAcceptCloudKitShareWith:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "know./Resources/AppDelegate.swift"
+            timestampString = "589245924.058727"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
+            landmarkName = "application(_:userDidAcceptCloudKitShareWith:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "know./Resources/AppDelegate.swift"
+            timestampString = "589245924.058774"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "application(_:userDidAcceptCloudKitShareWith:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "know./Resources/AppDelegate.swift"
+            timestampString = "589245924.0588191"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
+            landmarkName = "application(_:userDidAcceptCloudKitShareWith:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "know./Resources/AppDelegate.swift"
+            timestampString = "589245924.058866"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
+            landmarkName = "application(_:userDidAcceptCloudKitShareWith:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "know./Resources/AppDelegate.swift"
+            timestampString = "589245924.0589091"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
+            landmarkName = "application(_:userDidAcceptCloudKitShareWith:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

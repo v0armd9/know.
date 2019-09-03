@@ -13,6 +13,7 @@ class HomeTabViewController: UIViewController {
     @IBOutlet weak var monthLabel: UILabel!
     @IBOutlet weak var dayLabel: UILabel!
     @IBOutlet weak var trackerLabel: UILabel!
+    @IBOutlet weak var indicatorImageView: UIImageView!
     
     let wheelView = UIView()
     var confirmed: Bool = false
@@ -80,6 +81,7 @@ class HomeTabViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.indicatorImageView.alpha = 0
         addButtons(buttonCount: 18) { (success) in
             if success {
                 self.selectedDate = Date().formattedDate()
@@ -402,9 +404,19 @@ class HomeTabViewController: UIViewController {
                 self.dayObject?.moodList = self.moods
                 self.dayObject?.sexDetails = self.sex
                 self.dayObject?.customEntry = self.customEntry
+                DispatchQueue.main.async {
+                    UIView.animate(withDuration: 0.5, animations: {
+                        self.indicatorImageView.alpha = 1
+                    })
+                }
             } else {
                 self.dayObject = nil
                 print("No DayObject saved for \(date.prettyDateString())")
+                DispatchQueue.main.async {
+                    UIView.animate(withDuration: 0.5, animations: {
+                        self.indicatorImageView.alpha = 0
+                    })
+                }
             }
         }
     }

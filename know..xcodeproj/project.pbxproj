@@ -32,6 +32,9 @@
 		53381C77231038B000FA1D91 /* OnboardingFinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53381C76231038B000FA1D91 /* OnboardingFinishedViewController.swift */; };
 		53381C792310782100FA1D91 /* CustomEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53381C782310782100FA1D91 /* CustomEntry.swift */; };
 		53381C7B2310797B00FA1D91 /* CustomEntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53381C7A2310797B00FA1D91 /* CustomEntryController.swift */; };
+		535038F1231EC6A4007EFEC2 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535038F0231EC6A4007EFEC2 /* ShareViewController.swift */; };
+		535038F5231F0897007EFEC2 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535038F4231F0897007EFEC2 /* Notifications.swift */; };
+		535038F7231F0DD1007EFEC2 /* NotificationSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535038F6231F0DD1007EFEC2 /* NotificationSettingsViewController.swift */; };
 		53B140DD230B0FD9008AE180 /* Symptom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B140DC230B0FD9008AE180 /* Symptom.swift */; };
 		53B140DF230B0FE8008AE180 /* Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B140DE230B0FE8008AE180 /* Flow.swift */; };
 		53B140E1230B11E0008AE180 /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B140E0230B11E0008AE180 /* Mood.swift */; };
@@ -107,6 +110,9 @@
 		53381C76231038B000FA1D91 /* OnboardingFinishedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFinishedViewController.swift; sourceTree = "<group>"; };
 		53381C782310782100FA1D91 /* CustomEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomEntry.swift; sourceTree = "<group>"; };
 		53381C7A2310797B00FA1D91 /* CustomEntryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomEntryController.swift; sourceTree = "<group>"; };
+		535038F0231EC6A4007EFEC2 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		535038F4231F0897007EFEC2 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		535038F6231F0DD1007EFEC2 /* NotificationSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingsViewController.swift; sourceTree = "<group>"; };
 		53B140DC230B0FD9008AE180 /* Symptom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symptom.swift; sourceTree = "<group>"; };
 		53B140DE230B0FE8008AE180 /* Flow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flow.swift; sourceTree = "<group>"; };
 		53B140E0230B11E0008AE180 /* Mood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mood.swift; sourceTree = "<group>"; };
@@ -179,6 +185,7 @@
 				53B14103230DFEB7008AE180 /* DateFormatter.swift */,
 				58CD1107230C7742009A8333 /* LabelHelper.swift */,
 				58462712231483D2007EFA08 /* ColorExtension.swift */,
+				535038F4231F0897007EFEC2 /* Notifications.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -300,6 +307,8 @@
 				58184AC42316F27A0061BFDD /* SymptomCollectionViewCell.swift */,
 				530B85982318239B005D1D72 /* AddSymptomsTableViewController.swift */,
 				530B859A23184EE2005D1D72 /* CustomEntryPopupViewController.swift */,
+				535038F0231EC6A4007EFEC2 /* ShareViewController.swift */,
+				535038F6231F0DD1007EFEC2 /* NotificationSettingsViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -453,6 +462,7 @@
 				53B140F4230DB34C008AE180 /* User.swift in Sources */,
 				58184AC7231845910061BFDD /* Cycle.swift in Sources */,
 				53B140FE230DE68E008AE180 /* OnboardCycleLengthViewController.swift in Sources */,
+				535038F7231F0DD1007EFEC2 /* NotificationSettingsViewController.swift in Sources */,
 				58184AC923184D170061BFDD /* CycleController.swift in Sources */,
 				58462713231483D2007EFA08 /* ColorExtension.swift in Sources */,
 				53F58879231087DC0076D7D2 /* HealthInfoController.swift in Sources */,
@@ -467,11 +477,13 @@
 				53B140F0230CA9EB008AE180 /* MoodController.swift in Sources */,
 				53381C7B2310797B00FA1D91 /* CustomEntryController.swift in Sources */,
 				53B140EE230CA9A3008AE180 /* SymptomController.swift in Sources */,
+				535038F1231EC6A4007EFEC2 /* ShareViewController.swift in Sources */,
 				53D0972F231475FB000D086E /* SettingListTableViewController.swift in Sources */,
 				53D09731231479F8000D086E /* SettingProfileViewController.swift in Sources */,
 				53B140FC230DE4FF008AE180 /* OnboardPMSViewController.swift in Sources */,
 				53381C77231038B000FA1D91 /* OnboardingFinishedViewController.swift in Sources */,
 				58985CBF23159D4C00D3016B /* CalendarTabViewController.swift in Sources */,
+				535038F5231F0897007EFEC2 /* Notifications.swift in Sources */,
 				53F58875231085C60076D7D2 /* InfoListViewController.swift in Sources */,
 				53B140F6230DB88D008AE180 /* UserController.swift in Sources */,
 				58184AC52316F27A0061BFDD /* SymptomCollectionViewCell.swift in Sources */,

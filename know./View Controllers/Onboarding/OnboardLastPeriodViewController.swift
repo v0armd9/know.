@@ -28,13 +28,6 @@ class OnboardLastPeriodViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    //Actions
-    @IBAction func skipButtonTapped(_ sender: Any) {
-    }
-    
-    @IBAction func nextButtonTapped(_ sender: Any) {
-    }
-    
     //Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         lastPeriod = datePickerView.date

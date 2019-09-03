@@ -46,6 +46,7 @@ class SettingProfileViewController: UIViewController {
         setNavBarView()
         setDelegates()
         tapGestureRecognizer()
+        showNotEditing()
     }
     
     //Segue to Popup View (to transfer birthday data)
@@ -69,14 +70,18 @@ class SettingProfileViewController: UIViewController {
     }
     
     @IBAction func editButtonTapped(_ sender: Any) {
-        UIView.animate(withDuration: 0.3, delay: 0.0, options: .transitionCrossDissolve, animations: {
-            if self.editBarButton.title == "Edit" {
-                self.loadEditingView()
-            } else {
-                self.loadNotEditingView()
-                self.save()
+        if self.editBarButton.title == "Edit" {
+            UIView.animate(withDuration: 1) {
+                self.showEditing()
             }
-        }, completion: nil)
+            self.loadEditingView()
+        } else {
+            UIView.animate(withDuration: 1) {
+                self.showNotEditing()
+            }
+            self.loadNotEditingView()
+            self.save()
+        }
     }
     
     @IBAction func pmsTrueButtonTapped(_ sender: Any) {
@@ -103,6 +108,7 @@ class SettingProfileViewController: UIViewController {
     }
     
     //Helper Functions
+    //Set Navigation Bar
     func setNavBarView() {
         guard let user = UserController.shared.currentUser,
             let name = user.name
@@ -117,11 +123,13 @@ class SettingProfileViewController: UIViewController {
         navigationItem.titleView = label
     }
     
+    //Dismiss Keyboard with tap
     func tapGestureRecognizer() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
     }
     
+    //Delegates for textfields to dismiss keyboard
     func setDelegates() {
         nameTextField.delegate = self
         ageTextField.delegate = self
@@ -131,7 +139,9 @@ class SettingProfileViewController: UIViewController {
         periodLabelTextField.delegate = self
     }
     
+    //Set View
     func updateViews() {
+        showNotEditing()
         guard let user = UserController.shared.currentUser,
             let name = user.name,
             let birthday = user.birthdate,
@@ -176,7 +186,6 @@ class SettingProfileViewController: UIViewController {
         guard let user = UserController.shared.currentUser,
             let name = user.name,
             let birthday = user.birthdate,
-            let age = user.age,
             let height = user.height,
             let weight = user.weight,
             let cycleLength = user.cycleLength,
@@ -199,7 +208,6 @@ class SettingProfileViewController: UIViewController {
         //TextField Text
         nameTextField.text = name
         birthdayButton.setTitle(birthday.stringWith(dateStyle: .medium, timeStyle: .none), for: .normal)
-        ageTextField.text = "\(age)"
         heightTextField.text = "\(height)"
         weightTextField.text = "\(weight)"
         cycleLengthTextField.text = "\(average)"
@@ -230,6 +238,27 @@ class SettingProfileViewController: UIViewController {
         authLabel.isHidden = true
     }
     
+    func showEditing() {
+        nameTextField.alpha = 1
+        birthdayButton.alpha = 1
+        heightTextField.alpha = 1
+        weightTextField.alpha = 1
+        cycleLengthTextField.alpha = 1
+        periodLabelTextField.alpha = 1
+        pmsNoButton.alpha = 1
+        pmsYesButton.alpha = 1
+        authEnableButton.alpha = 1
+        authDisableButton.alpha = 1
+        nameLabel.alpha = 0
+        birthdayLabel.alpha = 0
+        heightLabel.alpha = 0
+        weightLabel.alpha = 0
+        cycleLengthLabel.alpha = 0
+        periodLengthLabel.alpha = 0
+        pmsLabel.alpha = 0
+        authLabel.alpha = 0
+    }
+    
     func loadNotEditingView() {
         //TextFields
         editBarButton.title = "Edit"
@@ -253,6 +282,27 @@ class SettingProfileViewController: UIViewController {
         periodLengthLabel.isHidden = false
         pmsLabel.isHidden = false
         authLabel.isHidden = false
+    }
+    
+    func showNotEditing() {
+        nameTextField.alpha = 0
+        birthdayButton.alpha = 0
+        heightTextField.alpha = 0
+        weightTextField.alpha = 0
+        cycleLengthTextField.alpha = 0
+        periodLabelTextField.alpha = 0
+        pmsNoButton.alpha = 0
+        pmsYesButton.alpha = 0
+        authEnableButton.alpha = 0
+        authDisableButton.alpha = 0
+        nameLabel.alpha = 1
+        birthdayLabel.alpha = 1
+        heightLabel.alpha = 1
+        weightLabel.alpha = 1
+        cycleLengthLabel.alpha = 1
+        periodLengthLabel.alpha = 1
+        pmsLabel.alpha = 1
+        authLabel.alpha = 1
     }
     
     func save() {
@@ -297,6 +347,7 @@ class SettingProfileViewController: UIViewController {
         }
     }
     
+    //Check if authentication is available before enabling
     func authenticateUser() {
         let authContext = LAContext()
         var authError: NSError?

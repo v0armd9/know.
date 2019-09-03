@@ -31,16 +31,6 @@ class OnboardCycleLengthViewController: UIViewController {
         dayPickerView.selectRow(8, inComponent: 0, animated: false)
     }
     
-    //Actions
-    @IBAction func skipButtonTapped(_ sender: Any) {
-        
-    }
-    
-    @IBAction func nextButtonTapped(_ sender: Any) {
-        
-    }
-    
-
     //Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         UserController.shared.currentUser?.cycleLength = cycleLength

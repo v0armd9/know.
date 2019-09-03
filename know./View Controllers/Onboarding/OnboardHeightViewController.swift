@@ -34,9 +34,6 @@ class OnboardHeightViewController: UIViewController {
         heightPickerView.selectRow(2, inComponent: 0, animated: true)
         heightPickerView.selectRow(0, inComponent:1, animated: true)
     }
-    
-    //Actions
-    
 
     //Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

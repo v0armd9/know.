@@ -42,10 +42,6 @@ class OnboardPMSViewController: UIViewController {
     }
     
     //Actions
-    @IBAction func skipButtonTapped(_ sender: Any) {
-        
-    }
-    
     @IBAction func yesButtonTapped(_ sender: Any) {
         experiencesPms = true
         UIView.animate(withDuration: 0.5) {
@@ -76,9 +72,7 @@ class OnboardPMSViewController: UIViewController {
         }
     }
     
-    @IBAction func nextButtonTapped(_ sender: Any) {
-    }
-    
+    //Set views Helper Function
     func setButtonViews() {
         yesButton.setImage(UIImage(named: "yes"), for: .normal)
         yesButton.setImage(UIImage(named: "yesActive"), for: .selected)

@@ -54,9 +54,10 @@ class FlowController {
         CloudKitController.shared.update(record: record) { (success) in
             if success {
                 print("Flow Updated On FlowController")
+                self.flow = flow
                 completion(true)
             } else {
-                print("Flow Failed to Update On FlowController")
+                print("Flow Failed to Update")
                 completion(false)
             }
         }

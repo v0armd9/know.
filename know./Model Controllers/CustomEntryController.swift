@@ -47,10 +47,11 @@ class CustomEntryController {
         let record = CKRecord(customEntry: entry)
         CloudKitController.shared.update(record: record) { (success) in
             if success {
-                print("Custom Entry Updated on CustomEntryController")
+                print("Custom Entry Updated")
+                self.customEntries = entry
                 completion(true)
             } else {
-                print("Custom Entry Failed to Update on CustomEntryController")
+                print("Custom Entry Failed to Update")
                 completion(false)
             }
         }

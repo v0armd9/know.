@@ -58,10 +58,11 @@ class MoodController {
         let record = CKRecord(mood: mood)
         CloudKitController.shared.update(record: record) { (success) in
             if success {
-                print("Mood Updated on MoodController")
+                print("Mood Updated")
+                self.moods = mood
                 completion(true)
             } else {
-                print("Mood Failed to Update on MoodController")
+                print("Mood Failed to Update")
                 completion(false)
             }
         }

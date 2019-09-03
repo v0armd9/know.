@@ -780,7 +780,6 @@ class CalendarTabViewController: UIViewController {
         var classButtons: [Button] = []
         for button in buttons {
             classButtons.append(Button(date: date, button: button, day: nil))
-            print(classButtons.count)
             let dayNumber = Calendar.current.dateComponents([Calendar.Component.day], from: date).day!
             let buttonMonth = Calendar.current.component(.month, from: date)
             UIView.performWithoutAnimation {
@@ -1013,7 +1012,10 @@ class CalendarTabViewController: UIViewController {
             }
         }
         if let custom = day.customEntry {
-            symptomArray.append(custom.text)
+            let text = custom.text
+            if text != "" {
+                symptomArray.append(text)
+            }
         }
         
         self.symptomData = symptomArray

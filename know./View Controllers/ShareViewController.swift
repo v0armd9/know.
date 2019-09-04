@@ -15,13 +15,13 @@ class ShareViewController: UIViewController {
     //Outlets
     @IBOutlet weak var shareButton: UIButton!
     
+    //Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setNavBarView()
     }
     
-
+    //Actions
     @IBAction func shareButtonTapped(_ sender: Any) {
         presentShareController()
     }

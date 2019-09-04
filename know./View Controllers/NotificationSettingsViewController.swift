@@ -45,23 +45,28 @@ class NotificationSettingsViewController: UIViewController {
     @IBAction func upcomingEnableBT(_ sender: Any) {
         updateToggledButtons(select: upcomingEnableButton, deselect: upcomingDisableButton)
         NotificationController.shared.scheduleUpcomingPeriodAlert()
+        updateSettings(upcomingNoticication: true, lateNotification: user?.lateNotificationEnabled ?? false)
     }
     
     @IBAction func upcomingDisableBT(_ sender: Any) {
         updateToggledButtons(select: upcomingDisableButton, deselect: upcomingEnableButton)
         NotificationController.shared.cancelUpcomingPeriodAlert()
+        updateSettings(upcomingNoticication: false, lateNotification: user?.lateNotificationEnabled ?? false)
     }
     
     @IBAction func lateEnableBT(_ sender: Any) {
         updateToggledButtons(select: lateEnableButton, deselect: lateDisableButton)
         NotificationController.shared.scheduleLatePeriodAlert()
+        updateSettings(upcomingNoticication: user?.upcomingNotificationEnabled ?? false, lateNotification: true)
     }
     
     @IBAction func lateDisableBT(_ sender: Any) {
         updateToggledButtons(select: lateDisableButton, deselect: lateEnableButton)
         NotificationController.shared.cancelLatePeriodAlert()
+        updateSettings(upcomingNoticication: user?.upcomingNotificationEnabled ?? false, lateNotification: false)
     }
     
+    //Set initial Button Status
     func checkUserSettings() {
         if upcomingNotificationEnabled == true {
             updateToggledButtons(select: upcomingEnableButton, deselect: upcomingDisableButton)
@@ -80,6 +85,16 @@ class NotificationSettingsViewController: UIViewController {
         if button.isSelected == false {
             button.isSelected = true
             deselect.isSelected = false
+        }
+    }
+    
+    //Update user settings when buttons tapped
+    func updateSettings(upcomingNoticication: Bool, lateNotification: Bool) {
+        guard let user = user else { return }
+        UserController.shared.update(user: user, withName: user.name, cycles: user.cycles, birthdate: user.birthdate, age: user.age, height: user.height, weight: user.weight, cycleLength: user.cycleLength, periodLength: user.periodLength, pms: user.pms, pmsDuration: user.pmsDuration, lastPeriod: user.lastPeriod, authEnabled: user.authEnabled, updateNotificationEnabled: upcomingNoticication, lateNotificationEnabled: lateNotification) { (success) in
+            if success {
+                print("Update notification preferences")
+            }
         }
     }
 }

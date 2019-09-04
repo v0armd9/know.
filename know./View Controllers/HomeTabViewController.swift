@@ -184,7 +184,10 @@ class HomeTabViewController: UIViewController {
             let pms = user.pms ?? nil
             let pmsDuration = user.pmsDuration ?? nil
             let authEnabled = user.authEnabled ?? nil
-            UserController.shared.update(user: user, withName: name, cycles: cycles, birthdate: birthdate, age: age, height: height, weight: weight, cycleLength: cycleLength, periodLength: periodLength, pms: pms, pmsDuration: pmsDuration, lastPeriod: (selectedDate?.formattedDate())!, authEnabled: authEnabled) { (success) in
+            let updateNot = user.upcomingNotificationEnabled ?? false
+            let lateNot = user.lateNotificationEnabled ?? false
+            UserController.shared.update(user: user, withName: name, cycles: cycles, birthdate: birthdate, age: age, height: height, weight: weight, cycleLength: cycleLength, periodLength: periodLength, pms: pms, pmsDuration: pmsDuration, lastPeriod: (selectedDate?.formattedDate())!, authEnabled: authEnabled, updateNotificationEnabled: updateNot
+            , lateNotificationEnabled: lateNot) { (success) in
                 if success {
                     print("Successfully updated user!")
                 }

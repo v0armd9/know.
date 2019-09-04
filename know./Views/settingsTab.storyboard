@@ -92,7 +92,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="Ly1-Ji-jrZ" kind="show" id="7C8-RE-PdA"/>
+                                            <segue destination="Udi-de-d7W" kind="show" id="5x7-LU-7bt"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="g7G-nq-M7w" detailTextLabel="oQc-oO-QjQ" style="IBUITableViewCellStyleValue1" id="x5n-fs-AcT">
@@ -140,60 +140,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pFM-nL-G1B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="12318.840579710146" y="1323.8839285714284"/>
-        </scene>
-        <!--Share View Controller-->
-        <scene sceneID="jCA-S4-EpL">
-            <objects>
-                <viewController id="Ly1-Ji-jrZ" customClass="ShareViewController" customModule="know_" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="c3i-ve-ESc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="is2-Wr-zhL">
-                                <rect key="frame" x="41.5" y="179" width="331" height="358.5"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data Sharing" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gJP-ra-c2n">
-                                        <rect key="frame" x="0.0" y="0.0" width="331" height="103"/>
-                                        <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="22"/>
-                                        <color key="textColor" white="0.23110195489999999" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We're sorry, this section is not quite ready yet!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LpM-Ve-vEi">
-                                        <rect key="frame" x="0.0" y="113" width="331" height="146"/>
-                                        <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="19"/>
-                                        <color key="textColor" red="0.44216601709999998" green="0.42384629200000001" blue="0.44898080579999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tol-4s-fpb">
-                                        <rect key="frame" x="0.0" y="269" width="331" height="89.5"/>
-                                        <state key="normal" title="Share"/>
-                                        <connections>
-                                            <action selector="shareButton:" destination="jiM-Ph-Em2" eventType="touchUpInside" id="ky6-OT-0KA"/>
-                                            <action selector="shareButtonTapped:" destination="Ly1-Ji-jrZ" eventType="touchUpInside" id="EJx-Is-c78"/>
-                                            <action selector="shareButtonTapped:" destination="jiM-Ph-Em2" eventType="touchUpInside" id="HSw-Uu-8Ti"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="is2-Wr-zhL" firstAttribute="centerX" secondItem="c3i-ve-ESc" secondAttribute="centerX" id="3JY-8K-Qbh"/>
-                            <constraint firstItem="is2-Wr-zhL" firstAttribute="centerY" secondItem="c3i-ve-ESc" secondAttribute="centerY" multiplier="0.8" id="VyL-bh-3pE"/>
-                            <constraint firstItem="Tol-4s-fpb" firstAttribute="height" secondItem="c3i-ve-ESc" secondAttribute="height" multiplier="0.1" id="aPw-b0-PIN"/>
-                            <constraint firstItem="is2-Wr-zhL" firstAttribute="height" secondItem="c3i-ve-ESc" secondAttribute="height" multiplier="0.4" id="g75-jE-qAQ"/>
-                            <constraint firstItem="is2-Wr-zhL" firstAttribute="width" secondItem="c3i-ve-ESc" secondAttribute="width" multiplier="0.8" id="jwJ-66-WJi"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="n5h-Ag-n1B"/>
-                    </view>
-                    <connections>
-                        <outlet property="shareButton" destination="Tol-4s-fpb" id="I9U-Oe-hZj"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="u3I-q2-g92" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="jiM-Ph-Em2" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="13099" y="1324"/>
         </scene>
         <!--Setting Profile View Controller-->
         <scene sceneID="Rx9-pv-ryg">
@@ -857,7 +803,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pGC-ih-WdM"/>
                     </view>
-                    <navigationItem key="navigationItem" id="ci7-zh-RKj"/>
+                    <navigationItem key="navigationItem" id="Ufu-Jh-l09"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="lateDisableButton" destination="eOM-Xe-1gc" id="2Bl-MD-GfF"/>
@@ -871,6 +817,62 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eGn-ik-Xkq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="13099" y="2087"/>
+        </scene>
+        <!--Share View Controller-->
+        <scene sceneID="4lc-Sh-dgh">
+            <objects>
+                <viewController id="Udi-de-d7W" customClass="ShareViewController" customModule="know_" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aBp-i7-gCZ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Xn1-q5-gMl">
+                                <rect key="frame" x="41.5" y="179" width="331" height="358.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data Sharing" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c2X-im-9La">
+                                        <rect key="frame" x="0.0" y="0.0" width="331" height="103"/>
+                                        <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="22"/>
+                                        <color key="textColor" white="0.23110195489999999" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We're sorry, this section is not quite ready yet!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tty-8M-916">
+                                        <rect key="frame" x="0.0" y="113" width="331" height="146"/>
+                                        <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="19"/>
+                                        <color key="textColor" red="0.44216601709999998" green="0.42384629200000001" blue="0.44898080579999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hBK-fU-W5W">
+                                        <rect key="frame" x="0.0" y="269" width="331" height="89.5"/>
+                                        <state key="normal" title="Share"/>
+                                        <connections>
+                                            <action selector="shareButton:" destination="Ppk-jm-tML" eventType="touchUpInside" id="p2Z-vV-wU0"/>
+                                            <action selector="shareButtonTapped:" destination="Udi-de-d7W" eventType="touchUpInside" id="Ccp-kE-5Qs"/>
+                                            <action selector="shareButtonTapped:" destination="Ppk-jm-tML" eventType="touchUpInside" id="rsp-BD-jRv"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Xn1-q5-gMl" firstAttribute="height" secondItem="aBp-i7-gCZ" secondAttribute="height" multiplier="0.4" id="5QW-EN-tLH"/>
+                            <constraint firstItem="Xn1-q5-gMl" firstAttribute="width" secondItem="aBp-i7-gCZ" secondAttribute="width" multiplier="0.8" id="cht-wg-VfD"/>
+                            <constraint firstItem="Xn1-q5-gMl" firstAttribute="centerY" secondItem="aBp-i7-gCZ" secondAttribute="centerY" multiplier="0.8" id="dnw-ll-5Gp"/>
+                            <constraint firstItem="Xn1-q5-gMl" firstAttribute="centerX" secondItem="aBp-i7-gCZ" secondAttribute="centerX" id="oW1-Zc-Yy0"/>
+                            <constraint firstItem="hBK-fU-W5W" firstAttribute="height" secondItem="aBp-i7-gCZ" secondAttribute="height" multiplier="0.1" id="rj1-it-1Kc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="53d-Jp-sQN"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="I8c-2w-CL9"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="shareButton" destination="hBK-fU-W5W" id="7Y6-SC-Jb2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eNs-TJ-Jon" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Ppk-jm-tML" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="13228" y="1324"/>
         </scene>
     </scenes>
     <resources>

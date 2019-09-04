@@ -128,7 +128,7 @@ class CloudKitController {
         let recordToShare = CKRecord(recordType: type, recordID: shareRecordID)
         let share = CKShare(rootRecord: recordToShare)
         share[CKShare.SystemFieldKey.title] = "\(record.recordID)" as CKRecordValue?
-        share[CKShare.SystemFieldKey.shareType] = "com.DMA.know" as CKRecordValue?
+        share[CKShare.SystemFieldKey.shareType] = "com.MKS.know" as CKRecordValue?
         let operation = CKModifyRecordsOperation(recordsToSave: [share, recordToShare], recordIDsToDelete: nil)
         operation.savePolicy = .changedKeys
         operation.qualityOfService = .userInitiated

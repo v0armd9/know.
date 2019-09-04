@@ -393,8 +393,6 @@ class HomeTabViewController: UIViewController {
         reorderSubviewsBackward()
     }
     
-    
-    
     func fetchAllCyclesForUser() {
         guard let user = self.user else {return}
         CycleController.shared.fetchCycles(forUser: user) { (cycles) in

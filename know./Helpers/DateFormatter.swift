@@ -31,4 +31,11 @@ extension Date {
         formatter.setLocalizedDateFormatFromTemplate("EEEE, MMM d")
         return formatter.string(from: self)
     }
+    
+    func prettyDateStringShort() -> String {
+        let formatter = DateFormatter()
+        formatter.timeStyle = .none
+        formatter.setLocalizedDateFormatFromTemplate("E MMM d")
+        return formatter.string(from: self)
+    }
 }

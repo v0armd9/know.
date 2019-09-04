@@ -18,7 +18,6 @@ class OnboardStartViewController: UIViewController {
     //Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        followButton.isHidden = true
     }
     
     //Check if user is signed into iCloud before beginning onboarding

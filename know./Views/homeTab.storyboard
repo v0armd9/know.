@@ -150,9 +150,13 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="addSymptomButton" destination="aNp-yU-w6a" id="lMN-bn-4v1"/>
+                        <outlet property="addSymptomLabel" destination="gr2-cn-VOR" id="OTP-RJ-mZT"/>
                         <outlet property="dayLabel" destination="uND-xb-uFk" id="FFU-lY-BpD"/>
                         <outlet property="indicatorImageView" destination="OUQ-Vu-aRb" id="Wb6-9y-IWg"/>
                         <outlet property="monthLabel" destination="TGy-b1-6fc" id="zYM-Qg-GuC"/>
+                        <outlet property="startPeriodButton" destination="fSU-jh-bzt" id="0dh-g9-t5z"/>
+                        <outlet property="startPeriodLabel" destination="FR3-xJ-ECs" id="Tu5-lE-ogk"/>
                         <outlet property="trackerLabel" destination="ovI-qD-VmU" id="QgE-XA-al2"/>
                         <segue destination="XvS-ze-gAq" kind="presentation" identifier="toConfirmPopupVC" modalPresentationStyle="overCurrentContext" id="zrd-NA-56A"/>
                         <segue destination="kTP-qe-cAQ" kind="show" identifier="toSymptomVC" id="BAO-Dc-mvx"/>

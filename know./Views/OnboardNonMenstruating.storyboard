@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gp8-g0-XaV">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Nunito-Bold.ttf">
+            <string>Nunito-Bold</string>
+        </array>
+        <array key="Nunito-Regular.ttf">
+            <string>Nunito-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Non Menstruating Onboard View Controller-->
+        <scene sceneID="jVJ-pu-6zT">
+            <objects>
+                <viewController storyboardIdentifier="nonMenstruatingOnboard" id="gp8-g0-XaV" customClass="NonMenstruatingOnboardViewController" customModule="know_" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KAm-wu-P4d">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GJr-7g-n22">
+                                <rect key="frame" x="62" y="521.5" width="290" height="6"/>
+                                <color key="backgroundColor" red="0.58823529409999997" green="0.71372549019999998" blue="0.80784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="6" id="sr7-RI-OLe"/>
+                                </constraints>
+                            </view>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your Name Here" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fgF-bz-Xgn">
+                                <rect key="frame" x="62" y="476" width="290" height="45"/>
+                                <color key="textColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="30"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" textContentType="name"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Before we start, can we get your name?" textAlignment="center" lineBreakMode="clip" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="1" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5D3-Vk-fA6" customClass="CustomLabel" customModule="know_" customModuleProvider="target">
+                                <rect key="frame" x="31" y="281.5" width="352" height="116.5"/>
+                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="36"/>
+                                <color key="textColor" red="0.56862745100000001" green="0.56862745100000001" blue="0.56862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A8e-Dk-0xc">
+                                <rect key="frame" x="124" y="606" width="166" height="56.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="A8e-Dk-0xc" secondAttribute="height" multiplier="140:48" id="kDj-ze-jFC"/>
+                                </constraints>
+                                <state key="normal" image="continueButton"/>
+                                <connections>
+                                    <action selector="continueButtonTapped:" destination="gp8-g0-XaV" eventType="touchUpInside" id="Elk-UR-0WA"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="A8e-Dk-0xc" firstAttribute="centerX" secondItem="K9h-ih-msn" secondAttribute="centerX" id="2jy-wd-tXG"/>
+                            <constraint firstItem="GJr-7g-n22" firstAttribute="centerX" secondItem="KAm-wu-P4d" secondAttribute="centerX" id="CX1-ad-kCs"/>
+                            <constraint firstItem="5D3-Vk-fA6" firstAttribute="centerX" secondItem="K9h-ih-msn" secondAttribute="centerX" id="LQr-xd-7AR"/>
+                            <constraint firstItem="5D3-Vk-fA6" firstAttribute="width" secondItem="KAm-wu-P4d" secondAttribute="width" multiplier="0.85" id="MAG-UM-pvd"/>
+                            <constraint firstItem="A8e-Dk-0xc" firstAttribute="width" secondItem="KAm-wu-P4d" secondAttribute="width" multiplier="0.4" id="ZTF-Dl-UeF"/>
+                            <constraint firstItem="GJr-7g-n22" firstAttribute="top" secondItem="fgF-bz-Xgn" secondAttribute="bottom" constant="0.5" id="Zoh-na-sk2"/>
+                            <constraint firstItem="fgF-bz-Xgn" firstAttribute="centerX" secondItem="K9h-ih-msn" secondAttribute="centerX" id="ao0-wb-4lI"/>
+                            <constraint firstItem="fgF-bz-Xgn" firstAttribute="width" secondItem="KAm-wu-P4d" secondAttribute="width" multiplier="0.7" id="kXU-0Q-jdC"/>
+                            <constraint firstItem="A8e-Dk-0xc" firstAttribute="centerY" secondItem="K9h-ih-msn" secondAttribute="centerY" multiplier="1.4" id="odW-jK-uRJ"/>
+                            <constraint firstItem="fgF-bz-Xgn" firstAttribute="centerY" secondItem="K9h-ih-msn" secondAttribute="centerY" multiplier="1.1" id="tXB-6Y-orC"/>
+                            <constraint firstItem="5D3-Vk-fA6" firstAttribute="centerY" secondItem="K9h-ih-msn" secondAttribute="centerY" multiplier="0.75" id="v2a-SL-sPr"/>
+                            <constraint firstItem="GJr-7g-n22" firstAttribute="width" secondItem="KAm-wu-P4d" secondAttribute="width" multiplier="0.7" id="v49-uf-fNt"/>
+                            <constraint firstItem="5D3-Vk-fA6" firstAttribute="height" secondItem="KAm-wu-P4d" secondAttribute="height" multiplier="0.13" id="vTh-No-0fE"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="K9h-ih-msn"/>
+                    </view>
+                    <connections>
+                        <outlet property="blueView" destination="GJr-7g-n22" id="j8L-hD-Wne"/>
+                        <outlet property="continueButton" destination="A8e-Dk-0xc" id="j7q-gu-3g4"/>
+                        <outlet property="nameQuestionLabel" destination="5D3-Vk-fA6" id="VDQ-vW-lhI"/>
+                        <outlet property="nameTextField" destination="fgF-bz-Xgn" id="cqh-9e-cVs"/>
+                        <segue destination="rNd-xg-KeL" kind="show" identifier="welcomeVC" id="jah-wU-HG6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UXA-9Q-xUt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1054" y="-725"/>
+        </scene>
+        <!--Non Menstruating Welcome View Controller-->
+        <scene sceneID="HPE-xe-jkL">
+            <objects>
+                <viewController id="rNd-xg-KeL" customClass="NonMenstruatingWelcomeViewController" customModule="know_" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OGA-dv-fA8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nice to meet you!" textAlignment="center" lineBreakMode="clip" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="1" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fyC-7u-nlX" customClass="CustomLabel" customModule="know_" customModuleProvider="target">
+                                <rect key="frame" x="31" y="281.5" width="352" height="116.5"/>
+                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="30"/>
+                                <color key="textColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iiL-gQ-eux">
+                                <rect key="frame" x="124" y="606" width="166" height="56.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="iiL-gQ-eux" secondAttribute="height" multiplier="140:48" id="eqd-Ws-Zhe"/>
+                                </constraints>
+                                <state key="normal" image="continueButton"/>
+                                <connections>
+                                    <segue destination="O0Z-9c-ZYF" kind="show" id="J6B-WK-COM"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cp8-4R-ejz">
+                                <rect key="frame" x="31" y="413" width="352" height="178"/>
+                                <string key="text">We are here to help get to Know. more about the menstrual cycle of those close to you, and keep you in the loop! You can view data about another's menstrual cycle once they share their cycle with you.</string>
+                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="18"/>
+                                <color key="textColor" red="0.44216601709999998" green="0.42384629200000001" blue="0.44898080579999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="cp8-4R-ejz" firstAttribute="width" secondItem="fyC-7u-nlX" secondAttribute="width" id="GAm-JQ-Ctw"/>
+                            <constraint firstItem="fyC-7u-nlX" firstAttribute="width" secondItem="OGA-dv-fA8" secondAttribute="width" multiplier="0.85" id="R92-PO-Ci4"/>
+                            <constraint firstItem="iiL-gQ-eux" firstAttribute="centerY" secondItem="v8d-eN-fwJ" secondAttribute="centerY" multiplier="1.4" id="cOg-Nd-S1a"/>
+                            <constraint firstItem="fyC-7u-nlX" firstAttribute="height" secondItem="OGA-dv-fA8" secondAttribute="height" multiplier="0.13" id="fxo-gB-J96"/>
+                            <constraint firstItem="iiL-gQ-eux" firstAttribute="width" secondItem="OGA-dv-fA8" secondAttribute="width" multiplier="0.4" id="l7F-HB-3Qe"/>
+                            <constraint firstItem="cp8-4R-ejz" firstAttribute="centerX" secondItem="OGA-dv-fA8" secondAttribute="centerX" id="ltf-Zh-z5C"/>
+                            <constraint firstItem="fyC-7u-nlX" firstAttribute="centerX" secondItem="v8d-eN-fwJ" secondAttribute="centerX" id="ohh-m2-Sr7"/>
+                            <constraint firstItem="iiL-gQ-eux" firstAttribute="top" secondItem="cp8-4R-ejz" secondAttribute="bottom" constant="15" id="rI1-gw-f6k"/>
+                            <constraint firstItem="fyC-7u-nlX" firstAttribute="centerY" secondItem="v8d-eN-fwJ" secondAttribute="centerY" multiplier="0.75" id="sbb-YG-jbZ"/>
+                            <constraint firstItem="iiL-gQ-eux" firstAttribute="centerX" secondItem="v8d-eN-fwJ" secondAttribute="centerX" id="uDi-eK-kY8"/>
+                            <constraint firstItem="cp8-4R-ejz" firstAttribute="top" secondItem="fyC-7u-nlX" secondAttribute="bottom" constant="15" id="vPZ-GL-50o"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="v8d-eN-fwJ"/>
+                    </view>
+                    <connections>
+                        <outlet property="continueButton" destination="iiL-gQ-eux" id="Hyb-HW-fA6"/>
+                        <outlet property="welcomeLabel" destination="fyC-7u-nlX" id="ETK-on-gyx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eAL-qh-1h9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1841" y="-725"/>
+        </scene>
+        <!--homeNavigationController-->
+        <scene sceneID="jwZ-ni-sdG">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Onboarding" referencedIdentifier="homeNavigationController" id="O0Z-9c-ZYF" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0gh-Sl-vRK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2831" y="-725"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="continueButton" width="160" height="48"/>
+    </resources>
+</document>

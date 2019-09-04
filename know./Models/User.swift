@@ -14,6 +14,7 @@ class User {
     //Class Objects
     var days: [Day]
     var cycles: [Cycle]
+    var menstruates: Bool
     var name: String?
     var age: Int?
     var birthdate: Date?
@@ -30,10 +31,11 @@ class User {
     var ckRecordID: CKRecord.ID
     
     //Designated Initializer
-    init(days: [Day] = [], name: String?, cycles: [Cycle] = [], age: Int?, birthdate: Date?, height: Int?, weight: Int?, cycleLength: [Int]?, periodLength: Int?, pms: Bool?, pmsDuration: Int?, lastPeriod: Date?, authEnabled: Bool? = false, upcomingNotificationEnabled: Bool? = false, lateNotificationEnabled: Bool? = false, ckRecordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString)) {
+    init(days: [Day] = [], cycles: [Cycle] = [], menstruates: Bool, name: String?, age: Int?, birthdate: Date?, height: Int?, weight: Int?, cycleLength: [Int]?, periodLength: Int?, pms: Bool?, pmsDuration: Int?, lastPeriod: Date?, authEnabled: Bool? = false, upcomingNotificationEnabled: Bool? = false, lateNotificationEnabled: Bool? = false, ckRecordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString)) {
         self.days = days
-        self.name = name
         self.cycles = cycles
+        self.menstruates = menstruates
+        self.name = name
         self.age = age
         self.birthdate = birthdate
         self.height = height
@@ -52,20 +54,21 @@ class User {
     //Initialize class object from a record
     convenience init?(record: CKRecord) {
         guard let name = record[UserConstants.nameKey] as? String,
-            let age = record[UserConstants.ageKey] as? Int,
-            let birthdate = record[UserConstants.birthdateKey] as? Date,
-            let height = record[UserConstants.heightKey] as? Int,
-            let weight = record[UserConstants.weightKey] as? Int,
-            let cycleLength = record[UserConstants.cycleKey] as? [Int],
-            let periodLength = record[UserConstants.periodKey] as? Int,
-            let pms = record[UserConstants.pmsKey] as? Bool,
-            let pmsDuration = record[UserConstants.pmsDurationKey] as? Int,
-            let lastPeriod = record[UserConstants.lastPeriodKey] as? Date,
+            let menstruates = record[UserConstants.menstruatesKey] as? Bool,
+            let age = record[UserConstants.ageKey] as? Int?,
+            let birthdate = record[UserConstants.birthdateKey] as? Date?,
+            let height = record[UserConstants.heightKey] as? Int?,
+            let weight = record[UserConstants.weightKey] as? Int?,
+            let cycleLength = record[UserConstants.cycleKey] as? [Int]?,
+            let periodLength = record[UserConstants.periodKey] as? Int?,
+            let pms = record[UserConstants.pmsKey] as? Bool?,
+            let pmsDuration = record[UserConstants.pmsDurationKey] as? Int?,
+            let lastPeriod = record[UserConstants.lastPeriodKey] as? Date?,
             let upcomingNotificationEnabled = record[UserConstants.upcomingKey] as? Bool,
             let lateNotificationEnabled = record[UserConstants.lateKey] as? Bool,
             let authEnabled = record[UserConstants.authKey] as? Bool
             else { return nil }
-        self.init(name: name, age: age, birthdate: birthdate, height: height, weight: weight, cycleLength: cycleLength, periodLength: periodLength, pms: pms, pmsDuration: pmsDuration, lastPeriod: lastPeriod, authEnabled: authEnabled, upcomingNotificationEnabled: upcomingNotificationEnabled, lateNotificationEnabled: lateNotificationEnabled, ckRecordID: record.recordID)
+        self.init(menstruates: menstruates, name: name, age: age, birthdate: birthdate, height: height, weight: weight, cycleLength: cycleLength, periodLength: periodLength, pms: pms, pmsDuration: pmsDuration, lastPeriod: lastPeriod, authEnabled: authEnabled, upcomingNotificationEnabled: upcomingNotificationEnabled, lateNotificationEnabled: lateNotificationEnabled, ckRecordID: record.recordID)
     }
 }
 
@@ -73,6 +76,7 @@ class User {
 extension CKRecord {
     convenience init(user: User) {
         self.init(recordType: UserConstants.userTypeKey, recordID: user.ckRecordID)
+        self.setValue(user.menstruates, forKey: UserConstants.menstruatesKey)
         self.setValue(user.name, forKey: UserConstants.nameKey)
         self.setValue(user.age, forKey: UserConstants.ageKey)
         self.setValue(user.birthdate, forKey: UserConstants.birthdateKey)
@@ -99,6 +103,7 @@ extension User: Equatable {
 //Magic String Constants
 struct UserConstants {
     static let userTypeKey = "User"
+    fileprivate static let menstruatesKey = "menstruates"
     fileprivate static let nameKey = "name"
     fileprivate static let ageKey = "age"
     fileprivate static let birthdateKey = "birthdate"

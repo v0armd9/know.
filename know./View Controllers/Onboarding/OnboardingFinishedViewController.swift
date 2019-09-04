@@ -35,9 +35,10 @@ class OnboardingFinishedViewController: UIViewController {
         let pmsDuration = user.pmsDuration,
         let lastPeriod = user.lastPeriod
             else { return }
+        let menstruates = user.menstruates
         let cycleLengthInt = cycleLength.first
         //Create new user with the input info from onboarding
-        UserController.shared.saveUser(withName: name, age: age, birthdate: birthday, height: height, weight: weight, cycleLength: cycleLength, periodLength: periodLength, pms: pms, pmsDuration: pmsDuration, lastPeriod: lastPeriod) { (success) in
+        UserController.shared.saveUser(withName: name, menstruates: menstruates, age: age, birthdate: birthday, height: height, weight: weight, cycleLength: cycleLength, periodLength: periodLength, pms: pms, pmsDuration: pmsDuration, lastPeriod: lastPeriod) { (success) in
             if success {
                 print("Saved \(name)'s User Info!")
                 guard let user = UserController.shared.currentUser else {return}

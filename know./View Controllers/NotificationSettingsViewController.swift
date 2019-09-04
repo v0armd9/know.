@@ -91,7 +91,7 @@ class NotificationSettingsViewController: UIViewController {
     //Update user settings when buttons tapped
     func updateSettings(upcomingNoticication: Bool, lateNotification: Bool) {
         guard let user = user else { return }
-        UserController.shared.update(user: user, withName: user.name, cycles: user.cycles, birthdate: user.birthdate, age: user.age, height: user.height, weight: user.weight, cycleLength: user.cycleLength, periodLength: user.periodLength, pms: user.pms, pmsDuration: user.pmsDuration, lastPeriod: user.lastPeriod, authEnabled: user.authEnabled, updateNotificationEnabled: upcomingNoticication, lateNotificationEnabled: lateNotification) { (success) in
+        UserController.shared.update(user: user, withName: user.name, menstruates: user.menstruates, cycles: user.cycles, birthdate: user.birthdate, age: user.age, height: user.height, weight: user.weight, cycleLength: user.cycleLength, periodLength: user.periodLength, pms: user.pms, pmsDuration: user.pmsDuration, lastPeriod: user.lastPeriod, authEnabled: user.authEnabled, updateNotificationEnabled: upcomingNoticication, lateNotificationEnabled: lateNotification) { (success) in
             if success {
                 print("Update notification preferences")
             }

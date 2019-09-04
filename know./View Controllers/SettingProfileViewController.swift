@@ -321,6 +321,7 @@ class SettingProfileViewController: UIViewController {
             let updateNot = user.upcomingNotificationEnabled,
             let lateNot = user.lateNotificationEnabled
             else { return }
+        let menstruates = user.menstruates
         let cycleLengthArray = [cycleLength]
         let cycles = user.cycles
         let age = Int(Date().timeIntervalSince(birthday) / secondsToYears)
@@ -336,7 +337,7 @@ class SettingProfileViewController: UIViewController {
             authEnabled = false
         }
         //Save Updated Info
-        UserController.shared.update(user: user, withName: name, cycles: cycles, birthdate: birthday, age: age, height: height, weight: weight, cycleLength: cycleLengthArray, periodLength: periodLength, pms: pms, pmsDuration: pmsDuration, lastPeriod: lastPeriod, authEnabled: authEnabled, updateNotificationEnabled: updateNot, lateNotificationEnabled: lateNot) { (success) in
+        UserController.shared.update(user: user, withName: name, menstruates: menstruates, cycles: cycles, birthdate: birthday, age: age, height: height, weight: weight, cycleLength: cycleLengthArray, periodLength: periodLength, pms: pms, pmsDuration: pmsDuration, lastPeriod: lastPeriod, authEnabled: authEnabled, updateNotificationEnabled: updateNot, lateNotificationEnabled: lateNot) { (success) in
             if success {
                 print("Updated User Info")
                 DispatchQueue.main.async {

@@ -44,6 +44,9 @@
                                         <state key="normal" image="followButton">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="kdw-zl-KyO" kind="show" id="89X-ry-RuK"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -77,6 +80,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xsg-TG-5mI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4480.434782608696" y="-25.446428571428569"/>
+        </scene>
+        <!--nonMenstruatingOnboard-->
+        <scene sceneID="OfC-Bz-Zv8">
+            <objects>
+                <viewControllerPlaceholder storyboardName="OnboardNonMenstruating" referencedIdentifier="nonMenstruatingOnboard" id="kdw-zl-KyO" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nad-id-ItZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4480" y="104"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fcd-5Y-HTd">

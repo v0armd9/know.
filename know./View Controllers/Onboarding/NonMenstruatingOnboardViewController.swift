@@ -1,14 +1,14 @@
 //
-//  OnboardNameViewController.swift
+//  NonMenstruatingOnboardViewController.swift
 //  know.
 //
-//  Created by Madison Kaori Shino on 8/22/19.
+//  Created by Madison Kaori Shino on 9/3/19.
 //  Copyright © 2019 Darin Armstrong. All rights reserved.
 //
 
 import UIKit
 
-class OnboardNameViewController: UIViewController {
+class NonMenstruatingOnboardViewController: UIViewController {
 
     //Outlets
     @IBOutlet weak var nameQuestionLabel: CustomLabel!
@@ -21,12 +21,12 @@ class OnboardNameViewController: UIViewController {
         super.viewDidLoad()
         allowKeyboardDismiss()
     }
-
+    
     //Actions
     @IBAction func continueButtonTapped(_ sender: Any) {
         if let name = nameTextField.text, name != "" {
-            UserController.shared.currentUser = User(menstruates: true, name: name, age: nil, birthdate: nil, height: nil, weight: nil, cycleLength: nil, periodLength: nil, pms: nil, pmsDuration: nil, lastPeriod: nil)
-            self.performSegue(withIdentifier: "toWelcomeVC", sender: self)
+            UserController.shared.currentUser = User(menstruates: false, name: name, age: nil, birthdate: nil, height: nil, weight: nil, cycleLength: nil, periodLength: nil, pms: nil, pmsDuration: nil, lastPeriod: nil)
+            self.performSegue(withIdentifier: "welcomeVC", sender: self)
         }
     }
     
@@ -39,9 +39,9 @@ class OnboardNameViewController: UIViewController {
 }
 
 //Dismiss Keyboard when screen tapped
-extension OnboardNameViewController {
+extension NonMenstruatingOnboardViewController {
     func hideKeyboardWhenTappedAround() {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(OnboardNameViewController.dismissKeyboard))
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(NonMenstruatingOnboardViewController.dismissKeyboard))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
     }
@@ -51,9 +51,10 @@ extension OnboardNameViewController {
 }
 
 //Dismiss Keyboard when "Enter" tapped
-extension OnboardNameViewController: UITextFieldDelegate {
+extension NonMenstruatingOnboardViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
+
 }

@@ -21,19 +21,18 @@ class OnboardingFinishedViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    //Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    @IBAction func nextButtonTapped(_ sender: Any) {
         guard let user = UserController.shared.currentUser,
-        let name = user.name,
-        let age = user.age,
-        let birthday = user.birthdate,
-        let height = user.height,
-        let weight = user.weight,
-        let cycleLength = user.cycleLength,
-        let periodLength = user.periodLength,
-        let pms = user.pms,
-        let pmsDuration = user.pmsDuration,
-        let lastPeriod = user.lastPeriod
+            let name = user.name,
+            let age = user.age,
+            let birthday = user.birthdate,
+            let height = user.height,
+            let weight = user.weight,
+            let cycleLength = user.cycleLength,
+            let periodLength = user.periodLength,
+            let pms = user.pms,
+            let pmsDuration = user.pmsDuration,
+            let lastPeriod = user.lastPeriod
             else { return }
         let menstruates = user.menstruates
         let cycleLengthInt = cycleLength.first
@@ -44,8 +43,14 @@ class OnboardingFinishedViewController: UIViewController {
                 guard let user = UserController.shared.currentUser else {return}
                 //Create the first cycle
                 self.createFirstCycle(user: user, periodLength: periodLength, cycleLength: cycleLengthInt!, startDate: lastPeriod)
+                //Navigate to next Page
+                self.performSegue(withIdentifier: "toHomeNavController",sender: self)
             } else {
                 print("Error saving user")
+                //Present error alert
+                let alertController = UIAlertController (title: "Uh Oh!", message: "We're sorry, something went wrong. Please come back later.", preferredStyle: .alert)
+                let action = UIAlertAction(title: "Dismiss", style: .default)
+                alertController.addAction(action)
             }
         }
     }

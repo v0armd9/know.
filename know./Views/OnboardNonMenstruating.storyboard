@@ -107,7 +107,7 @@
                                 </constraints>
                                 <state key="normal" image="continueButton"/>
                                 <connections>
-                                    <segue destination="O0Z-9c-ZYF" kind="show" id="J6B-WK-COM"/>
+                                    <action selector="continueButtonTapped:" destination="rNd-xg-KeL" eventType="touchUpInside" id="fjI-Og-gfc"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cp8-4R-ejz">
@@ -137,6 +137,7 @@
                     <connections>
                         <outlet property="continueButton" destination="iiL-gQ-eux" id="Hyb-HW-fA6"/>
                         <outlet property="welcomeLabel" destination="fyC-7u-nlX" id="ETK-on-gyx"/>
+                        <segue destination="O0Z-9c-ZYF" kind="show" identifier="toHomeNavigationVC" id="KAK-cV-FKq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eAL-qh-1h9" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -19,9 +19,10 @@ class HomeTabViewController: UIViewController {
     @IBOutlet weak var startPeriodButton: UIButton!
     @IBOutlet weak var addSymptomLabel: CustomLabel!
     @IBOutlet weak var addSymptomButton: UIButton!
+    @IBOutlet weak var nameLabel: UIButton!
     
     //Properties
-    let user = UserController.shared.currentUser
+    var user = UserController.shared.currentUser
     let wheelView = UIView()
     var confirmed: Bool = false
     var counter = 0
@@ -46,7 +47,7 @@ class HomeTabViewController: UIViewController {
         let monthNum = Calendar.current.component(.month, from: selectedDate)
         self.monthLabel.text = self.arrayOfMonths[monthNum-1]
         self.dayLabel.text = "\(selectedDate.prettyDateStringShort())"
-        self.trackerLabel.text = ""
+        self.trackerLabel.text = "View Data by accepting a share from another user."
     }
     
     func updateLabelsForSelectedCycleDay() {
@@ -115,6 +116,7 @@ class HomeTabViewController: UIViewController {
             }
         }
         guard let user = UserController.shared.currentUser else { return }
+        nameLabel.setTitle(user.name, for: .normal)
         if user.menstruates == true {
             self.fetchAllCyclesForUser()
         } else {
@@ -162,6 +164,9 @@ class HomeTabViewController: UIViewController {
             destination?.date = selectedDate
         }
     }
+    @IBAction func changeUserButtonTapped(_ sender: Any) {
+        performSegue(withIdentifier: "toSharedCyclesVC", sender: self)
+    }
     
     @IBAction func cycleStartButtonTapped(_ sender: Any) {
         performSegue(withIdentifier: "toConfirmPopupVC", sender: self)
@@ -185,6 +190,13 @@ class HomeTabViewController: UIViewController {
         }
     }
     
+    @IBAction func unwindFromSharingPopup(segue:UIStoryboardSegue) {
+        let data = segue.source as? SharedCyclesPopupViewController
+        let selectedUser = data?.selectedUser
+        self.user = selectedUser
+        view.layoutIfNeeded()
+    }
+    
     @IBAction func viewSwipedUp(_ sender: UISwipeGestureRecognizer) {
         swipeUp()
     }
@@ -194,7 +206,7 @@ class HomeTabViewController: UIViewController {
     }
     
     @IBAction func newStartButton(_ sender: UIButton) {
-        
+        createNewCycle()
     }
     
     func createNewCycle() {

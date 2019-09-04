@@ -2,4 +2,542 @@
 <Bucket
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "know./View Controllers/SharedCyclesPopupViewController.swift"
+            timestampString = "589263188.464551"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "SharedCyclesPopupViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "know_.SharedCyclesPopupViewController.sharedUsers.getter : Swift.Array&lt;know_.User&gt;"
+                  moduleName = "know."
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kaorishino/Documents/Documents%20-%20Madison%E2%80%99s%20MacBook%20Pro/DEV.MOUNTAIN/CLASS/Know./know./know./View%20Controllers/SharedCyclesPopupViewController.swift"
+                  timestampString = "589263787.660998"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "140">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "know_.SharedCyclesPopupViewController.sharedUsers.setter : Swift.Array&lt;know_.User&gt;"
+                  moduleName = "know."
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kaorishino/Documents/Documents%20-%20Madison%E2%80%99s%20MacBook%20Pro/DEV.MOUNTAIN/CLASS/Know./know./know./View%20Controllers/SharedCyclesPopupViewController.swift"
+                  timestampString = "589263787.662498"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "192">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "know_.SharedCyclesPopupViewController.sharedUsers.modify : Swift.Array&lt;know_.User&gt;"
+                  moduleName = "know."
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kaorishino/Documents/Documents%20-%20Madison%E2%80%99s%20MacBook%20Pro/DEV.MOUNTAIN/CLASS/Know./know./know./View%20Controllers/SharedCyclesPopupViewController.swift"
+                  timestampString = "589263787.663915"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "know_.SharedCyclesPopupViewController.sharedUsers.modify : Swift.Array&lt;know_.User&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "know."
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kaorishino/Documents/Documents%20-%20Madison%E2%80%99s%20MacBook%20Pro/DEV.MOUNTAIN/CLASS/Know./know./know./View%20Controllers/SharedCyclesPopupViewController.swift"
+                  timestampString = "589263787.665337"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "know_.SharedCyclesPopupViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; know_.SharedCyclesPopupViewController"
+                  moduleName = "know."
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kaorishino/Documents/Documents%20-%20Madison%E2%80%99s%20MacBook%20Pro/DEV.MOUNTAIN/CLASS/Know./know./know./View%20Controllers/SharedCyclesPopupViewController.swift"
+                  timestampString = "589263787.666747"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "152">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "know_.SharedCyclesPopupViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;know_.SharedCyclesPopupViewController&gt;"
+                  moduleName = "know."
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kaorishino/Documents/Documents%20-%20Madison%E2%80%99s%20MacBook%20Pro/DEV.MOUNTAIN/CLASS/Know./know./know./View%20Controllers/SharedCyclesPopupViewController.swift"
+                  timestampString = "589263787.668064"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "100">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "know./View Controllers/SharedCyclesPopupViewController.swift"
+            timestampString = "589263188.464936"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "SharedCyclesPopupViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "know_.SharedCyclesPopupViewController.selectedUser.getter : Swift.Optional&lt;know_.User&gt;"
+                  moduleName = "know."
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kaorishino/Documents/Documents%20-%20Madison%E2%80%99s%20MacBook%20Pro/DEV.MOUNTAIN/CLASS/Know./know./know./View%20Controllers/SharedCyclesPopupViewController.swift"
+                  timestampString = "589263787.70488"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "140">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "know_.SharedCyclesPopupViewController.selectedUser.setter : Swift.Optional&lt;know_.User&gt;"
+                  moduleName = "know."
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kaorishino/Documents/Documents%20-%20Madison%E2%80%99s%20MacBook%20Pro/DEV.MOUNTAIN/CLASS/Know./know./know./View%20Controllers/SharedCyclesPopupViewController.swift"
+                  timestampString = "589263787.7065181"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "192">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "know_.SharedCyclesPopupViewController.selectedUser.modify : Swift.Optional&lt;know_.User&gt;"
+                  moduleName = "know."
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kaorishino/Documents/Documents%20-%20Madison%E2%80%99s%20MacBook%20Pro/DEV.MOUNTAIN/CLASS/Know./know./know./View%20Controllers/SharedCyclesPopupViewController.swift"
+                  timestampString = "589263787.708174"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "know_.SharedCyclesPopupViewController.selectedUser.modify : Swift.Optional&lt;know_.User&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "know."
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kaorishino/Documents/Documents%20-%20Madison%E2%80%99s%20MacBook%20Pro/DEV.MOUNTAIN/CLASS/Know./know./know./View%20Controllers/SharedCyclesPopupViewController.swift"
+                  timestampString = "589263787.709731"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "know_.SharedCyclesPopupViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; know_.SharedCyclesPopupViewController"
+                  moduleName = "know."
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kaorishino/Documents/Documents%20-%20Madison%E2%80%99s%20MacBook%20Pro/DEV.MOUNTAIN/CLASS/Know./know./know./View%20Controllers/SharedCyclesPopupViewController.swift"
+                  timestampString = "589263787.711193"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "288">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "know_.SharedCyclesPopupViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;know_.SharedCyclesPopupViewController&gt;"
+                  moduleName = "know."
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kaorishino/Documents/Documents%20-%20Madison%E2%80%99s%20MacBook%20Pro/DEV.MOUNTAIN/CLASS/Know./know./know./View%20Controllers/SharedCyclesPopupViewController.swift"
+                  timestampString = "589263787.713114"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "236">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "know./Resources/AppDelegate.swift"
+            timestampString = "589263787.5848711"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
+            landmarkName = "application(_:userDidAcceptCloudKitShareWith:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "know./Resources/AppDelegate.swift"
+            timestampString = "589263787.584936"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "application(_:userDidAcceptCloudKitShareWith:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in know_.AppDelegate.application(_: __C.UIApplication, userDidAcceptCloudKitShareWith: __C.CKShareMetadata) -&gt; ()"
+                  moduleName = "know."
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kaorishino/Documents/Documents%20-%20Madison%E2%80%99s%20MacBook%20Pro/DEV.MOUNTAIN/CLASS/Know./know./know./Resources/AppDelegate.swift"
+                  timestampString = "589263787.723055"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "102"
+                  endingLineNumber = "102"
+                  offsetFromSymbolStart = "1216">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Array&lt;__C.CKRecord&gt;&gt;) -&gt; () in closure #2 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in know_.AppDelegate.application(_: __C.UIApplication, userDidAcceptCloudKitShareWith: __C.CKShareMetadata) -&gt; ()"
+                  moduleName = "know."
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kaorishino/Documents/Documents%20-%20Madison%E2%80%99s%20MacBook%20Pro/DEV.MOUNTAIN/CLASS/Know./know./know./Resources/AppDelegate.swift"
+                  timestampString = "589263787.724542"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "103"
+                  endingLineNumber = "103"
+                  offsetFromSymbolStart = "100">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "know./Resources/AppDelegate.swift"
+            timestampString = "589263787.5849921"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
+            landmarkName = "application(_:userDidAcceptCloudKitShareWith:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "know./Resources/AppDelegate.swift"
+            timestampString = "589263787.58504"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
+            landmarkName = "application(_:userDidAcceptCloudKitShareWith:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "know./Resources/AppDelegate.swift"
+            timestampString = "589263787.585085"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
+            landmarkName = "application(_:userDidAcceptCloudKitShareWith:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Array&lt;__C.CKRecord&gt;&gt;) -&gt; () in closure #2 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in know_.AppDelegate.application(_: __C.UIApplication, userDidAcceptCloudKitShareWith: __C.CKShareMetadata) -&gt; ()"
+                  moduleName = "know."
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kaorishino/Documents/Documents%20-%20Madison%E2%80%99s%20MacBook%20Pro/DEV.MOUNTAIN/CLASS/Know./know./know./Resources/AppDelegate.swift"
+                  timestampString = "589263787.733816"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "107"
+                  endingLineNumber = "107"
+                  offsetFromSymbolStart = "536">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.CKRecord) -&gt; Swift.Optional&lt;know_.User&gt; in closure #1 (Swift.Optional&lt;Swift.Array&lt;__C.CKRecord&gt;&gt;) -&gt; () in closure #2 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in know_.AppDelegate.application(_: __C.UIApplication, userDidAcceptCloudKitShareWith: __C.CKShareMetadata) -&gt; ()"
+                  moduleName = "know."
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kaorishino/Documents/Documents%20-%20Madison%E2%80%99s%20MacBook%20Pro/DEV.MOUNTAIN/CLASS/Know./know./know./Resources/AppDelegate.swift"
+                  timestampString = "589263787.735155"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "107"
+                  endingLineNumber = "107"
+                  offsetFromSymbolStart = "56">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "know./Resources/AppDelegate.swift"
+            timestampString = "589263787.58513"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
+            landmarkName = "application(_:userDidAcceptCloudKitShareWith:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "know./Resources/AppDelegate.swift"
+            timestampString = "589263787.585176"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
+            landmarkName = "application(_:userDidAcceptCloudKitShareWith:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "know./Resources/AppDelegate.swift"
+            timestampString = "589263787.5852309"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
+            landmarkName = "application(_:userDidAcceptCloudKitShareWith:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "know./Resources/AppDelegate.swift"
+            timestampString = "589263787.5852751"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "application(_:userDidAcceptCloudKitShareWith:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "know_.AppDelegate.application(_: __C.UIApplication, userDidAcceptCloudKitShareWith: __C.CKShareMetadata) -&gt; ()"
+                  moduleName = "know."
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kaorishino/Documents/Documents%20-%20Madison%E2%80%99s%20MacBook%20Pro/DEV.MOUNTAIN/CLASS/Know./know./know./Resources/AppDelegate.swift"
+                  timestampString = "589263787.745813"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "97"
+                  endingLineNumber = "97"
+                  offsetFromSymbolStart = "540">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in know_.AppDelegate.application(_: __C.UIApplication, userDidAcceptCloudKitShareWith: __C.CKShareMetadata) -&gt; ()"
+                  moduleName = "know."
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kaorishino/Documents/Documents%20-%20Madison%E2%80%99s%20MacBook%20Pro/DEV.MOUNTAIN/CLASS/Know./know./know./Resources/AppDelegate.swift"
+                  timestampString = "589263787.747017"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "98"
+                  endingLineNumber = "98"
+                  offsetFromSymbolStart = "152">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "know./Resources/AppDelegate.swift"
+            timestampString = "589263787.585319"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
+            landmarkName = "application(_:userDidAcceptCloudKitShareWith:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "know./Resources/AppDelegate.swift"
+            timestampString = "589263787.585363"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "application(_:userDidAcceptCloudKitShareWith:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "know./Resources/AppDelegate.swift"
+            timestampString = "589263787.585407"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "application(_:userDidAcceptCloudKitShareWith:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "know./Resources/AppDelegate.swift"
+            timestampString = "589263787.5854501"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "application(_:userDidAcceptCloudKitShareWith:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "know./Resources/AppDelegate.swift"
+            timestampString = "589263787.585494"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
+            landmarkName = "application(_:userDidAcceptCloudKitShareWith:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

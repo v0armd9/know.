@@ -13,8 +13,8 @@ class SettingProfileViewController: UIViewController {
     
     //Properties
     let secondsToYears = 31536000.0
-    var birthday = UserController.shared.currentUser?.birthdate
     var updatedBirthday: Date?
+    var user = UserController.shared.currentUser
     
     //Outlets
     @IBOutlet weak var nameLabel: UILabel!
@@ -42,18 +42,17 @@ class SettingProfileViewController: UIViewController {
     //Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateViews()
+        checkIfMenstruates()
         setNavBarView()
         setDelegates()
         tapGestureRecognizer()
-        showNotEditing()
     }
     
     //Segue to Popup View (to transfer birthday data)
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toPopupPickerView" {
             let destination = segue.destination as? PopupPickerViewController
-            guard let birthday = UserController.shared.currentUser?.birthdate else { return }
+            guard let birthday = user?.birthdate else { return }
             destination?.birthday = birthday
         }
     }
@@ -110,7 +109,7 @@ class SettingProfileViewController: UIViewController {
     //Helper Functions
     //Set Navigation Bar
     func setNavBarView() {
-        guard let user = UserController.shared.currentUser,
+        guard let user = user,
             let name = user.name
             else { return }
         editBarButton.title = "Edit"
@@ -140,9 +139,9 @@ class SettingProfileViewController: UIViewController {
     }
     
     //Set View
-    func updateViews() {
+    func viewMenstruatingData() {
         showNotEditing()
-        guard let user = UserController.shared.currentUser,
+        guard let user = user,
             let name = user.name,
             let birthday = user.birthdate,
             let age = user.age,
@@ -179,6 +178,48 @@ class SettingProfileViewController: UIViewController {
             self.pmsYesButton.isHidden = true
             self.authEnableButton.isHidden = true
             self.authDisableButton.isHidden = true
+            //Check if user is editable
+            if user != UserController.shared.currentUser {
+                self.editBarButton.isEnabled = false
+            }
+        }
+    }
+    
+    func viewNonMenstruatingData() {
+        guard let user = user else { return }
+        //Text Fields Hidden
+        nameTextField.isHidden = true
+        birthdayButton.isHidden = true
+        ageTextField.isHidden = true
+        heightTextField.isHidden = true
+        weightTextField.isHidden = true
+        cycleLengthTextField.isHidden = true
+        periodLabelTextField.isHidden = true
+        pmsNoButton.isHidden = true
+        pmsYesButton.isHidden = true
+        authEnableButton.isHidden = true
+        authDisableButton.isHidden = true
+        //Labels
+        nameLabel.text = user.name
+        nameLabel.isHidden = false
+        birthdayLabel.isHidden = true
+        ageLabel.isHidden = true
+        heightLabel.isHidden = true
+        weightLabel.isHidden = true
+        cycleLengthLabel.isHidden = true
+        periodLengthLabel.isHidden = true
+        pmsLabel.isHidden = true
+        authLabel.isHidden = true
+        //No Editing
+        editBarButton.isEnabled = false
+    }
+    
+    func checkIfMenstruates() {
+        guard let user = user else { return }
+        if user.menstruates == true {
+            viewMenstruatingData()
+        } else {
+            viewNonMenstruatingData()
         }
     }
     
@@ -309,7 +350,7 @@ class SettingProfileViewController: UIViewController {
         //Unwrap and set Properties
         guard let user = UserController.shared.currentUser,
             let name = nameTextField.text, name.isEmpty == false,
-            let birthday = updatedBirthday ?? birthday,
+            let birthday = updatedBirthday ?? user.birthdate,
             let height = Int(heightTextField.text ?? "200"),
             let weight = Int(weightTextField.text ?? "170"),
             let cycleLength = Int(cycleLengthTextField.text ?? "28"),
@@ -342,7 +383,7 @@ class SettingProfileViewController: UIViewController {
                 print("Updated User Info")
                 DispatchQueue.main.async {
                     self.view.layoutIfNeeded()
-                    self.updateViews()
+                    self.viewMenstruatingData()
                 }
             } else {
                 print("Failed to Update User Info")
